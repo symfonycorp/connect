@@ -44,6 +44,7 @@ class Club extends AbstractEntity
              ->addProperty('url')
              ->addProperty('feedUrl')
              ->addProperty('members', array())
+             ->addProperty('image')
         ;
     }
 
