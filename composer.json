@@ -1,0 +1,23 @@
+{
+    "name": "sensiolabs/connect",
+    "description": "SensioLabs Connect SDK",
+    "keywords": ["SensioLabs Connect", "SDK"],
+    "homepage": "https://github.com/sensiolabs/connect",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marc Weistroff",
+            "email": "marc.weistroff@sensiolabs.com",
+            "homepage": "http://sensiolabs.com"
+        }
+    ],
+    "require": {
+        "kriswallsmith/buzz": ">= 0.6"
+    },
+    "autoload": {
+        "psr-0": {
+            "SensioLabs": "src/"
+        }
+    }
+}
