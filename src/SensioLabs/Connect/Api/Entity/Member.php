@@ -23,6 +23,7 @@ class Member extends AbstractEntity
         $this->addProperty('user')
              ->addProperty('isMembershipPublic')
              ->addProperty('isOwner')
+        ;
     }
 }
 
