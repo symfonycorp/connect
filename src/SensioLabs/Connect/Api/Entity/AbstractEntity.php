@@ -186,7 +186,7 @@ abstract class AbstractEntity implements \ArrayAccess
 
     public function offsetSet($index, $value)
     {
-        return $this->set($value);
+        $this->set($index, $value);
     }
 
     public function offsetUnset($index)
