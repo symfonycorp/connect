@@ -15,6 +15,9 @@
     "require": {
         "kriswallsmith/buzz": ">= 0.6"
     },
+    "suggest": {
+        "symfony/http-kernel": "2.1.*"
+    },
     "autoload": {
         "psr-0": {
             "SensioLabs": "src/"
