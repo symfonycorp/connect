@@ -65,8 +65,9 @@ possession of your application id, application secret and scope.
         // index.php
         $app->get('/connect/new', function () use ($app) {
             $callback = $app['url_generator']->generate('connect_callback', array(), true);
+            $url = $app['connect_consumer']->getAuthorizationUri($callback);
 
-            return new RedirectResponse($app['connect_consumer']->getAuthorizationUri($callback));
+            return $app->redirect($url);
         })->bind('connect_auth');
 
     The second controller is the one that will welcome the user after
@@ -96,7 +97,7 @@ possession of your application id, application secret and scope.
             $app['session']->set('connect_access_token', $data['access_token']);
             $app['session']->set('connect_user', $user);
 
-            return new RedirectResponse('/');
+            return $app->redirect('/');
         })->bind('connect_callback');
 
     Et voilà! Your application can now use SensioLabs Connect as an authentication method!
