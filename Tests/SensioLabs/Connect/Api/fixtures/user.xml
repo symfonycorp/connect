@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:bio="http://purl.org/vocab/bio/0.1/"
+    xmlns:fc="http://xmlns.com/foaf/corp#"
+    xmlns:wot="http://xmlns.com/wot/0.1/"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns"
+    xmlns:doap="http://usefulinc.com/ns/doap#"
+    xmlns:cv="http://kaste.lv/~captsolo/semweb/resume/cv.rdfs">
+    <foaf:Person id="bc6e50a6-0e98-44aa-9e25-6cfd4d329e50">
+        <foaf:name><![CDATA[user_1]]></foaf:name>
+        <foaf:mbox_sha1sum>6aa7e625ce576484183dcb2a1dcded00c49a3cb4</foaf:mbox_sha1sum>
+        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="http://connect.sensiolabs.com/api/images/bc6e50a6-0e98-44aa-9e25-6cfd4d329e50.png" type="image/png" />
+        <atom:link rel="self" href="http://connect.sensiolabs.com/api/users/bc6e50a6-0e98-44aa-9e25-6cfd4d329e50" type="application/vnd.com.sensiolabs.connect+xml"/>
+        <atom:link rel="self" href="http://connect.sensiolabs.com/api/alternates/bc6e50a6-0e98-44aa-9e25-6cfd4d329e50" type="text/html" />
+        <bio:olb><![CDATA[]]></bio:olb>
+        <foaf:birthday></foaf:birthday>
+        <vcard:locality></vcard:locality>
+        <vcard:country-name>FR</vcard:country-name>
+        <cv:hasWorkHistory>
+            <cv:employedIn></cv:employedIn>
+            <cv:isCurrent>true</cv:isCurrent>
+        </cv:hasWorkHistory>
+        <foaf:account>
+            <foaf:OnlineAccount>
+                <foaf:name>SensioLabs Connect</foaf:name>
+                <foaf:accountName><![CDATA[user_1]]></foaf:accountName>
+                <since>Wed, 02 May 2012 17:05:12 +0200</since>
+            </foaf:OnlineAccount>
+        </foaf:account>
+        <badges total="2" count="2" index="0" limit="2">
+            <atom:link rel="self" href="http://connect.sensiolabs.com/api/users/bc6e50a6-0e98-44aa-9e25-6cfd4d329e50/badges" type="application/vnd.com.sensiolabs.connect+xml" />
+
+            <badge id="9a527385-2220-476d-a4aa-5823501c8d5f">
+                <name><![CDATA[Noob]]></name>
+
+                <atom:link rel="https://rels.connect.sensiolabs.com/image" href="http://connect.sensiolabs.com/api/images/9a527385-2220-476d-a4aa-5823501c8d5f.png" type="image/png" />
+                <atom:link rel="self" href="http://connect.sensiolabs.com/api/badges/9a527385-2220-476d-a4aa-5823501c8d5f" type="application/vnd.com.sensiolabs.connect+xml" />
+                <atom:link rel="self" href="http://connect.sensiolabs.com/api/alternates/9a527385-2220-476d-a4aa-5823501c8d5f" type="text/html" />
+            </badge>
+            <badge id="a72bf276-b900-4d56-8dcd-0c9a329e7081">
+                <name><![CDATA[Commenter]]></name>
+
+                <atom:link rel="https://rels.connect.sensiolabs.com/image" href="http://connect.sensiolabs.com/api/images/a72bf276-b900-4d56-8dcd-0c9a329e7081.png" type="image/png" />
+                <atom:link rel="self" href="http://connect.sensiolabs.com/api/badges/a72bf276-b900-4d56-8dcd-0c9a329e7081" type="application/vnd.com.sensiolabs.connect+xml" />
+                <atom:link rel="self" href="http://connect.sensiolabs.com/api/alternates/a72bf276-b900-4d56-8dcd-0c9a329e7081" type="text/html" />
+            </badge>
+
+        </badges>
+
+        <projects total="1" count="1" index="0" limit="1">
+            <atom:link rel="self" href="http://connect.sensiolabs.com/api/users/bc6e50a6-0e98-44aa-9e25-6cfd4d329e50/projects" type="application/vnd.com.sensiolabs.connect+xml" />
+
+            <doap:Project id="3b22d7d0-cf75-4c3b-b800-6f2973756fae">
+                <doap:name><![CDATA[aer]]></doap:name>
+                <doap:description><![CDATA[ear]]></doap:description>
+
+
+                <slug>aer</slug>
+                <is-private>false</is-private>
+
+                <atom:link rel="https://rels.connect.sensiolabs.com/image" href="http://connect.sensiolabs.com/api/images/3b22d7d0-cf75-4c3b-b800-6f2973756fae.png" type="image/png" />
+                <atom:link rel="self" href="http://connect.sensiolabs.com/api/projects/3b22d7d0-cf75-4c3b-b800-6f2973756fae" type="application/vnd.com.sensiolabs.connect+xml" />
+                <atom:link rel="self" href="http://connect.sensiolabs.com/api/alternates/3b22d7d0-cf75-4c3b-b800-6f2973756fae" type="text/html" />
+            </doap:Project>
+
+        </projects>
+
+        <memberships total="0" count="0" index="0" limit="0">
+            <atom:link rel="self" href="http://connect.sensiolabs.com/api/users/bc6e50a6-0e98-44aa-9e25-6cfd4d329e50/clubs" type="application/vnd.com.sensiolabs.connect+xml" />
+
+
+        </memberships>
+
+        <ssh-keys total="0" count="0" index="0" limit="0">
+            <atom:link rel="self" href="http://connect.sensiolabs.com/api/users/bc6e50a6-0e98-44aa-9e25-6cfd4d329e50/keys" type="application/vnd.com.sensiolabs.connect+xml" />
+
+
+        </ssh-keys>
+
+    </foaf:Person>
+</api>

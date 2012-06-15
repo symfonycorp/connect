@@ -12,6 +12,7 @@
 namespace SensioLabs\Connect\Api\Entity;
 
 use SensioLabs\Connect\Api\Api;
+use SensioLabs\Connect\Api\Model\Form;
 use Symfony\Component\Form\Util\PropertyPath;
 
 /**
@@ -21,20 +22,42 @@ use Symfony\Component\Form\Util\PropertyPath;
  */
 abstract class AbstractEntity implements \ArrayAccess
 {
-    private $api;
     private $selfUrl;
     private $alternateUrl;
-    private $properties = array();
-    private $image;
-    private $formMethod;
-    private $formAction;
-    private $formFields = array();
+    private $properties;
+    private $forms;
+    private $api;
 
     public function __construct($selfUrl = null, $alternateUrl = null)
     {
         $this->selfUrl = $selfUrl;
         $this->alternateUrl = $alternateUrl;
+        $this->properties = array();
+        $this->forms = array();
         $this->configure();
+    }
+
+    public function setApi(Api $api)
+    {
+        $this->api = $api;
+    }
+
+    public function getApi()
+    {
+        return $this->api;
+    }
+
+    public function refresh()
+    {
+        $response = $this->getApi()->get($this->selfUrl);
+        $fresh = $response['entity'];
+        foreach ($this->properties as $key => $property) {
+            $this->set($key, $fresh->get($key));
+        }
+
+        $this->setForms($fresh->getForms());
+
+        return $this;
     }
 
     public function __toString()
@@ -49,58 +72,42 @@ abstract class AbstractEntity implements \ArrayAccess
         return $this;
     }
 
-    public function setFormMethod($formMethod)
+    public function setForms($forms)
     {
-        $this->formMethod = $formMethod;
+        $this->forms = $forms;
     }
 
-    public function getFormMethod()
+    public function addForm($formId, Form $form)
     {
-        return $this->formMethod;
+        $this->forms[$formId] = $form;
     }
 
-    public function setFormAction($formAction)
+    public function getForm($formId)
     {
-        $this->formAction = $formAction;
+        return $this->forms[$formId];
+    }
+    
+    public function getForms()
+    {
+        return $this->forms;
     }
 
-    public function getFormAction()
+    public function submit($formId, AbstractEntity $entity = null)
     {
-        return $this->formAction;
-    }
+        $form = $this->forms[$formId];
+        $fields = $form->getFields();
 
-    public function addFormField($field, $value = null)
-    {
-        $this->formFields[$field] = $value;
-    }
-
-    public function getFormFields()
-    {
-        return $this->formFields;
-    }
-
-    public function setFormField($field, $value)
-    {
-        $this->formFields[$field] = $value;
-    }
-
-    public function setFormFields(array $formFields)
-    {
-        $this->formFields = $formFields;
-    }
-
-    public function submitForm(AbstractEntity $entity = null)
-    {
         if (null === $entity) {
             $entity = $this;
         }
         
-        $fields = $this->getFormFields();
         foreach ($fields as $key => $value) {
-            $fields[$key] = $entity->get($key);
+            if ($entity->has($key)) {
+                $fields[$key] = $entity->get($key);
+            }
         }
 
-        $response = $this->getApi()->submit($this->getFormAction(), $this->getFormMethod(), $fields);
+        $response = $this->api->submit($form->getAction(), $form->getMethod(), $fields);
 
         return $response;
     }
@@ -140,6 +147,11 @@ abstract class AbstractEntity implements \ArrayAccess
         return $this->properties[$property];
     }
 
+    public function has($property)
+    {
+        return array_key_exists($property, $this->properties);
+    }
+
     public function add($property, $value)
     {
         if (!array_key_exists($property, $this->properties)) {
@@ -147,31 +159,6 @@ abstract class AbstractEntity implements \ArrayAccess
         }
 
         $this->properties[$property][] = $value;
-    }
-
-    public function setApi(Api $api)
-    {
-        $this->api = $api;
-    }
-
-    public function getApi()
-    {
-        return $this->api;
-    }
-
-    public function refresh()
-    {
-        $response = $this->getApi()->get($this->selfUrl);
-        $fresh = $response['entity'];
-        foreach ($this->properties as $key => $property) {
-            $this->set($key, $fresh->get($key));
-        }
-
-        $this->setFormAction($fresh->getFormAction());
-        $this->setFormMethod($fresh->getFormMethod());
-        $this->setFormFields($fresh->getFormFields());
-
-        return $this;
     }
 
     public function offsetExists($index)

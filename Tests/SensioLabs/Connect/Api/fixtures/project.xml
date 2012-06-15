@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:bio="http://purl.org/vocab/bio/0.1/"
+    xmlns:fc="http://xmlns.com/foaf/corp#"
+    xmlns:wot="http://xmlns.com/wot/0.1/"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns"
+    xmlns:doap="http://usefulinc.com/ns/doap#"
+    xmlns:cv="http://kaste.lv/~captsolo/semweb/resume/cv.rdfs">
+    <doap:Project id="0d4e9d97-2fb2-45c5-b636-00ac661f86f0">
+        <doap:name><![CDATA[My edited]]></doap:name>
+        <doap:description><![CDATA[Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.]]></doap:description>
+
+            <doap:developer>
+                <foaf:Person id="885fddaa7d15-4aed4f5d-e0cb-4320-902f">
+                    <foaf:name><![CDATA[Fabien Potencier]]></foaf:name>
+                    <foaf:mbox_sha1sum>fa2b2bc32f3b5047f49c47a7ce122f7915802ed8</foaf:mbox_sha1sum>
+                    <atom:link rel="foaf:depiction" href="http://connect.sensiolabs.com/api/images/885fddaa7d15-4aed4f5d-e0cb-4320-902f.png" type="image/png" />
+                    <atom:link rel="self" href="http://connect.sensiolabs.com/api/users/885fddaa7d15-4aed4f5d-e0cb-4320-902f" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="edit" href="http://connect.sensiolabs.com/api/users/885fddaa7d15-4aed4f5d-e0cb-4320-902f" type="application/vnd.com.sensiolabs.connect+xml" />
+                    <atom:link rel="self" href="http://connect.sensiolabs.com/api/alternates/885fddaa7d15-4aed4f5d-e0cb-4320-902f" type="text/html" />
+                </foaf:Person>
+            </doap:developer>
+            <contributors>
+                <index total="1" count="1" index="0" limit="1">
+                    <atom:link rel="self" href="http://connect.sensiolabs.com/api/projects/0d4e9d97-2fb2-45c5-b636-00ac661f86f0" type="application/vnd.com.sensiolabs.connect+xml" />
+                    
+                    <doap:developer>
+                        <foaf:Person id="885fddaa7d15-4aed4f5d-e0cb-4320-902f">
+                            <foaf:name><![CDATA[Fabien Potencier]]></foaf:name>
+                            <foaf:mbox_sha1sum>fa2b2bc32f3b5047f49c47a7ce122f7915802ed8</foaf:mbox_sha1sum>
+                            <atom:link rel="foaf:depiction" href="http://connect.sensiolabs.com/api/images/885fddaa7d15-4aed4f5d-e0cb-4320-902f.png" type="image/png" />
+                            <atom:link rel="self" href="http://connect.sensiolabs.com/api/users/885fddaa7d15-4aed4f5d-e0cb-4320-902f" type="application/vnd.com.sensiolabs.connect+xml"/>
+                            <atom:link rel="edit" href="http://connect.sensiolabs.com/api/users/885fddaa7d15-4aed4f5d-e0cb-4320-902f" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="http://connect.sensiolabs.com/api/alternates/885fddaa7d15-4aed4f5d-e0cb-4320-902f" type="text/html" />
+                        </foaf:Person>
+                        <lines-added>100</lines-added>
+                        <lines-deleted>25</lines-deleted>
+                        <commits>10</commits>
+                        <rank>1</rank>
+                    </doap:developer>
+                    
+                </index>
+
+            </contributors>
+            <doap:Repository>
+                <doap:GitRepository>
+                    <doap:location>http://github.com/google</doap:location>
+                </doap:GitRepository>
+            </doap:Repository>
+            <doap:homepage>http://google.fr</doap:homepage>
+            <doap:category>Website</doap:category>
+            
+            <slug>hello-world</slug>
+            <is-private>false</is-private>
+
+            <atom:link rel="self" href="http://connect.sensiolabs.com/api/projects/0d4e9d97-2fb2-45c5-b636-00ac661f86f0" type="application/vnd.com.sensiolabs.connect+xml" />
+            <atom:link rel="edit" href="http://connect.sensiolabs.com/api/projects/0d4e9d97-2fb2-45c5-b636-00ac661f86f0" type="application/vnd.com.sensiolabs.connect+xml" />
+            <atom:link rel="self" href="http://connect.sensiolabs.com/api/alternates/0d4e9d97-2fb2-45c5-b636-00ac661f86f0" type="text/html" />
+            <atom:link rel="foaf:depiction" href="http://connect.sensiolabs.com/api/images/0d4e9d97-2fb2-45c5-b636-00ac661f86f0.png" type="image/png" />
+        </doap:Project>
+    </api>

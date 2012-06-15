@@ -18,7 +18,7 @@ use SensioLabs\Connect\Exception\ApiException;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
 
 /**
- * Api
+ * Api.
  *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
@@ -97,8 +97,13 @@ class Api
             $this->logger->debug(var_export($response->getContent(), true));
         }
 
-        // TODO We might want to return other things...
-        return $response;
+        $object = null;
+        if (null !== $response->getContent()) {
+            $object = $this->parser->parse($response->getContent());
+            $object->setApi($this);
+        }
+
+        return array('response' => $response, 'entity' => $object);
     }
 
     private function getAcceptHeader()
