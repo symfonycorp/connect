@@ -2,7 +2,7 @@
 
 namespace SensioLabs\Connect\Tests\Api\Parser;
 
-use SensioLabs\Connect\Api\Parser\VndComSensioLabsConnectXmlParser;
+use SensioLabs\Connect\Api\Parser\VndComSensiolabsConnectXmlParser;
 use SensioLabs\Connect\Api\Entity\Root;
 use SensioLabs\Connect\Api\Entity\Index;
 use SensioLabs\Connect\Api\Entity\User;
@@ -11,16 +11,15 @@ use SensioLabs\Connect\Api\Entity\Project;
 use SensioLabs\Connect\Api\Entity\Badge;
 
 /**
-* 
-* @author Julien Galenski <julien.galenski@sensio.com>
-*/
+ * @author Julien Galenski <julien.galenski@sensio.com>
+ */
 class VndComSensiolabsConnectXmlParserTest extends \PHPUnit_Framework_TestCase
 {
     private $parser;
 
     public function setUp()
     {
-        $this->parser = new VndComSensioLabsConnectXmlParser();
+        $this->parser = new VndComSensiolabsConnectXmlParser();
     }
 
     public function testParseRootAnonymous()

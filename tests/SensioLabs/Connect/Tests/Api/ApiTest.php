@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace SensioLabs\Connect\Api;
+namespace SensioLabs\Connect\Test\Api;
 
 use Buzz\Message\Response;
 use SensioLabs\Connect\Api\Buzz\Browser;

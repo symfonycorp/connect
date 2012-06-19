@@ -9,11 +9,11 @@
          processIsolation="true"
          stopOnFailure="false"
          syntaxCheck="false"
-         bootstrap="Tests/bootstrap.php"
+         bootstrap="tests/bootstrap.php"
 >
   <testsuites>
-      <testsuite name="Project Test Suite">
-          <directory>Tests</directory>
+      <testsuite name="SensioLabs Connect SDK Test Suite">
+          <directory>tests</directory>
       </testsuite>
   </testsuites>
 
