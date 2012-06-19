@@ -34,13 +34,18 @@ class Root extends AbstractEntity
         ;
     }
 
-    public function getProjects($query = null)
+    public function getLastProjects()
     {
-        if (null === $query) {
-            $response = $this->getApi()->get($this->getProjectsUrl());
-        } else {
-            $response = $this->getApi()->get($this->getProjectsUrl().'?q='.$query);
-        }
+        $response = $this->getApi()->get($this->getProjectsUrl());
+
+        return $response['entity'];
+    }
+
+    public function searchProjects($q)
+    {
+        $form = $this->getForm('search_projects');
+        $form->addField('q', $q);
+        $response = $this->submit('search_projects');
 
         return $response['entity'];
     }
@@ -66,13 +71,18 @@ class Root extends AbstractEntity
         return $response['entity'];
     }
 
-    public function getUsers($query = null)
+    public function getLastUsers()
     {
-        if (null === $query) {
-            $response = $this->getApi()->get($this->getUsersUrl());
-        } else {
-            $response = $this->getApi()->get($this->getUsersUrl().'?q='.$query);
-        }
+        $response = $this->getApi()->get($this->getUsersUrl());
+
+        return $response['entity'];
+    }
+
+    public function searchUsers($q)
+    {
+        $form = $this->getForm('search_users');
+        $form->addField('q', $q); 
+        $response = $this->submit('search_users');
 
         return $response['entity'];
     }
@@ -84,13 +94,18 @@ class Root extends AbstractEntity
         return $response['entity'];
     }
 
-    public function getClubs($query = null)
+    public function getLastClubs()
     {
-        if (null === $query) {
-            $response = $this->getApi()->get($this->getClubsUrl());
-        } else {
-            $response = $this->getApi()->get($this->getClubsUrl().'?q='.$query);
-        }
+        $response = $this->getApi()->get($this->getClubsUrl());
+
+        return $response['entity'];
+    }
+
+    public function searchClubs($q)
+    {
+        $form = $this->getForm('search_clubs');
+        $form->addField('q', $q);
+        $response = $this->submit('search_clubs');
 
         return $response['entity'];
     }

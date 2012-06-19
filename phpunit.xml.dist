@@ -9,11 +9,11 @@
          processIsolation="true"
          stopOnFailure="false"
          syntaxCheck="false"
-         bootstrap="tests/bootstrap.php"
+         bootstrap="Tests/bootstrap.php"
 >
   <testsuites>
       <testsuite name="Project Test Suite">
-          <directory>tests</directory>
+          <directory>Tests</directory>
       </testsuite>
   </testsuites>
 
@@ -25,7 +25,7 @@
 
   <filter>
       <whitelist>
-          <directory>tests</directory>
+          <directory>Tests</directory>
       </whitelist>
   </filter>
 </phpunit>

@@ -22,6 +22,7 @@ use SensioLabs\Connect\Api\Entity\Membership;
 use SensioLabs\Connect\Api\Entity\Root;
 use SensioLabs\Connect\Api\Entity\User;
 use SensioLabs\Connect\Api\Entity\Contributor;
+use SensioLabs\Connect\Api\Model\Form;
 
 /**
  * VndComSensioLabsConnectXmlParser
@@ -56,7 +57,7 @@ class VndComSensioLabsConnectXmlParser implements ParserInterface
             return $this->parseRoot($nodes->item(0));
         }
 
-        $nodes = $this->xpath->evaluate('/api/index');
+        $nodes = $this->xpath->evaluate('/api/users | /api/clubs | /api/projects | /api/badges');
         if (1 === $nodes->length) {
             return $this->parseIndex($nodes->item(0));
         }
@@ -81,17 +82,27 @@ class VndComSensioLabsConnectXmlParser implements ParserInterface
     {
         $root = new Root();
 
-        $links = $this->xpath->query('./atom:link', $element);
-        for ($i = 0; $i < $links->length; $i++) {
-            $attributes = $links->item($i)->attributes;
+        $projectsLink = $this->xpath->query('./atom:link[@rel="https://rels.connect.sensiolabs.com/projects"]', $element);
+        $root->setProjectsUrl($projectsLink->item(0)->attributes->getNamedItem('href')->value);
 
-            $root->set($attributes->getNamedItem('title')->value.'Url', $attributes->getNamedItem('href')->value);
-        }
+        $badgesLink = $this->xpath->query('./atom:link[@rel="https://rels.connect.sensiolabs.com/badges"]', $element);
+        $root->setBadgesUrl($badgesLink->item(0)->attributes->getNamedItem('href')->value);
+
+        $clubsLink = $this->xpath->query('./atom:link[@rel="https://rels.connect.sensiolabs.com/clubs"]', $element);
+        $root->setClubsUrl($clubsLink->item(0)->attributes->getNamedItem('href')->value);
+
+        $usersLink = $this->xpath->query('./atom:link[@rel="https://rels.connect.sensiolabs.com/users"]', $element);
+        $root->setUsersUrl($usersLink->item(0)->attributes->getNamedItem('href')->value);
 
         $user = $this->xpath->query('./foaf:Person', $element);
         if (1 === $user->length) {
             $user = $this->parseFoafPerson($user->item(0));
             $root->setCurrentUser($user);
+        }
+
+        $nodeList = $this->xpath->query('./xhtml:form', $element);
+        foreach ($nodeList as $node) {
+            $this->parseForm($root, $node);
         }
 
         return $root;
@@ -290,21 +301,24 @@ class VndComSensioLabsConnectXmlParser implements ParserInterface
         return $user;
     }
 
-    private function parseForm(AbstractEntity $entity, \DOMElement $form)
+    private function parseForm(AbstractEntity $entity, \DOMElement $formElement)
     {
-        $entity->setFormMethod($form->attributes->getNamedItem('method')->value);
-        $entity->setFormAction($form->attributes->getNamedItem('action')->value);
+        $formId = $formElement->attributes->getNamedItem('id')->value;
+        $formAction = $formElement->attributes->getNamedItem('action')->value;
+        $formMethod = $formElement->attributes->getNamedItem('method')->value;
+        $form = new Form($formAction, $formMethod);
 
-        $nodeList = $this->xpath->query('./xhtml:input', $form);
+        $nodeList = $this->xpath->query('./xhtml:input', $formElement);
         for ($i = 0; $i < $nodeList->length; $i++) {
 
             $node = $nodeList->item($i);
 
-            $id = $node->attributes->getNamedItem('id')->value;
+            $name = $node->attributes->getNamedItem('name')->value;
             $value = $node->attributes->getNamedItem('value');
 
-            $entity->addFormField($id, $value ? $value->value : null);
+            $form->addField($name, $value ? $value->value : null);
         }
+        $entity->addForm($formId, $form);
 
         return $entity;
     }
@@ -357,7 +371,7 @@ class VndComSensioLabsConnectXmlParser implements ParserInterface
 
     private function getLinkToAlternate(\DOMElement $element)
     {
-        return $this->getLinkNodeHref('./atom:link[@rel="alternate"]', $element);
+        return $this->getLinkNodeHref('./atom:link[@rel="self"]', $element, 1);
     }
 
     private function getLinkToFoafDepiction(\DOMElement $element)
@@ -375,12 +389,12 @@ class VndComSensioLabsConnectXmlParser implements ParserInterface
         return null;
     }
 
-    private function getLinkNodeHref($query, \DOMElement $element = null)
+    private function getLinkNodeHref($query, \DOMElement $element = null, $position = 0)
     {
         $nodeList = $this->xpath->query($query, $element);
 
         if ($nodeList && $nodeList->length > 0) {
-            return $this->sanitizeValue($nodeList->item(0)->attributes->getNamedItem('href')->value);
+            return $this->sanitizeValue($nodeList->item($position)->attributes->getNamedItem('href')->value);
         }
 
         return null;
