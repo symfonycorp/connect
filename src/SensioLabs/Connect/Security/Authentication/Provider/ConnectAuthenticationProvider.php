@@ -1,0 +1,55 @@
+<?php
+
+/*
+ * This file is part of the SensioLabs Connect package.
+ *
+ * (c) SensioLabs <contact@sensiolabs.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace SensioLabs\Connect\Security\Authentication\Provider;
+
+use SensioLabs\Connect\Security\Authentication\Token\ConnectToken;
+use SensioLabs\Connect\Security\User\UserInterface as ConnectUserInterface;
+use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Core\Exception\AuthenticationServiceException;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
+
+/**
+ * ConnectAuthenticationProvider.
+ *
+ * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
+ */
+class ConnectAuthenticationProvider implements AuthenticationProviderInterface
+{
+    private $userProvider;
+    private $providerKey;
+
+    public function __construct(UserProviderInterface $userProvider, $providerKey)
+    {
+        $this->userProvider = $userProvider;
+        $this->providerKey = $providerKey;
+    }
+
+    public function authenticate(TokenInterface $token)
+    {
+        try {
+            $localUser = $this->userProvider->loadUserByUsername($token->getUser());
+
+            $authorizedToken = new ConnectToken($localUser, $token->getAccessToken(), $token->getApiUser(), $this->providerKey, $token->getScope(), $localUser->getRoles());
+            $authorizedToken->setAttributes($token->getAttributes());
+
+            return $authorizedToken;
+        } catch (\Exception $repositoryProblem) {
+            throw new AuthenticationServiceException($repositoryProblem->getMessage(), $token, 0, $repositoryProblem);
+        }
+    }
+
+    public function supports(TokenInterface $token)
+    {
+        return $token instanceof ConnectToken;
+    }
+}
