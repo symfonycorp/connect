@@ -1,6 +1,6 @@
 #!/bin/bash -x
 
-DIRECTORY="tests/SensioLabs/Connect/Tests/Api/fixtures"
+DIRECTORY="tests/fixtures"
 
 curl -H "Accept: application/vnd.com.sensiolabs.connect+xml" https://connect.sensiolabs.com/api/ > $DIRECTORY/root.xml
 curl -H "Accept: application/vnd.com.sensiolabs.connect+xml" https://connect.sensiolabs.com/api/badges > $DIRECTORY/badges.xml
