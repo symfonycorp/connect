@@ -24,19 +24,10 @@ class VndComSensiolabsConnectXmlParserTest extends \PHPUnit_Framework_TestCase
 
     public function testParseRootAnonymous()
     {
-        $rootXml = file_get_contents(__DIR__.'/../fixtures/root_anonymous.xml');
+        $rootXml = file_get_contents(__DIR__.'/../../../../../fixtures/root.xml');
         $root = $this->parser->parse($rootXml);
 
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Root', $root);
-    }
-
-    public function testParseRootConnected()
-    {
-        $rootXml = file_get_contents(__DIR__.'/../fixtures/root_authenticated.xml');
-        $root = $this->parser->parse($rootXml);
-
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Root', $root);
-        $this->assertEquals('cnorris', $root->getCurrentUser()->getUsername());
     }
 
     /**
@@ -56,32 +47,44 @@ class VndComSensiolabsConnectXmlParserTest extends \PHPUnit_Framework_TestCase
     public function provider()
     {
         return array(
-            array('/../fixtures/users.xml', 'create_user', 'POST', 'http://connect.sensiolabs.com/api/users', 'SensioLabs\Connect\Api\Entity\User'),
-            array('/../fixtures/clubs.xml', 'create_club', 'POST', 'http://connect.sensiolabs.com/api/clubs', 'SensioLabs\Connect\Api\Entity\Club'),
-            array('/../fixtures/projects.xml', 'create_project', 'POST', 'http://connect.sensiolabs.com/api/projects', 'SensioLabs\Connect\Api\Entity\Project'),
+            array('/../../../../../fixtures/users.xml', 'create_user', 'POST', 'https://connect.sensiolabs.com/api/users', 'SensioLabs\Connect\Api\Entity\User'),
+            array('/../../../../../fixtures/clubs.xml', 'create_club', 'POST', 'https://connect.sensiolabs.com/api/clubs', 'SensioLabs\Connect\Api\Entity\Club'),
+            array('/../../../../../fixtures/projects.xml', 'create_project', 'POST', 'https://connect.sensiolabs.com/api/projects', 'SensioLabs\Connect\Api\Entity\Project'),
         );
     }
 
     public function testParseBadges()
     {
-        $indexXml = file_get_contents(__DIR__.'/../fixtures/badges.xml');
+        $indexXml = file_get_contents(__DIR__.'/../../../../../fixtures/badges.xml');
         $index = $this->parser->parse($indexXml);
 
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $index);
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Badge', $index[0]);
     }
 
-    public function testParsePerson()
+    public function testParseFoafPerson()
     {
-        $rootXml = file_get_contents(__DIR__.'/../fixtures/user.xml');
+        $rootXml = file_get_contents(__DIR__.'/../../../../../fixtures/user.xml');
         $user = $this->parser->parse($rootXml);
 
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\User', $user);
+
+        $badges = $user->getBadges();
+        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $badges);
+        $this->assertEquals(20, count($badges));
+
+        $memberships = $user->getMemberships();
+        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $memberships);
+        $this->assertEquals(3, count($memberships));
+
+        $projects = $user->getProjects();
+        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $projects);
+        $this->assertEquals(13, count($projects));
     }
 
     public function testParseGroup()
     {
-        $rootXml = file_get_contents(__DIR__.'/../fixtures/club.xml');
+        $rootXml = file_get_contents(__DIR__.'/../../../../../fixtures/club.xml');
         $club = $this->parser->parse($rootXml);
 
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Club', $club);
@@ -89,7 +92,7 @@ class VndComSensiolabsConnectXmlParserTest extends \PHPUnit_Framework_TestCase
 
     public function testParseProject()
     {
-        $rootXml = file_get_contents(__DIR__.'/../fixtures/project.xml');
+        $rootXml = file_get_contents(__DIR__.'/../../../../../fixtures/project.xml');
         $project = $this->parser->parse($rootXml);
 
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Project', $project);

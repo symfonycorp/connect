@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:bio="http://purl.org/vocab/bio/0.1/"
+    xmlns:fc="http://xmlns.com/foaf/corp#"
+    xmlns:wot="http://xmlns.com/wot/0.1/"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns"
+    xmlns:doap="http://usefulinc.com/ns/doap#"
+    xmlns:cv="http://kaste.lv/~captsolo/semweb/resume/cv.rdfs">
+    <foaf:Group id="4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f">
+    <foaf:name><![CDATA[SensioLabs]]></foaf:name>
+            <description><![CDATA[]]></description>
+        <foaf:homepage>http://sensiolabs.com</foaf:homepage>
+        <category>Company</category>
+        <slug>sensiolabs</slug>
+                <vcard:locality>Clichy</vcard:locality>
+        <vcard:country-name>France</vcard:country-name>
+                        <members total="25" count="25" index="0" limit="25">
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members" type="application/vnd.com.sensiolabs.connect+xml" />
+        
+                                                                        <foaf:member>
+                            <foaf:Person id="01888dba-6735-4013-b1dc-e16e94bea611">
+    <foaf:name><![CDATA[Tugdual Saunier]]></foaf:name>
+    <foaf:mbox_sha1sum>0d2bd38632bdd1ac16023e4f1ef5f58fc0527f5a</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/01888dba-6735-4013-b1dc-e16e94bea611.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/01888dba-6735-4013-b1dc-e16e94bea611" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/01888dba-6735-4013-b1dc-e16e94bea611" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/01888dba-6735-4013-b1dc-e16e94bea611" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="52853551-ca9d-4fe0-a33e-08cd0b58a333">
+    <foaf:name><![CDATA[Xavier Briand]]></foaf:name>
+    <foaf:mbox_sha1sum>ff6eb978d2e519801d2ced5a5385d1d7dfae2eb5</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/52853551-ca9d-4fe0-a33e-08cd0b58a333.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/52853551-ca9d-4fe0-a33e-08cd0b58a333" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/52853551-ca9d-4fe0-a33e-08cd0b58a333" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/52853551-ca9d-4fe0-a33e-08cd0b58a333" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="0bcc8900-d697-490f-a25e-77e1f306e77b">
+    <foaf:name><![CDATA[Clément Gautier]]></foaf:name>
+    <foaf:mbox_sha1sum>ded1ae008c8cffddd551f8cfadfc0297617380fb</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/0bcc8900-d697-490f-a25e-77e1f306e77b.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/0bcc8900-d697-490f-a25e-77e1f306e77b" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/0bcc8900-d697-490f-a25e-77e1f306e77b" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/0bcc8900-d697-490f-a25e-77e1f306e77b" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="6b4f0063-126d-4ab3-9497-25a82d194562">
+    <foaf:name><![CDATA[Alexandre Salomé]]></foaf:name>
+    <foaf:mbox_sha1sum>db7d2359b37e0522b38117928b0e657a90e697be</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/6b4f0063-126d-4ab3-9497-25a82d194562.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/6b4f0063-126d-4ab3-9497-25a82d194562" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/6b4f0063-126d-4ab3-9497-25a82d194562" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/6b4f0063-126d-4ab3-9497-25a82d194562" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="9232efe5-cc8a-463d-bc16-9a432abc77a8">
+    <foaf:name><![CDATA[Samuel Maftoul]]></foaf:name>
+    <foaf:mbox_sha1sum>b89f2f62caaae8e690cd369875e97d9067304674</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/9232efe5-cc8a-463d-bc16-9a432abc77a8.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/9232efe5-cc8a-463d-bc16-9a432abc77a8" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/9232efe5-cc8a-463d-bc16-9a432abc77a8" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/9232efe5-cc8a-463d-bc16-9a432abc77a8" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="bbb59fb3-c73c-4fcf-ac36-13b643806f71">
+    <foaf:name><![CDATA[Julien DIDIER]]></foaf:name>
+    <foaf:mbox_sha1sum>85cac86ea99dbaeda1fb25753950f5b4ae80ef27</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/bbb59fb3-c73c-4fcf-ac36-13b643806f71.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/bbb59fb3-c73c-4fcf-ac36-13b643806f71" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/bbb59fb3-c73c-4fcf-ac36-13b643806f71" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/bbb59fb3-c73c-4fcf-ac36-13b643806f71" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="7e22e75a-ee95-42db-aee8-bf3473216c80">
+    <foaf:name><![CDATA[Pierre-Yves LEBECQ]]></foaf:name>
+    <foaf:mbox_sha1sum>3c5d487251febd606e70ecc3669fc1a1401b624e</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/7e22e75a-ee95-42db-aee8-bf3473216c80.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/7e22e75a-ee95-42db-aee8-bf3473216c80" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/7e22e75a-ee95-42db-aee8-bf3473216c80" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/7e22e75a-ee95-42db-aee8-bf3473216c80" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="4aed4f5d-e0cb-4320-902f-885fddaa7d15">
+    <foaf:name><![CDATA[Fabien Potencier]]></foaf:name>
+    <foaf:mbox_sha1sum>fa2b2bc32f3b5047f49c47a7ce122f7915802ed8</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/4aed4f5d-e0cb-4320-902f-885fddaa7d15.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/4aed4f5d-e0cb-4320-902f-885fddaa7d15" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/4aed4f5d-e0cb-4320-902f-885fddaa7d15" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/4aed4f5d-e0cb-4320-902f-885fddaa7d15" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>true</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="aa5e22b0-6189-4113-9c68-91d4a3c32b7c">
+    <foaf:name><![CDATA[Marc Weistroff]]></foaf:name>
+    <foaf:mbox_sha1sum>5865060de545f7da5d57c093c5096d89f2fe6740</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/aa5e22b0-6189-4113-9c68-91d4a3c32b7c.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>true</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="90f28e69-9ce9-4a42-8b0e-e8c7fcc27713">
+    <foaf:name><![CDATA[Grégoire Pineau]]></foaf:name>
+    <foaf:mbox_sha1sum>bb2f8d37f9318da8d499aef30a5931c6ff068ae6</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="cd45586e-687e-4346-8fc5-eb687acd74b1">
+    <foaf:name><![CDATA[Christian Jennewein]]></foaf:name>
+    <foaf:mbox_sha1sum>34530956bae3041951aa12e17123ae496ffc0d37</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/cd45586e-687e-4346-8fc5-eb687acd74b1.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/cd45586e-687e-4346-8fc5-eb687acd74b1" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/cd45586e-687e-4346-8fc5-eb687acd74b1" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/cd45586e-687e-4346-8fc5-eb687acd74b1" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="f8ed8ec5-0174-41f3-b61d-57b0f10c3f70">
+    <foaf:name><![CDATA[franck thery]]></foaf:name>
+    <foaf:mbox_sha1sum>d4c8cc4554c98dce23de88173290d3116a4c4807</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/f8ed8ec5-0174-41f3-b61d-57b0f10c3f70.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/f8ed8ec5-0174-41f3-b61d-57b0f10c3f70" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/f8ed8ec5-0174-41f3-b61d-57b0f10c3f70" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/f8ed8ec5-0174-41f3-b61d-57b0f10c3f70" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                                                                <foaf:member>
+                            <foaf:Person id="f10e521d-ea20-4ebd-9840-8ef373e9c291">
+    <foaf:name><![CDATA[Robin Duval]]></foaf:name>
+    <foaf:mbox_sha1sum>bca97835d780afde9971d0e12610be7acbb86c74</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/f10e521d-ea20-4ebd-9840-8ef373e9c291.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/f10e521d-ea20-4ebd-9840-8ef373e9c291" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/f10e521d-ea20-4ebd-9840-8ef373e9c291" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/f10e521d-ea20-4ebd-9840-8ef373e9c291" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="924211b9-7ff1-4934-be4f-f4cf7ef487bc">
+    <foaf:name><![CDATA[Alexis Attimont]]></foaf:name>
+    <foaf:mbox_sha1sum>0724b156267d8dd887b3a7b63fb709636d2ef2b1</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/924211b9-7ff1-4934-be4f-f4cf7ef487bc.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/924211b9-7ff1-4934-be4f-f4cf7ef487bc" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/924211b9-7ff1-4934-be4f-f4cf7ef487bc" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/924211b9-7ff1-4934-be4f-f4cf7ef487bc" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="c6e17bef-dd9a-46fd-ba8f-44f34842b7c9">
+    <foaf:name><![CDATA[Jean-François Simon]]></foaf:name>
+    <foaf:mbox_sha1sum>24c007f6ce4055106b975e6f08fdf578a13d1051</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/c6e17bef-dd9a-46fd-ba8f-44f34842b7c9.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/c6e17bef-dd9a-46fd-ba8f-44f34842b7c9" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/c6e17bef-dd9a-46fd-ba8f-44f34842b7c9" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/c6e17bef-dd9a-46fd-ba8f-44f34842b7c9" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="fb4bd39e-d0bc-456d-8c7e-5201943c19b9">
+    <foaf:name><![CDATA[Francis Besset]]></foaf:name>
+    <foaf:mbox_sha1sum>b93d71b80ee89ac32190af6aac89fe7fa948e685</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/fb4bd39e-d0bc-456d-8c7e-5201943c19b9.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/fb4bd39e-d0bc-456d-8c7e-5201943c19b9" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/fb4bd39e-d0bc-456d-8c7e-5201943c19b9" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/fb4bd39e-d0bc-456d-8c7e-5201943c19b9" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="5325f8c2-220f-4586-9015-714046589f5f">
+    <foaf:name><![CDATA[Dustin Whittle]]></foaf:name>
+    <foaf:mbox_sha1sum>7e758814020fdf883754b88330c81ab5f05aa625</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/5325f8c2-220f-4586-9015-714046589f5f.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/5325f8c2-220f-4586-9015-714046589f5f" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/5325f8c2-220f-4586-9015-714046589f5f" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/5325f8c2-220f-4586-9015-714046589f5f" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="1d40311f-60d6-4063-acc0-932f89ed7e51">
+    <foaf:name><![CDATA[fabien gasser]]></foaf:name>
+    <foaf:mbox_sha1sum>9e21976415dfa5994f905e2617c31db4a412f1fd</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/1d40311f-60d6-4063-acc0-932f89ed7e51.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/1d40311f-60d6-4063-acc0-932f89ed7e51" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/1d40311f-60d6-4063-acc0-932f89ed7e51" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/1d40311f-60d6-4063-acc0-932f89ed7e51" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="748155ef-642e-4bc2-9d44-2f1a6a5ed2b6">
+    <foaf:name><![CDATA[Gilles Taupenas]]></foaf:name>
+    <foaf:mbox_sha1sum>4479609cbad8ef5a1a3d354dbeedd6c23973b9a9</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/748155ef-642e-4bc2-9d44-2f1a6a5ed2b6.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/748155ef-642e-4bc2-9d44-2f1a6a5ed2b6" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/748155ef-642e-4bc2-9d44-2f1a6a5ed2b6" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/748155ef-642e-4bc2-9d44-2f1a6a5ed2b6" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="e15cbda8-edd5-4bf8-a65d-786c9f3b0579">
+    <foaf:name><![CDATA[Hugo Hamon]]></foaf:name>
+    <foaf:mbox_sha1sum>85de154eb42f8b9b7b2a7c6e4cc0f59ae83b05b7</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/e15cbda8-edd5-4bf8-a65d-786c9f3b0579.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/e15cbda8-edd5-4bf8-a65d-786c9f3b0579" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/e15cbda8-edd5-4bf8-a65d-786c9f3b0579" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/e15cbda8-edd5-4bf8-a65d-786c9f3b0579" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="5a49a473-8c80-4335-a795-923eab5c66db">
+    <foaf:name><![CDATA[Victor Berchet]]></foaf:name>
+    <foaf:mbox_sha1sum>764bf12db1fddde727d4850556ae237b87cc1fca</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/5a49a473-8c80-4335-a795-923eab5c66db.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/5a49a473-8c80-4335-a795-923eab5c66db" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/5a49a473-8c80-4335-a795-923eab5c66db" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/5a49a473-8c80-4335-a795-923eab5c66db" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="e89a8f7c-58a0-409d-9b0d-479a3580d8b9">
+    <foaf:name><![CDATA[Samy Dindane]]></foaf:name>
+    <foaf:mbox_sha1sum>2843042467bb2a0aca6a0787a9bd588420729542</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/e89a8f7c-58a0-409d-9b0d-479a3580d8b9.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/e89a8f7c-58a0-409d-9b0d-479a3580d8b9" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/e89a8f7c-58a0-409d-9b0d-479a3580d8b9" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/e89a8f7c-58a0-409d-9b0d-479a3580d8b9" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="1de5fb80-abab-4e9b-8f84-e98f7aae44a5">
+    <foaf:name><![CDATA[Julien Galenski]]></foaf:name>
+    <foaf:mbox_sha1sum>a819b464b20f9c6253d60878e8000b23dede35c2</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/1de5fb80-abab-4e9b-8f84-e98f7aae44a5.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/1de5fb80-abab-4e9b-8f84-e98f7aae44a5" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/1de5fb80-abab-4e9b-8f84-e98f7aae44a5" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/1de5fb80-abab-4e9b-8f84-e98f7aae44a5" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                                                        <foaf:member>
+                            <foaf:Person id="605b84d4-dc41-4b31-8a04-12a24744fa9d">
+    <foaf:name><![CDATA[François-Xavier de Guillebon]]></foaf:name>
+    <foaf:mbox_sha1sum>7137d2813578f685f439a98f98207d077db4368a</foaf:mbox_sha1sum>
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/605b84d4-dc41-4b31-8a04-12a24744fa9d.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/605b84d4-dc41-4b31-8a04-12a24744fa9d" type="application/vnd.com.sensiolabs.connect+xml"/>
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/605b84d4-dc41-4b31-8a04-12a24744fa9d" type="text/html" />
+     </foaf:Person>
+                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/605b84d4-dc41-4b31-8a04-12a24744fa9d" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <is-membership-public>true</is-membership-public>
+                            <is-owner>false</is-owner>
+                        </foaf:member>
+                                                                                            <xhtml:form id="new_member" method="POST" action="/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members" enctype="application/x-www-form-urlencoded">
+    <xhtml:input type="text" name="uuid" required="required" />
+</xhtml:form>
+                    
+</members>
+
+        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f" type="text/html" />
+    </foaf:Group>
+</api>

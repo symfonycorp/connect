@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:bio="http://purl.org/vocab/bio/0.1/"
+    xmlns:fc="http://xmlns.com/foaf/corp#"
+    xmlns:wot="http://xmlns.com/wot/0.1/"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns"
+    xmlns:doap="http://usefulinc.com/ns/doap#"
+    xmlns:cv="http://kaste.lv/~captsolo/semweb/resume/cv.rdfs">
+    <projects total="20" count="20" index="0" limit="20">
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects" type="application/vnd.com.sensiolabs.connect+xml" />
+        
+                <doap:Project id="d844c522-18e4-4fa8-9a44-996525f0cf8c">
+    <doap:name><![CDATA[QuickBooksDevKit]]></doap:name>
+    <doap:description><![CDATA[Git mirror of https://code.intuit.com/sf/sfmain/do/viewProject/projects.php_devkit]]></doap:description>
+
+    
+    <slug>quickbooksdevkit</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/d844c522-18e4-4fa8-9a44-996525f0cf8c.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/d844c522-18e4-4fa8-9a44-996525f0cf8c" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/d844c522-18e4-4fa8-9a44-996525f0cf8c" type="text/html" />
+    </doap:Project>
+            <doap:Project id="5d9ac709-66e2-4db9-b751-5fb54d8bc932">
+    <doap:name><![CDATA[php-bittorrent]]></doap:name>
+    <doap:description><![CDATA[PHP classes for encoding/decoding data to/from the BitTorrent format, creating torrent files and running your own tracker.]]></doap:description>
+
+    
+    <slug>php-bittorrent</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/5d9ac709-66e2-4db9-b751-5fb54d8bc932.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/5d9ac709-66e2-4db9-b751-5fb54d8bc932" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/5d9ac709-66e2-4db9-b751-5fb54d8bc932" type="text/html" />
+    </doap:Project>
+            <doap:Project id="18212844-760d-422c-8cd1-a2dc2b3671fa">
+    <doap:name><![CDATA[Yeah]]></doap:name>
+    <doap:description><![CDATA[Yeah CMS на yii 1.1]]></doap:description>
+
+    
+    <slug>yeah</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/18212844-760d-422c-8cd1-a2dc2b3671fa.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/18212844-760d-422c-8cd1-a2dc2b3671fa" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/18212844-760d-422c-8cd1-a2dc2b3671fa" type="text/html" />
+    </doap:Project>
+            <doap:Project id="95e249e1-e4f7-44df-8a63-a8da9cc5c3b6">
+    <doap:name><![CDATA[depot]]></doap:name>
+    <doap:description><![CDATA[Интернет магазин на ruby on rails]]></doap:description>
+
+    
+    <slug>depot</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/95e249e1-e4f7-44df-8a63-a8da9cc5c3b6.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/95e249e1-e4f7-44df-8a63-a8da9cc5c3b6" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/95e249e1-e4f7-44df-8a63-a8da9cc5c3b6" type="text/html" />
+    </doap:Project>
+            <doap:Project id="689de07e-8728-4c29-ae74-0ffdac522868">
+    <doap:name><![CDATA[myFramework]]></doap:name>
+    <doap:description><![CDATA[Проект по набиранию опыта в php 5.3 и ООП, фреймворк]]></doap:description>
+
+    
+    <slug>myframework</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/689de07e-8728-4c29-ae74-0ffdac522868.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/689de07e-8728-4c29-ae74-0ffdac522868" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/689de07e-8728-4c29-ae74-0ffdac522868" type="text/html" />
+    </doap:Project>
+            <doap:Project id="df070aca-17e8-4866-a179-0543f6a5b673">
+    <doap:name><![CDATA[click2cricket]]></doap:name>
+    <doap:description><![CDATA[cricket]]></doap:description>
+
+    
+    <slug>click2cricket</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/df070aca-17e8-4866-a179-0543f6a5b673.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/df070aca-17e8-4866-a179-0543f6a5b673" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/df070aca-17e8-4866-a179-0543f6a5b673" type="text/html" />
+    </doap:Project>
+            <doap:Project id="9a89802e-df3f-44ff-9ac0-1c44377d9685">
+    <doap:name><![CDATA[Cloud3]]></doap:name>
+    <doap:description><![CDATA[Cloud3 Framework Component Basic]]></doap:description>
+
+    
+    <slug>cloud3</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/9a89802e-df3f-44ff-9ac0-1c44377d9685.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/9a89802e-df3f-44ff-9ac0-1c44377d9685" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/9a89802e-df3f-44ff-9ac0-1c44377d9685" type="text/html" />
+    </doap:Project>
+            <doap:Project id="a3ab70ac-95b1-444b-91c7-ed215fbb8269">
+    <doap:name><![CDATA[faizalpribadi.github.com]]></doap:name>
+    <doap:description><![CDATA[My Homepage]]></doap:description>
+
+    
+    <slug>faizalpribadi-github-com</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/a3ab70ac-95b1-444b-91c7-ed215fbb8269.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/a3ab70ac-95b1-444b-91c7-ed215fbb8269" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/a3ab70ac-95b1-444b-91c7-ed215fbb8269" type="text/html" />
+    </doap:Project>
+            <doap:Project id="937df28e-320a-4f43-9ba6-72627f621fa6">
+    <doap:name><![CDATA[TYPO3.Cloud3]]></doap:name>
+    <doap:description><![CDATA[Package Development On TYPO3 - FLOW3]]></doap:description>
+
+    
+    <slug>typo3-cloud3</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/937df28e-320a-4f43-9ba6-72627f621fa6.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/937df28e-320a-4f43-9ba6-72627f621fa6" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/937df28e-320a-4f43-9ba6-72627f621fa6" type="text/html" />
+    </doap:Project>
+            <doap:Project id="315a87e7-1f9b-4641-a106-911375ff3e28">
+    <doap:name><![CDATA[Online-Sql-Schema-Design]]></doap:name>
+    <doap:description><![CDATA[Create SQL Schema Design Online In Browser !]]></doap:description>
+
+    
+    <slug>online-sql-schema-design</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/315a87e7-1f9b-4641-a106-911375ff3e28.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/315a87e7-1f9b-4641-a106-911375ff3e28" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/315a87e7-1f9b-4641-a106-911375ff3e28" type="text/html" />
+    </doap:Project>
+            <doap:Project id="b42f3bb8-128b-4eff-9f7f-a5983ec8256c">
+    <doap:name><![CDATA[PhpJsKernel]]></doap:name>
+    <doap:description><![CDATA[js framework]]></doap:description>
+
+    
+    <slug>phpjskernel</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/b42f3bb8-128b-4eff-9f7f-a5983ec8256c.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/b42f3bb8-128b-4eff-9f7f-a5983ec8256c" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/b42f3bb8-128b-4eff-9f7f-a5983ec8256c" type="text/html" />
+    </doap:Project>
+            <doap:Project id="054b3b1d-463e-4ac8-a99d-098607c17c0b">
+    <doap:name><![CDATA[testProject]]></doap:name>
+    <doap:description><![CDATA[]]></doap:description>
+
+    
+    <slug>testproject</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/054b3b1d-463e-4ac8-a99d-098607c17c0b.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/054b3b1d-463e-4ac8-a99d-098607c17c0b" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/054b3b1d-463e-4ac8-a99d-098607c17c0b" type="text/html" />
+    </doap:Project>
+            <doap:Project id="afe7c12a-9da3-4c2d-8129-4cf84654c7e5">
+    <doap:name><![CDATA[events]]></doap:name>
+    <doap:description><![CDATA[events]]></doap:description>
+
+    
+    <slug>events</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/afe7c12a-9da3-4c2d-8129-4cf84654c7e5.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/afe7c12a-9da3-4c2d-8129-4cf84654c7e5" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/afe7c12a-9da3-4c2d-8129-4cf84654c7e5" type="text/html" />
+    </doap:Project>
+            <doap:Project id="1d2a8739-4900-4d77-afbc-6648f9329b46">
+    <doap:name><![CDATA[testProject]]></doap:name>
+    <doap:description><![CDATA[]]></doap:description>
+
+    
+    <slug>testproject</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/1d2a8739-4900-4d77-afbc-6648f9329b46.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/1d2a8739-4900-4d77-afbc-6648f9329b46" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/1d2a8739-4900-4d77-afbc-6648f9329b46" type="text/html" />
+    </doap:Project>
+            <doap:Project id="72a6b39f-5ce4-4053-82cf-a81bde516cd8">
+    <doap:name><![CDATA[PhpJsKernel]]></doap:name>
+    <doap:description><![CDATA[js framework]]></doap:description>
+
+    
+    <slug>phpjskernel</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/72a6b39f-5ce4-4053-82cf-a81bde516cd8.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/72a6b39f-5ce4-4053-82cf-a81bde516cd8" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/72a6b39f-5ce4-4053-82cf-a81bde516cd8" type="text/html" />
+    </doap:Project>
+            <doap:Project id="c9de283c-bae5-4f40-a17d-9a9c2bf763e3">
+    <doap:name><![CDATA[events]]></doap:name>
+    <doap:description><![CDATA[events]]></doap:description>
+
+    
+    <slug>events</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/c9de283c-bae5-4f40-a17d-9a9c2bf763e3.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/c9de283c-bae5-4f40-a17d-9a9c2bf763e3" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/c9de283c-bae5-4f40-a17d-9a9c2bf763e3" type="text/html" />
+    </doap:Project>
+            <doap:Project id="3f8426ee-8a42-40e7-ae8f-9f613275fd5b">
+    <doap:name><![CDATA[RukbatBitlyBundle]]></doap:name>
+    <doap:description><![CDATA[Symfony2 bundle for the Bitly API (http://dev.bitly.com/api.html) API.]]></doap:description>
+
+    
+    <slug>rukbatbitlybundle</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/3f8426ee-8a42-40e7-ae8f-9f613275fd5b.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/3f8426ee-8a42-40e7-ae8f-9f613275fd5b" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/3f8426ee-8a42-40e7-ae8f-9f613275fd5b" type="text/html" />
+    </doap:Project>
+            <doap:Project id="02dc7b8c-855b-4c29-bb06-cf72a5b447ba">
+    <doap:name><![CDATA[activecollab-php]]></doap:name>
+    <doap:description><![CDATA[]]></doap:description>
+
+    
+    <slug>activecollab-php</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/02dc7b8c-855b-4c29-bb06-cf72a5b447ba.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/02dc7b8c-855b-4c29-bb06-cf72a5b447ba" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/02dc7b8c-855b-4c29-bb06-cf72a5b447ba" type="text/html" />
+    </doap:Project>
+            <doap:Project id="a99c5557-3b17-44d7-959f-d9439280c105">
+    <doap:name><![CDATA[try_git]]></doap:name>
+    <doap:description><![CDATA[]]></doap:description>
+
+    
+    <slug>try-git</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/a99c5557-3b17-44d7-959f-d9439280c105.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/a99c5557-3b17-44d7-959f-d9439280c105" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/a99c5557-3b17-44d7-959f-d9439280c105" type="text/html" />
+    </doap:Project>
+            <doap:Project id="c62a3c7f-0d29-41fe-9640-acfe833eb1d9">
+    <doap:name><![CDATA[apc-stats]]></doap:name>
+    <doap:description><![CDATA[Web script that shows information about Alternative PHP Cache]]></doap:description>
+
+    
+    <slug>apc-stats</slug>
+    <is-private>false</is-private>
+
+    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/c62a3c7f-0d29-41fe-9640-acfe833eb1d9.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/c62a3c7f-0d29-41fe-9640-acfe833eb1d9" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/c62a3c7f-0d29-41fe-9640-acfe833eb1d9" type="text/html" />
+    </doap:Project>
+            <xhtml:form id="create_project" method="POST" action="https://connect.sensiolabs.com/api/projects" enctype="application/x-www-form-urlencoded">
+    <xhtml:input type="text" name="name" required="required" /><xhtml:input type="text" name="slug" required="required" /><xhtml:input type="number" name="type" required="required" maxlength="2" /><xhtml:input type="text" name="description" required="required" /><xhtml:input type="text" name="url" required="required" /><xhtml:input type="text" name="repositoryUrl" required="required" /><xhtml:input type="checkbox" name="isPrivate" required="required" value="1" />
+</xhtml:form>
+    
+</projects>
+
+</api>

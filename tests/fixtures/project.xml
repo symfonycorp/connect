@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:bio="http://purl.org/vocab/bio/0.1/"
+    xmlns:fc="http://xmlns.com/foaf/corp#"
+    xmlns:wot="http://xmlns.com/wot/0.1/"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns"
+    xmlns:doap="http://usefulinc.com/ns/doap#"
+    xmlns:cv="http://kaste.lv/~captsolo/semweb/resume/cv.rdfs">
+    <doap:Project id="454f1e7a-57d3-4240-a1c1-a3875ec8bc89">
+        <doap:name><![CDATA[MarcWWurstBundle]]></doap:name>
+        <doap:description><![CDATA[Prints some nice würst to your shell]]></doap:description>
+
+        <doap:developer>
+            <foaf:Person id="aa5e22b0-6189-4113-9c68-91d4a3c32b7c">
+                <foaf:name><![CDATA[Marc Weistroff]]></foaf:name>
+                <foaf:mbox_sha1sum>5865060de545f7da5d57c093c5096d89f2fe6740</foaf:mbox_sha1sum>
+                <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/aa5e22b0-6189-4113-9c68-91d4a3c32b7c.png" type="image/png" />
+                <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="application/vnd.com.sensiolabs.connect+xml"/>
+                <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="text/html" />
+            </foaf:Person>
+        </doap:developer>
+        <contributors total="37" count="37" index="0" limit="37">
+            <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/454f1e7a-57d3-4240-a1c1-a3875ec8bc89" type="application/vnd.com.sensiolabs.connect+xml" />
+
+            <doap:developer>
+                <foaf:Person id="aa5e22b0-6189-4113-9c68-91d4a3c32b7c">
+                    <foaf:name><![CDATA[Marc Weistroff]]></foaf:name>
+                    <foaf:mbox_sha1sum>5865060de545f7da5d57c093c5096d89f2fe6740</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/aa5e22b0-6189-4113-9c68-91d4a3c32b7c.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="text/html" />
+                </foaf:Person>
+                <lines-added>114</lines-added>
+                <lines-deleted>5</lines-deleted>
+                <commits>38</commits>
+                <rank>1</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="3ff8c50d-6219-4777-8f21-a24990affc83">
+                    <foaf:name><![CDATA[Loïc Chardonnet]]></foaf:name>
+                    <foaf:mbox_sha1sum>1970808e63fd0f0442e23b4293384391b308a887</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/3ff8c50d-6219-4777-8f21-a24990affc83.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/3ff8c50d-6219-4777-8f21-a24990affc83" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/3ff8c50d-6219-4777-8f21-a24990affc83" type="text/html" />
+                </foaf:Person>
+                <lines-added>281</lines-added>
+                <lines-deleted>185</lines-deleted>
+                <commits>20</commits>
+                <rank>2</rank>
+            </doap:developer>
+            <doap:developer>
+                <lines-added>45</lines-added>
+                <lines-deleted>5</lines-deleted>
+                <commits>4</commits>
+                <rank>3</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="5b128eea-58fa-4680-9147-2fc30b7d863d">
+                    <foaf:name><![CDATA[Andreas Hucks]]></foaf:name>
+                    <foaf:mbox_sha1sum>8be1ed9a0e9a1c2565b1ce077221b97768fd2588</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/5b128eea-58fa-4680-9147-2fc30b7d863d.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/5b128eea-58fa-4680-9147-2fc30b7d863d" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/5b128eea-58fa-4680-9147-2fc30b7d863d" type="text/html" />
+                </foaf:Person>
+                <lines-added>61</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>3</commits>
+                <rank>4</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="5a49a473-8c80-4335-a795-923eab5c66db">
+                    <foaf:name><![CDATA[Victor Berchet]]></foaf:name>
+                    <foaf:mbox_sha1sum>764bf12db1fddde727d4850556ae237b87cc1fca</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/5a49a473-8c80-4335-a795-923eab5c66db.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/5a49a473-8c80-4335-a795-923eab5c66db" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/5a49a473-8c80-4335-a795-923eab5c66db" type="text/html" />
+                </foaf:Person>
+                <lines-added>31</lines-added>
+                <lines-deleted>6</lines-deleted>
+                <commits>3</commits>
+                <rank>5</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="47569c4f-b2b4-4f83-8176-c1509716bcf4">
+                    <foaf:name><![CDATA[Bruno Ziegler]]></foaf:name>
+                    <foaf:mbox_sha1sum>bcda5714612b9ac8f331fe7e57606a6e823e955b</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/47569c4f-b2b4-4f83-8176-c1509716bcf4.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/47569c4f-b2b4-4f83-8176-c1509716bcf4" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/47569c4f-b2b4-4f83-8176-c1509716bcf4" type="text/html" />
+                </foaf:Person>
+                <lines-added>23</lines-added>
+                <lines-deleted>1</lines-deleted>
+                <commits>3</commits>
+                <rank>6</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="90f6d618-48e4-4498-8364-444fd44657be">
+                    <foaf:name><![CDATA[Jean-Marc Chieng]]></foaf:name>
+                    <foaf:mbox_sha1sum>b47a73178c1cfcbf0c2e172e8025e85795a6e235</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/90f6d618-48e4-4498-8364-444fd44657be.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/90f6d618-48e4-4498-8364-444fd44657be" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/90f6d618-48e4-4498-8364-444fd44657be" type="text/html" />
+                </foaf:Person>
+                <lines-added>20</lines-added>
+                <lines-deleted>2</lines-deleted>
+                <commits>3</commits>
+                <rank>7</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="754074b3-43e4-4fcb-a3f0-e3278afb8ade">
+                    <foaf:name><![CDATA[Tobias Sjösten]]></foaf:name>
+                    <foaf:mbox_sha1sum>ec0f8275cb4a1fdd280a3bd0ad23582e54dbc95a</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/754074b3-43e4-4fcb-a3f0-e3278afb8ade.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/754074b3-43e4-4fcb-a3f0-e3278afb8ade" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/754074b3-43e4-4fcb-a3f0-e3278afb8ade" type="text/html" />
+                </foaf:Person>
+                <lines-added>28</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>2</commits>
+                <rank>8</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="fdc60650-bdf6-4590-9251-feec2a67fde9">
+                    <foaf:name><![CDATA[Olivier Dolbeau]]></foaf:name>
+                    <foaf:mbox_sha1sum>400f7378900696c9ffcb566b0c4b4088b4b35770</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/fdc60650-bdf6-4590-9251-feec2a67fde9.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/fdc60650-bdf6-4590-9251-feec2a67fde9" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/fdc60650-bdf6-4590-9251-feec2a67fde9" type="text/html" />
+                </foaf:Person>
+                <lines-added>18</lines-added>
+                <lines-deleted>2</lines-deleted>
+                <commits>2</commits>
+                <rank>9</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="93c7ea36-ddcd-482d-990d-963242739250">
+                    <foaf:name><![CDATA[Christoph Nissle]]></foaf:name>
+                    <foaf:mbox_sha1sum>42511252e3339e3be976eeea6622a391993de8f5</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/93c7ea36-ddcd-482d-990d-963242739250.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/93c7ea36-ddcd-482d-990d-963242739250" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/93c7ea36-ddcd-482d-990d-963242739250" type="text/html" />
+                </foaf:Person>
+                <lines-added>78</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>10</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="d9dd7614-bf74-4e08-87f5-8524f2370ba1">
+                    <foaf:name><![CDATA[Julian]]></foaf:name>
+                    <foaf:mbox_sha1sum>f538845cd5ef63e23566b18ee1c379fb045fdbfa</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/d9dd7614-bf74-4e08-87f5-8524f2370ba1.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/d9dd7614-bf74-4e08-87f5-8524f2370ba1" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/d9dd7614-bf74-4e08-87f5-8524f2370ba1" type="text/html" />
+                </foaf:Person>
+                <lines-added>73</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>11</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="f1b870b8-758a-43eb-8dab-2e193c90ae4f">
+                    <foaf:name><![CDATA[Gordon Franke]]></foaf:name>
+                    <foaf:mbox_sha1sum>bb9d9b75b544a9334ae48603a75ea944dd4ba364</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/f1b870b8-758a-43eb-8dab-2e193c90ae4f.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/f1b870b8-758a-43eb-8dab-2e193c90ae4f" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/f1b870b8-758a-43eb-8dab-2e193c90ae4f" type="text/html" />
+                </foaf:Person>
+                <lines-added>72</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>12</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="7c92e89e-1107-4d87-8370-40d93f4e5f3e">
+                    <foaf:name><![CDATA[Julien Moulin]]></foaf:name>
+                    <foaf:mbox_sha1sum>c7886d87045194819a7e615ebbb5e47921760751</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/7c92e89e-1107-4d87-8370-40d93f4e5f3e.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/7c92e89e-1107-4d87-8370-40d93f4e5f3e" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/7c92e89e-1107-4d87-8370-40d93f4e5f3e" type="text/html" />
+                </foaf:Person>
+                <lines-added>50</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>13</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="28bb3cd5-982e-4f03-a3c4-311f507a4a51">
+                    <foaf:name><![CDATA[Daniel Tiecher]]></foaf:name>
+                    <foaf:mbox_sha1sum>3fea4a81c36b56e0a7a04bcc57b84f50419c8ba3</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/28bb3cd5-982e-4f03-a3c4-311f507a4a51.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/28bb3cd5-982e-4f03-a3c4-311f507a4a51" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/28bb3cd5-982e-4f03-a3c4-311f507a4a51" type="text/html" />
+                </foaf:Person>
+                <lines-added>49</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>14</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="fb253286-30f0-4103-8f18-bcc6b65fbe1c">
+                    <foaf:name><![CDATA[Dennis Benkert]]></foaf:name>
+                    <foaf:mbox_sha1sum>fd1d76905cb9cbf4188598651fb6604cd7d86450</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/fb253286-30f0-4103-8f18-bcc6b65fbe1c.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/fb253286-30f0-4103-8f18-bcc6b65fbe1c" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/fb253286-30f0-4103-8f18-bcc6b65fbe1c" type="text/html" />
+                </foaf:Person>
+                <lines-added>47</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>15</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="238b6b91-0e09-4756-ad56-6d7354630616">
+                    <foaf:name><![CDATA[Frank Stelzer]]></foaf:name>
+                    <foaf:mbox_sha1sum>35f060ebd3f743a827864b572da5e18ca633c839</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/238b6b91-0e09-4756-ad56-6d7354630616.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/238b6b91-0e09-4756-ad56-6d7354630616" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/238b6b91-0e09-4756-ad56-6d7354630616" type="text/html" />
+                </foaf:Person>
+                <lines-added>46</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>16</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="46f8e336-1f1d-473a-bbdb-d7c6dd4d57f6">
+                    <foaf:name><![CDATA[Pierre Minnieur]]></foaf:name>
+                    <foaf:mbox_sha1sum>54f9d49a0d5f537db06546b236c7a7b07c2dfd2f</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/46f8e336-1f1d-473a-bbdb-d7c6dd4d57f6.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/46f8e336-1f1d-473a-bbdb-d7c6dd4d57f6" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/46f8e336-1f1d-473a-bbdb-d7c6dd4d57f6" type="text/html" />
+                </foaf:Person>
+                <lines-added>39</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>17</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="278a2fa8-64b4-4ecf-823a-f17827f0d46c">
+                    <foaf:name><![CDATA[Jérémy Romey]]></foaf:name>
+                    <foaf:mbox_sha1sum>c092711b45bed1cc39b77c068928edd8c56ff2bb</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/278a2fa8-64b4-4ecf-823a-f17827f0d46c.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/278a2fa8-64b4-4ecf-823a-f17827f0d46c" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/278a2fa8-64b4-4ecf-823a-f17827f0d46c" type="text/html" />
+                </foaf:Person>
+                <lines-added>38</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>18</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="2c9c378f-108f-4a7f-a7ce-1751b2162160">
+                    <foaf:name><![CDATA[Cédric Dugat]]></foaf:name>
+                    <foaf:mbox_sha1sum>12e565b7ab0ac6993d8fb9da9de19d1d7a91365e</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/2c9c378f-108f-4a7f-a7ce-1751b2162160.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/2c9c378f-108f-4a7f-a7ce-1751b2162160" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/2c9c378f-108f-4a7f-a7ce-1751b2162160" type="text/html" />
+                </foaf:Person>
+                <lines-added>38</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>19</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="d0cc4980-3f85-4dc3-9b88-9dee27c09efb">
+                    <foaf:name><![CDATA[Jörn Wagner]]></foaf:name>
+                    <foaf:mbox_sha1sum>4ff32c2b3f462ce3045a3b5901205dde92b721e0</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/d0cc4980-3f85-4dc3-9b88-9dee27c09efb.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/d0cc4980-3f85-4dc3-9b88-9dee27c09efb" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/d0cc4980-3f85-4dc3-9b88-9dee27c09efb" type="text/html" />
+                </foaf:Person>
+                <lines-added>35</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>20</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="52853551-ca9d-4fe0-a33e-08cd0b58a333">
+                    <foaf:name><![CDATA[Xavier Briand]]></foaf:name>
+                    <foaf:mbox_sha1sum>ff6eb978d2e519801d2ced5a5385d1d7dfae2eb5</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/52853551-ca9d-4fe0-a33e-08cd0b58a333.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/52853551-ca9d-4fe0-a33e-08cd0b58a333" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/52853551-ca9d-4fe0-a33e-08cd0b58a333" type="text/html" />
+                </foaf:Person>
+                <lines-added>35</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>21</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="fed0c5ad-b7b5-4024-a751-0974f7465e75">
+                    <foaf:name><![CDATA[Jeremy Mikola]]></foaf:name>
+                    <foaf:mbox_sha1sum>458a0e73db438fa16da00f40fa7152044b5f0bce</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/fed0c5ad-b7b5-4024-a751-0974f7465e75.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/fed0c5ad-b7b5-4024-a751-0974f7465e75" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/fed0c5ad-b7b5-4024-a751-0974f7465e75" type="text/html" />
+                </foaf:Person>
+                <lines-added>34</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>22</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="d943b779-688a-4381-a6e2-76ffba8e1c79">
+                    <foaf:name><![CDATA[Nicolas ADLER]]></foaf:name>
+                    <foaf:mbox_sha1sum>d75a40d8794bf895ad96e4451ac9810065683657</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/d943b779-688a-4381-a6e2-76ffba8e1c79.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/d943b779-688a-4381-a6e2-76ffba8e1c79" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/d943b779-688a-4381-a6e2-76ffba8e1c79" type="text/html" />
+                </foaf:Person>
+                <lines-added>34</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>23</rank>
+            </doap:developer>
+            <doap:developer>
+                <lines-added>29</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>24</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="e15cbda8-edd5-4bf8-a65d-786c9f3b0579">
+                    <foaf:name><![CDATA[Hugo Hamon]]></foaf:name>
+                    <foaf:mbox_sha1sum>85de154eb42f8b9b7b2a7c6e4cc0f59ae83b05b7</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/e15cbda8-edd5-4bf8-a65d-786c9f3b0579.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/e15cbda8-edd5-4bf8-a65d-786c9f3b0579" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/e15cbda8-edd5-4bf8-a65d-786c9f3b0579" type="text/html" />
+                </foaf:Person>
+                <lines-added>28</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>25</rank>
+            </doap:developer>
+            <doap:developer>
+                <lines-added>26</lines-added>
+                <lines-deleted>2</lines-deleted>
+                <commits>1</commits>
+                <rank>26</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="7a33c799-5903-4d9d-a2c9-6f9d34eb7e74">
+                    <foaf:name><![CDATA[Florian Klein]]></foaf:name>
+                    <foaf:mbox_sha1sum>6188aa1799ee2f9fa886b65dff6dc51469370433</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/7a33c799-5903-4d9d-a2c9-6f9d34eb7e74.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/7a33c799-5903-4d9d-a2c9-6f9d34eb7e74" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/7a33c799-5903-4d9d-a2c9-6f9d34eb7e74" type="text/html" />
+                </foaf:Person>
+                <lines-added>24</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>27</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="ac63d37f-0e8d-4d43-8195-da1424ae9379">
+                    <foaf:name><![CDATA[Peter Dietrich]]></foaf:name>
+                    <foaf:mbox_sha1sum>b69b995940f570a09e20fa20741310d98fb02335</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/ac63d37f-0e8d-4d43-8195-da1424ae9379.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/ac63d37f-0e8d-4d43-8195-da1424ae9379" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/ac63d37f-0e8d-4d43-8195-da1424ae9379" type="text/html" />
+                </foaf:Person>
+                <lines-added>24</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>28</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="90f28e69-9ce9-4a42-8b0e-e8c7fcc27713">
+                    <foaf:name><![CDATA[Grégoire Pineau]]></foaf:name>
+                    <foaf:mbox_sha1sum>bb2f8d37f9318da8d499aef30a5931c6ff068ae6</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713" type="text/html" />
+                </foaf:Person>
+                <lines-added>17</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>29</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="e5fe6d61-c7d3-42cf-88ab-3758baaa27e6">
+                    <foaf:name><![CDATA[Nils Adermann]]></foaf:name>
+                    <foaf:mbox_sha1sum>90933f1d724302423ec0a0d7c9acd2bb193fd731</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/e5fe6d61-c7d3-42cf-88ab-3758baaa27e6.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/e5fe6d61-c7d3-42cf-88ab-3758baaa27e6" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/e5fe6d61-c7d3-42cf-88ab-3758baaa27e6" type="text/html" />
+                </foaf:Person>
+                <lines-added>17</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>30</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="106f311e-87b0-411c-b001-4f4805164b4a">
+                    <foaf:name><![CDATA[Stefan Koopmanschap]]></foaf:name>
+                    <foaf:mbox_sha1sum>706b5d9595f31dfc53daf573edb1f6ea780f4b3a</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/106f311e-87b0-411c-b001-4f4805164b4a.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/106f311e-87b0-411c-b001-4f4805164b4a" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/106f311e-87b0-411c-b001-4f4805164b4a" type="text/html" />
+                </foaf:Person>
+                <lines-added>16</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>31</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="1ad3f1c6-0ea7-42de-8a52-64577d15c077">
+                    <foaf:name><![CDATA[Cyrille Bourgois]]></foaf:name>
+                    <foaf:mbox_sha1sum>12905506d0789cdad4c1881bb9ce05e816f1df42</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/1ad3f1c6-0ea7-42de-8a52-64577d15c077.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/1ad3f1c6-0ea7-42de-8a52-64577d15c077" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/1ad3f1c6-0ea7-42de-8a52-64577d15c077" type="text/html" />
+                </foaf:Person>
+                <lines-added>14</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>32</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="21c7abf2-a970-433e-be9a-d06fb9419d24">
+                    <foaf:name><![CDATA[Pascal Borreli]]></foaf:name>
+                    <foaf:mbox_sha1sum>ec216a851bc18ba25e77050a2353f4999eb0bf7a</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/21c7abf2-a970-433e-be9a-d06fb9419d24.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/21c7abf2-a970-433e-be9a-d06fb9419d24" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/21c7abf2-a970-433e-be9a-d06fb9419d24" type="text/html" />
+                </foaf:Person>
+                <lines-added>4</lines-added>
+                <lines-deleted>8</lines-deleted>
+                <commits>1</commits>
+                <rank>33</rank>
+            </doap:developer>
+            <doap:developer>
+                <lines-added>3</lines-added>
+                <lines-deleted>3</lines-deleted>
+                <commits>1</commits>
+                <rank>34</rank>
+            </doap:developer>
+            <doap:developer>
+                <lines-added>1</lines-added>
+                <lines-deleted>1</lines-deleted>
+                <commits>1</commits>
+                <rank>35</rank>
+            </doap:developer>
+            <doap:developer>
+                <foaf:Person id="1de5fb80-abab-4e9b-8f84-e98f7aae44a5">
+                    <foaf:name><![CDATA[Julien Galenski]]></foaf:name>
+                    <foaf:mbox_sha1sum>a819b464b20f9c6253d60878e8000b23dede35c2</foaf:mbox_sha1sum>
+                    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/1de5fb80-abab-4e9b-8f84-e98f7aae44a5.png" type="image/png" />
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/1de5fb80-abab-4e9b-8f84-e98f7aae44a5" type="application/vnd.com.sensiolabs.connect+xml"/>
+                    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/1de5fb80-abab-4e9b-8f84-e98f7aae44a5" type="text/html" />
+                </foaf:Person>
+                <lines-added>1</lines-added>
+                <lines-deleted>1</lines-deleted>
+                <commits>1</commits>
+                <rank>36</rank>
+            </doap:developer>
+            <doap:developer>
+                <lines-added>0</lines-added>
+                <lines-deleted>0</lines-deleted>
+                <commits>1</commits>
+                <rank>37</rank>
+            </doap:developer>
+
+        </contributors>
+
+        <doap:Repository>
+            <doap:GitRepository>
+                <doap:location>https://github.com/marcw/MarcWWurstBundle.git</doap:location>
+            </doap:GitRepository>
+        </doap:Repository>
+        <doap:homepage>http://symfony.com</doap:homepage>
+        <doap:category>Symfony Bundle</doap:category>
+
+        <slug>marcwwurstbundle</slug>
+        <is-private>false</is-private>
+
+        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/454f1e7a-57d3-4240-a1c1-a3875ec8bc89.png" type="image/png" />
+        <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/454f1e7a-57d3-4240-a1c1-a3875ec8bc89" type="application/vnd.com.sensiolabs.connect+xml" />
+        <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/454f1e7a-57d3-4240-a1c1-a3875ec8bc89" type="text/html" />
+    </doap:Project>
+</api>
