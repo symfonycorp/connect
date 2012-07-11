@@ -94,7 +94,7 @@ class VndComSensioLabsConnectXmlParser implements ParserInterface
 
     protected function parseRoot(\DOMElement $element)
     {
-        $root = new Root();
+        $root = $this->getRootInstance();
 
         $projectsLink = $this->xpath->query('./atom:link[@rel="https://rels.connect.sensiolabs.com/projects"]', $element);
         $root->setProjectsUrl($projectsLink->item(0)->attributes->getNamedItem('href')->value);
@@ -362,7 +362,7 @@ class VndComSensioLabsConnectXmlParser implements ParserInterface
         return $badge;
     }
 
-    public function parseContributor(\DOMElement $element)
+    protected function parseContributor(\DOMElement $element)
     {
         $contributor = new Contributor();
         $contributor->setLinesAdded($this->getNodeValue('./lines-added', $element));
@@ -427,6 +427,11 @@ class VndComSensioLabsConnectXmlParser implements ParserInterface
         }
 
         return $value;
+    }
+
+    protected function getRootInstance()
+    {
+        return new Root();
     }
 }
 
