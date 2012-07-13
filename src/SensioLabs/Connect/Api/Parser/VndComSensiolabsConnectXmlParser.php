@@ -25,11 +25,11 @@ use SensioLabs\Connect\Api\Entity\Contributor;
 use SensioLabs\Connect\Api\Model\Form;
 
 /**
- * VndComSensioLabsConnectXmlParser
+ * VndComSensiolabsConnectXmlParser
  *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
-class VndComSensioLabsConnectXmlParser implements ParserInterface
+class VndComSensiolabsConnectXmlParser implements ParserInterface
 {
     protected $dom;
     protected $xpath;

@@ -33,7 +33,7 @@ class Api
     public function __construct($endpoint = 'https://connect.sensiolabs.com/api', Browser $browser = null, ParserInterface $parser = null, LoggerInterface $logger = null)
     {
         $this->browser = $browser ?: new Browser();
-        $this->parser = $parser ?: new VndComSensioLabsConnectXmlParser();
+        $this->parser = $parser ?: new VndComSensiolabsConnectXmlParser();
         $this->endpoint = $endpoint;
         $this->logger = $logger;
     }

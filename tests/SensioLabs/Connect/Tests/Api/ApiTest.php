@@ -16,7 +16,7 @@ use SensioLabs\Connect\Api\Buzz\Browser;
 
 use SensioLabs\Connect\Api\Api;
 use SensioLabs\Connect\Api\Model\Form;
-use SensioLabs\Connect\Api\Parser\VndComSensioLabsConnectXmlParser;
+use SensioLabs\Connect\Api\Parser\VndComSensiolabsConnectXmlParser;
 use SensioLabs\Connect\Api\Entity;
 
 /**
@@ -63,7 +63,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
                 ->will($this->returnCallback($callback));
 
         $this->api = new Api('http://connect.sensiolabs.com/api', $browser);
-        $this->parser = new VndComSensioLabsConnectXmlParser();
+        $this->parser = new VndComSensiolabsConnectXmlParser();
     }
 
     public function testAccessTokenAccessorsAndMutators()
