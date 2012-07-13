@@ -12,12 +12,7 @@
 namespace SensioLabs\Connect\Test\Api;
 
 use Buzz\Message\Response;
-use SensioLabs\Connect\Api\Buzz\Browser;
-
 use SensioLabs\Connect\Api\Api;
-use SensioLabs\Connect\Api\Model\Form;
-use SensioLabs\Connect\Api\Parser\VndComSensiolabsConnectXmlParser;
-use SensioLabs\Connect\Api\Entity;
 
 /**
  * ApitTest.
@@ -31,39 +26,12 @@ class ApiTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $map = array(
-            '/users$/'             => 'users.xml',
-            '/users\/.+$/'         => 'user.xml',
-            '/clubs$/'             => 'clubs.xml',
-            '/clubs\/.+$/'         => 'club.xml',
-            '/projects$/'          => 'projects.xml',
-            '/projects\/.+$/'      => 'project.xml',
-        );
+        $this->browser = $this->getMock('Buzz\\Browser');
+        $this->parser = $this->getMock('SensioLabs\\Connect\\Api\\Parser\\ParserInterface');
+        $this->logger = $this->getMock('Symfony\\Component\\HttpKernel\\Log\\LoggerInterface', array('info', 'debug'));
+        $this->xml = file_get_contents(__DIR__.'/../../../../fixtures/root.xml');
 
-        $response = $this->getMock('Buzz\Message\Response', array('setStatusCode'));
-        $browser = $this->getMock('Buzz\Browser', array('get', 'submit'));
-
-        $callback = function($url, $headers) use ($map) {
-            $response = new Response();
-
-            foreach ($map as $pattern => $file) {
-                if (0 < preg_match($pattern, $url)) {
-                    $response->setContent(file_get_contents(__DIR__.'/../../../../fixtures/'.$file));
-                }
-            }
-
-            return $response;
-        };
-
-        $browser->expects($this->any())
-                ->method('get')
-                ->will($this->returnCallback($callback));
-        $browser->expects($this->any())
-                ->method('submit')
-                ->will($this->returnCallback($callback));
-
-        $this->api = new Api('http://connect.sensiolabs.com/api', $browser);
-        $this->parser = new VndComSensiolabsConnectXmlParser();
+        $this->api = new Api('http://foobar/api', $this->browser, null, $this->logger);
     }
 
     public function testAccessTokenAccessorsAndMutators()
@@ -74,33 +42,120 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->api->getAccessToken());
     }
 
-    public function testGetRootAsAnonymous()
+    public function testGet()
     {
-        $rootXml = file_get_contents(__DIR__.'/../../../../fixtures/root.xml');
-        $root = $this->parser->parse($rootXml);
-        $this->assertTrue($root instanceof Entity\Root);
+        $this->browser->expects($this->once())
+                      ->method('get')
+                      ->with('http://foobar/api/', array('Accept: application/vnd.com.sensiolabs.connect+xml'))
+                      ->will($this->returnValue($this->createResponse()));
 
-        $root->setApi($this->api);
+        $object = $this->api->get('http://foobar/api/');
+        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Root', $object);
+    }
 
-        // Test on existence of Forms
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Form', $root->getForm('search_projects'));
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Form', $root->getForm('search_users'));
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Form', $root->getForm('search_clubs'));
+    public function testGetReturnsTrueIfServerReturns204StatusCode()
+    {
+        $this->browser->expects($this->once())
+                      ->method('get')
+                      ->with('http://foobar/api/')
+                      ->will($this->returnValue($this->createResponse('204')));
 
-        // Test Project methods
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $root->getLastProjects());
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $root->searchProjects('tagadajones'));
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Project', $root->getProject('1111-22222-3333'));
+        $this->assertTrue($this->api->get('http://foobar/api/'));
+    }
 
-        // Test Clubs methods
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $root->getLastClubs());
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $root->searchClubs('tagadajones'));
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Club', $root->getClub('1111-22222-3333'));
+    /**
+     * @expectedException SensioLabs\Connect\Exception\ApiClientException
+     */
+    public function testGetThrowsClientExceptionWhenServerReturns40xStatusCode()
+    {
+        $this->browser->expects($this->once())
+                      ->method('get')
+                      ->with('http://foobar/api/')
+                      ->will($this->returnValue($this->createResponse('400')));
 
-        // Test Users methods
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $root->getLastUsers());
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $root->searchUsers('tagadajones'));
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\User', $root->getUser('1111-22222-3333'));
+        $this->api->get('http://foobar/api/');
+    }
+
+    /**
+     * @expectedException SensioLabs\Connect\Exception\ApiServerException
+     */
+    public function testGetThrowsServerExceptionWhenServerReturns50xStatusCode()
+    {
+        $this->browser->expects($this->once())
+                      ->method('get')
+                      ->with('http://foobar/api/')
+                      ->will($this->returnValue($this->createResponse('500')));
+
+        $this->api->get('http://foobar/api/');
+    }
+
+    public function testGetAddsAccessTokenToQueryParameter()
+    {
+        $this->api->setAccessToken('foobar');
+        $this->browser->expects($this->once())
+                      ->method('get')
+                      ->with('http://foobar/api/?access_token=foobar')
+                      ->will($this->returnValue($this->createResponse()));
+
+        $this->api->get('http://foobar/api/');
+    }
+
+    public function testSubmit()
+    {
+        $this->api->setAccessToken('foobar');
+        $this->browser->expects($this->once())
+                      ->method('submit')
+                      ->with('http://foobar/api/?access_token=foobar', array('foo' => 'bar'), 'POST', array('Accept: application/vnd.com.sensiolabs.connect+xml'))
+                      ->will($this->returnValue($this->createResponse('204', false)));
+
+        $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+    }
+
+    /**
+     * @expectedException SensioLabs\Connect\Exception\ApiClientException
+     */
+    public function testSubmitThrowsClientExceptionWhenServerReturns40xStatusCode()
+    {
+        $this->browser->expects($this->once())
+                      ->method('submit')
+                      ->with('http://foobar/api/')
+                      ->will($this->returnValue($this->createResponse('400')));
+
+        $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+    }
+
+    /**
+     * @expectedException SensioLabs\Connect\Exception\ApiServerException
+     */
+    public function testSubmitThrowsServerExceptionWhenServerReturns50xStatusCode()
+    {
+        $this->browser->expects($this->once())
+                      ->method('submit')
+                      ->with('http://foobar/api/')
+                      ->will($this->returnValue($this->createResponse('500')));
+
+        $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+    }
+
+    public function getRoot()
+    {
+        $this->browser->expects($this->once())
+                      ->method('get')
+                      ->with('http://foobar/api/')
+                      ->will($this->returnValue($this->createResponse()));
+
+        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Root', $this->api->getRoot());
+    }
+
+    private function createResponse($statusCode = 200, $content = true)
+    {
+        $response = new Response();
+        $response->setHeaders(array(sprintf("HTTP/1.1 %s FOOBAR", $statusCode)));
+        if ($content) {
+            $response->setContent($this->xml);
+        }
+
+        return $response;
     }
 }
 

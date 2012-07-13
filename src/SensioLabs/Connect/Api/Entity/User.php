@@ -11,8 +11,6 @@
 
 namespace SensioLabs\Connect\Api\Entity;
 
-use SensioLabs\Connect\Api\Api;
-
 /**
  * User.
  *
@@ -45,15 +43,6 @@ class User extends AbstractEntity
              ->addProperty('memberships')
              ->addProperty('badges')
         ;
-    }
-
-    public function setApi(Api $api)
-    {
-        parent::setApi($api);
-
-        if ($this->getBadges()) {
-            $this->getBadges()->setApi($api);
-        }
     }
 
     public function getBirthday()

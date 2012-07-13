@@ -28,6 +28,9 @@ class VndComSensiolabsConnectXmlParserTest extends \PHPUnit_Framework_TestCase
         $root = $this->parser->parse($rootXml);
 
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Root', $root);
+        $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Form', $root->getForm('search_projects'));
+        $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Form', $root->getForm('search_users'));
+        $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Form', $root->getForm('search_clubs'));
     }
 
     /**

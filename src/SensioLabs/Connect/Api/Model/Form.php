@@ -33,7 +33,7 @@ class Form
     {
         $this->action = $action;
     }
-    
+
     public function getAction()
     {
         return $this->action;
@@ -43,7 +43,7 @@ class Form
     {
         $this->method = $method;
     }
-    
+
     public function getMethod()
     {
         return $this->method;
@@ -69,3 +69,4 @@ class Form
         return $this->fields;
     }
 }
+

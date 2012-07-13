@@ -13,7 +13,6 @@ namespace SensioLabs\Connect\Api\Entity;
 
 use SensioLabs\Connect\Api\Api;
 use SensioLabs\Connect\Api\Model\Form;
-use Symfony\Component\Form\Util\PropertyPath;
 
 /**
  * AbstractEntity.
@@ -40,6 +39,11 @@ abstract class AbstractEntity implements \ArrayAccess
     public function setApi(Api $api)
     {
         $this->api = $api;
+        foreach ($this->properties as $property) {
+            if ($property instanceof AbstractEntity) {
+                $property->setApi($api);
+            }
+        }
     }
 
     public function getApi()
@@ -49,8 +53,7 @@ abstract class AbstractEntity implements \ArrayAccess
 
     public function refresh()
     {
-        $response = $this->getApi()->get($this->selfUrl);
-        $fresh = $response['entity'];
+        $fresh = $this->getApi()->get($this->selfUrl);
         foreach ($this->properties as $key => $property) {
             $this->set($key, $fresh->get($key));
         }
@@ -86,7 +89,7 @@ abstract class AbstractEntity implements \ArrayAccess
     {
         return $this->forms[$formId];
     }
-    
+
     public function getForms()
     {
         return $this->forms;
@@ -100,16 +103,14 @@ abstract class AbstractEntity implements \ArrayAccess
         if (null === $entity) {
             $entity = $this;
         }
-        
+
         foreach ($fields as $key => $value) {
             if ($entity->has($key)) {
                 $fields[$key] = $entity->get($key);
             }
         }
 
-        $response = $this->api->submit($form->getAction(), $form->getMethod(), $fields);
-
-        return $response;
+        return $this->api->submit($form->getAction(), $form->getMethod(), $fields);
     }
 
     public function __call($name, $arguments)

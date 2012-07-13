@@ -11,9 +11,6 @@
 
 namespace SensioLabs\Connect\Api\Entity;
 
-use SensioLabs\Connect\Api\Exception\ApiException;
-use SensioLabs\Connect\Api\Api;
-
 /**
  * Root.
  *
@@ -36,94 +33,66 @@ class Root extends AbstractEntity
 
     public function getLastProjects()
     {
-        $response = $this->getApi()->get($this->getProjectsUrl());
-
-        return $response['entity'];
+        return $this->getApi()->get($this->getProjectsUrl());
     }
 
     public function searchProjects($q)
     {
         $form = $this->getForm('search_projects');
         $form->addField('q', $q);
-        $response = $this->submit('search_projects');
 
-        return $response['entity'];
+        return $this->submit('search_projects');
     }
 
     public function getProject($uuid)
     {
-        $response = $this->getApi()->get($this->getProjectsUrl().'/'.$uuid);
-
-        return $response['entity'];
+        $this->getApi()->get($this->getProjectsUrl().'/'.$uuid);
     }
 
     public function getBadges()
     {
-        $response = $this->getApi()->get($this->getBadgesUrl());
-
-        return $response['entity'];
+        return $this->getApi()->get($this->getBadgesUrl());
     }
 
     public function getBadge($uuid)
     {
-        $response = $this->getApi()->get($this->getBadgesUrl().'/'.$uuid);
-
-        return $response['entity'];
+        return $this->getApi()->get($this->getBadgesUrl().'/'.$uuid);
     }
 
     public function getLastUsers()
     {
-        $response = $this->getApi()->get($this->getUsersUrl());
-
-        return $response['entity'];
+        return $this->getApi()->get($this->getUsersUrl());
     }
 
     public function searchUsers($q)
     {
         $form = $this->getForm('search_users');
-        $form->addField('q', $q); 
-        $response = $this->submit('search_users');
+        $form->addField('q', $q);
 
-        return $response['entity'];
+        return $this->submit('search_users');
     }
 
     public function getUser($uuid)
     {
-        $response = $this->getApi()->get($this->getUsersUrl().'/'.$uuid);
-
-        return $response['entity'];
+        return $this->getApi()->get($this->getUsersUrl().'/'.$uuid);
     }
 
     public function getLastClubs()
     {
-        $response = $this->getApi()->get($this->getClubsUrl());
-
-        return $response['entity'];
+        return $this->getApi()->get($this->getClubsUrl());
     }
 
     public function searchClubs($q)
     {
         $form = $this->getForm('search_clubs');
         $form->addField('q', $q);
-        $response = $this->submit('search_clubs');
 
-        return $response['entity'];
+        return $this->submit('search_clubs');
     }
 
     public function getClub($uuid)
     {
-        $response = $this->getApi()->get($this->getClubsUrl().'/'.$uuid);
-
-        return $response['entity'];
-    }
-
-    public function setApi(Api $api)
-    {
-        parent::setApi($api);
-
-        if ($this->getCurrentUser()) {
-            $this->getCurrentUser()->setApi($api);
-        }
+        return $this->getApi()->get($this->getClubsUrl().'/'.$uuid);
     }
 }
 

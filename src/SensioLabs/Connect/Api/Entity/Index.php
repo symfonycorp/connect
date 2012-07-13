@@ -12,7 +12,6 @@
 namespace SensioLabs\Connect\Api\Entity;
 
 use SensioLabs\Connect\Api\Api;
-use SensioLabs\Connect\Exception\ApiException;
 
 /**
  * Index.
@@ -41,7 +40,7 @@ class Index extends AbstractEntity implements \Countable, \ArrayAccess, \Iterato
             return $response['entity'];
         }
 
-        throw new ApiException('I do not know how to get the next elements of this index.');
+        throw new \RuntimeException('I do not know how to get the next elements of this index.');
     }
 
     public function getPrev()
@@ -52,7 +51,7 @@ class Index extends AbstractEntity implements \Countable, \ArrayAccess, \Iterato
             return $response['entity'];
         }
 
-        throw new ApiException('I do not know how to get the previous elements of this index.');
+        throw new \RuntimeException('I do not know how to get the previous elements of this index.');
     }
 
     public function setApi(Api $api)

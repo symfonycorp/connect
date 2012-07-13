@@ -15,7 +15,6 @@ namespace SensioLabs\Connect\Api\Entity;
  * Club
  *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
- * @todo Override setApi to apply it to children Contributor/User
  */
 class Club extends AbstractEntity
 {

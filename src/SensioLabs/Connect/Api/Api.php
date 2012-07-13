@@ -12,9 +12,11 @@
 namespace SensioLabs\Connect\Api;
 
 use Buzz\Browser;
+use Buzz\Message\Response;
+use SensioLabs\Connect\Exception\ApiServerException;
+use SensioLabs\Connect\Exception\ApiClientException;
 use SensioLabs\Connect\Api\Parser\ParserInterface;
-use SensioLabs\Connect\Api\Parser\VndComSensiolabsConnectXmlParser;
-use SensioLabs\Connect\Exception\ApiException;
+use SensioLabs\Connect\Api\Parser\VndComSensiolabsConnectXmlParser as Parser;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
 
 /**
@@ -33,20 +35,14 @@ class Api
     public function __construct($endpoint = 'https://connect.sensiolabs.com/api', Browser $browser = null, ParserInterface $parser = null, LoggerInterface $logger = null)
     {
         $this->browser = $browser ?: new Browser();
-        $this->parser = $parser ?: new VndComSensiolabsConnectXmlParser();
+        $this->parser = $parser ?: new Parser();
         $this->endpoint = $endpoint;
         $this->logger = $logger;
     }
 
-    public function getRoot($accessToken = null)
+    public function getRoot()
     {
-        if (null !== $accessToken) {
-            $this->accessToken = $accessToken;
-        }
-
-        $response = $this->get($this->endpoint);
-
-        return $response['entity'];
+        return $this->get($this->endpoint);
     }
 
     public function setAccessToken($accessToken)
@@ -72,17 +68,7 @@ class Api
             $this->logger->info(sprintf('GET %s', $url));
         }
 
-        $response = $this->browser->get($url, array_merge($headers, $this->getAcceptHeader()));
-
-        if (null !== $this->logger) {
-            $this->logger->info(sprintf('Status Code %s', $response->getStatusCode()));
-            $this->logger->debug($response->getContent());
-        }
-
-        $object = $this->parser->parse($response->getContent());
-        $object->setApi($this);
-
-        return array('response' => $response, 'entity' => $object);
+        return $this->processResponse($this->browser->get($url, array_merge($headers, $this->getAcceptHeader())));
     }
 
     public function submit($url, $method = 'POST', array $fields, $headers = array())
@@ -94,20 +80,34 @@ class Api
             $this->logger->debug(sprintf('Posted fields: %s', json_encode($fields)));
         }
 
-        $response = $this->browser->submit($url, $fields, $method, array_merge($headers, $this->getAcceptHeader()));
+        return $this->processResponse($this->browser->submit($url, $fields, $method, array_merge($headers, $this->getAcceptHeader())));
+    }
 
+    private function processResponse(Response $response)
+    {
         if (null !== $this->logger) {
             $this->logger->info(sprintf('Status Code %s', $response->getStatusCode()));
             $this->logger->debug(var_export($response->getContent(), true));
         }
 
-        $object = null;
+        if (500 <= $response->getStatusCode()) {
+            throw new ApiServerException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders());
+        }
+
+        if (400 <= $response->getStatusCode()) {
+            throw new ApiClientException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders());
+        }
+
+        if (204 === $response->getStatusCode()) {
+            return true;
+        }
+
         if (null !== $response->getContent()) {
             $object = $this->parser->parse($response->getContent());
             $object->setApi($this);
-        }
 
-        return array('response' => $response, 'entity' => $object);
+            return $object;
+        }
     }
 
     private function getAcceptHeader()
