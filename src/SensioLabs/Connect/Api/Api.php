@@ -40,7 +40,10 @@ class Api
 
     public function getRoot($accessToken = null)
     {
-        $this->accessToken = $accessToken;
+        if (null !== $accessToken) {
+            $this->accessToken = $accessToken;
+        }
+
         $response = $this->get($this->endpoint);
 
         return $response['entity'];
@@ -63,7 +66,8 @@ class Api
 
     public function get($url, $headers = array())
     {
-        $url = $this->constructUrlWithAccessToken($url, $this->accessToken);
+        $url = $this->constructUrlWithAccessToken($url);
+
         if (null !== $this->logger) {
             $this->logger->info(sprintf('GET %s', $url));
         }
@@ -81,16 +85,16 @@ class Api
         return array('response' => $response, 'entity' => $object);
     }
 
-    public function submit($url, $method = 'POST', array $fields, $accessToken = null, $headers = array())
+    public function submit($url, $method = 'POST', array $fields, $headers = array())
     {
-        $url = $this->constructUrlWithAccessToken($url, $accessToken);
+        $url = $this->constructUrlWithAccessToken($url);
         if (null !== $this->logger) {
             $this->logger->info(sprintf('%s %s', $method, $url));
             $this->logger->debug(sprintf('Posted headers: %s', json_encode($headers)));
             $this->logger->debug(sprintf('Posted fields: %s', json_encode($fields)));
         }
 
-        $response = $this->browser->submit($url, $fields, $method, $headers);
+        $response = $this->browser->submit($url, $fields, $method, array_merge($headers, $this->getAcceptHeader()));
 
         if (null !== $this->logger) {
             $this->logger->info(sprintf('Status Code %s', $response->getStatusCode()));
