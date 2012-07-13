@@ -21,6 +21,7 @@ class Badge extends AbstractEntity
     public function configure()
     {
         $this->addProperty('id')
+             ->addProperty('count')
              ->addProperty('name')
              ->addProperty('description')
              ->addProperty('level')

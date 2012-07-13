@@ -216,10 +216,17 @@ class VndComSensioLabsConnectXmlParser implements ParserInterface
         $club->setCountry($this->getNodeValue('./vcard:country-name', $element));
         $club->setImage($this->getLinkNodeHref('./atom:link[@rel="foaf:depiction"]', $element));
         $club->setType($club->getTypeFromTextual($this->getNodeValue('./category', $element)));
+        $club->setCumulatedBadges($this->getNodeValue('./cumulated-badges', $element));
 
         $nodes = $this->xpath->query('./members/foaf:Person', $element);
         for ($i = 0; $i < $nodes->length; $i++) {
             $club->addMembers($this->parseFoafMember($nodes->item($i)));
+        }
+
+        $nodeList = $this->xpath->query('./badges', $element);
+        if (1 === $nodeList->length) {
+            $badges = $this->parseIndex($nodeList->item(0));
+            $club->setBadges($badges);
         }
 
         $nodeList = $this->xpath->query('./xhtml:form', $element);
@@ -354,6 +361,8 @@ class VndComSensioLabsConnectXmlParser implements ParserInterface
     {
         $badge = new Badge($this->getLinkToSelf($element), $this->getLinkToAlternate($element));
         $badge->setId($element->attributes->getNamedItem('id')->value);
+        $count = $element->attributes->getNamedItem('count');
+        $badge->setCount($count ? $count->value : 1);
         $badge->setName($this->getNodeValue('./name', $element));
         $badge->setDescription($this->getNodeValue('./description', $element));
         $badge->setLevel($this->getNodeValue('./level', $element));

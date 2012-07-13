@@ -88,6 +88,11 @@ class VndComSensiolabsConnectXmlParserTest extends \PHPUnit_Framework_TestCase
         $club = $this->parser->parse($rootXml);
 
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Club', $club);
+        $this->assertEquals(278, $club->getCumulatedBadges());
+        $badges = $club->getBadges();
+        $this->assertEquals(39, count($badges));
+        $this->assertEquals('Personality of the year 2011', $badges[0]->getName());
+        $this->assertEquals(1, $badges[0]->getCount());
     }
 
     public function testParseProject()
