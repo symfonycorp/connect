@@ -18,6 +18,11 @@ use Symfony\Component\HttpFoundation\Request;
 use SensioLabs\Connect\OAuthConsumer;
 use Symfony\Component\Security\Http\HttpUtils;
 
+/**
+ * ConnectEntryPoint.
+ *
+ * @author Fabien Potencier <fabien@symfony.com>
+ */
 class ConnectEntryPoint implements AuthenticationEntryPointInterface
 {
     private $oauthConsumer;

@@ -17,6 +17,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 
+/**
+ * ConnectAuthenticationFailureHandler.
+ *
+ * @author Fabien Potencier <fabien@symfony.com>
+ */
 class ConnectAuthenticationFailureHandler implements AuthenticationFailureHandlerInterface
 {
     private $logger;
