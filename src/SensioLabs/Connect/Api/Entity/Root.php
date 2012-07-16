@@ -46,7 +46,7 @@ class Root extends AbstractEntity
 
     public function getProject($uuid)
     {
-        $this->getApi()->get($this->getProjectsUrl().'/'.$uuid);
+        return $this->getApi()->get($this->getProjectsUrl().'/'.$uuid);
     }
 
     public function getBadges()
