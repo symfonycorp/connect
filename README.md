@@ -89,7 +89,8 @@ possession of your application id, application secret and scope.
             }
 
             // At this point, we have an access token and we can use the SDK to request the API
-            $root = $app['connect_api']->getRoot($data['access_token']); // All further request will be done with this access token
+            $app['connect_api']->setAccessToken($data['access_token']); // All further request will be done with this access token
+            $root = $app['connect_api']->getRoot();
             $user = $root->getCurrentUser();
             $user->getBadges()->refresh();
 
@@ -148,12 +149,14 @@ Here are some useful recipies.
         $club->setUrl('http://sensiolabs.com');
 
         // Save new Club
-        $root = $app['connect_api']->getRoot($app['session']->get('connect_access_token'));
+        $app['connect_api']->setAccessToken($app['session']->get('connect_access_token'));
+        $root = $app['connect_api']->getRoot();
         $response = $root->getClubs()->submitForm($club);
 
 4. Edit authenticated user
 
-        $root = $app['connect_api']->getRoot($app['session']->get('connect_access_token'));
+        $app['connect_api']->setAccessToken($app['session']->get('connect_access_token'));
+        $root = $app['connect_api']->getRoot();
         $user = $root->getCurrentUser();
         $user->setBiography("I'm sexy and I know it.");
         $user->submitForm();
