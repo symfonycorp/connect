@@ -22,5 +22,6 @@
         "psr-0": {
             "SensioLabs": ["src/"]
         }
-    }
+    },
+    "minimum-stability": "dev"
 }
