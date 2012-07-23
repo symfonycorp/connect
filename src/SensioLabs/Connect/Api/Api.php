@@ -117,14 +117,14 @@ class Api
 
     private function constructUrlWithAccessToken($url)
     {
-        if (!$this->accessToken) {
+        if (!$this->getAccessToken()) {
             return $url;
         }
 
         $parts = parse_url($url);
         $parts['query'] = isset($parts['query']) ? $parts['query'] : null;
         parse_str($parts['query'], $query);
-        $query['access_token'] = $this->accessToken;
+        $query['access_token'] = $this->getAccessToken();
         $parts['query'] = http_build_query($query);
 
         $url = $parts['scheme'].'://'.$parts['host'];
