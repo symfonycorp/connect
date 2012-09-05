@@ -97,16 +97,24 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         $root = $this->getRootInstance();
 
         $projectsLink = $this->xpath->query('./atom:link[@rel="https://rels.connect.sensiolabs.com/projects"]', $element);
-        $root->setProjectsUrl($projectsLink->item(0)->attributes->getNamedItem('href')->value);
+        if ($projectsLink->length) {
+            $root->setProjectsUrl($projectsLink->item(0)->attributes->getNamedItem('href')->value);
+        }
 
         $badgesLink = $this->xpath->query('./atom:link[@rel="https://rels.connect.sensiolabs.com/badges"]', $element);
-        $root->setBadgesUrl($badgesLink->item(0)->attributes->getNamedItem('href')->value);
+        if ($badgesLink->length) {
+            $root->setBadgesUrl($badgesLink->item(0)->attributes->getNamedItem('href')->value);
+        }
 
         $clubsLink = $this->xpath->query('./atom:link[@rel="https://rels.connect.sensiolabs.com/clubs"]', $element);
-        $root->setClubsUrl($clubsLink->item(0)->attributes->getNamedItem('href')->value);
+        if ($clubsLink->length) {
+            $root->setClubsUrl($clubsLink->item(0)->attributes->getNamedItem('href')->value);
+        }
 
         $usersLink = $this->xpath->query('./atom:link[@rel="https://rels.connect.sensiolabs.com/users"]', $element);
-        $root->setUsersUrl($usersLink->item(0)->attributes->getNamedItem('href')->value);
+        if ($usersLink->length) {
+            $root->setUsersUrl($usersLink->item(0)->attributes->getNamedItem('href')->value);
+        }
 
         $user = $this->xpath->query('./foaf:Person', $element);
         if (1 === $user->length) {
