@@ -29,7 +29,7 @@ class OAuthConsumer
     private $endpoint;
     private $logger;
 
-    private $paths = array(
+    protected $paths = array(
         'access_token'   => '/oauth/access_token',
         'authorize'      => '/oauth/authorize',
     );
@@ -117,6 +117,36 @@ class OAuthConsumer
         $scope = $response['scope'];
 
         return array('access_token' => $token, 'scope' => $scope);
+    }
+
+    public function getAppId()
+    {
+        return $this->appId;
+    }
+
+    public function getAppSecret()
+    {
+        return $this->appSecret;
+    }
+
+    public function getScope()
+    {
+        return $this->scope;
+    }
+
+    public function getEndpoint()
+    {
+        return $this->endpoint;
+    }
+
+    public function getBrowser()
+    {
+        return $this->browser;
+    }
+
+    public function getLogger()
+    {
+        return $this->logger;
     }
 }
 
