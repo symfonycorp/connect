@@ -339,19 +339,39 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         $formMethod = $formElement->attributes->getNamedItem('method')->value;
         $form = new Form($formAction, $formMethod);
 
-        $nodeList = $this->xpath->query('./xhtml:input', $formElement);
-        for ($i = 0; $i < $nodeList->length; $i++) {
-
-            $node = $nodeList->item($i);
-
-            $name = $node->attributes->getNamedItem('name')->value;
-            $value = $node->attributes->getNamedItem('value');
-
-            $form->addField($name, $value ? $value->value : null);
+        foreach ($this->parseFormFields($formElement) as $key => $value) {
+            $form->addField($key, $value);
         }
+
         $entity->addForm($formId, $form);
 
         return $entity;
+    }
+
+    protected function parseFormFields(\DOMElement $element)
+    {
+        $fields = array();
+
+        $nodeList = $this->xpath->query('./xhtml:input | ./xhtml:textarea | ./xhtml:select | ./xhtml:fieldset', $element);
+        for ($i = 0; $i < $nodeList->length; $i++) {
+            $node = $nodeList->item($i);
+
+            if ('xhtml:fieldset' === $node->tagName) {
+                $name = $node->attributes->getNamedItem('id')->value;
+                $value = $this->parseFormFields($node);
+            } else {
+                $name = $node->attributes->getNamedItem('name')->value;
+                $result = preg_match('/(.+)\[(.+)\]\[(.+)\]/', $name, $matches);
+                if (1 === $result) {
+                    $name = $matches[3];
+                }
+                $value = $node->attributes->getNamedItem('value') ? $node->attributes->getNamedItem('value')->value : null;
+            }
+
+            $fields[$name] = $value;
+        }
+
+        return $fields;
     }
 
     protected function parseMembership(\DOMElement $element)

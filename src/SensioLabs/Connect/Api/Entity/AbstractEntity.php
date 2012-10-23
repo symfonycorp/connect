@@ -105,8 +105,27 @@ abstract class AbstractEntity implements \ArrayAccess
         }
 
         foreach ($fields as $key => $value) {
-            if ($entity->has($key)) {
+            if (!$entity->has($key)) {
+                continue;
+            }
+            if (!is_array($fields[$key])) {
                 $fields[$key] = $entity->get($key);
+            } else {
+                // we have a collection of fields that should be repeated.
+                $template = $fields[$key];
+                $fields[$key] = array();
+                foreach ($entity->get($key) as $subEntity) {
+                    $subFields = array();
+                    foreach ($template as $k => $v) {
+                        if (!$subEntity->has($k)) {
+                            continue;
+                        }
+
+                        $subFields[$k] = $subEntity->get($k);
+                    }
+
+                    $fields[$key][] = $subFields;
+                }
             }
         }
 
