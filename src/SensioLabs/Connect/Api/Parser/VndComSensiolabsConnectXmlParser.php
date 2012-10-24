@@ -446,7 +446,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
     {
         $nodeList = $this->xpath->query($query, $element);
 
-        if ($nodeList && $nodeList->length > 0) {
+        if ($nodeList && $nodeList->length > 0 && $nodeList->item($position)) {
             return $this->sanitizeValue($nodeList->item($position)->attributes->getNamedItem('href')->value);
         }
 
