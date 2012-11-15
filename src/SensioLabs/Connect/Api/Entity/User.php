@@ -18,7 +18,7 @@ namespace SensioLabs\Connect\Api\Entity;
  */
 class User extends AbstractEntity
 {
-    public function configure()
+    protected function configure()
     {
         $this->addProperty('username')
              ->addProperty('uuid')
