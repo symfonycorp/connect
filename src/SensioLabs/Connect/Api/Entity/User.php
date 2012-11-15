@@ -53,6 +53,8 @@ class User extends AbstractEntity
     public function setBirthday($birthdate)
     {
         $this->set('birthdate', $birthdate);
+
+        return $this;
     }
 }
 

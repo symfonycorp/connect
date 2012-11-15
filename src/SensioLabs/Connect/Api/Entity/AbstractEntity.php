@@ -141,7 +141,8 @@ abstract class AbstractEntity implements \ArrayAccess
             if (!array_key_exists(0, $arguments)) {
                 throw new \LogicException(sprintf('Please provide a value to set %s with', $name));
             }
-            $this->set($property, $arguments[0]);
+
+            return $this->set($property, $arguments[0]);
         } elseif ('get' === $method) {
             return $this->get($property);
         } elseif ('add' === $method) {
@@ -156,6 +157,8 @@ abstract class AbstractEntity implements \ArrayAccess
         }
 
         $this->properties[$property] = $value;
+
+        return $this;
     }
 
     public function get($property)
