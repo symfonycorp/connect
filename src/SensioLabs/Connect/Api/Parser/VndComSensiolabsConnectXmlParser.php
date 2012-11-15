@@ -260,7 +260,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
 
     protected function parseFoafPerson(\DOMElement $element)
     {
-        $user = new User($this->getLinkToSelf($element), $this->getLinkToAlternate($element));
+        $user = $this->getUserInstance($this->getLinkToSelf($element), $this->getLinkToAlternate($element));
         $user->setUuid($element->attributes->getNamedItem('id')->value);
         $user->setName($this->getNodeValue('./foaf:name', $element));
         $user->setImage($this->getLinkToFoafDepiction($element));
@@ -469,6 +469,11 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
     protected function getRootInstance()
     {
         return new Root();
+    }
+
+    protected function getUserInstance($self, $alternate)
+    {
+        return new User($self, $alternate);
     }
 }
 
