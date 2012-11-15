@@ -22,6 +22,7 @@ class User extends AbstractEntity
     {
         $this->addProperty('username')
              ->addProperty('uuid')
+             ->addProperty('password')
              ->addProperty('name')
              ->addProperty('image')
              ->addProperty('biography')
