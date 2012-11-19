@@ -128,7 +128,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     public function testSubmitThrowsClientExceptionAndAddErrorWhenServerReturns40xStatusCode()
     {
         $response = $this->createResponse('422');
-        $response->setContent(file_get_contents(__DIR__.'/../../../../fixtures/errors.xml'));
+        $response->setContent(file_get_contents(__DIR__.'/../../../../fixtures/error.xml'));
         $this->browser->expects($this->once())
                       ->method('submit')
                       ->with('http://foobar/api/')

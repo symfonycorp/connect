@@ -108,7 +108,7 @@ class VndComSensiolabsConnectXmlParserTest extends \PHPUnit_Framework_TestCase
 
     public function testParseErrors()
     {
-        $xml = file_get_contents(__DIR__.'/../../../../../fixtures/errors.xml');
+        $xml = file_get_contents(__DIR__.'/../../../../../fixtures/error.xml');
         $error = $this->parser->parse($xml);
 
         $expectedFields = array(
