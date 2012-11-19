@@ -64,6 +64,16 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->api->get('http://foobar/api/'));
     }
 
+    public function testGetReturnsTrueIfServerReturns201StatusCodeWithAnEmptyResponse()
+    {
+        $this->browser->expects($this->once())
+                      ->method('get')
+                      ->with('http://foobar/api/')
+                      ->will($this->returnValue($this->createResponse('201', false)));
+
+        $this->assertTrue($this->api->get('http://foobar/api/'));
+    }
+
     /**
      * @expectedException SensioLabs\Connect\Exception\ApiClientException
      */

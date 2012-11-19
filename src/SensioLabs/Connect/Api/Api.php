@@ -105,12 +105,15 @@ class Api
             return true;
         }
 
-        if (null !== $response->getContent()) {
-            $object = $this->parser->parse($response->getContent());
-            $object->setApi($this);
-
-            return $object;
+        $content = trim($response->getContent());
+        if (empty($content)) {
+            return true;
         }
+
+        $object = $this->parser->parse($content);
+        $object->setApi($this);
+
+        return $object;
     }
 
     private function getAcceptHeader()
