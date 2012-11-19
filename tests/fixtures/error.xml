@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    xmlns:atom="http://www.w3.org/2005/Atom"
+    xmlns:foaf="http://xmlns.com/foaf/0.1/"
+    xmlns:bio="http://purl.org/vocab/bio/0.1/"
+    xmlns:fc="http://xmlns.com/foaf/corp#"
+    xmlns:wot="http://xmlns.com/wot/0.1/"
+    xmlns:vcard="http://www.w3.org/2006/vcard/ns"
+    xmlns:doap="http://usefulinc.com/ns/doap#"
+    xmlns:cv="http://kaste.lv/~captsolo/semweb/resume/cv.rdfs">
+    <error type="client">
+        <entity>
+            <body>
+                <parameter name="foo">
+                    <message xml:lang="en">This value should not be null.</message>
+                    <message xml:lang="en">This value should not be blank.</message>
+                </parameter>
+                <parameter name="bar">
+                    <message xml:lang="en">This value should be equals to 6.</message>
+                </parameter>
+            </body>
+        </entity>
+    </error>
+</api>

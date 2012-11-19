@@ -13,6 +13,7 @@ namespace SensioLabs\Connect\Test\Api;
 
 use Buzz\Message\Response;
 use SensioLabs\Connect\Api\Api;
+use SensioLabs\Connect\Exception\ApiClientException;
 
 /**
  * ApitTest.
@@ -122,6 +123,24 @@ class ApiTest extends \PHPUnit_Framework_TestCase
                       ->will($this->returnValue($this->createResponse('400')));
 
         $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+    }
+
+    public function testSubmitThrowsClientExceptionAndAddErrorWhenServerReturns40xStatusCode()
+    {
+        $response = $this->createResponse('422');
+        $response->setContent(file_get_contents(__DIR__.'/../../../../fixtures/errors.xml'));
+        $this->browser->expects($this->once())
+                      ->method('submit')
+                      ->with('http://foobar/api/')
+                      ->will($this->returnValue($response));
+
+        try {
+            $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+        } catch (\Exception $e) {
+            $this->assertInstanceOf('SensioLabs\Connect\Exception\ApiClientException', $e);
+            $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Error', $e->getError());
+            $this->assertCount(2, $e->getError()->getEntityBodyParameters());
+        }
     }
 
     /**

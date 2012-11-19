@@ -105,4 +105,23 @@ class VndComSensiolabsConnectXmlParserTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Project', $project);
     }
+
+    public function testParseErrors()
+    {
+        $xml = file_get_contents(__DIR__.'/../../../../../fixtures/errors.xml');
+        $error = $this->parser->parse($xml);
+
+        $expectedFields = array(
+            'foo' => array(
+                0 => 'This value should not be null.',
+                1 => 'This value should not be blank.',
+            ),
+            'bar' => array(
+                0 => 'This value should be equals to 6.',
+            ),
+        );
+
+        $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Error', $error);
+        $this->assertSame($expectedFields , $error->getEntityBodyParameters());
+    }
 }

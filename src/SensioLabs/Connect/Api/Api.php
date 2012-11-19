@@ -95,7 +95,10 @@ class Api
         }
 
         if (400 <= $response->getStatusCode()) {
-            throw new ApiClientException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders());
+            $error = $this->parser->parse($response->getContent());
+            $error = $error instanceof Model\Error ? $error : new Model\Error();
+
+            throw new ApiClientException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders(), $error);
         }
 
         if (204 === $response->getStatusCode()) {

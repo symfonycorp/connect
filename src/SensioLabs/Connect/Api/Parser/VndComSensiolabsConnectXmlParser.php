@@ -23,11 +23,13 @@ use SensioLabs\Connect\Api\Entity\Root;
 use SensioLabs\Connect\Api\Entity\User;
 use SensioLabs\Connect\Api\Entity\Contributor;
 use SensioLabs\Connect\Api\Model\Form;
+use SensioLabs\Connect\Api\Model\Error;
 
 /**
  * VndComSensiolabsConnectXmlParser
  *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
+ * @author Grégoire Pineau <lyrixx@lyrixx.info>
  */
 class VndComSensiolabsConnectXmlParser implements ParserInterface
 {
@@ -89,6 +91,11 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         $nodes = $this->xpath->evaluate('./foaf:Group', $element);
         if (1 === $nodes->length) {
             return $this->parseFoafGroup($nodes->item(0));
+        }
+
+        $nodes = $this->xpath->evaluate('./error');
+        if (1 === $nodes->length) {
+            return $this->parseError($nodes->item(0));
         }
     }
 
@@ -415,6 +422,24 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         }
 
         return $contributor;
+    }
+
+    protected function parseError(\DOMElement $element)
+    {
+        $error = new Error();
+
+        $parameters = $this->xpath->query('./entity/body/parameter', $element);
+        foreach ($parameters as $parameter) {
+            $name = $parameter->getAttribute('name');
+            $error->addEntityBodyParameter($name);
+
+            $messages = $this->xpath->query('./message', $parameter);
+            foreach ($messages as $message) {
+                $error->addEntityBodyParameterError($name, $this->sanitizeValue($message->nodeValue));
+            }
+        }
+
+        return $error;
     }
 
     protected function getLinkToSelf(\DOMElement $element)
