@@ -101,7 +101,17 @@ possession of your application id, application secret and scope.
             return $app->redirect('/');
         })->bind('connect_callback');
 
-    Et voilà! Your application can now use SensioLabs Connect as an authentication method!
+3. Create a link from your template
+
+   In a template, you can use the following snippet of code to render a SensioLabsConnect button:
+
+        <a href="#" class="connect-with-sensiolabs">
+            <span>Connect With Sensiolabs</span>
+        </a>
+
+   And include the following CSS file: `https://connect.sensiolabs.com/css/sln.css`
+
+Et voilà! Your application can now use SensioLabs Connect as an authentication method!
 
 ### The API
 
