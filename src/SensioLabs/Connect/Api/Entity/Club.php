@@ -59,4 +59,3 @@ class Club extends AbstractEntity
         return array_search($type, self::$types);
     }
 }
-

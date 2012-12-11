@@ -97,4 +97,3 @@ class Index extends AbstractEntity implements \Countable, \ArrayAccess, \Iterato
         throw new \BadMethodCallException('Not implemented.');
     }
 }
-

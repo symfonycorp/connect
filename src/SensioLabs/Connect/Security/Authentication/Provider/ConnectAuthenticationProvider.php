@@ -12,7 +12,6 @@
 namespace SensioLabs\Connect\Security\Authentication\Provider;
 
 use SensioLabs\Connect\Security\Authentication\Token\ConnectToken;
-use SensioLabs\Connect\Security\User\UserInterface as ConnectUserInterface;
 use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationServiceException;

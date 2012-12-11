@@ -18,7 +18,6 @@ namespace SensioLabs\Connect\Api\Parser;
  */
 interface ParserInterface
 {
-    function parse($xml);
-    function getContentType();
+    public function parse($xml);
+    public function getContentType();
 }
-

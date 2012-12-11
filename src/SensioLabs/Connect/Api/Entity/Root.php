@@ -95,4 +95,3 @@ class Root extends AbstractEntity
         return $this->getApi()->get($this->getClubsUrl().'/'.$uuid);
     }
 }
-

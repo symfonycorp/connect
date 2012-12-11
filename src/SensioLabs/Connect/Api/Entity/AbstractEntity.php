@@ -216,4 +216,3 @@ abstract class AbstractEntity implements \ArrayAccess
 
     abstract protected function configure();
 }
-

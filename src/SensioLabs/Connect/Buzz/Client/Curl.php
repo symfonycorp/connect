@@ -21,11 +21,10 @@ use Buzz\Message;
  */
 class Curl extends BaseCurl
 {
-    static protected function setCurlOptsFromRequest($curl, Message\Request $request)
+    protected static function setCurlOptsFromRequest($curl, Message\Request $request)
     {
         parent::setCurlOptsFromRequest($curl, $request);
 
         curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
     }
 }
-
