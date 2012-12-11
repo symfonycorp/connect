@@ -28,4 +28,3 @@ class Badge extends AbstractEntity
              ->addProperty('image');
     }
 }
-

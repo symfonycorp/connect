@@ -54,7 +54,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
             if (!$this->dom->loadXML($xml)) {
                 throw new \ErrorException('Could not transform this xml to a \DOMDocument instance.');
             };
-        } catch(\ErrorException $e) {
+        } catch (\ErrorException $e) {
             throw new ApiParserException(sprintf('%s %s', $e->getMessage(), $xml));
         }
         $this->xpath = new \DOMXpath($this->dom);
@@ -501,4 +501,3 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         return new User($self, $alternate);
     }
 }
-

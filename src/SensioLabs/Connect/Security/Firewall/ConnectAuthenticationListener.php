@@ -15,7 +15,6 @@ use SensioLabs\Connect\Api\Api;
 use SensioLabs\Connect\OAuthConsumer;
 use SensioLabs\Connect\Security\Authentication\Token\ConnectToken;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Http\Firewall\AbstractAuthenticationListener;
 use SensioLabs\Connect\Exception\OAuthException;
 use Symfony\Component\Security\Http\HttpUtils;
