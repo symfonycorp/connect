@@ -69,4 +69,3 @@ class Form
         return $this->fields;
     }
 }
-

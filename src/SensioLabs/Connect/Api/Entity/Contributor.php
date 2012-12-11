@@ -28,4 +28,3 @@ class Contributor extends AbstractEntity
         ;
     }
 }
-

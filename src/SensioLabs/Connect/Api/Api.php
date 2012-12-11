@@ -147,4 +147,3 @@ class Api
         return $url;
     }
 }
-

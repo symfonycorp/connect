@@ -149,4 +149,3 @@ class OAuthConsumer
         return $this->logger;
     }
 }
-
