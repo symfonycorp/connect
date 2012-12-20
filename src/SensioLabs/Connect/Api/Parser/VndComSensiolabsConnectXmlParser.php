@@ -190,7 +190,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
 
     protected function parseDoapProject(\DOMElement $element)
     {
-        $project = new Project($this->getLinkToSelf($element), $this->getLinkToAlternate($element));
+        $project = $this->getProjectInstance($this->getLinkToSelf($element), $this->getLinkToAlternate($element));
 
         $project->setUuid($element->attributes->getNamedItem('id')->value);
         $project->setImage($this->getLinkNodeHref('./atom:link[@rel="foaf:depiction"]', $element));
@@ -499,5 +499,10 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
     protected function getUserInstance($self, $alternate)
     {
         return new User($self, $alternate);
+    }
+
+    protected function getProjectInstance($self, $alternate)
+    {
+        return new Project($self, $alternate);
     }
 }
