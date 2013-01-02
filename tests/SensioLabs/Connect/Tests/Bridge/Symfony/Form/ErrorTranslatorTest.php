@@ -1,6 +1,6 @@
 <?php
 
-namespace SensioLabs\Connect\Bridge\Symfony\Form;
+namespace SensioLabs\Connect\Tests\Bridge\Symfony\Form;
 
 use SensioLabs\Connect\Api\Model\Error;
 use SensioLabs\Connect\Bridge\Symfony\Form\ErrorTranslator;
