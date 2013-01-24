@@ -22,11 +22,19 @@ class Project extends AbstractEntity
     const TYPE_WEBSITE = 0;
     const TYPE_LIBRARY = 1;
     const TYPE_SYMFONY_BUNDLE = 2;
+    const TYPE_CLI_APPLICATION = 3;
+    const TYPE_SYMFONY_PLUGIN = 4;
+    const TYPE_SYMFONY_DISTRIBUTION = 5;
+    const TYPE_OTHER = 6;
 
     public static $types = array(
-        self::TYPE_WEBSITE        => 'Website',
-        self::TYPE_LIBRARY        => 'Library',
+        self::TYPE_WEBSITE => 'Website',
+        self::TYPE_LIBRARY => 'Library',
         self::TYPE_SYMFONY_BUNDLE => 'Symfony Bundle',
+        self::TYPE_CLI_APPLICATION => 'CLI Application',
+        self::TYPE_SYMFONY_PLUGIN => 'symfony 1.x plugin',
+        self::TYPE_SYMFONY_DISTRIBUTION => 'Symfony Distribution',
+        self::TYPE_OTHER => 'Other',
     );
 
     public function getTextualType()
