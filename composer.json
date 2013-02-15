@@ -26,5 +26,9 @@
             "SensioLabs": ["src/"]
         }
     },
-    "minimum-stability": "dev"
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1-dev"
+        }
+    }
 }
