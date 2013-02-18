@@ -149,6 +149,8 @@ abstract class AbstractEntity implements \ArrayAccess
             $this->add($property, $arguments[0]);
 
             return $this;
+        } elseif ('is' === substr($name, 0, 2)) {
+            return $this->get($name);
         }
 
         throw new \BadMethodCallException(sprintf('The method "%s:%s" does not exists ', get_class($this), $name));

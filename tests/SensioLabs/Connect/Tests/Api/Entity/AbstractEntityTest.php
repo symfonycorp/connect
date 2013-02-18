@@ -45,6 +45,12 @@ class AbstractEntityTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->entity->has('clone'));
     }
 
+    public function testIs()
+    {
+        $this->assertTrue($this->entity->isEnabled());
+        $this->assertFalse($this->entity->isPublished());
+    }
+
     /**
      * @expectedException LogicException
      */
@@ -107,6 +113,8 @@ class Entity extends AbstractEntity
     {
         $this->addProperty('foo')
              ->addProperty('clone')
+             ->addProperty('isEnabled', true)
+             ->addProperty('isPublished', false)
              ->addProperty('items', array());
     }
 }
