@@ -45,6 +45,12 @@ class AbstractEntityTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($this->entity->has('clone'));
     }
 
+    public function testIs()
+    {
+        $this->assertTrue($this->entity->isEnabled());
+        $this->assertFalse($this->entity->isPublished());
+    }
+
     /**
      * @expectedException LogicException
      */
@@ -81,6 +87,15 @@ class AbstractEntityTest extends \PHPUnit_Framework_TestCase
         unset($this->entity['clone']);
     }
 
+    /**
+     * @expectedException BadMethodCallException
+     * @expectedExceptionMessage The method "SensioLabs\Connect\Tests\Api\Entity\Entity:FooBar" does not exists
+     */
+    public function testBadMethodCallException()
+    {
+        $this->entity->FooBar();
+    }
+
     public function testArrayAccess()
     {
         $this->assertSame($this->clone, $this->entity['clone']);
@@ -98,6 +113,8 @@ class Entity extends AbstractEntity
     {
         $this->addProperty('foo')
              ->addProperty('clone')
+             ->addProperty('isEnabled', true)
+             ->addProperty('isPublished', false)
              ->addProperty('items', array());
     }
 }
