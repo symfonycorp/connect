@@ -203,8 +203,8 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         $project->setRepositoryUrl($this->getNodeValue('./doap:Repository/doap:GitRepository/doap:location', $element));
 
         $nodeList = $this->xpath->query('./xhtml:form', $element);
-        if (1 === $nodeList->length) {
-            $this->parseForm($project, $nodeList->item(0));
+        for ($i = 0; $i < $nodeList->length; $i++) {
+            $this->parseForm($project, $nodeList->item($i));
         }
 
         $nodeList = $this->xpath->query('./contributors', $element);
