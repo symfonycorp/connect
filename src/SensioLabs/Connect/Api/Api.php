@@ -26,7 +26,8 @@ use Symfony\Component\HttpKernel\Log\LoggerInterface;
  */
 class Api
 {
-    const   ENDPOINT = 'https://connect.sensiolabs.com/api';
+    const ENDPOINT = 'https://connect.sensiolabs.com/api';
+    
     private $browser;
     private $parser;
     private $logger;
