@@ -26,17 +26,19 @@ use Symfony\Component\HttpKernel\Log\LoggerInterface;
  */
 class Api
 {
+    const ENDPOINT = 'https://connect.sensiolabs.com/api';
+    
     private $browser;
     private $parser;
     private $logger;
     private $endpoint;
     private $accessToken;
 
-    public function __construct($endpoint = 'https://connect.sensiolabs.com/api', Browser $browser = null, ParserInterface $parser = null, LoggerInterface $logger = null)
+    public function __construct($endpoint = null, Browser $browser = null, ParserInterface $parser = null, LoggerInterface $logger = null)
     {
         $this->browser = $browser ?: new Browser();
         $this->parser = $parser ?: new Parser();
-        $this->endpoint = $endpoint;
+        $this->endpoint = $endpoint ?: self::ENDPOINT;
         $this->logger = $logger;
     }
 
