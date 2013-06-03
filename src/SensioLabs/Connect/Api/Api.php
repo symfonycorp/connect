@@ -12,11 +12,12 @@
 namespace SensioLabs\Connect\Api;
 
 use Buzz\Browser;
+use Buzz\Client\Curl;
 use Buzz\Message\Response;
-use SensioLabs\Connect\Exception\ApiServerException;
-use SensioLabs\Connect\Exception\ApiClientException;
 use SensioLabs\Connect\Api\Parser\ParserInterface;
 use SensioLabs\Connect\Api\Parser\VndComSensiolabsConnectXmlParser as Parser;
+use SensioLabs\Connect\Exception\ApiClientException;
+use SensioLabs\Connect\Exception\ApiServerException;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
 
 /**
@@ -27,7 +28,7 @@ use Symfony\Component\HttpKernel\Log\LoggerInterface;
 class Api
 {
     const ENDPOINT = 'https://connect.sensiolabs.com/api';
-    
+
     private $browser;
     private $parser;
     private $logger;
@@ -37,7 +38,7 @@ class Api
     public function __construct($endpoint = null, Browser $browser = null, ParserInterface $parser = null, LoggerInterface $logger = null)
     {
         $this->browser = $browser ?: new Browser();
-        $this->parser = $parser ?: new Parser();
+        $this->parser = $parser ?: new Parser(new Curl());
         $this->endpoint = $endpoint ?: self::ENDPOINT;
         $this->logger = $logger;
     }

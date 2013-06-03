@@ -46,18 +46,12 @@ possession of your application id, application secret and scope.
             'SCOPE_SSH_KEYS',
         );
 
-        // \Buzz\Browser uses file_get_contents as default http client
-        // but curl handle SSL/TLS in a better way
-        $app['browser'] = new \Buzz\Browser(new \Buzz\Client\Curl());
-
         $app['connect_consumer'] = new OAuthConsumer(
             $app['connect_id'],
             $app['connect_secret'],
             implode(' ', $app['connect_scope']) // scope MUST be space separated
-            null,
-            $app['browser']
         );
-        $app['connect_api'] = new Api(null, $app['browser']);
+        $app['connect_api'] = new Api();
 
     This done. We can now move on to the second step.
 

@@ -12,6 +12,7 @@
 namespace SensioLabs\Connect;
 
 use Buzz\Browser;
+use Buzz\Client\Curl;
 use SensioLabs\Connect\Exception\OAuthException;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
 
@@ -23,7 +24,7 @@ use Symfony\Component\HttpKernel\Log\LoggerInterface;
 class OAuthConsumer
 {
     const ENDPOINT = 'https://connect.sensiolabs.com';
-    
+
     private $browser;
     private $appId;
     private $appSecret;
@@ -38,7 +39,7 @@ class OAuthConsumer
 
     public function __construct($appId, $appSecret, $scope, $endpoint = null, Browser $browser = null, LoggerInterface $logger = null)
     {
-        $this->browser   = $browser ?: new Browser();
+        $this->browser   = $browser ?: new Browser(new Curl());
         $this->appId     = $appId;
         $this->appSecret = $appSecret;
         $this->scope     = $scope;
