@@ -22,6 +22,8 @@ use Symfony\Component\HttpKernel\Log\LoggerInterface;
  */
 class OAuthConsumer
 {
+    const ENDPOINT = 'https://connect.sensiolabs.com';
+    
     private $browser;
     private $appId;
     private $appSecret;
@@ -34,13 +36,13 @@ class OAuthConsumer
         'authorize'      => '/oauth/authorize',
     );
 
-    public function __construct($appId, $appSecret, $scope, $endpoint = 'https://connect.sensiolabs.com', Browser $browser = null, LoggerInterface $logger = null)
+    public function __construct($appId, $appSecret, $scope, $endpoint = null, Browser $browser = null, LoggerInterface $logger = null)
     {
         $this->browser   = $browser ?: new Browser();
         $this->appId     = $appId;
         $this->appSecret = $appSecret;
         $this->scope     = $scope;
-        $this->endpoint  = $endpoint;
+        $this->endpoint  = $endpoint ?: self::ENDPOINT;
         $this->logger    = $logger;
     }
 
