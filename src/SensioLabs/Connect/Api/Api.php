@@ -37,8 +37,8 @@ class Api
 
     public function __construct($endpoint = null, Browser $browser = null, ParserInterface $parser = null, LoggerInterface $logger = null)
     {
-        $this->browser = $browser ?: new Browser();
-        $this->parser = $parser ?: new Parser(new Curl());
+        $this->browser = $browser ?: new Browser(new Curl());
+        $this->parser = $parser ?: new Parser();
         $this->endpoint = $endpoint ?: self::ENDPOINT;
         $this->logger = $logger;
     }
