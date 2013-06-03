@@ -2,16 +2,14 @@
 
 ## About
 
-This is the official SDK for the SensioLabs Connect API. It works for the
-public API or with a registered OAuth application. To register an application,
-please go to your [SensioLabs Connect Account](https://connect.sensiolabs.com).
-
-Warning: This SDK is in beta state.
+This is the official SDK for the SensioLabs Connect API. It works for the public
+API or with a registered OAuth application. To register an application, please
+go to your [SensioLabs Connect Account](https://connect.sensiolabs.com).
 
 ## Installation
 
 Add `sensiolabs/connect` to the list of requirements of your applications's
-composer.json file.
+`composer.json` file.
 
 ## Usage
 
@@ -21,7 +19,7 @@ This part will show you how to include OAuth authentication within a Silex App.
 
 Warning: We take for granted that you already have registered your app on
 [SensioLabs Connect](https://connect.sensiolabs.com) and that you're in
-possession of your application id, application secret and scope.
+possession of your `application_id`, `application_secret` and `scope`.
 
 1. Configure your silex app with the data we gave us at app registration.
 
@@ -29,11 +27,11 @@ possession of your application id, application secret and scope.
         use SensioLabs\Connect\Api\Api;
 
         $app = new Silex\Application();
-        $app['connect_id'] = 'your_client_id';
+        $app['connect_id'] = 'application_id';
         $app->register(new Silex\Provider\UrlGeneratorServiceProvider());
         $app->register(new Silex\Provider\SessionServiceProvider());
 
-        $app['connect_secret'] = 'your_client_secret';
+        $app['connect_secret'] = 'application_secret';
         // List of scope copy-pasted from your application page on SensioLabs Connect
         $app['connect_scope'] = array(
             'SCOPE_ADDITIONAL_EMAILS',
@@ -57,10 +55,10 @@ possession of your application id, application secret and scope.
 
 2. We need to create two controllers to handle the OAuth2 Three-Legged worflow.
 
-   The first controller goal is to redirect the user to SensioLabs Connect in order
-   to ask him for the authorization that your app will use his data. This controller
-   will be bound to the `connect_auth` route. In your template, you'll need to create
-   a link to this route.
+   The first controller goal is to redirect the user to SensioLabs Connect in
+   order to ask him for the authorization that your app will use his data. This
+   controller will be bound to the `connect_auth` route. In your template,
+   you'll need to create a link to this route.
 
         // index.php
         $app->get('/connect/new', function () use ($app) {
@@ -70,9 +68,9 @@ possession of your application id, application secret and scope.
             return $app->redirect($url);
         })->bind('connect_auth');
 
-    The second controller is the one that will welcome the user after
-    SensioLabs Connect redirected him to your application. When registering your
-    client, you'll have to provide the exact absolute URL that points to this
+    The second controller is the one that will welcome the user after SensioLabs
+    Connect redirected him to your application. When registering your client,
+    you'll have to provide the exact absolute URL that points to this
     controller.
 
         $app->get('/connect/callback', function (Request $request) use ($app) {
@@ -103,7 +101,8 @@ possession of your application id, application secret and scope.
 
 3. Create a link from your template
 
-   In a template, you can use the following snippet of code to render a SensioLabsConnect button:
+   In a template, you can use the following snippet of code to render a
+   SensioLabsConnect button:
 
         <a href="#" class="connect-with-sensiolabs">
             <span>Connect With Sensiolabs</span>
@@ -111,11 +110,13 @@ possession of your application id, application secret and scope.
 
    And include the following CSS file: `https://connect.sensiolabs.com/css/sln.css`
 
-Et voilà! Your application can now use SensioLabs Connect as an authentication method!
+Et voilà! Your application can now use SensioLabs Connect as an authentication
+method!
 
 ### The API
 
-The SensioLabs Connect API is RESTFul and (tries to) conforms to the HATEOAS principle.
+The SensioLabs Connect API is RESTFul and (tries to) conforms to the HATEOAS
+principle.
 
 Here are some useful recipies.
 
