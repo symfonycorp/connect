@@ -1,0 +1,68 @@
+---------------------------------------------------------------------------
+
+by lyrixx at 2013-05-24T16:07:47Z
+
+@marcw: What do you thing ?
+
+---------------------------------------------------------------------------
+
+by lucasaba at 2013-05-24T16:21:14Z
+
+I'm sorry but I couldn't find any code calling SensioLabs\Connect\Buzz\Client\Curl.
+It's only purpouse is to not verify https connections. It is somehow hidden inside the code. It is not reported in the example.... it seems useles. Am I wrong ?
+I think @marcw put that file in his initial commit (ee95cb5958a7a656e80143046ee64b469641c155) for testing purpose. Maybe he had some problem with https too :)
+
+---------------------------------------------------------------------------
+
+by lyrixx at 2013-05-24T16:36:21Z
+
+I just checked in some sensiolabs project. It seems it is not used.
+I will try to check on all project next week.
+
+---------------------------------------------------------------------------
+
+by stof at 2013-05-24T16:43:28Z
+
+@lucasaba it would be used if some people configure the client with it directly.
+
+but I agree it should be removed. If someone really want to be insecure in their project, they can still do it with the buzz client.
+
+---------------------------------------------------------------------------
+
+by marcw at 2013-05-25T21:37:13Z
+
+Yes it should be removed. It was added because on some systems you may not have the necessary certificates to validate that the one on connect is valid.
+The correct thing we can do to deal with this issue is to add the certificate chain to this repository. Facebook is doing this for their php sdk: See https://github.com/facebook/facebook-php-sdk/blob/master/src/fb_ca_chain_bundle.crt and https://github.com/facebook/facebook-php-sdk/blob/master/src/base_facebook.php#L966-L972
+
+---------------------------------------------------------------------------
+
+by lucasaba at 2013-05-28T08:06:26Z
+
+Do you think something like this https://gist.github.com/lucasaba/5661223 could be a solution ?
+
+---------------------------------------------------------------------------
+
+by lyrixx at 2013-05-28T12:00:08Z
+
+I do not like this hack. I prefer @marcw solution.
+
+---------------------------------------------------------------------------
+
+by lucasaba at 2013-05-28T16:03:41Z
+
+Maybe I didn't get it. I tought that the [gist](https://gist.github.com/lucasaba/5661223) was like @marcw solution.
+It overloads Buzz\Browser's send method and catches the CA error like in [Facebook's API](https://github.com/facebook/facebook-php-sdk/blob/master/src/base_facebook.php#L966-L972).
+You mean you'd prefer to completely remove the dependecy from Buzz\Browser ?
+
+---------------------------------------------------------------------------
+
+by marcw at 2013-05-28T17:42:37Z
+
+I think it should be documented rather than implemented in the SDK.
+
+---------------------------------------------------------------------------
+
+by lucasaba at 2013-05-28T18:43:05Z
+
+Then, I think, this PR is ok :)
+We just need a new one wich updates the documentation and adds the ca_chain.crt
