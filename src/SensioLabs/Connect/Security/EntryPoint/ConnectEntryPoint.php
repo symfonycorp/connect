@@ -38,13 +38,18 @@ class ConnectEntryPoint implements AuthenticationEntryPointInterface
 
     public function start(Request $request, AuthenticationException $authException = null)
     {
-        $request->getSession()->start();
+        $session = $request->getSession();
+        $session->start();
 
         if ($request->query->has('target')) {
             $target = $request->query->get('target');
             $parsed = parse_url($target);
             if (!isset($parsed['host']) || $parsed['host'] !== $request->getHttpHost()) {
-                $request->getSession()->setFlash('sensiolabs_connect.oauth.target_path', $target);
+                if (method_exists($session, 'getFlashBag')) {
+                    $session->getFlashBag()->set('sensiolabs_connect.oauth.target_path', $target);
+                } else {
+                    $session->setFlash('sensiolabs_connect.oauth.target_path', $target);
+                }
             }
         }
 

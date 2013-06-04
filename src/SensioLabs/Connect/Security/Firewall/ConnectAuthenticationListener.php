@@ -64,8 +64,10 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
         $this->api->setAccessToken($data['access_token']);
         $apiUser = $this->api->getRoot()->getCurrentUser();
 
-        if ($request->getSession()->getFlashBag()->has('sensiolabs_connect.oauth.target_path')) {
-            $request->attributes->set('_target_path', $request->getSession()->getFlash('sensiolabs_connect.oauth.target_path'));
+        $flashBag = $request->getSession()->getFlashBag();
+        if ($flashBag->has('sensiolabs_connect.oauth.target_path')) {
+            $messages = $flashBag->get('sensiolabs_connect.oauth.target_path');
+            $request->attributes->set('_target_path', $messages[0]);
         }
 
         $token = new ConnectToken($apiUser->getUuid(), $data['access_token'], $apiUser, $this->providerKey, $data['scope']);
