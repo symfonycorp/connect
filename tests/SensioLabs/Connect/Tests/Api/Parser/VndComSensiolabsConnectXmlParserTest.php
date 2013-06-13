@@ -105,7 +105,7 @@ class VndComSensiolabsConnectXmlParserTest extends \PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Project', $project);
         $this->assertSame(2, $project->getType());
-        $this->assertSame("Symfony Bundle", $project->getTextualType());
+        $this->assertSame("Symfony2 Bundle", $project->getTextualType());
     }
 
     public function testParseErrors()

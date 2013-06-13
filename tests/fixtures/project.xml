@@ -473,7 +473,7 @@
             </doap:GitRepository>
         </doap:Repository>
         <doap:homepage>http://symfony.com</doap:homepage>
-        <doap:category>Symfony Bundle</doap:category>
+        <doap:category>Symfony2 Bundle</doap:category>
 
         <slug>marcwwurstbundle</slug>
         <is-private>false</is-private>

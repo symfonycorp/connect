@@ -14,12 +14,11 @@ class ProjectTest extends \PHPUnit_Framework_TestCase
     public function testGetTypeFromTextual()
     {
         $project = new Project();
-        $this->assertSame(0, $project->getTypeFromTextual('Website'));
-        $this->assertSame(1, $project->getTypeFromTextual('Library'));
-        $this->assertSame(2, $project->getTypeFromTextual('Symfony Bundle'));
-        $this->assertSame(3, $project->getTypeFromTextual('CLI Application'));
-        $this->assertSame(4, $project->getTypeFromTextual('symfony 1.x plugin'));
-        $this->assertSame(5, $project->getTypeFromTextual('Symfony Distribution'));
-        $this->assertSame(6, $project->getTypeFromTextual('Other'));
+        $this->assertSame(10, $project->getTypeFromTextual('Symfony2 Web Project'));
+        $this->assertSame(11, $project->getTypeFromTextual('symfony1 Web Project'));
+        $this->assertSame(9, $project->getTypeFromTextual('Silex Web Project'));
+        $this->assertSame(8, $project->getTypeFromTextual('Laravel Web Project'));
+        $this->assertSame(2, $project->getTypeFromTextual('Symfony2 Bundle'));
+        $this->assertSame(4, $project->getTypeFromTextual('symfony1 Plugin'));
     }
 }
