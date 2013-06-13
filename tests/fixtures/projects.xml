@@ -11,12 +11,12 @@
     xmlns:cv="http://kaste.lv/~captsolo/semweb/resume/cv.rdfs">
     <projects total="20" count="20" index="0" limit="20">
     <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects" type="application/vnd.com.sensiolabs.connect+xml" />
-        
+
                 <doap:Project id="d844c522-18e4-4fa8-9a44-996525f0cf8c">
     <doap:name><![CDATA[QuickBooksDevKit]]></doap:name>
     <doap:description><![CDATA[Git mirror of https://code.intuit.com/sf/sfmain/do/viewProject/projects.php_devkit]]></doap:description>
 
-    
+
     <slug>quickbooksdevkit</slug>
     <is-private>false</is-private>
 
@@ -28,7 +28,7 @@
     <doap:name><![CDATA[php-bittorrent]]></doap:name>
     <doap:description><![CDATA[PHP classes for encoding/decoding data to/from the BitTorrent format, creating torrent files and running your own tracker.]]></doap:description>
 
-    
+
     <slug>php-bittorrent</slug>
     <is-private>false</is-private>
 
@@ -40,7 +40,7 @@
     <doap:name><![CDATA[Yeah]]></doap:name>
     <doap:description><![CDATA[Yeah CMS на yii 1.1]]></doap:description>
 
-    
+
     <slug>yeah</slug>
     <is-private>false</is-private>
 
@@ -52,7 +52,7 @@
     <doap:name><![CDATA[depot]]></doap:name>
     <doap:description><![CDATA[Интернет магазин на ruby on rails]]></doap:description>
 
-    
+
     <slug>depot</slug>
     <is-private>false</is-private>
 
@@ -64,7 +64,7 @@
     <doap:name><![CDATA[myFramework]]></doap:name>
     <doap:description><![CDATA[Проект по набиранию опыта в php 5.3 и ООП, фреймворк]]></doap:description>
 
-    
+
     <slug>myframework</slug>
     <is-private>false</is-private>
 
@@ -76,7 +76,7 @@
     <doap:name><![CDATA[click2cricket]]></doap:name>
     <doap:description><![CDATA[cricket]]></doap:description>
 
-    
+
     <slug>click2cricket</slug>
     <is-private>false</is-private>
 
@@ -88,7 +88,7 @@
     <doap:name><![CDATA[Cloud3]]></doap:name>
     <doap:description><![CDATA[Cloud3 Framework Component Basic]]></doap:description>
 
-    
+
     <slug>cloud3</slug>
     <is-private>false</is-private>
 
@@ -100,7 +100,7 @@
     <doap:name><![CDATA[faizalpribadi.github.com]]></doap:name>
     <doap:description><![CDATA[My Homepage]]></doap:description>
 
-    
+
     <slug>faizalpribadi-github-com</slug>
     <is-private>false</is-private>
 
@@ -112,7 +112,7 @@
     <doap:name><![CDATA[TYPO3.Cloud3]]></doap:name>
     <doap:description><![CDATA[Package Development On TYPO3 - FLOW3]]></doap:description>
 
-    
+
     <slug>typo3-cloud3</slug>
     <is-private>false</is-private>
 
@@ -124,7 +124,7 @@
     <doap:name><![CDATA[Online-Sql-Schema-Design]]></doap:name>
     <doap:description><![CDATA[Create SQL Schema Design Online In Browser !]]></doap:description>
 
-    
+
     <slug>online-sql-schema-design</slug>
     <is-private>false</is-private>
 
@@ -136,7 +136,7 @@
     <doap:name><![CDATA[PhpJsKernel]]></doap:name>
     <doap:description><![CDATA[js framework]]></doap:description>
 
-    
+
     <slug>phpjskernel</slug>
     <is-private>false</is-private>
 
@@ -148,7 +148,7 @@
     <doap:name><![CDATA[testProject]]></doap:name>
     <doap:description><![CDATA[]]></doap:description>
 
-    
+
     <slug>testproject</slug>
     <is-private>false</is-private>
 
@@ -160,7 +160,7 @@
     <doap:name><![CDATA[events]]></doap:name>
     <doap:description><![CDATA[events]]></doap:description>
 
-    
+
     <slug>events</slug>
     <is-private>false</is-private>
 
@@ -172,7 +172,7 @@
     <doap:name><![CDATA[testProject]]></doap:name>
     <doap:description><![CDATA[]]></doap:description>
 
-    
+
     <slug>testproject</slug>
     <is-private>false</is-private>
 
@@ -184,7 +184,7 @@
     <doap:name><![CDATA[PhpJsKernel]]></doap:name>
     <doap:description><![CDATA[js framework]]></doap:description>
 
-    
+
     <slug>phpjskernel</slug>
     <is-private>false</is-private>
 
@@ -196,7 +196,7 @@
     <doap:name><![CDATA[events]]></doap:name>
     <doap:description><![CDATA[events]]></doap:description>
 
-    
+
     <slug>events</slug>
     <is-private>false</is-private>
 
@@ -208,7 +208,7 @@
     <doap:name><![CDATA[RukbatBitlyBundle]]></doap:name>
     <doap:description><![CDATA[Symfony2 bundle for the Bitly API (http://dev.bitly.com/api.html) API.]]></doap:description>
 
-    
+
     <slug>rukbatbitlybundle</slug>
     <is-private>false</is-private>
 
@@ -220,7 +220,7 @@
     <doap:name><![CDATA[activecollab-php]]></doap:name>
     <doap:description><![CDATA[]]></doap:description>
 
-    
+
     <slug>activecollab-php</slug>
     <is-private>false</is-private>
 
@@ -232,7 +232,7 @@
     <doap:name><![CDATA[try_git]]></doap:name>
     <doap:description><![CDATA[]]></doap:description>
 
-    
+
     <slug>try-git</slug>
     <is-private>false</is-private>
 
@@ -244,7 +244,7 @@
     <doap:name><![CDATA[apc-stats]]></doap:name>
     <doap:description><![CDATA[Web script that shows information about Alternative PHP Cache]]></doap:description>
 
-    
+
     <slug>apc-stats</slug>
     <is-private>false</is-private>
 
@@ -252,10 +252,33 @@
     <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/c62a3c7f-0d29-41fe-9640-acfe833eb1d9" type="application/vnd.com.sensiolabs.connect+xml" />
     <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/c62a3c7f-0d29-41fe-9640-acfe833eb1d9" type="text/html" />
     </doap:Project>
-            <xhtml:form id="create_project" method="POST" action="https://connect.sensiolabs.com/api/projects" enctype="application/x-www-form-urlencoded">
-    <xhtml:input type="text" name="name" required="required" /><xhtml:input type="text" name="slug" required="required" /><xhtml:input type="number" name="type" required="required" maxlength="2" /><xhtml:input type="text" name="description" required="required" /><xhtml:input type="text" name="url" required="required" /><xhtml:input type="text" name="repositoryUrl" required="required" /><xhtml:input type="checkbox" name="isPrivate" required="required" value="1" />
-</xhtml:form>
-    
+
+    <xhtml:form id="create_project" method="POST" action="https://connect.sensiolabs.com/api/projects" enctype="multipart/form-data">
+        <xhtml:input type="checkbox" name="createRepository" required="required" value="1"/>
+        <xhtml:input type="text" name="repositoryUrl" required="required" />
+        <xhtml:input type="text" name="name" required="required" />
+        <xhtml:input type="text" name="slug" required="required" />
+        <xhtml:select name="type" required="required">
+            <xhtml:option value="10">Symfony2 Web Project</xhtml:option>
+            <xhtml:option value="11">symfony1 Web Project</xhtml:option>
+            <xhtml:option value="9">Silex Web Project</xhtml:option>
+            <xhtml:option value="8">Laravel Web Project</xhtml:option>
+            <xhtml:option value="2">Symfony2 Bundle</xhtml:option>
+            <xhtml:option value="4">symfony1 Plugin</xhtml:option>
+            <xhtml:option value="7">Drupal Module</xhtml:option>
+            <xhtml:option value="0">PHP Web Project</xhtml:option>
+            <xhtml:option value="1">PHP Library</xhtml:option>
+            <xhtml:option value="6">Other</xhtml:option>
+        </xhtml:select>
+        <xhtml:input type="text" name="description" required="required" />
+        <xhtml:input type="text" name="url" required="required" />
+        <xhtml:input type="file" name="pictureFile" />
+        <xhtml:select name="isPrivate" required="required">
+            <xhtml:option value="1">Private</xhtml:option>
+            <xhtml:option value="0" selected="selected">Public</xhtml:option>
+        </xhtml:select>
+    </xhtml:form>
+
 </projects>
 
 </api>

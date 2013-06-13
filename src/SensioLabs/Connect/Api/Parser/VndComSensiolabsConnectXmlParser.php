@@ -201,6 +201,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         $project->setType($project->getTypeFromTextual($this->getNodeValue('./doap:category', $element)));
         $project->setUrl($this->getNodeValue('./doap:homepage', $element));
         $project->setRepositoryUrl($this->getNodeValue('./doap:Repository/doap:GitRepository/doap:location', $element));
+        $project->setIsInternalGitRepositoryCreated($this->getNodeValue('./doap:Repository/doap:GitRepository/doap:isInternalGitRepositoryCreated', $element));
 
         $nodeList = $this->xpath->query('./xhtml:form', $element);
         for ($i = 0; $i < $nodeList->length; $i++) {
@@ -358,7 +359,6 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
     protected function parseFormFields(\DOMElement $element)
     {
         $fields = array();
-
         $nodeList = $this->xpath->query('./xhtml:input | ./xhtml:textarea | ./xhtml:select | ./xhtml:fieldset', $element);
         for ($i = 0; $i < $nodeList->length; $i++) {
             $node = $nodeList->item($i);
@@ -372,7 +372,12 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
                 if (1 === $result) {
                     $name = $matches[3];
                 }
-                $value = $node->attributes->getNamedItem('value') ? $node->attributes->getNamedItem('value')->value : null;
+
+                if ('xhtml:input' === $node->tagName && 'checkbox' === $node->attributes->getNamedItem('type')->value) {
+                    $value = (boolean) $node->attributes->getNamedItem('checked');
+                } else {
+                    $value = $node->attributes->getNamedItem('value') ? $node->attributes->getNamedItem('value')->value : null;
+                }
             }
 
             $fields[$name] = $value;

@@ -469,6 +469,7 @@
 
         <doap:Repository>
             <doap:GitRepository>
+                <doap:isInternalGitRepositoryCreated>true</doap:isInternalGitRepositoryCreated>
                 <doap:location>https://github.com/marcw/MarcWWurstBundle.git</doap:location>
             </doap:GitRepository>
         </doap:Repository>

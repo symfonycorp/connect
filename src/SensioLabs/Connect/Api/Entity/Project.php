@@ -71,6 +71,7 @@ class Project extends AbstractEntity
              ->addProperty('type')
              ->addProperty('url')
              ->addProperty('repositoryUrl')
+             ->addProperty('isInternalGitRepositoryCreated')
              ->addProperty('pictureFile')
              ->addProperty('contributors')
         ;

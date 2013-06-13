@@ -33,8 +33,17 @@ class VndComSensiolabsConnectXmlParserTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Form', $root->getForm('search_clubs'));
     }
 
+    public function getParseIndexTests()
+    {
+        return array(
+            array('/../../../../../fixtures/users.xml', 'create_user', 'POST', 'https://connect.sensiolabs.com/api/users', 'SensioLabs\Connect\Api\Entity\User'),
+            array('/../../../../../fixtures/clubs.xml', 'create_club', 'POST', 'https://connect.sensiolabs.com/api/clubs', 'SensioLabs\Connect\Api\Entity\Club'),
+            array('/../../../../../fixtures/projects.xml', 'create_project', 'POST', 'https://connect.sensiolabs.com/api/projects', 'SensioLabs\Connect\Api\Entity\Project'),
+        );
+    }
+
     /**
-     * @dataProvider provider
+     * @dataProvider getParseIndexTests
      */
     public function testParseIndex($xml, $formId, $method, $action, $class)
     {
@@ -45,15 +54,6 @@ class VndComSensiolabsConnectXmlParserTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($method, $index->getForm($formId)->getMethod());
         $this->assertSame($action, $index->getForm($formId)->getAction());
         $this->assertInstanceOf($class, $index[0]);
-    }
-
-    public function provider()
-    {
-        return array(
-            array('/../../../../../fixtures/users.xml', 'create_user', 'POST', 'https://connect.sensiolabs.com/api/users', 'SensioLabs\Connect\Api\Entity\User'),
-            array('/../../../../../fixtures/clubs.xml', 'create_club', 'POST', 'https://connect.sensiolabs.com/api/clubs', 'SensioLabs\Connect\Api\Entity\Club'),
-            array('/../../../../../fixtures/projects.xml', 'create_project', 'POST', 'https://connect.sensiolabs.com/api/projects', 'SensioLabs\Connect\Api\Entity\Project'),
-        );
     }
 
     public function testParseBadges()
@@ -106,6 +106,7 @@ class VndComSensiolabsConnectXmlParserTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Project', $project);
         $this->assertSame(2, $project->getType());
         $this->assertSame("Symfony2 Bundle", $project->getTextualType());
+        $this->assertTrue($project->getIsInternalGitRepositoryCreated());
     }
 
     public function testParseErrors()
