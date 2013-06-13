@@ -19,22 +19,35 @@ namespace SensioLabs\Connect\Api\Entity;
  */
 class Project extends AbstractEntity
 {
-    const TYPE_WEBSITE = 0;
-    const TYPE_LIBRARY = 1;
-    const TYPE_SYMFONY_BUNDLE = 2;
-    const TYPE_CLI_APPLICATION = 3;
-    const TYPE_SYMFONY_PLUGIN = 4;
-    const TYPE_SYMFONY_DISTRIBUTION = 5;
-    const TYPE_OTHER = 6;
+    const TYPE_WEBSITE = 0; // This is deprecated. You should not use it
+    const TYPE_LIBRARY = 1; // This is deprecated. You should not use it
+    const TYPE_SYMFONY_BUNDLE = 2; // This is deprecated. You should not use it
+    const TYPE_CLI_APPLICATION = 1; // This is deprecated. You should not use it
+    const TYPE_SYMFONY_PLUGIN = 4; // This is deprecated. You should not use it
+    const TYPE_SYMFONY_DISTRIBUTION = 10; // This is deprecated. You should not use it
+
+    const TYPE_PHP_WEBSITE          = 0;
+    const TYPE_PHP_LIBRARY          = 1;
+    const TYPE_SYMFONY2_BUNDLE      = 2;
+    const TYPE_SYMFONY1_PLUGIN      = 4;
+    const TYPE_OTHER                = 6;
+    const TYPE_DRUPAL_MODULE        = 7;
+    const TYPE_LARAVAL_WEB_PROJECT  = 8;
+    const TYPE_SILEX_WEB_PROJECT    = 9;
+    const TYPE_SYMFONY2_WEB_PROJECT = 10;
+    const TYPE_SYMFONY1_WEB_PROJECT = 11;
 
     public static $types = array(
-        self::TYPE_WEBSITE => 'Website',
-        self::TYPE_LIBRARY => 'Library',
-        self::TYPE_SYMFONY_BUNDLE => 'Symfony Bundle',
-        self::TYPE_CLI_APPLICATION => 'CLI Application',
-        self::TYPE_SYMFONY_PLUGIN => 'symfony 1.x plugin',
-        self::TYPE_SYMFONY_DISTRIBUTION => 'Symfony Distribution',
-        self::TYPE_OTHER => 'Other',
+        self::TYPE_SYMFONY2_WEB_PROJECT => 'Symfony2 Web Project',
+        self::TYPE_SYMFONY1_WEB_PROJECT => 'symfony1 Web Project',
+        self::TYPE_SILEX_WEB_PROJECT    => 'Silex Web Project',
+        self::TYPE_LARAVAL_WEB_PROJECT  => 'Laravel Web Project',
+        self::TYPE_SYMFONY2_BUNDLE      => 'Symfony2 Bundle',
+        self::TYPE_SYMFONY1_PLUGIN      => 'symfony1 Plugin',
+        self::TYPE_DRUPAL_MODULE        => 'Drupal Module',
+        self::TYPE_PHP_WEBSITE          => 'PHP Web Project',
+        self::TYPE_PHP_LIBRARY          => 'PHP Library',
+        self::TYPE_OTHER                => 'Other',
     );
 
     public function getTextualType()
