@@ -122,42 +122,42 @@ Here are some useful recipies.
 
 1. Search
 
-    $root = $api->getRoot();
+        $root = $api->getRoot();
 
-    // Will search for project with 'symfony' query
-    $projects = $root->getProjects('symfony');
+        // Will search for project with 'symfony' query
+        $projects = $root->getProjects('symfony');
 
-    // Same for users
-    $users = $root->getUsers('fab');
+        // Same for users
+        $users = $root->getUsers('fab');
 
-    // Same for clubs
-    $clubs = $root->getClubs('sensio');
+        // Same for clubs
+        $clubs = $root->getClubs('sensio');
 
 2. Create a new club
 
-    // Create Club
-    $club = new \SensioLabs\Connect\Api\Entity\Club();
-    $club->setName("SensioLabs France");
-    $club->setSlug("sensiolabs-api-users");
-    $club->setType(\SensioLabs\Connect\Api\Entity\Club::TYPE_USER_GROUP);
-    $club->setEmail('foobar@example.com');
-    $club->setDescription('This is the best description i found.');
-    $club->setCity("Paris");
-    $club->setCountry("France");
-    $club->setUrl('http://sensiolabs.com');
+        // Create Club
+        $club = new \SensioLabs\Connect\Api\Entity\Club();
+        $club->setName("SensioLabs France");
+        $club->setSlug("sensiolabs-api-users");
+        $club->setType(\SensioLabs\Connect\Api\Entity\Club::TYPE_USER_GROUP);
+        $club->setEmail('foobar@example.com');
+        $club->setDescription('This is the best description i found.');
+        $club->setCity("Paris");
+        $club->setCountry("France");
+        $club->setUrl('http://sensiolabs.com');
 
-    // Save new Club
-    $app['connect_api']->setAccessToken($app['session']->get('connect_access_token'));
-    $root = $app['connect_api']->getRoot();
-    $response = $root->getClubs()->submitForm($club);
+        // Save new Club
+        $app['connect_api']->setAccessToken($app['session']->get('connect_access_token'));
+        $root = $app['connect_api']->getRoot();
+        $response = $root->getClubs()->submitForm($club);
 
 3. Edit authenticated user
 
-    $app['connect_api']->setAccessToken($app['session']->get('connect_access_token'));
-    $root = $app['connect_api']->getRoot();
-    $user = $root->getCurrentUser();
-    $user->setBiography("I'm sexy and I know it.");
-    $user->submitForm();
+        $app['connect_api']->setAccessToken($app['session']->get('connect_access_token'));
+        $root = $app['connect_api']->getRoot();
+        $user = $root->getCurrentUser();
+        $user->setBiography("I'm sexy and I know it.");
+        $user->submitForm();
 
 As you can see by these examples, you always have to to go through the API Root
 to make an action. This is because the API is discoverable and that the SDK
