@@ -64,7 +64,6 @@ class Project extends AbstractEntity
     {
         $this->addProperty('name')
              ->addProperty('uuid')
-             ->addProperty('slug')
              ->addProperty('isPrivate')
              ->addProperty('description')
              ->addProperty('image')
