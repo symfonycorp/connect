@@ -51,6 +51,8 @@ class Api
     public function setAccessToken($accessToken)
     {
         $this->accessToken = $accessToken;
+
+        return $this;
     }
 
     public function resetAccessToken()
