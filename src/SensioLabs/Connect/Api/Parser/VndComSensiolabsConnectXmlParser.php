@@ -63,7 +63,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
             return $this->doParse($nodes->item(0));
         }
 
-        throw new \InvalidArgumentException("Could not parse this xml document. Is this the right content-type?");
+        throw new ApiParserException("Could not parse this xml document. Is this the right content-type?");
     }
 
     protected function doParse(\DOMElement $element = null)

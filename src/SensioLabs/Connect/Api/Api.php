@@ -17,6 +17,7 @@ use Buzz\Message\Response;
 use SensioLabs\Connect\Api\Parser\ParserInterface;
 use SensioLabs\Connect\Api\Parser\VndComSensiolabsConnectXmlParser as Parser;
 use SensioLabs\Connect\Exception\ApiClientException;
+use SensioLabs\Connect\Exception\ApiParserException;
 use SensioLabs\Connect\Exception\ApiServerException;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
 
@@ -100,8 +101,12 @@ class Api
         }
 
         if (400 <= $response->getStatusCode()) {
-            $error = $this->parser->parse($response->getContent());
-            $error = $error instanceof Model\Error ? $error : new Model\Error();
+            try {
+                $error = $this->parser->parse($response->getContent());
+                $error = $error instanceof Model\Error ? $error : new Model\Error();
+            } catch (ApiParserException $e) {
+                throw new ApiClientException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders(), null, $e);
+            }
 
             throw new ApiClientException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders(), $error);
         }
