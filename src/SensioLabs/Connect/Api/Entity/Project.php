@@ -71,6 +71,7 @@ class Project extends AbstractEntity
              ->addProperty('url')
              ->addProperty('repositoryUrl')
              ->addProperty('isInternalGitRepositoryCreated')
+             ->addProperty('createRepository') // Boolean to order a creation of private git repository
              ->addProperty('pictureFile')
              ->addProperty('contributors')
         ;
