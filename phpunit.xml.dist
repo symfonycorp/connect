@@ -17,15 +17,13 @@
       </testsuite>
   </testsuites>
 
-  <!--
-  <php>
-      <server name="KERNEL_DIR" value="/path/to/your/app/" />
-  </php>
-  //-->
-
   <filter>
       <whitelist>
           <directory>Tests</directory>
       </whitelist>
   </filter>
+
+  <logging>
+    <log type="junit" target="build/junit.xml" logIncompleteSkipped="true" />
+  </logging>
 </phpunit>
