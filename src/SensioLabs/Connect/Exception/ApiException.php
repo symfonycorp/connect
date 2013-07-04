@@ -28,7 +28,7 @@ class ApiException extends \RuntimeException implements ExceptionInterface
 
     public function getStatusCode()
     {
-        return $this->statusCody;
+        return $this->statusCode;
     }
 
     public function getBody()
