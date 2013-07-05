@@ -51,6 +51,9 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         $this->dom = new \DOMDocument();
 
         try {
+            if (!$xml) {
+                throw new \ErrorException('The xml is empty.');
+            }
             if (!$this->dom->loadXML($xml)) {
                 throw new \ErrorException('Could not transform this xml to a \DOMDocument instance.');
             };
