@@ -32,6 +32,12 @@ class ErrorTranslator
      */
     public function translate(FormInterface $form, ApiClientException $e, array $map = array())
     {
+        if (!$e->getError()) {
+            $form->addError(new FormError($e->getMessage()));
+
+            return $form;
+        }
+
         foreach ($e->getError()->getEntityBodyParameters() as $parameterName => $messages) {
             $widget = $form;
             if (array_key_exists($parameterName, $map)) {

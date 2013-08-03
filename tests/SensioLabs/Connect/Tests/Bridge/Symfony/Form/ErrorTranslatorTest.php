@@ -101,6 +101,21 @@ class ErrorTranslatorTest extends \PHPUnit_Framework_TestCase
         $this->errorTranslator->translate($form, $exception, array('bar' => function($form) { return null; }));
     }
 
+    public function testTranslateWithEmptyError()
+    {
+        $form = $this->formBuilder->add('foo')->getForm();
+
+        $exception=  new ApiClientException('403', '', 'Unauthorized', array(), null);
+
+        $form = $this->errorTranslator->translate($form, $exception);
+
+        $this->assertCount(1, $form->getErrors());
+        $errors = $form->getErrors();
+        $error = reset($errors);
+        $this->assertSame('Unauthorized', $error->getMessage());
+        $this->assertCount(0, $form->get('foo')->getErrors());
+    }
+
     private function createException(array $parameters = array())
     {
         $error = new Error();
