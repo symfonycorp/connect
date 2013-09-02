@@ -198,6 +198,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         $project->setUuid($element->attributes->getNamedItem('id')->value);
         $project->setImage($this->getLinkNodeHref('./atom:link[@rel="foaf:depiction"]', $element));
         $project->setName($this->getNodeValue('./doap:name', $element));
+        $project->setSlug($this->getNodeValue('./slug', $element));
         $project->setIsPrivate($this->getNodeValue('./is-private', $element));
         $project->setDescription($this->getNodeValue('./doap:description', $element));
         $project->setType($project->getTypeFromTextual($this->getNodeValue('./doap:category', $element)));

@@ -63,6 +63,7 @@ class Project extends AbstractEntity
     protected function configure()
     {
         $this->addProperty('name')
+             ->addProperty('slug')
              ->addProperty('uuid')
              ->addProperty('isPrivate')
              ->addProperty('description')
