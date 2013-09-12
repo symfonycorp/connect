@@ -38,7 +38,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
 
     protected $queries = array(
         'indexes'          => './users | ./clubs | ./projects | ./badges',
-        'indexes_elements' => './foaf:Person | ./foaf:Group | ./membership | ./doap:Project | ./badge | ./doap:developer'
+        'indexes_elements' => './foaf:Person | ./foaf:Group | ./membership | ./doap:Project | ./badge | ./doap:developer | ./doap:helper'
     );
 
     public function getContentType()
@@ -91,6 +91,11 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
             return $this->parseDoapProject($nodes->item(0));
         }
 
+        $nodes = $this->xpath->evaluate('./collaborators', $element);
+        if (1 === $nodes->length) {
+            return $this->parseIndex($nodes->item(0));
+        }
+
         $nodes = $this->xpath->evaluate('./foaf:Group', $element);
         if (1 === $nodes->length) {
             return $this->parseFoafGroup($nodes->item(0));
@@ -100,6 +105,11 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         if (1 === $nodes->length) {
             return $this->parseError($nodes->item(0));
         }
+
+        throw new ApiParserException(sprintf(
+            'Following XML has not been handled: "%s".',
+            $element->ownerDocument->saveXML($element)
+        ));
     }
 
     protected function parseRoot(\DOMElement $element)
@@ -189,6 +199,10 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         if ('doap:developer' === $element->tagName) {
             return $this->parseContributor($element);
         }
+
+        if ('doap:helper' === $element->tagName) {
+            return $this->parseCollaborator($element);
+        }
     }
 
     protected function parseDoapProject(\DOMElement $element)
@@ -215,6 +229,13 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         if (1 === $nodeList->length) {
             $contributors = $this->parseIndex($nodeList->item(0));
             $project->setContributors($contributors);
+        }
+
+
+        $nodeList = $this->xpath->query('./collaborators', $element);
+        if (1 === $nodeList->length) {
+            $collaborators = $this->parseIndex($nodeList->item(0));
+            $project->setCollaborators($collaborators);
         }
 
         return $project;
@@ -430,6 +451,16 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         }
 
         return $contributor;
+    }
+
+    protected function parseCollaborator(\DOMElement $element)
+    {
+        $nodeList = $this->xpath->query('./foaf:Person', $element);
+        if (1 === $nodeList->length) {
+            return $this->parseFoafPerson($nodeList->item(0));
+        }
+
+        return null;
     }
 
     protected function parseError(\DOMElement $element)
