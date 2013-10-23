@@ -280,6 +280,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         $user->setCity($this->getNodeValue('./vcard:locality', $element));
         $user->setCountry($this->getNodeValue('./vcard:country-name', $element));
         $user->setCompany($this->getNodeValue('./cv:hasWorkHistory/cv:employedIn', $element));
+        $user->setJobPosition($this->getNodeValue('./cv:hasWorkHistory/cv:jobTitle', $element));
         $user->setBlogUrl($this->getNodeValue('./foaf:weblog', $element));
         $user->setUrl($this->getNodeValue('./foaf:homepage', $element));
         $user->setFeedUrl($this->getLinkNodeHref('./atom:link[@title="blog/feed"]', $element));

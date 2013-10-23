@@ -24,6 +24,7 @@ class User extends AbstractEntity
              ->addProperty('uuid')
              ->addProperty('name')
              ->addProperty('image')
+             ->addProperty('jobPosition')
              ->addProperty('biography')
              ->addProperty('birthdate')
              ->addProperty('city')
