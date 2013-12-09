@@ -21,12 +21,14 @@ class Form
     private $action;
     private $method;
     private $fields;
+    private $fieldsOptions;
 
-    public function __construct($action, $method, $fields = array())
+    public function __construct($action, $method, $fields = array(), $fieldsOptions = array())
     {
         $this->action = $action;
         $this->method = $method;
         $this->fields = $fields;
+        $this->fieldsOptions = $fieldsOptions;
     }
 
     public function setAction($action)
@@ -67,5 +69,24 @@ class Form
     public function getFields()
     {
         return $this->fields;
+    }
+
+    public function getFieldsOptions()
+    {
+        $this->fieldsOptions;
+    }
+
+    public function getFieldOptions($field)
+    {
+        if (!array_key_exists($field, $this->fieldsOptions)) {
+            throw new \InvalidArgumentException(sprintf('The field "%s" does not exist. Existing fields: "%s"', $field, implode('", "', array_keys($this->fieldsOptions))));
+        }
+
+        return $this->fieldsOptions[$field];
+    }
+
+    public function setFieldOptions($field, $options)
+    {
+        $this->fieldsOptions[$field] = $options;
     }
 }

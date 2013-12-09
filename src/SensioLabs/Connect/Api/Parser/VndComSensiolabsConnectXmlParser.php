@@ -355,9 +355,35 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
             $form->addField($key, $value);
         }
 
+        foreach ($this->parseFormSelect($formElement) as $field => $options) {
+            $form->setFieldOptions($field, $options);
+        }
+
         $entity->addForm($formId, $form);
 
         return $entity;
+    }
+
+    protected function parseFormSelect(\DOMElement $element)
+    {
+        $fieldsOptions = array();
+        $nodeList = $this->xpath->query('./xhtml:select', $element);
+        for ($i = 0; $i < $nodeList->length; $i++) {
+            $node = $nodeList->item($i);
+            $name = $node->attributes->getNamedItem('name')->value;
+            $fieldsOptions[$name] = array();
+            $optionList = $this->xpath->query('./xhtml:option', $node);
+            for ($i = 0; $i < $optionList->length; $i++) {
+                $option = $optionList->item($i);
+                $value = $option->attributes->getNamedItem('value')->value;
+                if (!$value) {
+                    continue;
+                }
+                $fieldsOptions[$name][$value] = $option->nodeValue;
+            }
+        }
+
+        return $fieldsOptions;
     }
 
     protected function parseFormFields(\DOMElement $element)
