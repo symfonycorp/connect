@@ -109,6 +109,37 @@ class VndComSensiolabsConnectXmlParserTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue($project->getIsInternalGitRepositoryCreated());
     }
 
+    public function testParseFormSelect()
+    {
+        $rootXml = file_get_contents(__DIR__.'/../../../../../fixtures/projects.xml');
+        $project = $this->parser->parse($rootXml);
+
+        $form = $project->getForm('create_project');
+        $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Form', $form);
+        $options = array(
+            'type' => array(
+                 10 => 'Symfony2 Web Project',
+                 11 => 'symfony1 Web Project',
+                 9 => 'Silex Web Project',
+                 8 => 'Laravel Web Project',
+                 2 => 'Symfony2 Bundle',
+                 4 => 'symfony1 Plugin',
+                 7 => 'Drupal Module',
+                 0 => 'PHP Web Project',
+                 1 => 'PHP Library',
+                 6 => 'Other',
+            ),
+            'isPrivate' => array(
+                1 => 'Private',
+                0 => 'Public',
+            )
+        );
+        $this->assertSame($options, $form->getFieldsOptions());
+        $this->assertSame($options['type'], $form->getFieldOptions('type'));
+        $this->assertTrue($form->hasFieldOptions('type'));
+        $this->assertFalse($form->hasFieldOptions('foobar'));
+    }
+
     public function testParseErrors()
     {
         $xml = file_get_contents(__DIR__.'/../../../../../fixtures/error.xml');

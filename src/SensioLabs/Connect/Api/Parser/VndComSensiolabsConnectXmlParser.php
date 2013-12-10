@@ -373,10 +373,10 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
             $name = $node->attributes->getNamedItem('name')->value;
             $fieldsOptions[$name] = array();
             $optionList = $this->xpath->query('./xhtml:option', $node);
-            for ($i = 0; $i < $optionList->length; $i++) {
-                $option = $optionList->item($i);
+            for ($j = 0; $j < $optionList->length; $j++) {
+                $option = $optionList->item($j);
                 $value = $option->attributes->getNamedItem('value')->value;
-                if (!$value) {
+                if ('' === $value) {
                     continue;
                 }
                 $fieldsOptions[$name][$value] = $option->nodeValue;
