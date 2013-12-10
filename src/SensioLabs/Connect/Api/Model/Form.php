@@ -73,7 +73,12 @@ class Form
 
     public function getFieldsOptions()
     {
-        $this->fieldsOptions;
+        return $this->fieldsOptions;
+    }
+
+    public function hasFieldOptions($field)
+    {
+        return array_key_exists($field, $this->fieldsOptions);
     }
 
     public function getFieldOptions($field)
