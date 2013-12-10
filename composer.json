@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "kriswallsmith/buzz": "~0.8"
+        "guzzle/http": "~3.7.0"
     },
     "require-dev": {
         "symfony/form": "~2.1",

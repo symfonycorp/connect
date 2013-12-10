@@ -11,10 +11,9 @@
 
 namespace SensioLabs\Connect;
 
-use Buzz\Browser;
-use Buzz\Client\Curl;
+use Guzzle\Http\Client;
+use Psr\Log\LoggerInterface;
 use SensioLabs\Connect\Exception\OAuthException;
-use Symfony\Component\HttpKernel\Log\LoggerInterface;
 
 /**
  * OAuthConsumer.
@@ -25,7 +24,7 @@ class OAuthConsumer
 {
     const ENDPOINT = 'https://connect.sensiolabs.com';
 
-    private $browser;
+    private $client;
     private $appId;
     private $appSecret;
     private $scope;
@@ -37,9 +36,9 @@ class OAuthConsumer
         'authorize'      => '/oauth/authorize',
     );
 
-    public function __construct($appId, $appSecret, $scope, $endpoint = null, Browser $browser = null, LoggerInterface $logger = null)
+    public function __construct($appId, $appSecret, $scope, $endpoint = null, Client $client = null, LoggerInterface $logger = null)
     {
-        $this->browser   = $browser ?: new Browser(new Curl());
+        $this->client   = $client ?: new Client();
         $this->appId     = $appId;
         $this->appSecret = $appSecret;
         $this->scope     = $scope;
@@ -51,6 +50,7 @@ class OAuthConsumer
      * getAuthorizationUri
      *
      * @param mixed $callbackUri
+     * @return string
      */
     public function getAuthorizationUri($callbackUri)
     {
@@ -69,8 +69,8 @@ class OAuthConsumer
     /**
      * getAccessToken
      *
-     * @param mixed $callbackUri
-     * @param  $authorizationCode
+     * @param  mixed  $callbackUri
+     * @param  string $authorizationCode
      *
      * @return array
      */
@@ -93,13 +93,13 @@ class OAuthConsumer
             $this->logger->debug(sprintf("Sent params: %s", json_encode($params)));
         }
 
-        $response = $this->browser->submit($url, $params);
-        $content = $response->getContent();
-        $response = json_decode($content, true);
+        $response = $this->client->post($url, null, $params)->send();
+        $content = $response->getBody(true);
+        $response = $response->json();
 
         if (null === $response) {
             if (null !== $this->logger) {
-                $this->logger->err('Received non-json response.');
+                $this->logger->error('Received non-json response.');
                 $this->logger->debug($content);
             }
             throw new OAuthException('provider', "Response content couldn't be converted to JSON.");
@@ -107,7 +107,7 @@ class OAuthConsumer
 
         if (isset($response['error'])) {
             if (null !== $this->logger) {
-                $this->logger->err('The OAuth2 provider responded with an error');
+                $this->logger->error('The OAuth2 provider responded with an error');
                 $this->logger->debug(json_encode($response));
             }
             $error = $response['error'];
@@ -142,9 +142,9 @@ class OAuthConsumer
         return $this->endpoint;
     }
 
-    public function getBrowser()
+    public function getClient()
     {
-        return $this->browser;
+        return $this->client;
     }
 
     public function getLogger()

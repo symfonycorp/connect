@@ -11,15 +11,14 @@
 
 namespace SensioLabs\Connect\Api;
 
-use Buzz\Browser;
-use Buzz\Client\Curl;
-use Buzz\Message\Response;
+use Guzzle\Http\Message\Response;
+use Guzzle\Http\Client;
 use SensioLabs\Connect\Api\Parser\ParserInterface;
 use SensioLabs\Connect\Api\Parser\VndComSensiolabsConnectXmlParser as Parser;
 use SensioLabs\Connect\Exception\ApiClientException;
 use SensioLabs\Connect\Exception\ApiParserException;
 use SensioLabs\Connect\Exception\ApiServerException;
-use Symfony\Component\HttpKernel\Log\LoggerInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * Api.
@@ -30,15 +29,15 @@ class Api
 {
     const ENDPOINT = 'https://connect.sensiolabs.com/api';
 
-    private $browser;
+    private $client;
     private $parser;
     private $logger;
     private $endpoint;
     private $accessToken;
 
-    public function __construct($endpoint = null, Browser $browser = null, ParserInterface $parser = null, LoggerInterface $logger = null)
+    public function __construct($endpoint = null, Client $client = null, ParserInterface $parser = null, LoggerInterface $logger = null)
     {
-        $this->browser = $browser ?: new Browser(new Curl());
+        $this->client = $client ?: new Client();
         $this->parser = $parser ?: new Parser();
         $this->endpoint = $endpoint ?: self::ENDPOINT;
         $this->logger = $logger;
@@ -74,7 +73,7 @@ class Api
             $this->logger->info(sprintf('GET %s', $url));
         }
 
-        return $this->processResponse($this->browser->get($url, array_merge($headers, $this->getAcceptHeader())));
+        return $this->processResponse($this->client->get($url, array_merge($headers, $this->getAcceptHeader()))->send());
     }
 
     public function submit($url, $method = 'POST', array $fields, $headers = array())
@@ -86,36 +85,36 @@ class Api
             $this->logger->debug(sprintf('Posted fields: %s', json_encode($fields)));
         }
 
-        return $this->processResponse($this->browser->submit($url, $fields, $method, array_merge($headers, $this->getAcceptHeader())));
+        return $this->processResponse($this->client->createRequest($method, $url, array_merge($headers, $this->getAcceptHeader()), $fields)->send());
     }
 
     private function processResponse(Response $response)
     {
         if (null !== $this->logger) {
             $this->logger->info(sprintf('Status Code %s', $response->getStatusCode()));
-            $this->logger->debug(var_export($response->getContent(), true));
+            $this->logger->debug(var_export($response->getBody(), true));
         }
 
         if (500 <= $response->getStatusCode()) {
-            throw new ApiServerException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders());
+            throw new ApiServerException($response->getStatusCode(), $response->getBody(true), $response->getReasonPhrase(), $response->getHeaders()->toArray());
         }
 
         if (400 <= $response->getStatusCode()) {
             try {
-                $error = $this->parser->parse($response->getContent());
+                $error = $this->parser->parse($response->getBody(true));
                 $error = $error instanceof Model\Error ? $error : new Model\Error();
             } catch (ApiParserException $e) {
-                throw new ApiClientException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders(), null, $e);
+                throw new ApiClientException($response->getStatusCode(), $response->getBody(true), $response->getReasonPhrase(), $response->getHeaders()->toArray(), null, $e);
             }
 
-            throw new ApiClientException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders(), $error);
+            throw new ApiClientException($response->getStatusCode(), $response->getBody(true), $response->getReasonPhrase(), $response->getHeaders()->toArray(), $error);
         }
 
         if (204 === $response->getStatusCode()) {
             return true;
         }
 
-        $content = trim($response->getContent());
+        $content = trim($response->getBody(true));
         if (empty($content)) {
             return true;
         }
