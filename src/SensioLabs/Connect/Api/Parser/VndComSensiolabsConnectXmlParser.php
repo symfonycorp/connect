@@ -58,7 +58,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
                 throw new \ErrorException('Could not transform this xml to a \DOMDocument instance.');
             };
         } catch (\ErrorException $e) {
-            throw new ApiParserException(sprintf('%s %s', $e->getMessage(), $xml));
+            throw new ApiParserException(sprintf('%s Body: "%s"', $e->getMessage(), $xml));
         }
         $this->xpath = new \DOMXpath($this->dom);
         $nodes = $this->xpath->evaluate('/api');
@@ -66,7 +66,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
             return $this->doParse($nodes->item(0));
         }
 
-        throw new ApiParserException("Could not parse this xml document. Is this the right content-type?");
+        throw new ApiParserException(sprintf('Could not parse this xml document. Is this the right content-type? Body: "%s"', $xml));
     }
 
     protected function doParse(\DOMElement $element = null)
