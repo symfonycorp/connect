@@ -14,12 +14,12 @@ namespace SensioLabs\Connect\Api;
 use Buzz\Browser;
 use Buzz\Client\Curl;
 use Buzz\Message\Response;
+use Psr\Log\LoggerInterface;
 use SensioLabs\Connect\Api\Parser\ParserInterface;
 use SensioLabs\Connect\Api\Parser\VndComSensiolabsConnectXmlParser as Parser;
 use SensioLabs\Connect\Exception\ApiClientException;
 use SensioLabs\Connect\Exception\ApiParserException;
 use SensioLabs\Connect\Exception\ApiServerException;
-use Symfony\Component\HttpKernel\Log\LoggerInterface;
 
 /**
  * Api.
