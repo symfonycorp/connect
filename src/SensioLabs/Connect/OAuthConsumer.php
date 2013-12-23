@@ -13,8 +13,8 @@ namespace SensioLabs\Connect;
 
 use Buzz\Browser;
 use Buzz\Client\Curl;
+use Psr\Log\LoggerInterface;
 use SensioLabs\Connect\Exception\OAuthException;
-use Symfony\Component\HttpKernel\Log\LoggerInterface;
 
 /**
  * OAuthConsumer.
@@ -99,7 +99,7 @@ class OAuthConsumer
 
         if (null === $response) {
             if (null !== $this->logger) {
-                $this->logger->err('Received non-json response.');
+                $this->logger->error('Received non-json response.');
                 $this->logger->debug($content);
             }
             throw new OAuthException('provider', "Response content couldn't be converted to JSON.");
@@ -107,7 +107,7 @@ class OAuthConsumer
 
         if (isset($response['error'])) {
             if (null !== $this->logger) {
-                $this->logger->err('The OAuth2 provider responded with an error');
+                $this->logger->error('The OAuth2 provider responded with an error');
                 $this->logger->debug(json_encode($response));
             }
             $error = $response['error'];

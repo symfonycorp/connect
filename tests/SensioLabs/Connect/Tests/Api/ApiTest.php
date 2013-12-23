@@ -29,7 +29,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     {
         $this->browser = $this->getMock('Buzz\\Browser');
         $this->parser = $this->getMock('SensioLabs\\Connect\\Api\\Parser\\ParserInterface');
-        $this->logger = $this->getMock('Symfony\\Component\\HttpKernel\\Log\\LoggerInterface');
+        $this->logger = $this->getMock('Psr\\Log\\LoggerInterface');
         $this->xml = file_get_contents(__DIR__.'/../../../../fixtures/root.xml');
 
         $this->api = new Api('http://foobar/api', $this->browser, null, $this->logger);
