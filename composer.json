@@ -13,10 +13,10 @@
         }
     ],
     "require": {
-        "kriswallsmith/buzz": "~0.8",
-        "psr/log": "1.0.0"
+        "kriswallsmith/buzz": "~0.8"
     },
     "require-dev": {
+        "psr/log": "1.0.0",
         "symfony/form": "~2.1"
     },
     "autoload": {
