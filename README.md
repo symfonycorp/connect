@@ -25,6 +25,7 @@ possession of your `application_id`, `application_secret` and `scope`.
 
         // index.php
         use SensioLabs\Connect\Api\Api;
+        use SensioLabs\Connect\OAuthConsumer;
 
         $app = new Silex\Application();
         $app['connect_id'] = 'application_id';
