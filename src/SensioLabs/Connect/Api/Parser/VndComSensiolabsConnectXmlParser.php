@@ -409,7 +409,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
                 }
 
                 if ('xhtml:input' === $node->tagName && 'checkbox' === $node->attributes->getNamedItem('type')->value) {
-                    $value = (boolean) $node->attributes->getNamedItem('checked');
+                    $value = (bool) $node->attributes->getNamedItem('checked');
                 } else {
                     $value = $node->attributes->getNamedItem('value') ? $node->attributes->getNamedItem('value')->value : null;
                 }
@@ -504,7 +504,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
             return $this->sanitizeValue($nodeList->item($index)->nodeValue);
         }
 
-        return null;
+        return;
     }
 
     protected function getLinkNodeHref($query, \DOMElement $element = null, $position = 0)
@@ -515,7 +515,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
             return $this->sanitizeValue($nodeList->item($position)->attributes->getNamedItem('href')->value);
         }
 
-        return null;
+        return;
     }
 
     protected function sanitizeValue($value)
