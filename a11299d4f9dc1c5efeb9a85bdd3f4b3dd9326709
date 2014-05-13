@@ -1,0 +1,13 @@
+---------------------------------------------------------------------------
+
+by stof at 2014-05-13T08:35:37Z
+
+@lyrixx having a CI build on a server which is not publicly available seems a bad experience for contributors outside sensio
+
+---------------------------------------------------------------------------
+
+by lyrixx at 2014-05-13T08:38:00Z
+
+@stof oups ;) You are right. We should move this project on travis
+
+ping @fabpot
