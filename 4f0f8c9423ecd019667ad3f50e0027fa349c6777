@@ -1,0 +1,57 @@
+---------------------------------------------------------------------------
+
+by stof at 2014-05-13T13:23:12Z
+
+you are missing the ``before_script`` section running composer (Travis does not run it by default, which is a shame IMO)
+
+---------------------------------------------------------------------------
+
+by stof at 2014-05-13T13:34:22Z
+
+@lyrixx FYI, the current setup triggered 2 builds for each of your commits:
+
+- a build for the ``travis`` branch
+- a build for the PR with the code of ``travis`` merged with ``master`` (which is the same for this time as the merge would be a fast-forward).
+
+given that Travis allows only 5 concurrent jobs per repo owner (in this case the ``sensiolabs`` organization), it is best to avoid wasting resources this way (a build requires 6 jobs to run with your current config).
+There is 2 ways to avoid duplicating builds:
+
+- send PRs from a fork (Travis will not run a branch build as the branch is not in the repo in this case)
+- use the Travis config to either run builds only on ``master``, or to backlist branches based on a given pattern (depending of what works best for you).
+
+you can look at [Behat](https://github.com/Behat/Behat/blob/master/.travis.yml#L5) to see an example of the blacklist in use. The reason is that I'm usign my fork and Konstantin is always using gitflow-like branch names, so a blacklist ensures we will not disable builds in release maintenance branch by forgetting to update the whitelist (it happened for us in the past).
+If you don't have a pattern for your feature branches, you will need to use a whitelist instead, like this:
+
+```yaml
+branches:
+  only:
+    - master
+    # Maintenance branches
+    - '/^\d\.\d$/'
+```
+
+---------------------------------------------------------------------------
+
+by lyrixx at 2014-05-13T13:40:47Z
+
+@stof Thanks a lot for this explanation.
+
+So IIUC, If I choose to build only master, will travis build all PR? I so I think it's the best way to work. Because I don't want to use my fork ;)
+
+---------------------------------------------------------------------------
+
+by stof at 2014-05-13T13:44:10Z
+
+It will build all PR targetting a branch which is built. So if you whitelist only master, a PR sent to master will be built, while a PR sent to the collaborators branch will not (but the PR sent *from* collaborators to master will be built)
+
+---------------------------------------------------------------------------
+
+by lyrixx at 2014-05-13T13:46:06Z
+
+Thanks. I tweaked the `.travis.yml`. I thinks It's good for the merge.
+
+---------------------------------------------------------------------------
+
+by stof at 2014-05-13T13:47:41Z
+
+Givent that tests are passing on HHVM currently, I suggest disallowing failures on it. As the library is currently compatible with HHVM, it should stay compatible IMO.
