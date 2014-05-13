@@ -96,6 +96,11 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
             return $this->parseFoafGroup($nodes->item(0));
         }
 
+        $nodes = $this->xpath->evaluate('./badge', $element);
+        if (1 === $nodes->length) {
+            return $this->parseBadge($nodes->item(0));
+        }
+
         $nodes = $this->xpath->evaluate('./error');
         if (1 === $nodes->length) {
             return $this->parseError($nodes->item(0));
