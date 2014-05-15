@@ -342,8 +342,8 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         }
 
         $nodeList = $this->xpath->query('./xhtml:form', $element);
-        if (1 === $nodeList->length) {
-            $this->parseForm($user, $nodeList->item(0));
+        foreach ($nodeList as $node) {
+            $this->parseForm($user, $node);
         }
 
         return $user;
