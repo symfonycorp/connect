@@ -19,7 +19,7 @@ use SensioLabs\Connect\Api\Model\Form;
  *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
-abstract class AbstractEntity implements \ArrayAccess
+abstract class AbstractEntity implements \ArrayAccess, \Serializable
 {
     private $selfUrl;
     private $alternateUrl;
@@ -218,6 +218,17 @@ abstract class AbstractEntity implements \ArrayAccess
     public function getSelfUrl()
     {
         return $this->selfUrl;
+    }
+
+    public function serialize()
+    {
+        return serialize(array($this->selfUrl, $this->alternateUrl, $this->properties));
+    }
+
+    public function unserialize($str)
+    {
+        list($this->selfUrl, $this->alternateUrl, $this->properties) = unserialize($str);
+        $this->forms = array();
     }
 
     abstract protected function configure();
