@@ -105,13 +105,18 @@ class ErrorTranslatorTest extends \PHPUnit_Framework_TestCase
     {
         $form = $this->formBuilder->add('foo')->getForm();
 
-        $exception=  new ApiClientException('403', '', 'Unauthorized', array(), null);
+        $exception = new ApiClientException('403', '', 'Unauthorized', array(), null);
 
         $form = $this->errorTranslator->translate($form, $exception);
-
-        $this->assertCount(1, $form->getErrors());
+        $this->assertInstanceOf('Symfony\Component\Form\Form', $form);
         $errors = $form->getErrors();
+        // BC layer for symfony 2.5
+        if ($errors instanceof \Traversable) {
+            $errors = iterator_to_array($errors);
+        }
+        $this->assertCount(1, $errors);
         $error = reset($errors);
+        $this->assertInstanceOf('Symfony\Component\Form\FormError', $error);
         $this->assertSame('Unauthorized', $error->getMessage());
         $this->assertCount(0, $form->get('foo')->getErrors());
     }
