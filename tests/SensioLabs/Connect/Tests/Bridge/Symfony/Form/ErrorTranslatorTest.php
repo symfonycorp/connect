@@ -79,7 +79,7 @@ class ErrorTranslatorTest extends \PHPUnit_Framework_TestCase
 
         $form = $this->formBuilder->add('foo')->getForm();
 
-        $form = $this->errorTranslator->translate($form, $exception, array('bar' => function($form) { return $form->get('foo'); }));
+        $form = $this->errorTranslator->translate($form, $exception, array('bar' => function ($form) { return $form->get('foo'); }));
 
         $this->assertCount(0, $form->getErrors());
         $this->assertCount(1, $form->get('foo')->getErrors());
@@ -98,7 +98,7 @@ class ErrorTranslatorTest extends \PHPUnit_Framework_TestCase
 
         $form = $this->formBuilder->add('foo')->getForm();
 
-        $this->errorTranslator->translate($form, $exception, array('bar' => function($form) { return null; }));
+        $this->errorTranslator->translate($form, $exception, array('bar' => function ($form) { return; }));
     }
 
     public function testTranslateWithEmptyError()
