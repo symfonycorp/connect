@@ -39,6 +39,20 @@ class AbstractEntityTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($api, $this->entity->get('clone')->getApi());
     }
 
+    public function testApiIsNotSerialized()
+    {
+        $api = $this->getMockBuilder('SensioLabs\Connect\Api\Api')
+                    ->disableOriginalConstructor()
+                    ->getMock();
+
+        $this->entity->setApi($api);
+
+        $unserializedEntity = unserialize(serialize($this->entity));
+
+        $this->assertInstanceOf(get_class($this->entity), $unserializedEntity);
+        $this->assertNull($unserializedEntity->getApi());
+    }
+
     public function testHas()
     {
         $this->assertFalse($this->entity->has('foobar'));
