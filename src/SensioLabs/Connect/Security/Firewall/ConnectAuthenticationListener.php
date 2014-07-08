@@ -55,8 +55,6 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
         }
 
         if (!$request->query->has('code')) {
-            // cannot be an AuthenticationException as it would put yourself into an infinite loop
-            // should never happen though
             throw new OAuthException('listener', 'No oauth code in the request.');
         }
 
