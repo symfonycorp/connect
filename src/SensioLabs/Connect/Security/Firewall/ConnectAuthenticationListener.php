@@ -14,6 +14,7 @@ namespace SensioLabs\Connect\Security\Firewall;
 use SensioLabs\Connect\Api\Api;
 use SensioLabs\Connect\OAuthConsumer;
 use SensioLabs\Connect\Security\Authentication\Token\ConnectToken;
+use SensioLabs\Connect\Security\Exception\AuthenticationException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Firewall\AbstractAuthenticationListener;
 use SensioLabs\Connect\Exception\OAuthException;
@@ -50,17 +51,21 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
      */
     protected function attemptAuthentication(Request $request)
     {
-        if ($request->query->has('error')) {
-            throw new OAuthException($request->query->get('error'), $request->query->get('error_description'));
-        }
+        try {
+            if ($request->query->has('error')) {
+                throw new OAuthException($request->query->get('error'), $request->query->get('error_description'));
+            }
 
-        if (!$request->query->has('code')) {
-            throw new OAuthException('listener', 'No oauth code in the request.');
-        }
+            if (!$request->query->has('code')) {
+                throw new OAuthException('listener', 'No oauth code in the request.');
+            }
 
-        $data = $this->oauthConsumer->requestAccessToken($this->httpUtils->generateUri($request, $this->oauthCallback), $request->query->get('code'));
-        $this->api->setAccessToken($data['access_token']);
-        $apiUser = $this->api->getRoot()->getCurrentUser();
+            $data = $this->oauthConsumer->requestAccessToken($this->httpUtils->generateUri($request, $this->oauthCallback), $request->query->get('code'));
+            $this->api->setAccessToken($data['access_token']);
+            $apiUser = $this->api->getRoot()->getCurrentUser();
+        } catch (OAuthException $e) {
+            throw new AuthenticationException($e);
+        }
 
         $flashBag = $request->getSession()->getFlashBag();
         if ($flashBag->has('sensiolabs_connect.oauth.target_path')) {

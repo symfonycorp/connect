@@ -11,14 +11,12 @@
 
 namespace SensioLabs\Connect\Exception;
 
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-
 /**
  * OAuthException
  *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
-class OAuthException extends AuthenticationException implements ExceptionInterface
+class OAuthException extends \RuntimeException implements ExceptionInterface
 {
     private $type;
 
@@ -30,10 +28,6 @@ class OAuthException extends AuthenticationException implements ExceptionInterfa
      */
     public function __construct($type, $message, \Exception $previousException = null)
     {
-        if (!$message) {
-            $message = 'access_denied' === $type ? 'You denied the authorization' : 'Impossible to process authentication with SensioLabsConnect';
-        }
-
         $this->type = $type;
         $this->message = $message;
 
