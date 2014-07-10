@@ -11,8 +11,9 @@
 
 namespace SensioLabs\Connect;
 
-use Buzz\Browser;
-use Buzz\Client\Curl;
+use Guzzle\Http\Client as Guzzle;
+use Guzzle\Common\Exception\GuzzleException;
+use Guzzle\Http\Client;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use SensioLabs\Connect\Exception\OAuthException;
@@ -38,9 +39,9 @@ class OAuthConsumer
         'authorize'      => '/oauth/authorize',
     );
 
-    public function __construct($appId, $appSecret, $scope, $endpoint = null, Browser $browser = null, LoggerInterface $logger = null)
+    public function __construct($appId, $appSecret, $scope, $endpoint = null, Guzzle $browser = null, LoggerInterface $logger = null)
     {
-        $this->browser   = $browser ?: new Browser(new Curl());
+        $this->browser   = $browser ?: new Guzzle(self::ENDPOINT);
         $this->appId     = $appId;
         $this->appSecret = $appSecret;
         $this->scope     = $scope;
@@ -52,6 +53,8 @@ class OAuthConsumer
      * getAuthorizationUri
      *
      * @param mixed $callbackUri
+     *
+     * @return string
      */
     public function getAuthorizationUri($callbackUri)
     {
@@ -74,6 +77,8 @@ class OAuthConsumer
      * @param  $authorizationCode
      *
      * @return array
+     *
+     * @throws OAuthException
      */
     public function requestAccessToken($callbackUri, $authorizationCode)
     {
@@ -87,22 +92,23 @@ class OAuthConsumer
             'scope'         => $this->scope,
         );
 
-        $url = sprintf('%s%s', $this->endpoint, $this->paths['access_token']);
+        $url = $this->paths['access_token'];
 
         $this->logger->info(sprintf("Requesting AccessToken to '%s'", $url));
         $this->logger->debug(sprintf("Sent params: %s", json_encode($params)));
 
-        $response = $this->browser->submit($url, $params);
+        $request = $this->browser->post($url, $params, array('exceptions' => false));
+        $request->addPostFields($params);
+        $response = $request->send();
 
         $this->logger->debug(sprintf("Response of AccessToken: %s", $response));
 
-        $content = $response->getContent();
-        $response = json_decode($content, true);
-
-        if (null === $response) {
+        try {
+            $response = $response->json();
+        } catch (GuzzleException $e) {
             $this->logger->error('Received non-json response.');
-
-            throw new OAuthException('provider', "Response content couldn't be converted to JSON.");
+            $this->logger->debug($response->getBody(true));
+            throw new OAuthException('provider', "Response content couldn't be converted to JSON.", $e);
         }
 
         if (isset($response['error'])) {

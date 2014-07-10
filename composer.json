@@ -13,12 +13,13 @@
         }
     ],
     "require": {
-        "kriswallsmith/buzz": "~0.8",
+        "guzzle/http": "~3.0",
         "psr/log": "~1.0"
     },
     "require-dev": {
         "symfony/form": "~2.1",
-        "symfony/security": "~2.3"
+        "symfony/security": "~2.3",
+        "guzzle/plugin-mock": "~3.0"
     },
     "suggest": {
         "symfony/security": "To use in a Symfony environment"
