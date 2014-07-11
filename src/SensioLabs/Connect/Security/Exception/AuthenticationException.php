@@ -3,12 +3,11 @@
 namespace SensioLabs\Connect\Security\Exception;
 
 use Symfony\Component\Security\Core\Exception\AuthenticationException as BaseAuthenticationException;
-use SensioLabs\Connect\Exception\OAuthException;
 use SensioLabs\Connect\Exception\ExceptionInterface;
 
 class AuthenticationException extends BaseAuthenticationException implements ExceptionInterface
 {
-    public function __construct(OAuthException $previous)
+    public function __construct(\Exception $previous)
     {
         parent::__construct((string) $previous, 0, $previous);
     }

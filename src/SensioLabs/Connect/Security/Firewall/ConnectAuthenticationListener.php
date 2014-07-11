@@ -64,8 +64,8 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
             $data = $this->oauthConsumer->requestAccessToken($this->httpUtils->generateUri($request, $this->oauthCallback), $request->query->get('code'));
             $this->api->setAccessToken($data['access_token']);
             $apiUser = $this->api->getRoot()->getCurrentUser();
-        } catch (OAuthException $e) {
-            if ('access_denied' === $e->getType()) {
+        } catch (\Exception $e) {
+            if ($e instanceof OAuthException && 'access_denied' === $e->getType()) {
                 throw new OAuthAccessDeniedException($e);
             }
 
