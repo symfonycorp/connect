@@ -12,12 +12,13 @@
 namespace SensioLabs\Connect\Security\Firewall;
 
 use SensioLabs\Connect\Api\Api;
+use SensioLabs\Connect\Exception\OAuthException;
 use SensioLabs\Connect\OAuthConsumer;
 use SensioLabs\Connect\Security\Authentication\Token\ConnectToken;
 use SensioLabs\Connect\Security\Exception\AuthenticationException;
+use SensioLabs\Connect\Security\Exception\OAuthAccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Firewall\AbstractAuthenticationListener;
-use SensioLabs\Connect\Exception\OAuthException;
 use Symfony\Component\Security\Http\HttpUtils;
 
 /**
@@ -64,6 +65,10 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
             $this->api->setAccessToken($data['access_token']);
             $apiUser = $this->api->getRoot()->getCurrentUser();
         } catch (OAuthException $e) {
+            if ('access_denied' === $e->getType()) {
+                throw new OAuthAccessDeniedException($e);
+            }
+
             throw new AuthenticationException($e);
         }
 
