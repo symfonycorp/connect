@@ -1,0 +1,33 @@
+---------------------------------------------------------------------------
+
+by stof at 2014-07-08T16:39:27Z
+
+you should overwrite ``getMessageKey`` returning the user-facing message (the messages you added in the constructor as default messages are actually good candidates for this implementation) and you should provide translations for this message in the ``security`` domain
+
+---------------------------------------------------------------------------
+
+by tucksaun at 2014-07-10T16:52:49Z
+
+@stof @lyrixx what about now?
+I have to admit I'm not sure about the messageKey things
+
+And about that, I didn't even remember this method exists. And BTW I think I never saw any usage of it. Do you have an example of usage?
+
+---------------------------------------------------------------------------
+
+by stof at 2014-07-10T16:56:30Z
+
+@tucksaun I cannot give you a usage yet, because I haven't updated FOSUserBundle to take care of it (I will do this weekend).
+The goal of this method is to give a message suitable for user display in case of login error (the exception message is not suitable as it can leak internal details, for instance if the original exception was a PDOException embedding a SQL query in its message). This is why the method was added in 2.2 (and the messages returned by these implementations have translations in core)
+
+---------------------------------------------------------------------------
+
+by tucksaun at 2014-07-10T16:58:32Z
+
+@stof thanks for the clarification this is what I guessed but I was not able to find any usage of this method. I will update the documentation I'm currently adding for SensioLabsConnectBundle thought
+
+---------------------------------------------------------------------------
+
+by tucksaun at 2014-07-18T16:30:01Z
+
+ping @lyrixx
