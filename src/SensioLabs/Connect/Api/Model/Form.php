@@ -11,6 +11,8 @@
 
 namespace SensioLabs\Connect\Api\Model;
 
+use SensioLabs\Connect\Api\Entity\AbstractEntity;
+
 /**
  * Form.
  *

@@ -97,39 +97,53 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
 
     public function submit($formId, AbstractEntity $entity = null)
     {
-        $form = $this->forms[$formId];
+        $form   = $this->forms[$formId];
+        $entity = $entity ?: $this;
         $fields = $form->getFields();
+        $data   = array();
 
         if (null === $entity) {
             $entity = $this;
         }
 
-        foreach ($fields as $key => $value) {
-            if (!$entity->has($key)) {
-                continue;
+        // special case: the form root is a collection, the entity is a collection too (ie. an Index)
+        if (array('') === array_keys($fields)) {
+            // entity must be an Index (ie. a collection of objects)
+            if (!$entity instanceof Index) {
+                throw new \InvalidArgumentException('Collection form must be submitted with an Index entity.');
             }
-            if (!is_array($fields[$key])) {
-                $fields[$key] = $entity->get($key);
-            } else {
-                // we have a collection of fields that should be repeated.
-                $template = $fields[$key];
-                $fields[$key] = array();
-                foreach ($entity->get($key) as $subEntity) {
-                    $subFields = array();
-                    foreach ($template as $k => $v) {
-                        if (!$subEntity->has($k)) {
-                            continue;
+
+            $data = $entity->getItems();
+        } else {
+            foreach ($fields as $key => $value) {
+                if (!is_array($fields[$key])) {
+                    if (!$entity->has($key)) {
+                        continue;
+                    }
+                    $data[$key] = $entity->get($key);
+                } else {
+                    // we have a collection of fields that should be repeated.
+                    $template = $fields[$key];
+                    $data[$key] = array();
+
+                    foreach ($entity->get($key) as $subEntity) {
+                        $subFields = array();
+
+                        foreach ($template as $k => $v) {
+                            if (!$subEntity->has($k)) {
+                                continue;
+                            }
+
+                            $subFields[$k] = $subEntity->get($k);
                         }
 
-                        $subFields[$k] = $subEntity->get($k);
+                        $data[$key][] = $subFields;
                     }
-
-                    $fields[$key][] = $subFields;
                 }
             }
         }
 
-        return $this->api->submit($form->getAction(), $form->getMethod(), $fields);
+        return $this->api->submit($form->getAction(), $form->getMethod(), $data);
     }
 
     public function __call($name, $arguments)
