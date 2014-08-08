@@ -12,6 +12,13 @@ To install the SDK, run the command below and you will get the latest version:
 
     composer require sensiolabs/connect
 
+## Upgrade
+
+### Version 4:
+
+BC Break: As of version 4, Connect does not use [Buzz](https://github.com/kriswallsmith/Buzz) as HTTP client anymore. 
+It now uses [Guzzle 3](https://github.com/guzzle/guzzle3) that is  compatible with Guzzle 4, but PHP 5.3 compatible.
+
 ## Usage
 
 ### OAuth
