@@ -86,7 +86,7 @@ class Api
 
         $this->logger->info(sprintf('GET %s', $url));
 
-        return $this->processResponse($this->client->get($url, array_merge($headers, $this->getAcceptHeader()), array('exceptions' => false))->send());
+        return $this->processResponse($this->client->get($url, array_merge($headers, $this->getAcceptHeader()))->send());
     }
 
     public function post($url, array $fields, $headers = array())
@@ -97,7 +97,7 @@ class Api
         $this->logger->debug(sprintf('Posted headers: %s', json_encode($headers)));
         $this->logger->debug(sprintf('Posted fields: %s', json_encode($fields)));
 
-        $request = $this->client->post($url, array_merge($headers, $this->getAcceptHeader()), null, array('exceptions' => false));
+        $request = $this->client->post($url, array_merge($headers, $this->getAcceptHeader()), null);
         $request->addPostFields($fields);
 
         return $this->processResponse($request->send());

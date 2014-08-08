@@ -24,6 +24,10 @@ function createClient($endpoint, array $options = array()) {
             'http_codes' => array(500, 503),
             'curl_codes' => null,
         ),
+        'options' => array(
+            'timeout' => 5, // maximum number of seconds to allow for an entire transfer to take place before timing out
+            'connect_timeout' => 5, // maximum number of seconds to wait while trying to connect
+        )
     ), $options);
 
     if (false !== $options['backoff_options']) {
@@ -38,6 +42,14 @@ function createClient($endpoint, array $options = array()) {
 
     foreach ($options['plugins'] as $plugin) {
         $client->addSubscriber($plugin);
+    }
+
+    $client->setDefaultOption('timeout', $options['timeout']);
+    $client->setDefaultOption('connect_timeout', $options['connect_timeout']);
+    $client->setDefaultOption('exceptions', false);
+
+    if (isset($options['proxy'])) {
+        $client->setDefaultOption('proxy', $options['proxy']);
     }
 
     return $client;

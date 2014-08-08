@@ -112,7 +112,7 @@ class OAuthConsumer
         $this->logger->info(sprintf("Requesting AccessToken to '%s'", $url));
         $this->logger->debug(sprintf("Sent params: %s", json_encode($params)));
 
-        $request = $this->client->post($url, $params, array('exceptions' => false));
+        $request = $this->client->post($url, $params);
         $request->addPostFields($params);
         $response = $request->send();
 

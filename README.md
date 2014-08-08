@@ -184,24 +184,29 @@ should not know anything beside the API's entry point.
 SensiolabsConnect relies on Guzzle HTTP client. It comes configured with an HTTP cache adapter and the backoff plugin.
 However, you can disable these plugins and and yours:
 
-Disabling/Enabling plugins:
+All the example above use `SensioLabs\Connect\OAuthConsumer`. However, these options are also available using the
+`SensioLabs\Connect\Api\Api`.
+
+1. Disabling/Enabling plugins:
 
 ```php
 use SensioLabs\Connect\OAuthConsumer;
 
-$app['connect_consumer'] = new OAuthConsumer($id, $secret, $scope, array(
+$consumer = new OAuthConsumer($id, $secret, $scope, array(
    'cache_options' => false,                                   // disables the cache plugin
    'backoff_options' => false,                                 // disables the backoff plugin
    'plugins' => array(new Guzzle\Plugin\History\HistoryPlugin) // adds an array of plugins
 ));
 ```
 
+2. Configure embedded plugins:
+
 You can also configure the cache and backoff plugins:
 
 ```php
 use SensioLabs\Connect\OAuthConsumer;
 
-$app['connect_consumer'] = new OAuthConsumer($id, $secret, $scope, array(
+$consumer = new OAuthConsumer($id, $secret, $scope, array(
    'cache_options' => new DoctrineCacheAdapter(new FilesystemCache('/path/to/cache/files')), 
    'backoff_options' => array('max_retries' => 5),
 ));
@@ -210,6 +215,20 @@ $app['connect_consumer'] = new OAuthConsumer($id, $secret, $scope, array(
 Notes:
  - `cache_options` accepts any of the Guzzle Cache options, see https://github.com/guzzle/plugin-cache/blob/master/CachePlugin.php#L41-L50
  - `backoff_options` has three parameters: `max_retries`, `http_codes` and `curl_codes`.
+
+3. Customize HTTP connection
+
+There are three options to customize the HTTP connection: `timeout`, `connect_timeout` and `proxy`:
+
+```php
+use SensioLabs\Connect\OAuthConsumer;
+
+$consumer = new OAuthConsumer($id, $secret, $scope, array(
+   'timeout' => 4,                                        // maximum number of seconds to allow for an entire transfer to take place before timing out
+   'connect_timeout' => 3,                                // maximum number of seconds to wait while trying to connect
+   'proxy' => 'http://username:password@192.168.16.1:10', // specify an HTTP proxy
+));
+```
 
 ## License
 
