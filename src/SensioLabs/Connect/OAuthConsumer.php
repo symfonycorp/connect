@@ -27,7 +27,7 @@ class OAuthConsumer
 {
     const ENDPOINT = 'https://connect.sensiolabs.com';
 
-    private $browser;
+    private $client;
     private $appId;
     private $appSecret;
     private $scope;
@@ -39,9 +39,9 @@ class OAuthConsumer
         'authorize'      => '/oauth/authorize',
     );
 
-    public function __construct($appId, $appSecret, $scope, $endpoint = null, Guzzle $browser = null, LoggerInterface $logger = null)
+    public function __construct($appId, $appSecret, $scope, $endpoint = null, Guzzle $client = null, LoggerInterface $logger = null)
     {
-        $this->browser   = $browser ?: new Guzzle(self::ENDPOINT);
+        $this->client    = $client ?: new Guzzle(self::ENDPOINT);
         $this->appId     = $appId;
         $this->appSecret = $appSecret;
         $this->scope     = $scope;
@@ -97,7 +97,7 @@ class OAuthConsumer
         $this->logger->info(sprintf("Requesting AccessToken to '%s'", $url));
         $this->logger->debug(sprintf("Sent params: %s", json_encode($params)));
 
-        $request = $this->browser->post($url, $params, array('exceptions' => false));
+        $request = $this->client->post($url, $params, array('exceptions' => false));
         $request->addPostFields($params);
         $response = $request->send();
 
@@ -146,9 +146,19 @@ class OAuthConsumer
         return $this->endpoint;
     }
 
+    /**
+     * @deprecated Deprecated since 4.0, use getClient instead
+     *
+     * @return Guzzle
+     */
     public function getBrowser()
     {
-        return $this->browser;
+        return $this->getClient();
+    }
+
+    public function getClient()
+    {
+        return $this->client;
     }
 
     public function getLogger()

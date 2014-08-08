@@ -31,15 +31,15 @@ class Api
 {
     const ENDPOINT = 'https://connect.sensiolabs.com/api';
 
-    private $browser;
+    private $client;
     private $parser;
     private $logger;
     private $endpoint;
     private $accessToken;
 
-    public function __construct($endpoint = null, Guzzle $browser = null, ParserInterface $parser = null, LoggerInterface $logger = null)
+    public function __construct($endpoint = null, Guzzle $client = null, ParserInterface $parser = null, LoggerInterface $logger = null)
     {
-        $this->browser = $browser ?: new Guzzle(self::ENDPOINT);
+        $this->client = $client ?: new Guzzle(self::ENDPOINT);
         $this->parser = $parser ?: new Parser();
         $this->endpoint = $endpoint ?: self::ENDPOINT;
         $this->logger = $logger ?: new NullLogger();
@@ -73,7 +73,7 @@ class Api
 
         $this->logger->info(sprintf('GET %s', $url));
 
-        return $this->processResponse($this->browser->get($url, array_merge($headers, $this->getAcceptHeader()), array('exceptions' => false))->send());
+        return $this->processResponse($this->client->get($url, array_merge($headers, $this->getAcceptHeader()), array('exceptions' => false))->send());
     }
 
     public function post($url, array $fields, $headers = array())
@@ -84,7 +84,7 @@ class Api
         $this->logger->debug(sprintf('Posted headers: %s', json_encode($headers)));
         $this->logger->debug(sprintf('Posted fields: %s', json_encode($fields)));
 
-        $request = $this->browser->post($url, array_merge($headers, $this->getAcceptHeader()), null, array('exceptions' => false));
+        $request = $this->client->post($url, array_merge($headers, $this->getAcceptHeader()), null, array('exceptions' => false));
         $request->addPostFields($fields);
 
         return $this->processResponse($request->send());
