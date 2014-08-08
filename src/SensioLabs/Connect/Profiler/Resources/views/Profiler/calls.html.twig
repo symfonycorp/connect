@@ -1,0 +1,41 @@
+<div class="connect-sdk-profiler">
+    <h2>Requests</h2>
+    {% for index,call in calls %}
+        {% include '@ConnectSDK/Profiler/call.html.twig' with { 'call': call } %}
+    {% endfor %}
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.css">
+<script>
+    (function() {
+        var elems = document.getElementsByClassName('connect-profiler-summary');
+        for (var i= 0; i<elems.length; i += 1) {
+            elems[i].onclick = function() {
+                this.parentNode.getElementsByClassName('details')[0].style.display = 'block';
+            };
+        }
+        window.prettyPrint && prettyPrint()
+
+        var navs = document.getElementsByClassName('nav-tabs');
+
+        for (i = 0; i < navs.length; i += 1) {
+            var tabs = navs[i].parentNode.getElementsByClassName('tab-pane'),
+                lis = navs[i].getElementsByTagName('li');
+
+            for (var j = 0; j < lis.length; j += 1) {
+                lis[j].onclick = function (event) {
+                    event.preventDefault();
+                    for (var k = 0; k<tabs.length; k +=1) {
+                        tabs[k].style.display = 'none';
+                    }
+                    document.getElementById(this.getElementsByTagName('a')[0].getAttribute('href').substr(1)).style.display = 'block';
+
+                    for (var k = 0; k < lis.length; k += 1) {
+                        lis[k].className = lis[k].className.replace('active', '');
+                    }
+                    this.className += 'active';
+                };
+            }
+        }
+    }());
+</script>
