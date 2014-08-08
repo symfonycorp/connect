@@ -16,6 +16,8 @@ use Guzzle\Plugin\Backoff\BackoffPlugin;
 use Guzzle\Plugin\Cache\CachePlugin;
 
 const USER_AGENT = 'SensioLabsConnect SDK -';
+const CONNECT_TIMEOUT = 5;
+const TRANSFERT_TIMEOUT = 5;
 
 function createClient($endpoint, array $options = array()) {
     $options = array_replace_recursive(array(
@@ -27,8 +29,8 @@ function createClient($endpoint, array $options = array()) {
             'curl_codes' => null,
         ),
         'options' => array(
-            'timeout' => 5, // maximum number of seconds to allow for an entire transfer to take place before timing out
-            'connect_timeout' => 5, // maximum number of seconds to wait while trying to connect
+            'timeout' => TRANSFERT_TIMEOUT, // maximum number of seconds to allow for an entire transfer to take place before timing out
+            'connect_timeout' => CONNECT_TIMEOUT, // maximum number of seconds to wait while trying to connect
         )
     ), $options);
 
