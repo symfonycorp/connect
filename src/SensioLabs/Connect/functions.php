@@ -15,6 +15,8 @@ use Guzzle\Http\Client as Guzzle;
 use Guzzle\Plugin\Backoff\BackoffPlugin;
 use Guzzle\Plugin\Cache\CachePlugin;
 
+const USER_AGENT = 'SensioLabsConnect SDK -';
+
 function createClient($endpoint, array $options = array()) {
     $options = array_replace_recursive(array(
         'plugins' => array(),
@@ -51,6 +53,8 @@ function createClient($endpoint, array $options = array()) {
     if (isset($options['proxy'])) {
         $client->setDefaultOption('proxy', $options['proxy']);
     }
+
+    $client->setUserAgent(USER_AGENT, true);
 
     return $client;
 }
