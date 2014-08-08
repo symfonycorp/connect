@@ -14,7 +14,9 @@
     ],
     "require": {
         "guzzle/http": "~3.0",
-        "psr/log": "~1.0"
+        "psr/log": "~1.0",
+        "guzzle/plugin-cache": "~3.0",
+        "guzzle/plugin-backoff": "~3.0"
     },
     "require-dev": {
         "symfony/form": "~2.1",
@@ -27,7 +29,8 @@
     "autoload": {
         "psr-0": {
             "SensioLabs": ["src/"]
-        }
+        },
+        "files": ["src/SensioLabs/Connect/functions.php"]
     },
     "extra": {
         "branch-alias": {

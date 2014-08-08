@@ -37,9 +37,22 @@ class Api
     private $endpoint;
     private $accessToken;
 
-    public function __construct($endpoint = null, Guzzle $client = null, ParserInterface $parser = null, LoggerInterface $logger = null)
+    /**
+     * @param string            $endpoint The API enpoint
+     * @param null|array|Guzzle $client   Either a Guzzle client or an array of options
+     * @param ParserInterface   $parser   A parser
+     * @param LoggerInterface   $logger   A logger
+     */
+    public function __construct($endpoint = null, $client = null, ParserInterface $parser = null, LoggerInterface $logger = null)
     {
-        $this->client = $client ?: new Guzzle(self::ENDPOINT);
+        if ($client instanceof Guzzle) {
+            $this->client = $client;
+        } elseif (is_array($client)) {
+            $this->client = \SensioLabs\Connect\createClient(self::ENDPOINT, $client);
+        } else {
+            $this->client = \SensioLabs\Connect\createClient(self::ENDPOINT, array());
+        }
+
         $this->parser = $parser ?: new Parser();
         $this->endpoint = $endpoint ?: self::ENDPOINT;
         $this->logger = $logger ?: new NullLogger();

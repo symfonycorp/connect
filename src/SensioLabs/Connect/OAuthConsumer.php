@@ -39,9 +39,24 @@ class OAuthConsumer
         'authorize'      => '/oauth/authorize',
     );
 
-    public function __construct($appId, $appSecret, $scope, $endpoint = null, Guzzle $client = null, LoggerInterface $logger = null)
+    /**
+     * @param string            $appId     The application Id
+     * @param string            $appSecret The application secret
+     * @param string            $scope     The application scope
+     * @param string            $endpoint  The oauth endpoint
+     * @param null|array|Guzzle $client    Either a Guzzle client or an array of options
+     * @param LoggerInterface   $logger    A logger
+     */
+    public function __construct($appId, $appSecret, $scope, $endpoint = null, $client = null, LoggerInterface $logger = null)
     {
-        $this->client    = $client ?: new Guzzle(self::ENDPOINT);
+        if ($client instanceof Guzzle) {
+            $this->client = $client;
+        } elseif (is_array($client)) {
+            $this->client = \SensioLabs\Connect\createClient(self::ENDPOINT, $client);
+        } else {
+            $this->client = \SensioLabs\Connect\createClient(self::ENDPOINT, array());
+        }
+
         $this->appId     = $appId;
         $this->appSecret = $appSecret;
         $this->scope     = $scope;

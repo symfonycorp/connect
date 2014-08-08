@@ -165,6 +165,38 @@ As you can see by these examples, you always have to to go through the API Root
 to make an action. This is because the API is discoverable and that the SDK
 should not know anything beside the API's entry point.
 
+### HTTP client customization
+
+SensiolabsConnect relies on Guzzle HTTP client. It comes configured with an HTTP cache adapter and the backoff plugin.
+However, you can disable these plugins and and yours:
+
+Disabling/Enabling plugins:
+
+```php
+use SensioLabs\Connect\OAuthConsumer;
+
+$app['connect_consumer'] = new OAuthConsumer($id, $secret, $scope, array(
+   'cache_options' => false,                                   // disables the cache plugin
+   'backoff_options' => false,                                 // disables the backoff plugin
+   'plugins' => array(new Guzzle\Plugin\History\HistoryPlugin) // adds an array of plugins
+));
+```
+
+You can also configure the cache and backoff plugins:
+
+```php
+use SensioLabs\Connect\OAuthConsumer;
+
+$app['connect_consumer'] = new OAuthConsumer($id, $secret, $scope, array(
+   'cache_options' => new DoctrineCacheAdapter(new FilesystemCache('/path/to/cache/files')), 
+   'backoff_options' => array('max_retries' => 5),
+));
+```
+
+Notes:
+ - `cache_options` accepts any of the Guzzle Cache options, see https://github.com/guzzle/plugin-cache/blob/master/CachePlugin.php#L41-L50
+ - `backoff_options` has three parameters: `max_retries`, `http_codes` and `curl_codes`.
+
 ## License
 
 This library is licensed under the MIT license.
