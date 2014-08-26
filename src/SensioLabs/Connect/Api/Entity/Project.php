@@ -15,7 +15,7 @@ namespace SensioLabs\Connect\Api\Entity;
  * Project
  *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
- * @todo Override setApi to apply it to children Contributor/User
+ * @todo Override setApi to apply it to children User
  */
 class Project extends AbstractEntity
 {
@@ -74,7 +74,6 @@ class Project extends AbstractEntity
              ->addProperty('isInternalGitRepositoryCreated')
              ->addProperty('createRepository') // Boolean to order a creation of private git repository
              ->addProperty('pictureFile')
-             ->addProperty('contributors')
         ;
     }
 }

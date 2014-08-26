@@ -21,7 +21,6 @@ use SensioLabs\Connect\Api\Entity\Member;
 use SensioLabs\Connect\Api\Entity\Membership;
 use SensioLabs\Connect\Api\Entity\Root;
 use SensioLabs\Connect\Api\Entity\User;
-use SensioLabs\Connect\Api\Entity\Contributor;
 use SensioLabs\Connect\Api\Model\Form;
 use SensioLabs\Connect\Api\Model\Error;
 
@@ -190,10 +189,6 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         if ('badge' === $element->tagName) {
             return $this->parseBadge($element);
         }
-
-        if ('doap:developer' === $element->tagName) {
-            return $this->parseContributor($element);
-        }
     }
 
     protected function parseDoapProject(\DOMElement $element)
@@ -214,12 +209,6 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         $nodeList = $this->xpath->query('./xhtml:form', $element);
         for ($i = 0; $i < $nodeList->length; $i++) {
             $this->parseForm($project, $nodeList->item($i));
-        }
-
-        $nodeList = $this->xpath->query('./contributors', $element);
-        if (1 === $nodeList->length) {
-            $contributors = $this->parseIndex($nodeList->item(0));
-            $project->setContributors($contributors);
         }
 
         return $project;
@@ -444,24 +433,6 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         $badge->setImage($this->getLinkToFoafDepiction($element));
 
         return $badge;
-    }
-
-    protected function parseContributor(\DOMElement $element)
-    {
-        $contributor = new Contributor();
-        $contributor->setLinesAdded($this->getNodeValue('./lines-added', $element));
-        $contributor->setLinesDeleted($this->getNodeValue('./lines-deleted', $element));
-        $contributor->setCommits($this->getNodeValue('./commits', $element));
-        $contributor->setRank($this->getNodeValue('./rank', $element));
-
-        $nodeList = $this->xpath->query('./foaf:Person', $element);
-        if (1 === $nodeList->length) {
-            $userElement = $nodeList->item(0);
-            $user = $this->parseFoafPerson($userElement);
-            $contributor->setUser($user);
-        }
-
-        return $contributor;
     }
 
     protected function parseError(\DOMElement $element)
