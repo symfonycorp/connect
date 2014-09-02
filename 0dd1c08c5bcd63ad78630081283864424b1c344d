@@ -1,0 +1,35 @@
+---------------------------------------------------------------------------
+
+by stof at 2014-08-26T10:16:05Z
+
+This requires bumping the version number to 4.x
+
+---------------------------------------------------------------------------
+
+by lyrixx at 2014-08-26T11:25:05Z
+
+@stof @alOneh I will take care of that (4.X) before the merge ;)
+
+---------------------------------------------------------------------------
+
+by lyrixx at 2014-08-26T11:26:36Z
+
+:+1:
+
+---------------------------------------------------------------------------
+
+by stof at 2014-08-26T12:23:41Z
+
+@lyrixx btw, is the connect API versionned ? Because removing this from the API server-side means breaking all projects relying on the SDK 3.x (or older)
+
+---------------------------------------------------------------------------
+
+by lyrixx at 2014-08-26T12:30:16Z
+
+We are remove this feature from connect. Nobody use this feature...
+
+---------------------------------------------------------------------------
+
+by alOneh at 2014-09-02T12:59:44Z
+
+ping @lyrixx
