@@ -17,7 +17,11 @@
     },
     "require-dev": {
         "psr/log": "~1.0",
-        "symfony/form": "~2.1"
+        "symfony/form": "~2.1",
+        "symfony/security": "~2.3"
+    },
+    "suggest": {
+        "symfony/security": "To use in a Symfony environment"
     },
     "autoload": {
         "psr-0": {

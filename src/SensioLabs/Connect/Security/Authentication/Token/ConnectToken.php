@@ -13,6 +13,9 @@ namespace SensioLabs\Connect\Security\Authentication\Token;
 
 use SensioLabs\Connect\Api\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\AbstractToken;
+use Symfony\Component\Security\Core\Role\Role;
+use Symfony\Component\Security\Core\Role\RoleInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * ConnectToken
@@ -41,6 +44,16 @@ class ConnectToken extends AbstractToken
         $this->scope = $scope;
 
         parent::setAuthenticated(count($roles) > 0);
+    }
+
+    public function getRoles()
+    {
+        $user = $this->getUser();
+        if ($user instanceof UserInterface) {
+            return $this->getUserRoles($user);
+        }
+
+        return parent::getRoles();
     }
 
     public function setScope($scope)
@@ -93,5 +106,21 @@ class ConnectToken extends AbstractToken
         list($this->apiUser, $this->accessToken, $this->providerKey, $this->scope, $parentStr) = unserialize($str);
 
         parent::unserialize($parentStr);
+    }
+
+    private function getUserRoles(UserInterface $user)
+    {
+        $roles = array();
+        foreach ($user->getRoles() as $role) {
+            if (is_string($role)) {
+                $role = new Role($role);
+            } elseif (!$role instanceof RoleInterface) {
+                throw new \InvalidArgumentException(sprintf('$roles must be an array of strings, or RoleInterface instances, but got %s.', gettype($role)));
+            }
+
+            $roles[] = $role;
+        }
+
+        return $roles;
     }
 }
