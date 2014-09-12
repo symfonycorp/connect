@@ -1,0 +1,13 @@
+---------------------------------------------------------------------------
+
+by iamluc at 2014-09-12T08:23:36Z
+
+Updated according to comments.
+
+Shall I test if $user is an instance of UserInterface, or a new interface like UserRolesAware ?
+
+---------------------------------------------------------------------------
+
+by iamluc at 2014-09-12T09:00:49Z
+
+Updated
