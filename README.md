@@ -8,7 +8,7 @@ go to your [SensioLabs Connect Account](https://connect.sensiolabs.com).
 
 ## Installation
 
-To install the DSK, run the command below and you will get the latest version:
+To install the SDK, run the command below and you will get the latest version:
 
     composer require sensiolabs/connect
 
