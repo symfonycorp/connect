@@ -8,8 +8,9 @@ go to your [SensioLabs Connect Account](https://connect.sensiolabs.com).
 
 ## Installation
 
-Add `sensiolabs/connect` to the list of requirements of your applications's
-`composer.json` file.
+To install the DSK, run the command below and you will get the latest version:
+
+    composer require sensiolabs/connect
 
 ## Usage
 
