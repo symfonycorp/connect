@@ -15,6 +15,7 @@ use Buzz\Browser;
 use Buzz\Client\Curl;
 use Buzz\Message\Response;
 use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use SensioLabs\Connect\Api\Parser\ParserInterface;
 use SensioLabs\Connect\Api\Parser\VndComSensiolabsConnectXmlParser as Parser;
 use SensioLabs\Connect\Exception\ApiClientException;
@@ -41,7 +42,7 @@ class Api
         $this->browser = $browser ?: new Browser(new Curl());
         $this->parser = $parser ?: new Parser();
         $this->endpoint = $endpoint ?: self::ENDPOINT;
-        $this->logger = $logger;
+        $this->logger = $logger ?: new NullLogger();
     }
 
     public function getRoot()
@@ -70,9 +71,7 @@ class Api
     {
         $url = $this->constructUrlWithAccessToken($url);
 
-        if (null !== $this->logger) {
-            $this->logger->info(sprintf('GET %s', $url));
-        }
+        $this->logger->info(sprintf('GET %s', $url));
 
         return $this->processResponse($this->browser->get($url, array_merge($headers, $this->getAcceptHeader())));
     }
@@ -80,21 +79,17 @@ class Api
     public function submit($url, $method = 'POST', array $fields, $headers = array())
     {
         $url = $this->constructUrlWithAccessToken($url);
-        if (null !== $this->logger) {
-            $this->logger->info(sprintf('%s %s', $method, $url));
-            $this->logger->debug(sprintf('Posted headers: %s', json_encode($headers)));
-            $this->logger->debug(sprintf('Posted fields: %s', json_encode($fields)));
-        }
+
+        $this->logger->info(sprintf('%s %s', $method, $url));
+        $this->logger->debug(sprintf('Posted headers: %s', json_encode($headers)));
+        $this->logger->debug(sprintf('Posted fields: %s', json_encode($fields)));
 
         return $this->processResponse($this->browser->submit($url, $fields, $method, array_merge($headers, $this->getAcceptHeader())));
     }
 
     private function processResponse(Response $response)
     {
-        if (null !== $this->logger) {
-            $this->logger->info(sprintf('Status Code %s', $response->getStatusCode()));
-            $this->logger->debug(var_export($response->getContent(), true));
-        }
+        $this->logger->info('Response:'.$response);
 
         if (500 <= $response->getStatusCode()) {
             throw new ApiServerException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders());
