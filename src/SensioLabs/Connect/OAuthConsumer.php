@@ -14,6 +14,7 @@ namespace SensioLabs\Connect;
 use Buzz\Browser;
 use Buzz\Client\Curl;
 use Psr\Log\LoggerInterface;
+use Psr\Log\NullLogger;
 use SensioLabs\Connect\Exception\OAuthException;
 
 /**
@@ -44,7 +45,7 @@ class OAuthConsumer
         $this->appSecret = $appSecret;
         $this->scope     = $scope;
         $this->endpoint  = $endpoint ?: self::ENDPOINT;
-        $this->logger    = $logger;
+        $this->logger    = $logger ?: new NullLogger();
     }
 
     /**
@@ -88,28 +89,25 @@ class OAuthConsumer
 
         $url = sprintf('%s%s', $this->endpoint, $this->paths['access_token']);
 
-        if (null !== $this->logger) {
-            $this->logger->info(sprintf("Requesting AccessToken to '%s'", $url));
-            $this->logger->debug(sprintf("Sent params: %s", json_encode($params)));
-        }
+        $this->logger->info(sprintf("Requesting AccessToken to '%s'", $url));
+        $this->logger->debug(sprintf("Sent params: %s", json_encode($params)));
 
         $response = $this->browser->submit($url, $params);
+
+        $this->logger->debug(sprintf("Response of AccessToken: %s", $response));
+
         $content = $response->getContent();
         $response = json_decode($content, true);
 
         if (null === $response) {
-            if (null !== $this->logger) {
-                $this->logger->error('Received non-json response.');
-                $this->logger->debug($content);
-            }
+            $this->logger->error('Received non-json response.');
+
             throw new OAuthException('provider', "Response content couldn't be converted to JSON.");
         }
 
         if (isset($response['error'])) {
-            if (null !== $this->logger) {
-                $this->logger->error('The OAuth2 provider responded with an error');
-                $this->logger->debug(json_encode($response));
-            }
+            $this->logger->error('The OAuth2 provider responded with an error');
+
             $error = $response['error'];
             $message = $response['message'];
 
