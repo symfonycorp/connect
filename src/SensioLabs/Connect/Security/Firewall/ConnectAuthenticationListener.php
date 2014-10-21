@@ -12,6 +12,7 @@
 namespace SensioLabs\Connect\Security\Firewall;
 
 use SensioLabs\Connect\Api\Api;
+use SensioLabs\Connect\Exception\ExceptionInterface;
 use SensioLabs\Connect\Exception\OAuthException;
 use SensioLabs\Connect\OAuthConsumer;
 use SensioLabs\Connect\Security\Authentication\Token\ConnectToken;
@@ -31,6 +32,7 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
     private $oauthConsumer;
     private $api;
     private $oauthCallback = 'login_check';
+    private $hideException = true;
 
     public function setOAuthConsumer(OAuthConsumer $oauthConsumer)
     {
@@ -45,6 +47,11 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
     public function setApi(Api $api)
     {
         $this->api = $api;
+    }
+
+    public function setRethrowException($rethrowException)
+    {
+        $this->hideException = !$rethrowException;
     }
 
     /**
@@ -64,12 +71,18 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
             $data = $this->oauthConsumer->requestAccessToken($this->httpUtils->generateUri($request, $this->oauthCallback), $request->query->get('code'));
             $this->api->setAccessToken($data['access_token']);
             $apiUser = $this->api->getRoot()->getCurrentUser();
-        } catch (\Exception $e) {
+        } catch (ExceptionInterface $e) {
             if ($e instanceof OAuthException && 'access_denied' === $e->getType()) {
                 throw new OAuthAccessDeniedException($e);
             }
 
-            throw new AuthenticationException($e);
+            $this->logger and $this->logger->critical('Something went wrong while trying to access SensioLabsConnect.', array('exception' => $e));
+
+            if ($this->hideException) {
+                throw new AuthenticationException($e);
+            }
+
+            throw $e;
         }
 
         $flashBag = $request->getSession()->getFlashBag();

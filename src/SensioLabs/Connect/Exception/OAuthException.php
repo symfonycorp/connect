@@ -28,9 +28,11 @@ class OAuthException extends \RuntimeException implements ExceptionInterface
      */
     public function __construct($type, $message, \Exception $previousException = null)
     {
-        $this->type = $type;
-        $this->message = $message;
+        $this->type = $type ?: 'unknow type';
 
+        $message = $message ?: 'no message provided';
+
+        $message = sprintf('%s (%s)', $message, $this->type);
         parent::__construct($message, 0, $previousException);
     }
 
@@ -39,6 +41,9 @@ class OAuthException extends \RuntimeException implements ExceptionInterface
         return $this->type;
     }
 
+    /**
+     * @deprecated
+     */
     public function setType($type)
     {
         $this->type = $type;
@@ -46,6 +51,6 @@ class OAuthException extends \RuntimeException implements ExceptionInterface
 
     public function __toString()
     {
-        return sprintf('%s (%s)', $this->message, $this->type);
+        return $this->message;
     }
 }
