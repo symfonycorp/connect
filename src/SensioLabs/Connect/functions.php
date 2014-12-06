@@ -19,7 +19,8 @@ const USER_AGENT = 'SensioLabsConnect SDK -';
 const CONNECT_TIMEOUT = 5;
 const TRANSFERT_TIMEOUT = 5;
 
-function createClient($endpoint, array $options = array()) {
+function createClient($endpoint, array $options = array())
+{
     $options = array_replace_recursive(array(
         'plugins' => array(),
         'cache_options' => array(),
@@ -31,7 +32,7 @@ function createClient($endpoint, array $options = array()) {
         'options' => array(
             'timeout' => TRANSFERT_TIMEOUT, // maximum number of seconds to allow for an entire transfer to take place before timing out
             'connect_timeout' => CONNECT_TIMEOUT, // maximum number of seconds to wait while trying to connect
-        )
+        ),
     ), $options);
 
     if (false !== $options['backoff_options']) {
@@ -60,4 +61,3 @@ function createClient($endpoint, array $options = array()) {
 
     return $client;
 }
- 

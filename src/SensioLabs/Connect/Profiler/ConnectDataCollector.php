@@ -53,7 +53,7 @@ class ConnectDataCollector extends DataCollector
 
             $time = array(
                 'total' => $response->getInfo('total_time'),
-                'connection' => $response->getInfo('connect_time')
+                'connection' => $response->getInfo('connect_time'),
             );
 
             $this->data['total_time'] += $response->getInfo('total_time');
@@ -75,7 +75,7 @@ class ConnectDataCollector extends DataCollector
                 'response' => $this->sanitizeResponse($response),
                 'responseContent' => $responseContent,
                 'time' => $time,
-                'error' => $error
+                'error' => $error,
             );
         }
     }
