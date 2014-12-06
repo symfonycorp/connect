@@ -20,6 +20,7 @@
     },
     "require-dev": {
         "symfony/form": "~2.1",
+        "symfony/security": "~2.3",
         "guzzle/plugin-mock": "~3.0",
         "doctrine/cache": "~1.0"
     },

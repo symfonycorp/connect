@@ -51,7 +51,6 @@ function createClient($endpoint, array $options = array())
 
     $client->setDefaultOption('timeout', $options['timeout']);
     $client->setDefaultOption('connect_timeout', $options['connect_timeout']);
-    $client->setDefaultOption('exceptions', false);
 
     if (isset($options['proxy'])) {
         $client->setDefaultOption('proxy', $options['proxy']);

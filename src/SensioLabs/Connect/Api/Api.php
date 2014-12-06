@@ -53,6 +53,9 @@ class Api
             $this->client = \SensioLabs\Connect\createClient(self::ENDPOINT, array());
         }
 
+        // mandatory here, we don't want exceptions
+        $this->client->setDefaultOption('exceptions', false);
+
         $this->parser = $parser ?: new Parser();
         $this->endpoint = $endpoint ?: self::ENDPOINT;
         $this->logger = $logger ?: new NullLogger();
@@ -109,12 +112,12 @@ class Api
     public function submit($url, $method = 'POST', array $fields, $headers = array())
     {
         switch (strtolower($method)) {
-            case 'GET':
+            case 'get':
                 return $this->get($url, $headers);
-            case 'POST':
+            case 'post':
                 return $this->post($url, $fields, $headers);
             default:
-                throw new \InvalidArgumentException(sprintf('Method %s is not supported.'));
+                throw new \InvalidArgumentException(sprintf('Method %s is not supported.', $method));
         }
     }
 
