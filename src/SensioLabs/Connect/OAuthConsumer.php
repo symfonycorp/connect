@@ -30,6 +30,7 @@ class OAuthConsumer
     private $appId;
     private $appSecret;
     private $scope;
+    private $strictChecks = true;
     private $endpoint;
     private $logger;
 
@@ -46,6 +47,11 @@ class OAuthConsumer
         $this->scope     = $scope;
         $this->endpoint  = $endpoint ?: self::ENDPOINT;
         $this->logger    = $logger ?: new NullLogger();
+    }
+
+    public function setStrictChecks($strictChecks)
+    {
+        $this->strictChecks = (bool) $strictChecks;
     }
 
     /**
@@ -85,6 +91,7 @@ class OAuthConsumer
             'redirect_uri'  => $callbackUri,
             'response_type' => 'code',
             'scope'         => $this->scope,
+            'strict'        => $this->strictChecks,
         );
 
         $url = sprintf('%s%s', $this->endpoint, $this->paths['access_token']);
