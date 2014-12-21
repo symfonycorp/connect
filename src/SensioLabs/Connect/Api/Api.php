@@ -11,9 +11,9 @@
 
 namespace SensioLabs\Connect\Api;
 
-use Buzz\Browser;
-use Buzz\Client\Curl;
-use Buzz\Message\Response;
+use Guzzle\Http\Client as Guzzle;
+use Guzzle\Http\Message\Response;
+use Guzzle\Http\Url;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use SensioLabs\Connect\Api\Parser\ParserInterface;
@@ -31,15 +31,31 @@ class Api
 {
     const ENDPOINT = 'https://connect.sensiolabs.com/api';
 
-    private $browser;
+    private $client;
     private $parser;
     private $logger;
     private $endpoint;
     private $accessToken;
 
-    public function __construct($endpoint = null, Browser $browser = null, ParserInterface $parser = null, LoggerInterface $logger = null)
+    /**
+     * @param string            $endpoint The API enpoint
+     * @param null|array|Guzzle $client   Either a Guzzle client or an array of options
+     * @param ParserInterface   $parser   A parser
+     * @param LoggerInterface   $logger   A logger
+     */
+    public function __construct($endpoint = null, $client = null, ParserInterface $parser = null, LoggerInterface $logger = null)
     {
-        $this->browser = $browser ?: new Browser(new Curl());
+        if ($client instanceof Guzzle) {
+            $this->client = $client;
+        } elseif (is_array($client)) {
+            $this->client = \SensioLabs\Connect\createClient(self::ENDPOINT, $client);
+        } else {
+            $this->client = \SensioLabs\Connect\createClient(self::ENDPOINT, array());
+        }
+
+        // mandatory here, we don't want exceptions
+        $this->client->setDefaultOption('exceptions', false);
+
         $this->parser = $parser ?: new Parser();
         $this->endpoint = $endpoint ?: self::ENDPOINT;
         $this->logger = $logger ?: new NullLogger();
@@ -73,44 +89,63 @@ class Api
 
         $this->logger->info(sprintf('GET %s', $url));
 
-        return $this->processResponse($this->browser->get($url, array_merge($headers, $this->getAcceptHeader())));
+        return $this->processResponse($this->client->get($url, array_merge($headers, $this->getAcceptHeader()))->send());
     }
 
-    public function submit($url, $method = 'POST', array $fields, $headers = array())
+    public function post($url, array $fields, $headers = array())
     {
         $url = $this->constructUrlWithAccessToken($url);
 
-        $this->logger->info(sprintf('%s %s', $method, $url));
+        $this->logger->info(sprintf('POST %s', $url));
         $this->logger->debug(sprintf('Posted headers: %s', json_encode($headers)));
         $this->logger->debug(sprintf('Posted fields: %s', json_encode($fields)));
 
-        return $this->processResponse($this->browser->submit($url, $fields, $method, array_merge($headers, $this->getAcceptHeader())));
+        $request = $this->client->post($url, array_merge($headers, $this->getAcceptHeader()), null);
+        $request->addPostFields($fields);
+
+        return $this->processResponse($request->send());
+    }
+
+    /**
+     * @deprecated Use either get or post methods
+     */
+    public function submit($url, $method = 'POST', array $fields, $headers = array())
+    {
+        switch (strtolower($method)) {
+            case 'get':
+                return $this->get($url, $headers);
+            case 'post':
+                return $this->post($url, $fields, $headers);
+            default:
+                throw new \InvalidArgumentException(sprintf('Method %s is not supported.', $method));
+        }
     }
 
     private function processResponse(Response $response)
     {
-        $this->logger->info('Response:'.$response);
+        $this->logger->info(sprintf('Status Code %s', $response->getStatusCode()));
+        $this->logger->debug(var_export($response->getBody(true), true));
 
         if (500 <= $response->getStatusCode()) {
-            throw new ApiServerException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders());
+            throw new ApiServerException($response->getStatusCode(), $response->getBody(true), $response->getReasonPhrase(), $response->getHeaders()->toArray());
         }
 
         if (400 <= $response->getStatusCode()) {
             try {
-                $error = $this->parser->parse($response->getContent());
+                $error = $this->parser->parse($response->getBody(true));
                 $error = $error instanceof Model\Error ? $error : new Model\Error();
             } catch (ApiParserException $e) {
-                throw new ApiClientException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders(), null, $e);
+                throw new ApiClientException($response->getStatusCode(), $response->getBody(true), $response->getReasonPhrase(), $response->getHeaders()->toArray(), null, $e);
             }
 
-            throw new ApiClientException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders(), $error);
+            throw new ApiClientException($response->getStatusCode(), $response->getBody(true), $response->getReasonPhrase(), $response->getHeaders()->toArray(), $error);
         }
 
         if (204 === $response->getStatusCode()) {
             return true;
         }
 
-        $content = trim($response->getContent());
+        $content = trim($response->getBody(true));
         if (empty($content)) {
             return true;
         }
@@ -123,7 +158,7 @@ class Api
 
     private function getAcceptHeader()
     {
-        return array('Accept: '.$this->parser->getContentType());
+        return array('Accept' => $this->parser->getContentType());
     }
 
     private function constructUrlWithAccessToken($url)
@@ -132,23 +167,9 @@ class Api
             return $url;
         }
 
-        $parts = parse_url($url);
-        $parts['query'] = isset($parts['query']) ? $parts['query'] : null;
-        parse_str($parts['query'], $query);
-        $query['access_token'] = $this->getAccessToken();
-        $parts['query'] = http_build_query($query);
+        $url = Url::factory($url);
+        $url->getQuery()->add('access_token', $this->getAccessToken());
 
-        $url = $parts['scheme'].'://'.$parts['host'];
-        if (isset($parts['port'])) {
-            $url .= ':'.$parts['port'];
-        }
-        if (isset($parts['path'])) {
-            $url .= $parts['path'];
-        }
-        if (isset($parts['query'])) {
-            $url .= '?'.$parts['query'];
-        }
-
-        return $url;
+        return (string) $url;
     }
 }

@@ -13,20 +13,26 @@
         }
     ],
     "require": {
-        "kriswallsmith/buzz": "~0.8",
-        "psr/log": "~1.0"
+        "guzzle/http": "~3.0",
+        "psr/log": "~1.0",
+        "guzzle/plugin-cache": "~3.0",
+        "guzzle/plugin-backoff": "~3.0"
     },
     "require-dev": {
         "symfony/form": "~2.1",
-        "symfony/security": "~2.3"
+        "symfony/security": "~2.3",
+        "guzzle/plugin-mock": "~3.0",
+        "doctrine/cache": "~1.0"
     },
     "suggest": {
-        "symfony/security": "To use in a Symfony environment"
+        "symfony/security": "To use in a Symfony environment",
+        "doctrine/cache": "To get the benefit of HTTP cache"
     },
     "autoload": {
         "psr-0": {
             "SensioLabs": ["src/"]
-        }
+        },
+        "files": ["src/SensioLabs/Connect/functions.php"]
     },
     "extra": {
         "branch-alias": {

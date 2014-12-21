@@ -1,0 +1,471 @@
+{% extends '@WebProfiler/Profiler/layout.html.twig' %}
+
+{% block toolbar %}
+    {% if collector.calls is empty %}
+        {% set color = 'grey' %}
+    {% elseif collector.countErrors > 0 %}
+        {% set color = 'red' %}
+    {% else %}
+        {% set color = 'green' %}
+    {% endif %}
+
+    {% set icon %}
+    <img width="18" height="18" style="padding-top:6px;padding-bottom:4px;" alt="SensioLabs connect" src="data:image/png;base64,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" />
+    <span class="sf-toolbar-status">{{ collector.calls|length }}</span>
+    {% endset %}
+
+    {% set text %}
+    <div class="sf-toolbar-info-piece">
+        <b>Requests</b>
+        <span class="sf-toolbar-status sf-toolbar-status-green">{{ collector.calls|length - collector.countErrors }}</span>
+        {% if collector.countErrors > 0 %}
+            + <span class="sf-toolbar-status sf-toolbar-status-red">{{ collector.countErrors }}</span>
+        {% endif %}
+    </div>
+    <div class="sf-toolbar-info-piece">
+        <b>Requests time</b>
+        {% if collector.totalTime > 1.0 %}
+            <span>{{ '%0.2f'|format(collector.totalTime) }} s</span>
+        {% else %}
+            <span>{{ '%0.0f'|format(collector.totalTime * 1000) }} ms</span>
+        {% endif %}
+    </div>
+    {% endset %}
+
+    {% include '@WebProfiler/Profiler/toolbar_item.html.twig' with { 'link': 'connect-sdk' } %}
+{% endblock %}
+
+{% block menu %}
+    <span class="label">
+        <span class="icon"><img alt="SensioLabsConnect" src="data:image/png;base64,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"></span>
+        <strong>Connect</strong>
+        <span class="count">
+            {% if collector.calls is not empty %}
+                <span>{{ collector.calls|length }}</span>
+                {% if collector.totalTime > 1.0 %}
+                <span>{{ '%0.2f'|format(collector.totalTime) }} s</span>
+                {% else %}
+                <span>{{ '%0.0f'|format(collector.totalTime * 1000) }} ms</span>
+            {% endif %}
+            {% endif %}
+        </span>
+    </span>
+{% endblock %}
+
+{% block head %}
+    {{ parent() }}
+    <style type="text/css">
+    .icon:before {
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        display: inline-block;
+        text-decoration: inherit;
+    }
+
+    div.connect-sdk-profiler div.request {
+        margin-bottom: 10px;
+    }
+
+    div.connect-sdk-profiler div.request div.status {
+        float: left;
+        width: 24px;
+        height: 18px;
+        margin-top: 10px;
+        font-size: 16px;
+    }
+
+    div.connect-sdk-profiler div.request div.status.success:before {
+        color: #d1d1d1;
+        content: "\f00c";
+    }
+
+    div.connect-sdk-profiler div.request div.status.error:before {
+        color: #A41E22;
+        content: "\f071";
+    }
+
+    div.connect-sdk-profiler div.request div.connect-profiler-summary {
+        font-family: sans-serif;
+        display: block;
+        float: none;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        border: 1px solid;
+        cursor: pointer;
+    }
+
+    div.connect-sdk-profiler div.request.post div.connect-profiler-summary {
+        background-color: #E7F6EC;
+        border-color: #C3E8D1;
+        color: #10A54A;
+    }
+
+    div.connect-sdk-profiler div.request.get div.connect-profiler-summary {
+        background-color: #E7F0F7;
+        border-color: #C3D9EC;
+        color: #0F6AB4;
+    }
+
+    div.connect-sdk-profiler div.request.put div.connect-profiler-summary {
+        background-color: #F9F2E9;
+        border-color: #F0E0CA;
+        color: #C5862B;
+    }
+
+    div.connect-sdk-profiler div.request.delete div.connect-profiler-summary {
+        background-color: #F5E8E8;
+        border-color: #E8C6C7;
+        color: #A41E22;
+    }
+
+    div.connect-sdk-profiler div.request div.connect-profiler-summary h3 {
+        float: left;
+        font-weight: normal;
+        line-height: 1.1em;
+        font-size: 14px;
+        margin: 0;
+        padding: 0;
+    }
+
+    div.connect-sdk-profiler div.request div.connect-profiler-summary div.code {
+        display: block;
+        float: right;
+        margin: 6px 10px 0 0;
+        font-size: small;
+    }
+
+    div.connect-sdk-profiler div.request div.connect-profiler-summary h3 > span.method {
+        text-transform: uppercase;
+        text-decoration: none;
+        color: white;
+        display: inline-block;
+        width: 50px;
+        font-size: 0.9em;
+        text-align: center;
+        margin: 0;
+        padding: 7px 0 4px 0;
+        -moz-border-radius: 2px;
+        -webkit-border-radius: 2px;
+        -o-border-radius: 2px;
+        -ms-border-radius: 2px;
+        -khtml-border-radius: 2px;
+        border-radius: 2px;
+    }
+
+    div.connect-sdk-profiler div.request div.connect-profiler-summary h3 > span.time {
+        text-decoration: none;
+        color: #999;
+        display: inline-block;
+        width: 95px;
+        font-size: 0.9em;
+        text-align: left;
+        margin: 0;
+        padding: 7px 0 4px 0;
+    }
+
+    div.connect-sdk-profiler div.request.post div.connect-profiler-summary h3 > span.method {
+        background-color: #10a54a;
+    }
+
+    div.connect-sdk-profiler div.request.get div.connect-profiler-summary h3 > span.method {
+        background-color: #0F6AB4;
+    }
+
+    div.connect-sdk-profiler div.request.put div.connect-profiler-summary h3 > span.method {
+        background-color: #C5862B;
+    }
+
+    div.connect-sdk-profiler div.request.delete div.connect-profiler-summary h3 > span.method {
+        background-color: #0F6AB4;
+    }
+
+    div.connect-sdk-profiler div.request div.connect-profiler-summary h3 > span.path {
+        margin: 0;
+        padding: 10px 0 0 0;
+        color: black;
+    }
+
+    div.connect-sdk-profiler .details {
+        display: none;
+        margin-top: 20px;
+    }
+
+    div.connect-sdk-profiler div.request div.details {
+        padding: 0px 0px;
+        color: #313131;
+    }
+
+    div.connect-sdk-profiler div.request div.details .nav {
+        margin-bottom: 5px;
+    }
+
+    div.connect-sdk-profiler div.request div.details .nav li > a {
+        margin: 0;
+        color: #313131;
+        font-size: 1.2em;
+    }
+
+    div.connect-sdk-profiler div.request div.details .nav li.active > a {
+        font-weight: bold;
+    }
+
+    div.connect-sdk-profiler div.request div.details div.tab-content {
+        padding: 10px 20px;
+        border-left: 1px dashed #ddd;
+        border-right: 1px dashed #ddd;
+    }
+
+    div.request h5 {
+        text-align: left;
+        font-size: 1.1em;
+        text-transform: lowercase;
+        font-variant: small-caps;
+        font-weight: bold;
+    }
+
+    div.connect-sdk-profiler div.request pre, div.connect-sdk-profiler div.request code {
+        color: #333;
+        font-size: 13px;
+        font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
+    }
+
+    div.connect-sdk-profiler div.request pre {
+        padding: 9.5px;
+        margin: 0 0px 10px 20px;
+        font-size: 11px;
+        background-color: whiteSmoke;
+        white-space: pre;
+        white-space: pre-wrap;
+        border: 1px solid #CCC;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        word-break: break-all;
+        word-wrap: break-word;
+    }
+
+    div.connect-sdk-profiler div.request pre.prettyprint {
+        margin-bottom: 20px;
+    }
+
+    /* Bootstrap progress bar */
+    .progress {
+        height: 20px;
+        overflow: hidden;
+        background-color: #F7F7F7;
+        background-image: -moz-linear-gradient(top, whiteSmoke, #F9F9F9);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(whiteSmoke), to(#F9F9F9));
+        background-image: -webkit-linear-gradient(top, whiteSmoke, #F9F9F9);
+        background-image: -o-linear-gradient(top, whiteSmoke, #F9F9F9);
+        background-image: linear-gradient(to bottom, whiteSmoke, #F9F9F9);
+        background-repeat: repeat-x;
+        -webkit-border-radius: 4px;
+        -moz-border-radius: 4px;
+        border-radius: 4px;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5f5f5', endColorstr='#fff9f9f9', GradientType=0);
+        -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        -moz-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+
+    .progress .bar {
+        float: left;
+        width: 0;
+        height: 100%;
+        font-size: 14px;
+        font-weight: light;
+        color: white;
+        text-align: center;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        background-color: #0E90D2;
+        background-image: -moz-linear-gradient(top, #149BDF, #0480BE);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#149BDF), to(#0480BE));
+        background-image: -webkit-linear-gradient(top, #149BDF, #0480BE);
+        background-image: -o-linear-gradient(top, #149BDF, #0480BE);
+        background-image: linear-gradient(to bottom, #149BDF, #0480BE);
+        background-repeat: repeat-x;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff149bdf', endColorstr='#ff0480be', GradientType=0);
+        -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition: width 0.6s ease;
+        -moz-transition: width 0.6s ease;
+        -o-transition: width 0.6s ease;
+        transition: width 0.6s ease;
+    }
+
+    .progress-striped .bar {
+        background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+        background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        -webkit-background-size: 40px 40px;
+        -moz-background-size: 40px 40px;
+        -o-background-size: 40px 40px;
+        background-size: 40px 40px;
+    }
+
+    .progress .bar + .bar {
+        -webkit-box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+        -moz-box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+        box-shadow: inset 1px 0 0 rgba(0, 0, 0, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    }
+
+    .progress-warning .bar, .progress .bar-warning {
+        background-color: #FAA732;
+        background-image: -moz-linear-gradient(top, #FBB450, #F89406);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FBB450), to(#F89406));
+        background-image: -webkit-linear-gradient(top, #FBB450, #F89406);
+        background-image: -o-linear-gradient(top, #FBB450, #F89406);
+        background-image: linear-gradient(to bottom, #FBB450, #F89406);
+        background-repeat: repeat-x;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffbb450', endColorstr='#fff89406', GradientType=0);
+    }
+
+    .progress-warning.progress-striped .bar, .progress-striped .bar-warning {
+        background-color: #FBB450;
+        background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+        background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    }
+
+    .progress-success .bar, .progress .bar-success {
+        background-color: #5EB95E;
+        background-image: -moz-linear-gradient(top, #62C462, #57A957);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62C462), to(#57A957));
+        background-image: -webkit-linear-gradient(top, #62C462, #57A957);
+        background-image: -o-linear-gradient(top, #62C462, #57A957);
+        background-image: linear-gradient(to bottom, #62C462, #57A957);
+        background-repeat: repeat-x;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff57a957', GradientType=0);
+    }
+
+    .progress-success.progress-striped .bar, .progress-striped .bar-success {
+        background-color: #62C462;
+        background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.15)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.15)), color-stop(0.75, rgba(255, 255, 255, 0.15)), color-stop(0.75, transparent), to(transparent));
+        background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+        background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+    }
+
+    /* Bootstrap nav */
+    .nav {
+        margin-bottom: 20px;
+        margin-left: 0;
+        list-style: none;
+    }
+
+    .nav > li > a {
+        display: block;
+    }
+
+    .nav > li > a:hover {
+        text-decoration: none;
+        background-color: #eeeeee;
+    }
+
+    .nav-tabs {
+        *zoom: 1;
+    }
+
+    .nav-tabs:before,
+    .nav-tabs:after {
+        display: table;
+        line-height: 0;
+        content: "";
+    }
+
+    .nav-tabs:after {
+        clear: both;
+    }
+
+    .nav-tabs > li {
+        float: left;
+    }
+
+    .nav-tabs > li > a {
+        text-decoration: none;
+        padding-right: 12px;
+        padding-left: 12px;
+        margin-right: 2px;
+        line-height: 14px;
+    }
+
+    .nav-tabs {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .nav-tabs > li {
+        margin-bottom: -1px;
+        padding-bottom: 0;
+    }
+
+    .nav-tabs > li > a {
+        padding-top: 8px;
+        padding-bottom: 8px;
+        line-height: 20px;
+        border: 1px solid transparent;
+        -webkit-border-radius: 4px 4px 0 0;
+        -moz-border-radius: 4px 4px 0 0;
+        border-radius: 4px 4px 0 0;
+    }
+
+    .nav-tabs > li > a:hover {
+        border-color: #eeeeee #eeeeee #dddddd;
+    }
+
+    .nav-tabs > .active > a,
+    .nav-tabs > .active > a:hover {
+        color: #555555;
+        cursor: default;
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-bottom-color: transparent;
+    }
+
+    .tab-content {
+        overflow: auto;
+    }
+
+    .tab-content > .tab-pane,
+    .pill-content > .pill-pane {
+        display: none;
+    }
+
+    .tab-content > .active,
+    .pill-content > .active {
+        display: block;
+    }
+
+    .nav > .disabled > a {
+        color: #999999;
+    }
+
+    .nav > .disabled > a:hover {
+        text-decoration: none;
+        cursor: default;
+        background-color: transparent;
+    }
+
+    .prettyprint ol.linenums > li {
+        list-style-type: decimal;
+        padding: 2px 0;
+    }
+
+    </style>
+{% endblock %}
+
+{% block panel %}
+    <h2>{{ (collector.name|capitalize)|default('HTTP calls') }}</h2>
+
+    {% include '@ConnectSDK/Profiler/calls.html.twig' with {'calls': collector.calls } %}
+{% endblock %}

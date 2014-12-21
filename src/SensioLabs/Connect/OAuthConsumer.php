@@ -11,8 +11,9 @@
 
 namespace SensioLabs\Connect;
 
-use Buzz\Browser;
-use Buzz\Client\Curl;
+use Guzzle\Http\Client as Guzzle;
+use Guzzle\Common\Exception\GuzzleException;
+use Guzzle\Http\Client;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use SensioLabs\Connect\Exception\OAuthException;
@@ -26,7 +27,7 @@ class OAuthConsumer
 {
     const ENDPOINT = 'https://connect.sensiolabs.com';
 
-    private $browser;
+    private $client;
     private $appId;
     private $appSecret;
     private $scope;
@@ -39,9 +40,24 @@ class OAuthConsumer
         'authorize'      => '/oauth/authorize',
     );
 
-    public function __construct($appId, $appSecret, $scope, $endpoint = null, Browser $browser = null, LoggerInterface $logger = null)
+    /**
+     * @param string            $appId     The application Id
+     * @param string            $appSecret The application secret
+     * @param string            $scope     The application scope
+     * @param string            $endpoint  The oauth endpoint
+     * @param null|array|Guzzle $client    Either a Guzzle client or an array of options
+     * @param LoggerInterface   $logger    A logger
+     */
+    public function __construct($appId, $appSecret, $scope, $endpoint = null, $client = null, LoggerInterface $logger = null)
     {
-        $this->browser   = $browser ?: new Browser(new Curl());
+        if ($client instanceof Guzzle) {
+            $this->client = $client;
+        } elseif (is_array($client)) {
+            $this->client = \SensioLabs\Connect\createClient(self::ENDPOINT, $client);
+        } else {
+            $this->client = \SensioLabs\Connect\createClient(self::ENDPOINT, array());
+        }
+
         $this->appId     = $appId;
         $this->appSecret = $appSecret;
         $this->scope     = $scope;
@@ -58,6 +74,8 @@ class OAuthConsumer
      * getAuthorizationUri
      *
      * @param mixed $callbackUri
+     *
+     * @return string
      */
     public function getAuthorizationUri($callbackUri)
     {
@@ -80,6 +98,8 @@ class OAuthConsumer
      * @param  $authorizationCode
      *
      * @return array
+     *
+     * @throws OAuthException
      */
     public function requestAccessToken($callbackUri, $authorizationCode)
     {
@@ -94,22 +114,23 @@ class OAuthConsumer
             'strict'        => $this->strictChecks,
         );
 
-        $url = sprintf('%s%s', $this->endpoint, $this->paths['access_token']);
+        $url = $this->paths['access_token'];
 
         $this->logger->info(sprintf("Requesting AccessToken to '%s'", $url));
         $this->logger->debug(sprintf("Sent params: %s", json_encode($params)));
 
-        $response = $this->browser->submit($url, $params);
+        $request = $this->client->post($url, $params);
+        $request->addPostFields($params);
+        $response = $request->send();
 
         $this->logger->debug(sprintf("Response of AccessToken: %s", $response));
 
-        $content = $response->getContent();
-        $response = json_decode($content, true);
-
-        if (null === $response) {
+        try {
+            $response = $response->json();
+        } catch (GuzzleException $e) {
             $this->logger->error('Received non-json response.');
-
-            throw new OAuthException('provider', "Response content couldn't be converted to JSON.");
+            $this->logger->debug($response->getBody(true));
+            throw new OAuthException('provider', "Response content couldn't be converted to JSON.", $e);
         }
 
         if (isset($response['error'])) {
@@ -147,9 +168,19 @@ class OAuthConsumer
         return $this->endpoint;
     }
 
+    /**
+     * @deprecated Deprecated since 4.0, use getClient instead
+     *
+     * @return Guzzle
+     */
     public function getBrowser()
     {
-        return $this->browser;
+        return $this->getClient();
+    }
+
+    public function getClient()
+    {
+        return $this->client;
     }
 
     public function getLogger()

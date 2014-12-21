@@ -11,9 +11,13 @@
 
 namespace SensioLabs\Connect\Test\Api;
 
-use Buzz\Message\Response;
+use Guzzle\Http\Client;
+use Guzzle\Http\Message\Response;
+use Guzzle\Http\Message\Request;
+use Guzzle\Plugin\Mock\MockPlugin;
 use SensioLabs\Connect\Api\Api;
 use SensioLabs\Connect\Exception\ApiClientException;
+use SensioLabs\Connect\Exception\ApiServerException;
 
 /**
  * ApitTest.
@@ -22,12 +26,18 @@ use SensioLabs\Connect\Exception\ApiClientException;
  */
 class ApiTest extends \PHPUnit_Framework_TestCase
 {
+    /** @var Api */
     private $api;
     private $parser;
+    /** @var MockPlugin */
+    private $plugin;
 
     public function setUp()
     {
-        $this->browser = $this->getMock('Buzz\\Browser');
+        $this->browser = new Client();
+        $this->plugin = new MockPlugin();
+        $this->browser->addSubscriber($this->plugin);
+
         $this->parser = $this->getMock('SensioLabs\\Connect\\Api\\Parser\\ParserInterface');
         $this->logger = $this->getMock('Psr\\Log\\LoggerInterface');
         $this->xml = file_get_contents(__DIR__.'/../../../../fixtures/root.xml');
@@ -45,145 +55,135 @@ class ApiTest extends \PHPUnit_Framework_TestCase
 
     public function testGet()
     {
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/', array('Accept: application/vnd.com.sensiolabs.connect+xml'))
-                      ->will($this->returnValue($this->createResponse()));
-
+        $this->plugin->addResponse($this->createResponse());
         $object = $this->api->get('http://foobar/api/');
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Root', $object);
+        $this->assertUniqueResponse('http://foobar/api/', 'GET');
     }
 
     public function testGetReturnsTrueIfServerReturns204StatusCode()
     {
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('204')));
-
+        $this->plugin->addResponse($this->createResponse(204));
         $this->assertTrue($this->api->get('http://foobar/api/'));
+        $this->assertUniqueResponse('http://foobar/api/', 'GET');
     }
 
     public function testGetReturnsTrueIfServerReturns201StatusCodeWithAnEmptyResponse()
     {
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('201', false)));
-
+        $this->plugin->addResponse($this->createResponse(201, false));
         $this->assertTrue($this->api->get('http://foobar/api/'));
+        $this->assertUniqueResponse('http://foobar/api/', 'GET');
     }
 
-    /**
-     * @expectedException SensioLabs\Connect\Exception\ApiClientException
-     */
     public function testGetThrowsClientExceptionWhenServerReturns40xStatusCode()
     {
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('400')));
+        $this->plugin->addResponse($this->createResponse(400));
 
-        $this->api->get('http://foobar/api/');
+        try {
+            $this->api->get('http://foobar/api/');
+            $this->fail('An exception should have been raised.');
+        } catch (ApiClientException $e) {
+        }
+
+        $this->assertUniqueResponse('http://foobar/api/', 'GET');
     }
 
-    /**
-     * @expectedException SensioLabs\Connect\Exception\ApiServerException
-     */
     public function testGetThrowsServerExceptionWhenServerReturns50xStatusCode()
     {
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('500')));
+        $this->plugin->addResponse($this->createResponse(500));
 
-        $this->api->get('http://foobar/api/');
+        try {
+            $this->api->get('http://foobar/api/');
+            $this->fail('An exception should have been raised.');
+        } catch (ApiServerException $e) {
+        }
+
+        $this->assertUniqueResponse('http://foobar/api/', 'GET');
     }
 
     public function testGetAddsAccessTokenToQueryParameter()
     {
+        $this->plugin->addResponse($this->createResponse());
         $this->api->setAccessToken('foobar');
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/?access_token=foobar')
-                      ->will($this->returnValue($this->createResponse()));
-
         $this->api->get('http://foobar/api/');
+        $this->assertUniqueResponse('http://foobar/api/?access_token=foobar', 'GET');
     }
 
     public function testSubmit()
     {
+        $this->plugin->addResponse($this->createResponse());
         $this->api->setAccessToken('foobar');
-        $this->browser->expects($this->once())
-                      ->method('submit')
-                      ->with('http://foobar/api/?access_token=foobar', array('foo' => 'bar'), 'POST', array('Accept: application/vnd.com.sensiolabs.connect+xml'))
-                      ->will($this->returnValue($this->createResponse('204', false)));
-
         $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+        $this->assertUniqueResponse('http://foobar/api/?access_token=foobar', 'POST', array('foo' => 'bar'));
     }
 
-    /**
-     * @expectedException SensioLabs\Connect\Exception\ApiClientException
-     */
     public function testSubmitThrowsClientExceptionWhenServerReturns40xStatusCode()
     {
-        $this->browser->expects($this->once())
-                      ->method('submit')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('400')));
+        $this->plugin->addResponse($this->createResponse(400));
 
-        $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+        try {
+            $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+            $this->fail('An exception should have been raised.');
+        } catch (ApiClientException $e) {
+        }
+
+        $this->assertUniqueResponse('http://foobar/api/', 'POST', array('foo' => 'bar'));
     }
 
     public function testSubmitThrowsClientExceptionAndAddErrorWhenServerReturns40xStatusCode()
     {
-        $response = $this->createResponse('422');
-        $response->setContent(file_get_contents(__DIR__.'/../../../../fixtures/error.xml'));
-        $this->browser->expects($this->once())
-                      ->method('submit')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($response));
+        $this->xml = file_get_contents(__DIR__.'/../../../../fixtures/error.xml');
+        $this->plugin->addResponse($this->createResponse(422));
 
         try {
             $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
-        } catch (\Exception $e) {
-            $this->assertInstanceOf('SensioLabs\Connect\Exception\ApiClientException', $e);
+            $this->fail('An exception should have been raised.');
+        } catch (ApiClientException $e) {
             $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Error', $e->getError());
             $this->assertCount(2, $e->getError()->getEntityBodyParameters());
         }
+
+        $this->assertUniqueResponse('http://foobar/api/', 'POST', array('foo' => 'bar'));
     }
 
-    /**
-     * @expectedException SensioLabs\Connect\Exception\ApiServerException
-     */
     public function testSubmitThrowsServerExceptionWhenServerReturns50xStatusCode()
     {
-        $this->browser->expects($this->once())
-                      ->method('submit')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('500')));
+        $this->plugin->addResponse($this->createResponse(500));
 
-        $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+        try {
+            $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+            $this->fail('An exception should have been raised.');
+        } catch (ApiServerException $e) {
+        }
+
+        $this->assertUniqueResponse('http://foobar/api/', 'POST', array('foo' => 'bar'));
     }
 
     public function getRoot()
     {
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse()));
-
+        $this->plugin->addResponse($this->createResponse());
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Root', $this->api->getRoot());
+        $this->assertUniqueResponse('http://foobar/api/', 'GET');
+    }
+
+    private function assertUniqueResponse($url, $method, array $fields = array())
+    {
+        $requests = $this->plugin->getReceivedRequests();
+        $this->assertCount(1, $requests);
+        /** @var Request $request */
+        $request = array_pop($requests);
+
+        $this->assertSame($url, $request->getUrl());
+        $this->assertSame(array('application/vnd.com.sensiolabs.connect+xml'), $request->getHeader('Accept')->toArray());
+        $this->assertSame($method, $request->getMethod());
+
+        foreach ($fields as $key => $value) {
+            $this->assertSame($value, $request->getPostField($key));
+        }
     }
 
     private function createResponse($statusCode = 200, $content = true)
     {
-        $response = new Response();
-        $response->setHeaders(array(sprintf("HTTP/1.1 %s FOOBAR", $statusCode)));
-        if ($content) {
-            $response->setContent($this->xml);
-        }
-
-        return $response;
+        return new Response($statusCode, null, $content ? $this->xml : null);
     }
 }
