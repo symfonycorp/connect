@@ -107,13 +107,13 @@ class OAuthConsumer
         $response = json_decode($content, true);
 
         if (null === $response) {
-            $this->logger->error('Received non-json response.');
+            $this->logger->error('Received non-json response.', array('response' => $content));
 
             throw new OAuthException('provider', "Response content couldn't be converted to JSON.");
         }
 
         if (isset($response['error'])) {
-            $this->logger->error('The OAuth2 provider responded with an error');
+            $this->logger->error('The OAuth2 provider responded with an error', array('response' => $response));
 
             $error = $response['error'];
             $message = $response['message'];
