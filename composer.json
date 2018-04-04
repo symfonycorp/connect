@@ -13,12 +13,13 @@
         }
     ],
     "require": {
-        "kriswallsmith/buzz": "~0.8",
-        "psr/log": "~1.0"
+        "kriswallsmith/buzz": ">=0.8,<0.17",
+        "psr/log": "^1.0"
     },
     "require-dev": {
-        "symfony/form": "~2.1",
-        "symfony/security": "~2.3"
+        "symfony/form": "^2.1|^3.0|^4.0",
+        "symfony/security": "^2.3|^3.0|^4.0",
+        "symfony/phpunit-bridge": "^4.0"
     },
     "suggest": {
         "symfony/security": "To use in a Symfony environment"

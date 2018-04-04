@@ -1,17 +1,45 @@
 language: php
 
-php:
-  - 5.3.3
-  - 5.3
-  - 5.4
-  - 5.5
-  - 5.6
-  - 7.0
-  - hhvm
+matrix:
+  include:
+    - php: hhvm-3.18
+      sudo: required
+      group: edge
+    - php: 5.3
+      dist: precise
+    - php: 5.4
+    - php: 5.5
+    - php: 5.6
+    - php: 7.0
+    - php: 7.1
+    - php: 7.2
+      env: deps=low
+
+  fast_finish: true
+
+cache:
+    directories:
+        - vendor/bin/.phpunit
+
+env:
+  global:
+    - SYMFONY_PHPUNIT_VERSION=5.7
+    - SYMFONY_DEPRECATIONS_HELPER=99999
 
 before_script:
-    - composer install --dev --prefer-source --no-interaction
+    - |
+      export COMPOSER_UP='composer update --dev --no-interaction --no-progress --no-suggest --ansi'
+
+    - |
+      if [[ $deps = low ]]; then
+          $COMPOSER_UP --prefer-lowest --prefer-stable
+      else
+          $COMPOSER_UP
+      fi
 
 branches:
   only:
     - master
+
+script:
+    - ./vendor/bin/simple-phpunit

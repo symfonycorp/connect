@@ -13,7 +13,6 @@ namespace SensioLabs\Connect\Test\Api;
 
 use Buzz\Message\Response;
 use SensioLabs\Connect\Api\Api;
-use SensioLabs\Connect\Exception\ApiClientException;
 
 /**
  * ApitTest.
@@ -27,9 +26,9 @@ class ApiTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->browser = $this->getMock('Buzz\\Browser');
-        $this->parser = $this->getMock('SensioLabs\\Connect\\Api\\Parser\\ParserInterface');
-        $this->logger = $this->getMock('Psr\\Log\\LoggerInterface');
+        $this->browser = $this->getMockBuilder('Buzz\\Browser')->getMock();
+        $this->parser = $this->getMockBuilder('SensioLabs\\Connect\\Api\\Parser\\ParserInterface')->getMock();
+        $this->logger = $this->getMockBuilder('Psr\\Log\\LoggerInterface')->getMock();
         $this->xml = file_get_contents(__DIR__.'/../../../../fixtures/root.xml');
 
         $this->api = new Api('http://foobar/api', $this->browser, null, $this->logger);
@@ -75,7 +74,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException SensioLabs\Connect\Exception\ApiClientException
+     * @expectedException \SensioLabs\Connect\Exception\ApiClientException
      */
     public function testGetThrowsClientExceptionWhenServerReturns40xStatusCode()
     {
@@ -88,7 +87,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException SensioLabs\Connect\Exception\ApiServerException
+     * @expectedException \SensioLabs\Connect\Exception\ApiServerException
      */
     public function testGetThrowsServerExceptionWhenServerReturns50xStatusCode()
     {
@@ -123,7 +122,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException SensioLabs\Connect\Exception\ApiClientException
+     * @expectedException \SensioLabs\Connect\Exception\ApiClientException
      */
     public function testSubmitThrowsClientExceptionWhenServerReturns40xStatusCode()
     {
@@ -154,7 +153,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException SensioLabs\Connect\Exception\ApiServerException
+     * @expectedException \SensioLabs\Connect\Exception\ApiServerException
      */
     public function testSubmitThrowsServerExceptionWhenServerReturns50xStatusCode()
     {
@@ -179,7 +178,7 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     private function createResponse($statusCode = 200, $content = true)
     {
         $response = new Response();
-        $response->setHeaders(array(sprintf("HTTP/1.1 %s FOOBAR", $statusCode)));
+        $response->setHeaders(array(sprintf('HTTP/1.1 %s FOOBAR', $statusCode)));
         if ($content) {
             $response->setContent($this->xml);
         }
