@@ -58,13 +58,15 @@ class OAuthConsumer
      * getAuthorizationUri.
      *
      * @param mixed $callbackUri
+     * @param mixed $state
      */
-    public function getAuthorizationUri($callbackUri)
+    public function getAuthorizationUri($callbackUri, $state)
     {
         $params = array(
             'client_id' => $this->appId,
             'scope' => $this->scope,
             'redirect_uri' => $callbackUri,
+            'state' => $state,
             'response_type' => 'code',
         );
 

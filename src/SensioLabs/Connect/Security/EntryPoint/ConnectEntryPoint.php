@@ -53,6 +53,8 @@ class ConnectEntryPoint implements AuthenticationEntryPointInterface
             }
         }
 
-        return new RedirectResponse($this->oauthConsumer->getAuthorizationUri($this->httpUtils->generateUri($request, $this->oauthCallback)));
+        $session->getFlashBag()->set('sensiolabs_connect.oauth.state', $state = md5(uniqid(mt_rand(), true)));
+
+        return new RedirectResponse($this->oauthConsumer->getAuthorizationUri($this->httpUtils->generateUri($request, $this->oauthCallback), $state));
     }
 }
