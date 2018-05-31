@@ -60,6 +60,8 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
      */
     protected function attemptAuthentication(Request $request)
     {
+        $flashBag = $request->getSession()->getFlashBag();
+
         try {
             if ($request->query->has('error')) {
                 throw new OAuthException($request->query->get('error'), $request->query->get('error_description'));
@@ -67,6 +69,14 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
 
             if (!$request->query->has('code')) {
                 throw new OAuthException('listener', 'No oauth code in the request.');
+            }
+
+            if (!$flashBag->has('sensiolabs_connect.oauth.state')) {
+                throw new OAuthException('listener', 'No state code in session.');
+            }
+
+            if ($request->query->get('state') !== $flashBag->get('sensiolabs_connect.oauth.state')[0]) {
+                throw new OAuthException('access_denied', 'Your session has expired. Please try again.');
             }
 
             $data = $this->oauthConsumer->requestAccessToken($this->httpUtils->generateUri($request, $this->oauthCallback), $request->query->get('code'));
@@ -91,7 +101,6 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
             throw $e;
         }
 
-        $flashBag = $request->getSession()->getFlashBag();
         if ($flashBag->has('sensiolabs_connect.oauth.target_path')) {
             $messages = $flashBag->get('sensiolabs_connect.oauth.target_path');
             $request->attributes->set('_target_path', $messages[0]);
