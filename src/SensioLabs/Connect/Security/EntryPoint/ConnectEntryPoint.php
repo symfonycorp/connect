@@ -45,11 +45,7 @@ class ConnectEntryPoint implements AuthenticationEntryPointInterface
             $target = $request->query->get('target');
             $parsed = parse_url($target);
             if (!isset($parsed['host']) || $parsed['host'] === $request->getHttpHost()) {
-                if (method_exists($session, 'getFlashBag')) {
-                    $session->getFlashBag()->set('sensiolabs_connect.oauth.target_path', $target);
-                } else {
-                    $session->setFlash('sensiolabs_connect.oauth.target_path', $target);
-                }
+                $session->getFlashBag()->set('sensiolabs_connect.oauth.target_path', $target);
             }
         }
 
