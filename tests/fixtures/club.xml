@@ -10,25 +10,25 @@
     xmlns:doap="http://usefulinc.com/ns/doap#"
     xmlns:cv="http://kaste.lv/~captsolo/semweb/resume/cv.rdfs">
     <foaf:Group id="4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f">
-    <foaf:name><![CDATA[SensioLabs]]></foaf:name>
+    <foaf:name><![CDATA[Symfony]]></foaf:name>
             <description><![CDATA[]]></description>
-        <foaf:homepage>http://sensiolabs.com</foaf:homepage>
+        <foaf:homepage>https://symfony.com</foaf:homepage>
         <category>Company</category>
-        <slug>sensiolabs</slug>
+        <slug>Symfony</slug>
                 <vcard:locality>Clichy</vcard:locality>
         <vcard:country-name>France</vcard:country-name>
                         <members total="25" count="25" index="0" limit="25">
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members" type="application/vnd.com.symfony.connect+xml" />
         
                                                                         <foaf:member>
                             <foaf:Person id="01888dba-6735-4013-b1dc-e16e94bea611">
     <foaf:name><![CDATA[Tugdual Saunier]]></foaf:name>
     <foaf:mbox_sha1sum>0d2bd38632bdd1ac16023e4f1ef5f58fc0527f5a</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/01888dba-6735-4013-b1dc-e16e94bea611.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/01888dba-6735-4013-b1dc-e16e94bea611" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/01888dba-6735-4013-b1dc-e16e94bea611" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/01888dba-6735-4013-b1dc-e16e94bea611.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/01888dba-6735-4013-b1dc-e16e94bea611" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/01888dba-6735-4013-b1dc-e16e94bea611" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/01888dba-6735-4013-b1dc-e16e94bea611" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/01888dba-6735-4013-b1dc-e16e94bea611" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -36,11 +36,11 @@
                             <foaf:Person id="52853551-ca9d-4fe0-a33e-08cd0b58a333">
     <foaf:name><![CDATA[Xavier Briand]]></foaf:name>
     <foaf:mbox_sha1sum>ff6eb978d2e519801d2ced5a5385d1d7dfae2eb5</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/52853551-ca9d-4fe0-a33e-08cd0b58a333.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/52853551-ca9d-4fe0-a33e-08cd0b58a333" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/52853551-ca9d-4fe0-a33e-08cd0b58a333" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/52853551-ca9d-4fe0-a33e-08cd0b58a333.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/52853551-ca9d-4fe0-a33e-08cd0b58a333" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/52853551-ca9d-4fe0-a33e-08cd0b58a333" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/52853551-ca9d-4fe0-a33e-08cd0b58a333" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/52853551-ca9d-4fe0-a33e-08cd0b58a333" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -48,11 +48,11 @@
                             <foaf:Person id="0bcc8900-d697-490f-a25e-77e1f306e77b">
     <foaf:name><![CDATA[Clément Gautier]]></foaf:name>
     <foaf:mbox_sha1sum>ded1ae008c8cffddd551f8cfadfc0297617380fb</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/0bcc8900-d697-490f-a25e-77e1f306e77b.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/0bcc8900-d697-490f-a25e-77e1f306e77b" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/0bcc8900-d697-490f-a25e-77e1f306e77b" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/0bcc8900-d697-490f-a25e-77e1f306e77b.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/0bcc8900-d697-490f-a25e-77e1f306e77b" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/0bcc8900-d697-490f-a25e-77e1f306e77b" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/0bcc8900-d697-490f-a25e-77e1f306e77b" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/0bcc8900-d697-490f-a25e-77e1f306e77b" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -60,11 +60,11 @@
                             <foaf:Person id="6b4f0063-126d-4ab3-9497-25a82d194562">
     <foaf:name><![CDATA[Alexandre Salomé]]></foaf:name>
     <foaf:mbox_sha1sum>db7d2359b37e0522b38117928b0e657a90e697be</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/6b4f0063-126d-4ab3-9497-25a82d194562.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/6b4f0063-126d-4ab3-9497-25a82d194562" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/6b4f0063-126d-4ab3-9497-25a82d194562" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/6b4f0063-126d-4ab3-9497-25a82d194562.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/6b4f0063-126d-4ab3-9497-25a82d194562" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/6b4f0063-126d-4ab3-9497-25a82d194562" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/6b4f0063-126d-4ab3-9497-25a82d194562" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/6b4f0063-126d-4ab3-9497-25a82d194562" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -72,11 +72,11 @@
                             <foaf:Person id="9232efe5-cc8a-463d-bc16-9a432abc77a8">
     <foaf:name><![CDATA[Samuel Maftoul]]></foaf:name>
     <foaf:mbox_sha1sum>b89f2f62caaae8e690cd369875e97d9067304674</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/9232efe5-cc8a-463d-bc16-9a432abc77a8.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/9232efe5-cc8a-463d-bc16-9a432abc77a8" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/9232efe5-cc8a-463d-bc16-9a432abc77a8" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/9232efe5-cc8a-463d-bc16-9a432abc77a8.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/9232efe5-cc8a-463d-bc16-9a432abc77a8" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/9232efe5-cc8a-463d-bc16-9a432abc77a8" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/9232efe5-cc8a-463d-bc16-9a432abc77a8" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/9232efe5-cc8a-463d-bc16-9a432abc77a8" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -84,11 +84,11 @@
                             <foaf:Person id="bbb59fb3-c73c-4fcf-ac36-13b643806f71">
     <foaf:name><![CDATA[Julien DIDIER]]></foaf:name>
     <foaf:mbox_sha1sum>85cac86ea99dbaeda1fb25753950f5b4ae80ef27</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/bbb59fb3-c73c-4fcf-ac36-13b643806f71.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/bbb59fb3-c73c-4fcf-ac36-13b643806f71" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/bbb59fb3-c73c-4fcf-ac36-13b643806f71" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/bbb59fb3-c73c-4fcf-ac36-13b643806f71.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/bbb59fb3-c73c-4fcf-ac36-13b643806f71" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/bbb59fb3-c73c-4fcf-ac36-13b643806f71" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/bbb59fb3-c73c-4fcf-ac36-13b643806f71" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/bbb59fb3-c73c-4fcf-ac36-13b643806f71" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -96,11 +96,11 @@
                             <foaf:Person id="7e22e75a-ee95-42db-aee8-bf3473216c80">
     <foaf:name><![CDATA[Pierre-Yves LEBECQ]]></foaf:name>
     <foaf:mbox_sha1sum>3c5d487251febd606e70ecc3669fc1a1401b624e</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/7e22e75a-ee95-42db-aee8-bf3473216c80.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/7e22e75a-ee95-42db-aee8-bf3473216c80" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/7e22e75a-ee95-42db-aee8-bf3473216c80" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/7e22e75a-ee95-42db-aee8-bf3473216c80.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/7e22e75a-ee95-42db-aee8-bf3473216c80" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/7e22e75a-ee95-42db-aee8-bf3473216c80" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/7e22e75a-ee95-42db-aee8-bf3473216c80" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/7e22e75a-ee95-42db-aee8-bf3473216c80" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -108,11 +108,11 @@
                             <foaf:Person id="4aed4f5d-e0cb-4320-902f-885fddaa7d15">
     <foaf:name><![CDATA[Fabien Potencier]]></foaf:name>
     <foaf:mbox_sha1sum>fa2b2bc32f3b5047f49c47a7ce122f7915802ed8</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/4aed4f5d-e0cb-4320-902f-885fddaa7d15.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/4aed4f5d-e0cb-4320-902f-885fddaa7d15" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/4aed4f5d-e0cb-4320-902f-885fddaa7d15" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/4aed4f5d-e0cb-4320-902f-885fddaa7d15.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/4aed4f5d-e0cb-4320-902f-885fddaa7d15" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/4aed4f5d-e0cb-4320-902f-885fddaa7d15" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/4aed4f5d-e0cb-4320-902f-885fddaa7d15" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/4aed4f5d-e0cb-4320-902f-885fddaa7d15" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>true</is-owner>
                         </foaf:member>
@@ -120,11 +120,11 @@
                             <foaf:Person id="aa5e22b0-6189-4113-9c68-91d4a3c32b7c">
     <foaf:name><![CDATA[Marc Weistroff]]></foaf:name>
     <foaf:mbox_sha1sum>5865060de545f7da5d57c093c5096d89f2fe6740</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/aa5e22b0-6189-4113-9c68-91d4a3c32b7c.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/aa5e22b0-6189-4113-9c68-91d4a3c32b7c.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>true</is-owner>
                         </foaf:member>
@@ -132,11 +132,11 @@
                             <foaf:Person id="90f28e69-9ce9-4a42-8b0e-e8c7fcc27713">
     <foaf:name><![CDATA[Grégoire Pineau]]></foaf:name>
     <foaf:mbox_sha1sum>bb2f8d37f9318da8d499aef30a5931c6ff068ae6</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/90f28e69-9ce9-4a42-8b0e-e8c7fcc27713" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -144,11 +144,11 @@
                             <foaf:Person id="cd45586e-687e-4346-8fc5-eb687acd74b1">
     <foaf:name><![CDATA[Christian Jennewein]]></foaf:name>
     <foaf:mbox_sha1sum>34530956bae3041951aa12e17123ae496ffc0d37</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/cd45586e-687e-4346-8fc5-eb687acd74b1.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/cd45586e-687e-4346-8fc5-eb687acd74b1" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/cd45586e-687e-4346-8fc5-eb687acd74b1" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/cd45586e-687e-4346-8fc5-eb687acd74b1.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/cd45586e-687e-4346-8fc5-eb687acd74b1" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/cd45586e-687e-4346-8fc5-eb687acd74b1" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/cd45586e-687e-4346-8fc5-eb687acd74b1" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/cd45586e-687e-4346-8fc5-eb687acd74b1" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -156,11 +156,11 @@
                             <foaf:Person id="f8ed8ec5-0174-41f3-b61d-57b0f10c3f70">
     <foaf:name><![CDATA[franck thery]]></foaf:name>
     <foaf:mbox_sha1sum>d4c8cc4554c98dce23de88173290d3116a4c4807</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/f8ed8ec5-0174-41f3-b61d-57b0f10c3f70.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/f8ed8ec5-0174-41f3-b61d-57b0f10c3f70" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/f8ed8ec5-0174-41f3-b61d-57b0f10c3f70" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/f8ed8ec5-0174-41f3-b61d-57b0f10c3f70.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/f8ed8ec5-0174-41f3-b61d-57b0f10c3f70" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/f8ed8ec5-0174-41f3-b61d-57b0f10c3f70" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/f8ed8ec5-0174-41f3-b61d-57b0f10c3f70" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/f8ed8ec5-0174-41f3-b61d-57b0f10c3f70" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -168,11 +168,11 @@
                             <foaf:Person id="f10e521d-ea20-4ebd-9840-8ef373e9c291">
     <foaf:name><![CDATA[Robin Duval]]></foaf:name>
     <foaf:mbox_sha1sum>bca97835d780afde9971d0e12610be7acbb86c74</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/f10e521d-ea20-4ebd-9840-8ef373e9c291.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/f10e521d-ea20-4ebd-9840-8ef373e9c291" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/f10e521d-ea20-4ebd-9840-8ef373e9c291" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/f10e521d-ea20-4ebd-9840-8ef373e9c291.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/f10e521d-ea20-4ebd-9840-8ef373e9c291" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/f10e521d-ea20-4ebd-9840-8ef373e9c291" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/f10e521d-ea20-4ebd-9840-8ef373e9c291" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/f10e521d-ea20-4ebd-9840-8ef373e9c291" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -180,11 +180,11 @@
                             <foaf:Person id="924211b9-7ff1-4934-be4f-f4cf7ef487bc">
     <foaf:name><![CDATA[Alexis Attimont]]></foaf:name>
     <foaf:mbox_sha1sum>0724b156267d8dd887b3a7b63fb709636d2ef2b1</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/924211b9-7ff1-4934-be4f-f4cf7ef487bc.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/924211b9-7ff1-4934-be4f-f4cf7ef487bc" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/924211b9-7ff1-4934-be4f-f4cf7ef487bc" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/924211b9-7ff1-4934-be4f-f4cf7ef487bc.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/924211b9-7ff1-4934-be4f-f4cf7ef487bc" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/924211b9-7ff1-4934-be4f-f4cf7ef487bc" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/924211b9-7ff1-4934-be4f-f4cf7ef487bc" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/924211b9-7ff1-4934-be4f-f4cf7ef487bc" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -192,11 +192,11 @@
                             <foaf:Person id="c6e17bef-dd9a-46fd-ba8f-44f34842b7c9">
     <foaf:name><![CDATA[Jean-François Simon]]></foaf:name>
     <foaf:mbox_sha1sum>24c007f6ce4055106b975e6f08fdf578a13d1051</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/c6e17bef-dd9a-46fd-ba8f-44f34842b7c9.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/c6e17bef-dd9a-46fd-ba8f-44f34842b7c9" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/c6e17bef-dd9a-46fd-ba8f-44f34842b7c9" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/c6e17bef-dd9a-46fd-ba8f-44f34842b7c9.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/c6e17bef-dd9a-46fd-ba8f-44f34842b7c9" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/c6e17bef-dd9a-46fd-ba8f-44f34842b7c9" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/c6e17bef-dd9a-46fd-ba8f-44f34842b7c9" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/c6e17bef-dd9a-46fd-ba8f-44f34842b7c9" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -204,11 +204,11 @@
                             <foaf:Person id="fb4bd39e-d0bc-456d-8c7e-5201943c19b9">
     <foaf:name><![CDATA[Francis Besset]]></foaf:name>
     <foaf:mbox_sha1sum>b93d71b80ee89ac32190af6aac89fe7fa948e685</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/fb4bd39e-d0bc-456d-8c7e-5201943c19b9.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/fb4bd39e-d0bc-456d-8c7e-5201943c19b9" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/fb4bd39e-d0bc-456d-8c7e-5201943c19b9" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/fb4bd39e-d0bc-456d-8c7e-5201943c19b9.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/fb4bd39e-d0bc-456d-8c7e-5201943c19b9" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/fb4bd39e-d0bc-456d-8c7e-5201943c19b9" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/fb4bd39e-d0bc-456d-8c7e-5201943c19b9" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/fb4bd39e-d0bc-456d-8c7e-5201943c19b9" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -216,11 +216,11 @@
                             <foaf:Person id="5325f8c2-220f-4586-9015-714046589f5f">
     <foaf:name><![CDATA[Dustin Whittle]]></foaf:name>
     <foaf:mbox_sha1sum>7e758814020fdf883754b88330c81ab5f05aa625</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/5325f8c2-220f-4586-9015-714046589f5f.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/5325f8c2-220f-4586-9015-714046589f5f" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/5325f8c2-220f-4586-9015-714046589f5f" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/5325f8c2-220f-4586-9015-714046589f5f.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/5325f8c2-220f-4586-9015-714046589f5f" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/5325f8c2-220f-4586-9015-714046589f5f" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/5325f8c2-220f-4586-9015-714046589f5f" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/5325f8c2-220f-4586-9015-714046589f5f" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -228,11 +228,11 @@
                             <foaf:Person id="1d40311f-60d6-4063-acc0-932f89ed7e51">
     <foaf:name><![CDATA[fabien gasser]]></foaf:name>
     <foaf:mbox_sha1sum>9e21976415dfa5994f905e2617c31db4a412f1fd</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/1d40311f-60d6-4063-acc0-932f89ed7e51.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/1d40311f-60d6-4063-acc0-932f89ed7e51" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/1d40311f-60d6-4063-acc0-932f89ed7e51" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/1d40311f-60d6-4063-acc0-932f89ed7e51.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/1d40311f-60d6-4063-acc0-932f89ed7e51" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/1d40311f-60d6-4063-acc0-932f89ed7e51" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/1d40311f-60d6-4063-acc0-932f89ed7e51" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/1d40311f-60d6-4063-acc0-932f89ed7e51" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -240,11 +240,11 @@
                             <foaf:Person id="748155ef-642e-4bc2-9d44-2f1a6a5ed2b6">
     <foaf:name><![CDATA[Gilles Taupenas]]></foaf:name>
     <foaf:mbox_sha1sum>4479609cbad8ef5a1a3d354dbeedd6c23973b9a9</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/748155ef-642e-4bc2-9d44-2f1a6a5ed2b6.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/748155ef-642e-4bc2-9d44-2f1a6a5ed2b6" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/748155ef-642e-4bc2-9d44-2f1a6a5ed2b6" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/748155ef-642e-4bc2-9d44-2f1a6a5ed2b6.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/748155ef-642e-4bc2-9d44-2f1a6a5ed2b6" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/748155ef-642e-4bc2-9d44-2f1a6a5ed2b6" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/748155ef-642e-4bc2-9d44-2f1a6a5ed2b6" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/748155ef-642e-4bc2-9d44-2f1a6a5ed2b6" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -252,11 +252,11 @@
                             <foaf:Person id="e15cbda8-edd5-4bf8-a65d-786c9f3b0579">
     <foaf:name><![CDATA[Hugo Hamon]]></foaf:name>
     <foaf:mbox_sha1sum>85de154eb42f8b9b7b2a7c6e4cc0f59ae83b05b7</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/e15cbda8-edd5-4bf8-a65d-786c9f3b0579.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/e15cbda8-edd5-4bf8-a65d-786c9f3b0579" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/e15cbda8-edd5-4bf8-a65d-786c9f3b0579" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/e15cbda8-edd5-4bf8-a65d-786c9f3b0579.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/e15cbda8-edd5-4bf8-a65d-786c9f3b0579" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/e15cbda8-edd5-4bf8-a65d-786c9f3b0579" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/e15cbda8-edd5-4bf8-a65d-786c9f3b0579" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/e15cbda8-edd5-4bf8-a65d-786c9f3b0579" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -264,11 +264,11 @@
                             <foaf:Person id="5a49a473-8c80-4335-a795-923eab5c66db">
     <foaf:name><![CDATA[Victor Berchet]]></foaf:name>
     <foaf:mbox_sha1sum>764bf12db1fddde727d4850556ae237b87cc1fca</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/5a49a473-8c80-4335-a795-923eab5c66db.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/5a49a473-8c80-4335-a795-923eab5c66db" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/5a49a473-8c80-4335-a795-923eab5c66db" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/5a49a473-8c80-4335-a795-923eab5c66db.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/5a49a473-8c80-4335-a795-923eab5c66db" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/5a49a473-8c80-4335-a795-923eab5c66db" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/5a49a473-8c80-4335-a795-923eab5c66db" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/5a49a473-8c80-4335-a795-923eab5c66db" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -276,11 +276,11 @@
                             <foaf:Person id="e89a8f7c-58a0-409d-9b0d-479a3580d8b9">
     <foaf:name><![CDATA[Samy Dindane]]></foaf:name>
     <foaf:mbox_sha1sum>2843042467bb2a0aca6a0787a9bd588420729542</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/e89a8f7c-58a0-409d-9b0d-479a3580d8b9.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/e89a8f7c-58a0-409d-9b0d-479a3580d8b9" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/e89a8f7c-58a0-409d-9b0d-479a3580d8b9" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/e89a8f7c-58a0-409d-9b0d-479a3580d8b9.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/e89a8f7c-58a0-409d-9b0d-479a3580d8b9" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/e89a8f7c-58a0-409d-9b0d-479a3580d8b9" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/e89a8f7c-58a0-409d-9b0d-479a3580d8b9" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/e89a8f7c-58a0-409d-9b0d-479a3580d8b9" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -288,11 +288,11 @@
                             <foaf:Person id="1de5fb80-abab-4e9b-8f84-e98f7aae44a5">
     <foaf:name><![CDATA[Julien Galenski]]></foaf:name>
     <foaf:mbox_sha1sum>a819b464b20f9c6253d60878e8000b23dede35c2</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/1de5fb80-abab-4e9b-8f84-e98f7aae44a5.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/1de5fb80-abab-4e9b-8f84-e98f7aae44a5" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/1de5fb80-abab-4e9b-8f84-e98f7aae44a5" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/1de5fb80-abab-4e9b-8f84-e98f7aae44a5.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/1de5fb80-abab-4e9b-8f84-e98f7aae44a5" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/1de5fb80-abab-4e9b-8f84-e98f7aae44a5" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/1de5fb80-abab-4e9b-8f84-e98f7aae44a5" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/1de5fb80-abab-4e9b-8f84-e98f7aae44a5" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -300,11 +300,11 @@
                             <foaf:Person id="605b84d4-dc41-4b31-8a04-12a24744fa9d">
     <foaf:name><![CDATA[François-Xavier de Guillebon]]></foaf:name>
     <foaf:mbox_sha1sum>7137d2813578f685f439a98f98207d077db4368a</foaf:mbox_sha1sum>
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/605b84d4-dc41-4b31-8a04-12a24744fa9d.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/605b84d4-dc41-4b31-8a04-12a24744fa9d" type="application/vnd.com.sensiolabs.connect+xml"/>
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/605b84d4-dc41-4b31-8a04-12a24744fa9d" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/605b84d4-dc41-4b31-8a04-12a24744fa9d.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/users/605b84d4-dc41-4b31-8a04-12a24744fa9d" type="application/vnd.com.symfony.connect+xml"/>
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/605b84d4-dc41-4b31-8a04-12a24744fa9d" type="text/html" />
      </foaf:Person>
-                            <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/605b84d4-dc41-4b31-8a04-12a24744fa9d" type="application/vnd.com.sensiolabs.connect+xml" />
+                            <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f/members/605b84d4-dc41-4b31-8a04-12a24744fa9d" type="application/vnd.com.symfony.connect+xml" />
                             <is-membership-public>true</is-membership-public>
                             <is-owner>false</is-owner>
                         </foaf:member>
@@ -316,286 +316,286 @@
 
         <cumulated-badges>278</cumulated-badges>
                         <badges total="39" count="39" index="0" limit="39">
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f" type="application/vnd.com.symfony.connect+xml" />
         
                                 <badge id="73128b2b-2845-4b3d-9f42-42f05486fc99" count="1">
     <name><![CDATA[Personality of the year 2011]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/73128b2b-2845-4b3d-9f42-42f05486fc99.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/73128b2b-2845-4b3d-9f42-42f05486fc99" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/73128b2b-2845-4b3d-9f42-42f05486fc99" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/73128b2b-2845-4b3d-9f42-42f05486fc99.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/73128b2b-2845-4b3d-9f42-42f05486fc99" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/73128b2b-2845-4b3d-9f42-42f05486fc99" type="text/html" />
 </badge>
                                             <badge id="cf18c353-4cc5-499a-9959-5ba9a68efe96" count="8">
-    <name><![CDATA[SensioLabs Certified Symfony Developer]]></name>
+    <name><![CDATA[Certified Symfony Developer]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/cf18c353-4cc5-499a-9959-5ba9a68efe96.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/cf18c353-4cc5-499a-9959-5ba9a68efe96" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/cf18c353-4cc5-499a-9959-5ba9a68efe96" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/cf18c353-4cc5-499a-9959-5ba9a68efe96.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/cf18c353-4cc5-499a-9959-5ba9a68efe96" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/cf18c353-4cc5-499a-9959-5ba9a68efe96" type="text/html" />
 </badge>
                                             <badge id="c6920f63-28f0-4166-a905-12022c2e1e88" count="2">
     <name><![CDATA[Helped write a book about Symfony]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/c6920f63-28f0-4166-a905-12022c2e1e88.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/c6920f63-28f0-4166-a905-12022c2e1e88" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/c6920f63-28f0-4166-a905-12022c2e1e88" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/c6920f63-28f0-4166-a905-12022c2e1e88.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/c6920f63-28f0-4166-a905-12022c2e1e88" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/c6920f63-28f0-4166-a905-12022c2e1e88" type="text/html" />
 </badge>
                                             <badge id="d92978da-be67-455c-a2f9-e18298041111" count="2">
     <name><![CDATA[Six year membership]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/d92978da-be67-455c-a2f9-e18298041111.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/d92978da-be67-455c-a2f9-e18298041111" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/d92978da-be67-455c-a2f9-e18298041111" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/d92978da-be67-455c-a2f9-e18298041111.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/d92978da-be67-455c-a2f9-e18298041111" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/d92978da-be67-455c-a2f9-e18298041111" type="text/html" />
 </badge>
                                             <badge id="13f9afa9-8bf1-4f41-b4e7-b5237746556e" count="4">
     <name><![CDATA[Five year membership]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/13f9afa9-8bf1-4f41-b4e7-b5237746556e.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/13f9afa9-8bf1-4f41-b4e7-b5237746556e" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/13f9afa9-8bf1-4f41-b4e7-b5237746556e" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/13f9afa9-8bf1-4f41-b4e7-b5237746556e.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/13f9afa9-8bf1-4f41-b4e7-b5237746556e" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/13f9afa9-8bf1-4f41-b4e7-b5237746556e" type="text/html" />
 </badge>
                                             <badge id="237c09d0-0c9d-4896-9fe0-ff8fb8101930" count="1">
     <name><![CDATA[Attended a training on symfony 1 (level 1) at SensioLabs]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/237c09d0-0c9d-4896-9fe0-ff8fb8101930.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/237c09d0-0c9d-4896-9fe0-ff8fb8101930" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/237c09d0-0c9d-4896-9fe0-ff8fb8101930" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/237c09d0-0c9d-4896-9fe0-ff8fb8101930.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/237c09d0-0c9d-4896-9fe0-ff8fb8101930" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/237c09d0-0c9d-4896-9fe0-ff8fb8101930" type="text/html" />
 </badge>
                                             <badge id="3e9693d4-db4b-4ea7-a43c-db3fe4557b57" count="6">
     <name><![CDATA[Four year membership]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/3e9693d4-db4b-4ea7-a43c-db3fe4557b57.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/3e9693d4-db4b-4ea7-a43c-db3fe4557b57" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/3e9693d4-db4b-4ea7-a43c-db3fe4557b57" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/3e9693d4-db4b-4ea7-a43c-db3fe4557b57.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/3e9693d4-db4b-4ea7-a43c-db3fe4557b57" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/3e9693d4-db4b-4ea7-a43c-db3fe4557b57" type="text/html" />
 </badge>
                                             <badge id="6959cc5f-ec03-4700-b00c-e3320896a49a" count="11">
     <name><![CDATA[Three year membership]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/6959cc5f-ec03-4700-b00c-e3320896a49a.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/6959cc5f-ec03-4700-b00c-e3320896a49a" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/6959cc5f-ec03-4700-b00c-e3320896a49a" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/6959cc5f-ec03-4700-b00c-e3320896a49a.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/6959cc5f-ec03-4700-b00c-e3320896a49a" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/6959cc5f-ec03-4700-b00c-e3320896a49a" type="text/html" />
 </badge>
                                             <badge id="734f8dc2-59c4-4792-b45e-a1d4ca636c2d" count="12">
     <name><![CDATA[Symfony Community Survey 2012]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/734f8dc2-59c4-4792-b45e-a1d4ca636c2d.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/734f8dc2-59c4-4792-b45e-a1d4ca636c2d" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/734f8dc2-59c4-4792-b45e-a1d4ca636c2d" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/734f8dc2-59c4-4792-b45e-a1d4ca636c2d.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/734f8dc2-59c4-4792-b45e-a1d4ca636c2d" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/734f8dc2-59c4-4792-b45e-a1d4ca636c2d" type="text/html" />
 </badge>
                                             <badge id="d16971a1-dd31-4c5d-b907-41ac536a5c2f" count="22">
     <name><![CDATA[Symfony Live 2012 Paris Attendee]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/d16971a1-dd31-4c5d-b907-41ac536a5c2f.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/d16971a1-dd31-4c5d-b907-41ac536a5c2f" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/d16971a1-dd31-4c5d-b907-41ac536a5c2f" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/d16971a1-dd31-4c5d-b907-41ac536a5c2f.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/d16971a1-dd31-4c5d-b907-41ac536a5c2f" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/d16971a1-dd31-4c5d-b907-41ac536a5c2f" type="text/html" />
 </badge>
                                             <badge id="2f1067e0-f0ce-46b1-92e6-c9740107b1a9" count="6">
     <name><![CDATA[Wurst connoisseur]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/2f1067e0-f0ce-46b1-92e6-c9740107b1a9.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/2f1067e0-f0ce-46b1-92e6-c9740107b1a9" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/2f1067e0-f0ce-46b1-92e6-c9740107b1a9" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/2f1067e0-f0ce-46b1-92e6-c9740107b1a9.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/2f1067e0-f0ce-46b1-92e6-c9740107b1a9" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/2f1067e0-f0ce-46b1-92e6-c9740107b1a9" type="text/html" />
 </badge>
                                             <badge id="f9d556bf-c81b-440e-a857-c4ef9209a9d6" count="2">
     <name><![CDATA[Propel Code Contributor]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/f9d556bf-c81b-440e-a857-c4ef9209a9d6.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/f9d556bf-c81b-440e-a857-c4ef9209a9d6" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/f9d556bf-c81b-440e-a857-c4ef9209a9d6" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/f9d556bf-c81b-440e-a857-c4ef9209a9d6.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/f9d556bf-c81b-440e-a857-c4ef9209a9d6" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/f9d556bf-c81b-440e-a857-c4ef9209a9d6" type="text/html" />
 </badge>
                                             <badge id="81d36464-3fcf-405c-aaa0-081d5f655b79" count="3">
     <name><![CDATA[Doctrine Documentation Contributor]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/81d36464-3fcf-405c-aaa0-081d5f655b79.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/81d36464-3fcf-405c-aaa0-081d5f655b79" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/81d36464-3fcf-405c-aaa0-081d5f655b79" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/81d36464-3fcf-405c-aaa0-081d5f655b79.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/81d36464-3fcf-405c-aaa0-081d5f655b79" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/81d36464-3fcf-405c-aaa0-081d5f655b79" type="text/html" />
 </badge>
                                             <badge id="e600e322-e130-46fb-80c8-e591917574b5" count="4">
     <name><![CDATA[Doctrine Code Contributor]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/e600e322-e130-46fb-80c8-e591917574b5.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/e600e322-e130-46fb-80c8-e591917574b5" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/e600e322-e130-46fb-80c8-e591917574b5" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/e600e322-e130-46fb-80c8-e591917574b5.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/e600e322-e130-46fb-80c8-e591917574b5" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/e600e322-e130-46fb-80c8-e591917574b5" type="text/html" />
 </badge>
                                             <badge id="8e403104-e814-4309-9e6e-f9c849ea6d34" count="1">
     <name><![CDATA[Composer Documentation Contributor]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/8e403104-e814-4309-9e6e-f9c849ea6d34.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/8e403104-e814-4309-9e6e-f9c849ea6d34" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/8e403104-e814-4309-9e6e-f9c849ea6d34" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/8e403104-e814-4309-9e6e-f9c849ea6d34.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/8e403104-e814-4309-9e6e-f9c849ea6d34" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/8e403104-e814-4309-9e6e-f9c849ea6d34" type="text/html" />
 </badge>
                                             <badge id="fb8fb9ec-98d7-40f1-8149-3064f9ae4b7c" count="2">
     <name><![CDATA[Composer Code Contributor]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/fb8fb9ec-98d7-40f1-8149-3064f9ae4b7c.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/fb8fb9ec-98d7-40f1-8149-3064f9ae4b7c" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/fb8fb9ec-98d7-40f1-8149-3064f9ae4b7c" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/fb8fb9ec-98d7-40f1-8149-3064f9ae4b7c.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/fb8fb9ec-98d7-40f1-8149-3064f9ae4b7c" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/fb8fb9ec-98d7-40f1-8149-3064f9ae4b7c" type="text/html" />
 </badge>
                                             <badge id="836debde-06e6-432b-8ffe-4d6d69dcc38f" count="1">
     <name><![CDATA[Swiftmailer Documentation Contributor]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/836debde-06e6-432b-8ffe-4d6d69dcc38f.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/836debde-06e6-432b-8ffe-4d6d69dcc38f" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/836debde-06e6-432b-8ffe-4d6d69dcc38f" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/836debde-06e6-432b-8ffe-4d6d69dcc38f.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/836debde-06e6-432b-8ffe-4d6d69dcc38f" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/836debde-06e6-432b-8ffe-4d6d69dcc38f" type="text/html" />
 </badge>
                                             <badge id="51ffa9fd-9e12-46d1-a212-af419da870a8" count="4">
     <name><![CDATA[Twig Documentation Contributor]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/51ffa9fd-9e12-46d1-a212-af419da870a8.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/51ffa9fd-9e12-46d1-a212-af419da870a8" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/51ffa9fd-9e12-46d1-a212-af419da870a8" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/51ffa9fd-9e12-46d1-a212-af419da870a8.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/51ffa9fd-9e12-46d1-a212-af419da870a8" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/51ffa9fd-9e12-46d1-a212-af419da870a8" type="text/html" />
 </badge>
                                             <badge id="b566f993-120b-46c8-9538-9be0fc492879" count="4">
     <name><![CDATA[Silex Documentation Contributor]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/b566f993-120b-46c8-9538-9be0fc492879.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/b566f993-120b-46c8-9538-9be0fc492879" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/b566f993-120b-46c8-9538-9be0fc492879" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/b566f993-120b-46c8-9538-9be0fc492879.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/b566f993-120b-46c8-9538-9be0fc492879" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/b566f993-120b-46c8-9538-9be0fc492879" type="text/html" />
 </badge>
                                             <badge id="b732d9fb-0002-47c2-a91e-1a1e1fa1b445" count="13">
     <name><![CDATA[Symfony Documentation Contributor]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/b732d9fb-0002-47c2-a91e-1a1e1fa1b445.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/b732d9fb-0002-47c2-a91e-1a1e1fa1b445" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/b732d9fb-0002-47c2-a91e-1a1e1fa1b445" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/b732d9fb-0002-47c2-a91e-1a1e1fa1b445.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/b732d9fb-0002-47c2-a91e-1a1e1fa1b445" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/b732d9fb-0002-47c2-a91e-1a1e1fa1b445" type="text/html" />
 </badge>
                                             <badge id="5176dc7d-f0f1-4cdf-83fb-e02708057f90" count="3">
     <name><![CDATA[Swiftmailer Code Contributor]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/5176dc7d-f0f1-4cdf-83fb-e02708057f90.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/5176dc7d-f0f1-4cdf-83fb-e02708057f90" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/5176dc7d-f0f1-4cdf-83fb-e02708057f90" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/5176dc7d-f0f1-4cdf-83fb-e02708057f90.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/5176dc7d-f0f1-4cdf-83fb-e02708057f90" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/5176dc7d-f0f1-4cdf-83fb-e02708057f90" type="text/html" />
 </badge>
                                             <badge id="1640e022-bc8f-48d2-9166-81f67ded9f78" count="3">
     <name><![CDATA[Twig Code Contributor]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/1640e022-bc8f-48d2-9166-81f67ded9f78.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/1640e022-bc8f-48d2-9166-81f67ded9f78" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/1640e022-bc8f-48d2-9166-81f67ded9f78" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/1640e022-bc8f-48d2-9166-81f67ded9f78.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/1640e022-bc8f-48d2-9166-81f67ded9f78" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/1640e022-bc8f-48d2-9166-81f67ded9f78" type="text/html" />
 </badge>
                                             <badge id="ffef0b77-cc4f-476c-ad9d-f09913654ee7" count="3">
     <name><![CDATA[Silex Code Contributor]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/ffef0b77-cc4f-476c-ad9d-f09913654ee7.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/ffef0b77-cc4f-476c-ad9d-f09913654ee7" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/ffef0b77-cc4f-476c-ad9d-f09913654ee7" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/ffef0b77-cc4f-476c-ad9d-f09913654ee7.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/ffef0b77-cc4f-476c-ad9d-f09913654ee7" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/ffef0b77-cc4f-476c-ad9d-f09913654ee7" type="text/html" />
 </badge>
                                             <badge id="d27696df-b4e2-41a0-93f6-c0757004b3e0" count="13">
     <name><![CDATA[Symfony Code Contributor]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/d27696df-b4e2-41a0-93f6-c0757004b3e0.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/d27696df-b4e2-41a0-93f6-c0757004b3e0" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/d27696df-b4e2-41a0-93f6-c0757004b3e0" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/d27696df-b4e2-41a0-93f6-c0757004b3e0.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/d27696df-b4e2-41a0-93f6-c0757004b3e0" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/d27696df-b4e2-41a0-93f6-c0757004b3e0" type="text/html" />
 </badge>
                                             <badge id="b9611c31-f322-41d7-b12c-429367d7b58d" count="4">
     <name><![CDATA[Symfony Live 2010 Online Attendee]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/b9611c31-f322-41d7-b12c-429367d7b58d.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/b9611c31-f322-41d7-b12c-429367d7b58d" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/b9611c31-f322-41d7-b12c-429367d7b58d" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/b9611c31-f322-41d7-b12c-429367d7b58d.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/b9611c31-f322-41d7-b12c-429367d7b58d" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/b9611c31-f322-41d7-b12c-429367d7b58d" type="text/html" />
 </badge>
                                             <badge id="4956cbc7-537b-4c72-b4c9-14d4e457f8a8" count="2">
     <name><![CDATA[Donated money for the Symfony/Twig/Doctrine security audits]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/4956cbc7-537b-4c72-b4c9-14d4e457f8a8.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/4956cbc7-537b-4c72-b4c9-14d4e457f8a8" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/4956cbc7-537b-4c72-b4c9-14d4e457f8a8" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/4956cbc7-537b-4c72-b4c9-14d4e457f8a8.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/4956cbc7-537b-4c72-b4c9-14d4e457f8a8" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/4956cbc7-537b-4c72-b4c9-14d4e457f8a8" type="text/html" />
 </badge>
                                             <badge id="d7873e3a-b7c9-4b0c-8e07-eb933ed8094c" count="1">
     <name><![CDATA[Symfony Day 2010 Köln Attendee]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/d7873e3a-b7c9-4b0c-8e07-eb933ed8094c.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/d7873e3a-b7c9-4b0c-8e07-eb933ed8094c" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/d7873e3a-b7c9-4b0c-8e07-eb933ed8094c" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/d7873e3a-b7c9-4b0c-8e07-eb933ed8094c.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/d7873e3a-b7c9-4b0c-8e07-eb933ed8094c" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/d7873e3a-b7c9-4b0c-8e07-eb933ed8094c" type="text/html" />
 </badge>
                                             <badge id="29294fa2-ecda-424a-9ae8-a8f5df756ecf" count="3">
     <name><![CDATA[Symfony Day 2011 Köln Attendee]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/29294fa2-ecda-424a-9ae8-a8f5df756ecf.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/29294fa2-ecda-424a-9ae8-a8f5df756ecf" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/29294fa2-ecda-424a-9ae8-a8f5df756ecf" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/29294fa2-ecda-424a-9ae8-a8f5df756ecf.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/29294fa2-ecda-424a-9ae8-a8f5df756ecf" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/29294fa2-ecda-424a-9ae8-a8f5df756ecf" type="text/html" />
 </badge>
                                             <badge id="1695cdbf-2d69-49a4-b07f-11969d2677ec" count="5">
     <name><![CDATA[Symfony Live 2009 Paris Attendee]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/1695cdbf-2d69-49a4-b07f-11969d2677ec.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/1695cdbf-2d69-49a4-b07f-11969d2677ec" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/1695cdbf-2d69-49a4-b07f-11969d2677ec" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/1695cdbf-2d69-49a4-b07f-11969d2677ec.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/1695cdbf-2d69-49a4-b07f-11969d2677ec" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/1695cdbf-2d69-49a4-b07f-11969d2677ec" type="text/html" />
 </badge>
                                             <badge id="11f6688c-bff5-446f-a499-b36fa72a470a" count="8">
     <name><![CDATA[Symfony Live 2010 Paris Attendee]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/11f6688c-bff5-446f-a499-b36fa72a470a.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/11f6688c-bff5-446f-a499-b36fa72a470a" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/11f6688c-bff5-446f-a499-b36fa72a470a" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/11f6688c-bff5-446f-a499-b36fa72a470a.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/11f6688c-bff5-446f-a499-b36fa72a470a" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/11f6688c-bff5-446f-a499-b36fa72a470a" type="text/html" />
 </badge>
                                             <badge id="eaf295bd-3e85-48a3-b2be-a0259c80e67f" count="3">
     <name><![CDATA[Symfony Live 2011 San Francisco Attendee]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/eaf295bd-3e85-48a3-b2be-a0259c80e67f.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/eaf295bd-3e85-48a3-b2be-a0259c80e67f" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/eaf295bd-3e85-48a3-b2be-a0259c80e67f" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/eaf295bd-3e85-48a3-b2be-a0259c80e67f.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/eaf295bd-3e85-48a3-b2be-a0259c80e67f" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/eaf295bd-3e85-48a3-b2be-a0259c80e67f" type="text/html" />
 </badge>
                                             <badge id="bbaab992-16ba-44f1-9d8c-01a94a58c1b1" count="16">
     <name><![CDATA[Symfony Live 2011 Paris Attendee]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/bbaab992-16ba-44f1-9d8c-01a94a58c1b1.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/bbaab992-16ba-44f1-9d8c-01a94a58c1b1" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/bbaab992-16ba-44f1-9d8c-01a94a58c1b1" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/bbaab992-16ba-44f1-9d8c-01a94a58c1b1.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/bbaab992-16ba-44f1-9d8c-01a94a58c1b1" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/bbaab992-16ba-44f1-9d8c-01a94a58c1b1" type="text/html" />
 </badge>
                                             <badge id="d56d7926-e4c4-4ddb-bd6f-cbe9a697a04e" count="17">
     <name><![CDATA[Very early adopter]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/d56d7926-e4c4-4ddb-bd6f-cbe9a697a04e.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/d56d7926-e4c4-4ddb-bd6f-cbe9a697a04e" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/d56d7926-e4c4-4ddb-bd6f-cbe9a697a04e" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/d56d7926-e4c4-4ddb-bd6f-cbe9a697a04e.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/d56d7926-e4c4-4ddb-bd6f-cbe9a697a04e" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/d56d7926-e4c4-4ddb-bd6f-cbe9a697a04e" type="text/html" />
 </badge>
                                             <badge id="f92ce2f9-60b5-42aa-8651-a1e8035cf2d7" count="13">
     <name><![CDATA[Two year membership]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/f92ce2f9-60b5-42aa-8651-a1e8035cf2d7.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/f92ce2f9-60b5-42aa-8651-a1e8035cf2d7" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/f92ce2f9-60b5-42aa-8651-a1e8035cf2d7" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/f92ce2f9-60b5-42aa-8651-a1e8035cf2d7.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/f92ce2f9-60b5-42aa-8651-a1e8035cf2d7" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/f92ce2f9-60b5-42aa-8651-a1e8035cf2d7" type="text/html" />
 </badge>
                                             <badge id="fa8faed9-80fd-4aa6-8c5c-9f36acc24702" count="16">
     <name><![CDATA[One year membership]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/fa8faed9-80fd-4aa6-8c5c-9f36acc24702.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/fa8faed9-80fd-4aa6-8c5c-9f36acc24702" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/fa8faed9-80fd-4aa6-8c5c-9f36acc24702" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/fa8faed9-80fd-4aa6-8c5c-9f36acc24702.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/fa8faed9-80fd-4aa6-8c5c-9f36acc24702" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/fa8faed9-80fd-4aa6-8c5c-9f36acc24702" type="text/html" />
 </badge>
                                             <badge id="a72bf276-b900-4d56-8dcd-0c9a329e7081" count="15">
     <name><![CDATA[Commenter]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/a72bf276-b900-4d56-8dcd-0c9a329e7081.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/a72bf276-b900-4d56-8dcd-0c9a329e7081" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/a72bf276-b900-4d56-8dcd-0c9a329e7081" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/a72bf276-b900-4d56-8dcd-0c9a329e7081.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/a72bf276-b900-4d56-8dcd-0c9a329e7081" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/a72bf276-b900-4d56-8dcd-0c9a329e7081" type="text/html" />
 </badge>
                                             <badge id="6c89d051-4774-4745-ad1b-6341ef76abef" count="16">
     <name><![CDATA[Profile completed]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/6c89d051-4774-4745-ad1b-6341ef76abef.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/6c89d051-4774-4745-ad1b-6341ef76abef" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/6c89d051-4774-4745-ad1b-6341ef76abef" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/6c89d051-4774-4745-ad1b-6341ef76abef.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/6c89d051-4774-4745-ad1b-6341ef76abef" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/6c89d051-4774-4745-ad1b-6341ef76abef" type="text/html" />
 </badge>
                                             <badge id="8faef23d-5ba4-4fba-994c-96cecbb06c0e" count="4">
     <name><![CDATA[Postcard sender]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/8faef23d-5ba4-4fba-994c-96cecbb06c0e.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/8faef23d-5ba4-4fba-994c-96cecbb06c0e" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/8faef23d-5ba4-4fba-994c-96cecbb06c0e" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/8faef23d-5ba4-4fba-994c-96cecbb06c0e.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/8faef23d-5ba4-4fba-994c-96cecbb06c0e" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/8faef23d-5ba4-4fba-994c-96cecbb06c0e" type="text/html" />
 </badge>
                                             <badge id="9a527385-2220-476d-a4aa-5823501c8d5f" count="24">
     <name><![CDATA[Noob]]></name>
     
-    <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/9a527385-2220-476d-a4aa-5823501c8d5f.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/badges/9a527385-2220-476d-a4aa-5823501c8d5f" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/9a527385-2220-476d-a4aa-5823501c8d5f" type="text/html" />
+    <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/9a527385-2220-476d-a4aa-5823501c8d5f.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/badges/9a527385-2220-476d-a4aa-5823501c8d5f" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/9a527385-2220-476d-a4aa-5823501c8d5f" type="text/html" />
 </badge>
                                     
 </badges>
 
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/4c147ff8-2e0e-4fd5-b833-aa0cd5fa486f" type="text/html" />
     </foaf:Group>
 </api>

@@ -1,17 +1,17 @@
-# SensioLabs Connect SDK
+# SymfonyConnect SDK
 
 ## About
 
-This is the official SDK for the SensioLabs Connect API. It works for the public
+This is the official SDK for the SymfonyConnect API. It works for the public
 API or with a registered OAuth application. To register an application, please
-go to your [SensioLabs Connect Account](https://connect.sensiolabs.com).
+go to your [SymfonyConnect Account](https://connect.symfony.com).
 
 ## Installation
 
 To install the SDK, run the command below and you will get the latest version:
 
 ```bash
-composer require sensiolabs/connect
+composer require symfonycorp/connect
 ```
 
 ## Usage
@@ -21,15 +21,15 @@ composer require sensiolabs/connect
 This part will show you how to include OAuth authentication within a Silex App.
 
 Warning: We take for granted that you already have registered your app on
-[SensioLabs Connect](https://connect.sensiolabs.com) and that you're in
+[SymfonyConnect](https://connect.symfony.com) and that you're in
 possession of your `application_id`, `application_secret` and `scope`.
 
 1. Configure your silex app with the data we gave us at app registration.
 
     ```php
     // index.php
-    use SensioLabs\Connect\Api\Api;
-    use SensioLabs\Connect\OAuthConsumer;
+    use SymfonyCorp\Connect\Api\Api;
+    use SymfonyCorp\Connect\OAuthConsumer;
     
     $app = new Silex\Application();
     $app['connect_id'] = 'application_id';
@@ -37,7 +37,7 @@ possession of your `application_id`, `application_secret` and `scope`.
     $app->register(new Silex\Provider\SessionServiceProvider());
     
     $app['connect_secret'] = 'application_secret';
-    // List of scope copy-pasted from your application page on SensioLabs Connect
+    // List of scope copy-pasted from your application page on SymfonyConnect
     $app['connect_scope'] = array(
         'SCOPE_ADDITIONAL_EMAILS',
         'SCOPE_BIRTHDAY',
@@ -61,7 +61,7 @@ possession of your `application_id`, `application_secret` and `scope`.
 
 2. We need to create two controllers to handle the OAuth2 Three-Legged worflow.
 
-   The first controller goal is to redirect the user to SensioLabs Connect in
+   The first controller goal is to redirect the user to SymfonyConnect in
    order to ask him for the authorization that your app will use his data. This
    controller will be bound to the `connect_auth` route. In your template,
    you'll need to create a link to this route.
@@ -76,9 +76,9 @@ possession of your `application_id`, `application_secret` and `scope`.
     })->bind('connect_auth');
     ```
 
-    The second controller is the one that will welcome the user after SensioLabs
-    Connect redirected him to your application. When registering your client,
-    you'll have to provide the exact absolute URL that points to this
+    The second controller is the one that will welcome the user after
+    SymfonyConnect redirected him to your application. When registering your
+    client, you'll have to provide the exact absolute URL that points to this
     controller.
 
     ```php
@@ -112,22 +112,22 @@ possession of your `application_id`, `application_secret` and `scope`.
 3. Create a link from your template
 
    In a template, you can use the following snippet of code to render a
-   SensioLabsConnect button:
+   SymfonyConnect button:
 
     ```html
-    <a href="#" class="connect-with-sensiolabs">
-        <span>Connect With Sensiolabs</span>
+    <a href="#" class="connect-with-symfonyconnect">
+        <span>Connect With SymfonyConnect</span>
     </a>
     ```
 
-   And include the following CSS file: `https://connect.sensiolabs.com/css/sln.css`
+   And include the following CSS file: `https://connect.symfony.com/css/sln.css`
 
-Et voilà! Your application can now use SensioLabs Connect as an authentication
+Et voilà! Your application can now use SymfonyConnect as an authentication
 method!
 
 ### The API
 
-The SensioLabs Connect API is RESTFul and (tries to) conforms to the HATEOAS
+The SymfonyConnect API is RESTFul and (tries to) conforms to the HATEOAS
 principle.
 
 Here are some useful recipies.
@@ -144,22 +144,22 @@ Here are some useful recipies.
     $users = $root->getUsers('fab');
 
     // Same for clubs
-    $clubs = $root->getClubs('sensio');
+    $clubs = $root->getClubs('symfony');
     ```
 
 2. Create a new club
 
     ```php
     // Create Club
-    $club = new \SensioLabs\Connect\Api\Entity\Club();
-    $club->setName("SensioLabs France");
-    $club->setSlug("sensiolabs-api-users");
-    $club->setType(\SensioLabs\Connect\Api\Entity\Club::TYPE_USER_GROUP);
+    $club = new \SymfonyCorp\Connect\Api\Entity\Club();
+    $club->setName("Symfony France");
+    $club->setSlug("symfony-api-users");
+    $club->setType(\SymfonyCorp\Connect\Api\Entity\Club::TYPE_USER_GROUP);
     $club->setEmail('foobar@example.com');
     $club->setDescription('This is the best description i found.');
     $club->setCity("Paris");
     $club->setCountry("France");
-    $club->setUrl('http://sensiolabs.com');
+    $club->setUrl('http://symfony.com');
     
     // Save new Club
     $app['connect_api']->setAccessToken($app['session']->get('connect_access_token'));

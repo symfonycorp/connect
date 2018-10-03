@@ -10,17 +10,17 @@
     xmlns:doap="http://usefulinc.com/ns/doap#"
     xmlns:cv="http://kaste.lv/~captsolo/semweb/resume/cv.rdfs">
     <root>
-        <atom:link rel="https://rels.connect.sensiolabs.com/users" href="https://connect.sensiolabs.com/api/users" type="application/vnd.com.sensiolabs.connect+xml"/>
-        <atom:link rel="https://rels.connect.sensiolabs.com/clubs" href="https://connect.sensiolabs.com/api/clubs" type="application/vnd.com.sensiolabs.connect+xml" />
-        <atom:link rel="https://rels.connect.sensiolabs.com/badges" href="https://connect.sensiolabs.com/api/badges" type="application/vnd.com.sensiolabs.connect+xml" />
-                    <atom:link rel="https://rels.connect.sensiolabs.com/projects" href="https://connect.sensiolabs.com/api/projects" type="application/vnd.com.sensiolabs.connect+xml" />
-                        <xhtml:form id="search_users" method="GET" action="https://connect.sensiolabs.com/api/users" enctype="application/x-www-form-urlencoded">
+        <atom:link rel="https://rels.connect.symfony.com/users" href="https://connect.symfony.com/api/users" type="application/vnd.com.symfony.connect+xml"/>
+        <atom:link rel="https://rels.connect.symfony.com/clubs" href="https://connect.symfony.com/api/clubs" type="application/vnd.com.symfony.connect+xml" />
+        <atom:link rel="https://rels.connect.symfony.com/badges" href="https://connect.symfony.com/api/badges" type="application/vnd.com.symfony.connect+xml" />
+                    <atom:link rel="https://rels.connect.symfony.com/projects" href="https://connect.symfony.com/api/projects" type="application/vnd.com.symfony.connect+xml" />
+                        <xhtml:form id="search_users" method="GET" action="https://connect.symfony.com/api/users" enctype="application/x-www-form-urlencoded">
     <xhtml:input type="text" name="q" required="required" />
 </xhtml:form>
-        <xhtml:form id="search_clubs" method="GET" action="https://connect.sensiolabs.com/api/clubs" enctype="application/x-www-form-urlencoded">
+        <xhtml:form id="search_clubs" method="GET" action="https://connect.symfony.com/api/clubs" enctype="application/x-www-form-urlencoded">
     <xhtml:input type="text" name="q" required="required" />
 </xhtml:form>
-                    <xhtml:form id="search_projects" method="GET" action="https://connect.sensiolabs.com/api/projects" enctype="application/x-www-form-urlencoded">
+                    <xhtml:form id="search_projects" method="GET" action="https://connect.symfony.com/api/projects" enctype="application/x-www-form-urlencoded">
     <xhtml:input type="text" name="q" required="required" />
 </xhtml:form>
             </root>

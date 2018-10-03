@@ -10,129 +10,129 @@
     xmlns:doap="http://usefulinc.com/ns/doap#"
     xmlns:cv="http://kaste.lv/~captsolo/semweb/resume/cv.rdfs">
     <clubs total="20" count="20" index="0" limit="20">
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs" type="application/vnd.com.sensiolabs.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs" type="application/vnd.com.symfony.connect+xml" />
         
                 <foaf:Group id="3e3ff981-22b3-41f7-ace6-f9a72a3bb689">
     <foaf:name><![CDATA[Slovakia]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/3e3ff981-22b3-41f7-ace6-f9a72a3bb689.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/3e3ff981-22b3-41f7-ace6-f9a72a3bb689" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/3e3ff981-22b3-41f7-ace6-f9a72a3bb689" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/3e3ff981-22b3-41f7-ace6-f9a72a3bb689.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/3e3ff981-22b3-41f7-ace6-f9a72a3bb689" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/3e3ff981-22b3-41f7-ace6-f9a72a3bb689" type="text/html" />
     </foaf:Group>
             <foaf:Group id="719af20b-de2e-4aff-b72b-091ebb9b5e81">
     <foaf:name><![CDATA[club_1]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/719af20b-de2e-4aff-b72b-091ebb9b5e81.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/719af20b-de2e-4aff-b72b-091ebb9b5e81" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/719af20b-de2e-4aff-b72b-091ebb9b5e81" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/719af20b-de2e-4aff-b72b-091ebb9b5e81.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/719af20b-de2e-4aff-b72b-091ebb9b5e81" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/719af20b-de2e-4aff-b72b-091ebb9b5e81" type="text/html" />
     </foaf:Group>
             <foaf:Group id="c80799db-72f3-4b75-b289-9badce2ad2e5">
     <foaf:name><![CDATA[Chile]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/c80799db-72f3-4b75-b289-9badce2ad2e5.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/c80799db-72f3-4b75-b289-9badce2ad2e5" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/c80799db-72f3-4b75-b289-9badce2ad2e5" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/c80799db-72f3-4b75-b289-9badce2ad2e5.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/c80799db-72f3-4b75-b289-9badce2ad2e5" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/c80799db-72f3-4b75-b289-9badce2ad2e5" type="text/html" />
     </foaf:Group>
             <foaf:Group id="5d7ba79f-5834-4fd8-ac00-0a4011c883e6">
     <foaf:name><![CDATA[sf2 Málaga]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/5d7ba79f-5834-4fd8-ac00-0a4011c883e6.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/5d7ba79f-5834-4fd8-ac00-0a4011c883e6" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/5d7ba79f-5834-4fd8-ac00-0a4011c883e6" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/5d7ba79f-5834-4fd8-ac00-0a4011c883e6.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/5d7ba79f-5834-4fd8-ac00-0a4011c883e6" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/5d7ba79f-5834-4fd8-ac00-0a4011c883e6" type="text/html" />
     </foaf:Group>
             <foaf:Group id="dbf502cb-7daa-4034-9b67-ffb77f0817c3">
     <foaf:name><![CDATA[ICANS GmbH]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/dbf502cb-7daa-4034-9b67-ffb77f0817c3.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/dbf502cb-7daa-4034-9b67-ffb77f0817c3" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/dbf502cb-7daa-4034-9b67-ffb77f0817c3" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/dbf502cb-7daa-4034-9b67-ffb77f0817c3.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/dbf502cb-7daa-4034-9b67-ffb77f0817c3" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/dbf502cb-7daa-4034-9b67-ffb77f0817c3" type="text/html" />
     </foaf:Group>
             <foaf:Group id="30eab642-643e-45de-b149-f28e6facc228">
     <foaf:name><![CDATA[+1]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/30eab642-643e-45de-b149-f28e6facc228.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/30eab642-643e-45de-b149-f28e6facc228" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/30eab642-643e-45de-b149-f28e6facc228" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/30eab642-643e-45de-b149-f28e6facc228.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/30eab642-643e-45de-b149-f28e6facc228" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/30eab642-643e-45de-b149-f28e6facc228" type="text/html" />
     </foaf:Group>
             <foaf:Group id="02ebe55a-4e89-41d3-9051-91d114feb2ea">
     <foaf:name><![CDATA[Hexanet]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/02ebe55a-4e89-41d3-9051-91d114feb2ea.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/02ebe55a-4e89-41d3-9051-91d114feb2ea" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/02ebe55a-4e89-41d3-9051-91d114feb2ea" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/02ebe55a-4e89-41d3-9051-91d114feb2ea.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/02ebe55a-4e89-41d3-9051-91d114feb2ea" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/02ebe55a-4e89-41d3-9051-91d114feb2ea" type="text/html" />
     </foaf:Group>
             <foaf:Group id="eeb840bd-fd36-46a0-b4de-7445c1007ad5">
     <foaf:name><![CDATA[SUPINFO]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/eeb840bd-fd36-46a0-b4de-7445c1007ad5.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/eeb840bd-fd36-46a0-b4de-7445c1007ad5" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/eeb840bd-fd36-46a0-b4de-7445c1007ad5" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/eeb840bd-fd36-46a0-b4de-7445c1007ad5.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/eeb840bd-fd36-46a0-b4de-7445c1007ad5" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/eeb840bd-fd36-46a0-b4de-7445c1007ad5" type="text/html" />
     </foaf:Group>
             <foaf:Group id="70719f17-5481-464e-9334-435909246105">
     <foaf:name><![CDATA[Czech]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/70719f17-5481-464e-9334-435909246105.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/70719f17-5481-464e-9334-435909246105" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/70719f17-5481-464e-9334-435909246105" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/70719f17-5481-464e-9334-435909246105.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/70719f17-5481-464e-9334-435909246105" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/70719f17-5481-464e-9334-435909246105" type="text/html" />
     </foaf:Group>
             <foaf:Group id="77a4bb67-aad4-4c2c-abbb-ab3d1d6ff8d3">
     <foaf:name><![CDATA[HighCoShopper]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/77a4bb67-aad4-4c2c-abbb-ab3d1d6ff8d3.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/77a4bb67-aad4-4c2c-abbb-ab3d1d6ff8d3" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/77a4bb67-aad4-4c2c-abbb-ab3d1d6ff8d3" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/77a4bb67-aad4-4c2c-abbb-ab3d1d6ff8d3.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/77a4bb67-aad4-4c2c-abbb-ab3d1d6ff8d3" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/77a4bb67-aad4-4c2c-abbb-ab3d1d6ff8d3" type="text/html" />
     </foaf:Group>
             <foaf:Group id="6fef9e1b-3311-4ee1-8dc1-3e078c46198b">
     <foaf:name><![CDATA[Wurst badge holders]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/6fef9e1b-3311-4ee1-8dc1-3e078c46198b.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/6fef9e1b-3311-4ee1-8dc1-3e078c46198b" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/6fef9e1b-3311-4ee1-8dc1-3e078c46198b" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/6fef9e1b-3311-4ee1-8dc1-3e078c46198b.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/6fef9e1b-3311-4ee1-8dc1-3e078c46198b" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/6fef9e1b-3311-4ee1-8dc1-3e078c46198b" type="text/html" />
     </foaf:Group>
             <foaf:Group id="f0d7d4c4-2805-456b-acb5-f9e7c031e907">
     <foaf:name><![CDATA[creativestyle GmbH]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/f0d7d4c4-2805-456b-acb5-f9e7c031e907.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/f0d7d4c4-2805-456b-acb5-f9e7c031e907" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/f0d7d4c4-2805-456b-acb5-f9e7c031e907" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/f0d7d4c4-2805-456b-acb5-f9e7c031e907.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/f0d7d4c4-2805-456b-acb5-f9e7c031e907" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/f0d7d4c4-2805-456b-acb5-f9e7c031e907" type="text/html" />
     </foaf:Group>
             <foaf:Group id="0b68f11b-52da-4834-bc69-7a7b1367f43d">
     <foaf:name><![CDATA[Liip]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/0b68f11b-52da-4834-bc69-7a7b1367f43d.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/0b68f11b-52da-4834-bc69-7a7b1367f43d" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/0b68f11b-52da-4834-bc69-7a7b1367f43d" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/0b68f11b-52da-4834-bc69-7a7b1367f43d.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/0b68f11b-52da-4834-bc69-7a7b1367f43d" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/0b68f11b-52da-4834-bc69-7a7b1367f43d" type="text/html" />
     </foaf:Group>
             <foaf:Group id="c2e4cb84-ee89-4cbd-9809-55e27cc39cbb">
     <foaf:name><![CDATA[Montpellier]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/c2e4cb84-ee89-4cbd-9809-55e27cc39cbb.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/c2e4cb84-ee89-4cbd-9809-55e27cc39cbb" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/c2e4cb84-ee89-4cbd-9809-55e27cc39cbb" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/c2e4cb84-ee89-4cbd-9809-55e27cc39cbb.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/c2e4cb84-ee89-4cbd-9809-55e27cc39cbb" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/c2e4cb84-ee89-4cbd-9809-55e27cc39cbb" type="text/html" />
     </foaf:Group>
             <foaf:Group id="36d8d58d-d5f4-43bf-b759-5fd94452ea8f">
     <foaf:name><![CDATA[Switzerland]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/36d8d58d-d5f4-43bf-b759-5fd94452ea8f.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/36d8d58d-d5f4-43bf-b759-5fd94452ea8f" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/36d8d58d-d5f4-43bf-b759-5fd94452ea8f" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/36d8d58d-d5f4-43bf-b759-5fd94452ea8f.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/36d8d58d-d5f4-43bf-b759-5fd94452ea8f" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/36d8d58d-d5f4-43bf-b759-5fd94452ea8f" type="text/html" />
     </foaf:Group>
             <foaf:Group id="28e07e49-f267-44d1-8aca-549d5524efab">
     <foaf:name><![CDATA[swiss]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/28e07e49-f267-44d1-8aca-549d5524efab.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/28e07e49-f267-44d1-8aca-549d5524efab" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/28e07e49-f267-44d1-8aca-549d5524efab" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/28e07e49-f267-44d1-8aca-549d5524efab.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/28e07e49-f267-44d1-8aca-549d5524efab" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/28e07e49-f267-44d1-8aca-549d5524efab" type="text/html" />
     </foaf:Group>
             <foaf:Group id="a53c8634-6bd6-4a34-97f9-e88ecc48fa66">
     <foaf:name><![CDATA[Drupal]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/a53c8634-6bd6-4a34-97f9-e88ecc48fa66.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/a53c8634-6bd6-4a34-97f9-e88ecc48fa66" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/a53c8634-6bd6-4a34-97f9-e88ecc48fa66" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/a53c8634-6bd6-4a34-97f9-e88ecc48fa66.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/a53c8634-6bd6-4a34-97f9-e88ecc48fa66" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/a53c8634-6bd6-4a34-97f9-e88ecc48fa66" type="text/html" />
     </foaf:Group>
             <foaf:Group id="232ed964-35fe-4edc-bc9f-0128a32ae998">
     <foaf:name><![CDATA[Ecommerce]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/232ed964-35fe-4edc-bc9f-0128a32ae998.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/232ed964-35fe-4edc-bc9f-0128a32ae998" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/232ed964-35fe-4edc-bc9f-0128a32ae998" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/232ed964-35fe-4edc-bc9f-0128a32ae998.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/232ed964-35fe-4edc-bc9f-0128a32ae998" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/232ed964-35fe-4edc-bc9f-0128a32ae998" type="text/html" />
     </foaf:Group>
             <foaf:Group id="0dfca87e-7427-4784-aa4d-635e650b36af">
     <foaf:name><![CDATA[cordoba-argentina]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/0dfca87e-7427-4784-aa4d-635e650b36af.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/0dfca87e-7427-4784-aa4d-635e650b36af" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/0dfca87e-7427-4784-aa4d-635e650b36af" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/0dfca87e-7427-4784-aa4d-635e650b36af.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/0dfca87e-7427-4784-aa4d-635e650b36af" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/0dfca87e-7427-4784-aa4d-635e650b36af" type="text/html" />
     </foaf:Group>
             <foaf:Group id="8ff0adc6-3660-440b-9fe5-895e4e4e7465">
     <foaf:name><![CDATA[MyBuilder]]></foaf:name>
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/8ff0adc6-3660-440b-9fe5-895e4e4e7465.png" type="image/png" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/clubs/8ff0adc6-3660-440b-9fe5-895e4e4e7465" type="application/vnd.com.sensiolabs.connect+xml" />
-    <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/8ff0adc6-3660-440b-9fe5-895e4e4e7465" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/8ff0adc6-3660-440b-9fe5-895e4e4e7465.png" type="image/png" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/clubs/8ff0adc6-3660-440b-9fe5-895e4e4e7465" type="application/vnd.com.symfony.connect+xml" />
+    <atom:link rel="self" href="https://connect.symfony.com/api/alternates/8ff0adc6-3660-440b-9fe5-895e4e4e7465" type="text/html" />
     </foaf:Group>
-                <xhtml:form id="create_club" method="POST" action="https://connect.sensiolabs.com/api/clubs" enctype="application/x-www-form-urlencoded">
+                <xhtml:form id="create_club" method="POST" action="https://connect.symfony.com/api/clubs" enctype="application/x-www-form-urlencoded">
     <xhtml:input type="text" name="name" required="required" /><xhtml:input type="text" name="slug" required="required" /><xhtml:input type="number" name="type" required="required" /><xhtml:input type="text" name="email" required="required" /><xhtml:input type="text" name="description" required="required" /><xhtml:input type="text" name="city" required="required" /><xhtml:input type="text" name="country" required="required" /><xhtml:input type="text" name="url" required="required" /><xhtml:input type="text" name="feedUrl" required="required" />
 </xhtml:form>
     

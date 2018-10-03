@@ -17,9 +17,9 @@
             <foaf:Person id="aa5e22b0-6189-4113-9c68-91d4a3c32b7c">
                 <foaf:name><![CDATA[Marc Weistroff]]></foaf:name>
                 <foaf:mbox_sha1sum>5865060de545f7da5d57c093c5096d89f2fe6740</foaf:mbox_sha1sum>
-                <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/aa5e22b0-6189-4113-9c68-91d4a3c32b7c.png" type="image/png" />
-                <atom:link rel="self" href="https://connect.sensiolabs.com/api/users/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="application/vnd.com.sensiolabs.connect+xml"/>
-                <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="text/html" />
+                <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/aa5e22b0-6189-4113-9c68-91d4a3c32b7c.png" type="image/png" />
+                <atom:link rel="self" href="https://connect.symfony.com/api/users/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="application/vnd.com.symfony.connect+xml"/>
+                <atom:link rel="self" href="https://connect.symfony.com/api/alternates/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="text/html" />
             </foaf:Person>
         </doap:developer>
 
@@ -35,8 +35,8 @@
         <slug>marcwwurstbundle</slug>
         <is-private>false</is-private>
 
-        <atom:link rel="https://rels.connect.sensiolabs.com/image" href="https://connect.sensiolabs.com/api/images/454f1e7a-57d3-4240-a1c1-a3875ec8bc89.png" type="image/png" />
-        <atom:link rel="self" href="https://connect.sensiolabs.com/api/projects/454f1e7a-57d3-4240-a1c1-a3875ec8bc89" type="application/vnd.com.sensiolabs.connect+xml" />
-        <atom:link rel="self" href="https://connect.sensiolabs.com/api/alternates/454f1e7a-57d3-4240-a1c1-a3875ec8bc89" type="text/html" />
+        <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/454f1e7a-57d3-4240-a1c1-a3875ec8bc89.png" type="image/png" />
+        <atom:link rel="self" href="https://connect.symfony.com/api/projects/454f1e7a-57d3-4240-a1c1-a3875ec8bc89" type="application/vnd.com.symfony.connect+xml" />
+        <atom:link rel="self" href="https://connect.symfony.com/api/alternates/454f1e7a-57d3-4240-a1c1-a3875ec8bc89" type="text/html" />
     </doap:Project>
 </api>
