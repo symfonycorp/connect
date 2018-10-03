@@ -18,12 +18,35 @@ namespace SymfonyCorp\Connect\Api\Entity;
  */
 class Root extends AbstractEntity
 {
+    private $indexes = array();
+    private $user;
+
     protected function configure()
     {
-        $this->addProperty('badgesUrl')
+        $this->addProperty('projectsUrl')
+             ->addProperty('badgesUrl')
+             ->addProperty('clubsUrl')
              ->addProperty('usersUrl')
              ->addProperty('currentUser')
         ;
+    }
+
+    public function getLastProjects()
+    {
+        return $this->getApi()->get($this->getProjectsUrl());
+    }
+
+    public function searchProjects($q)
+    {
+        $form = $this->getForm('search_projects');
+        $form->addField('q', $q);
+
+        return $this->submit('search_projects');
+    }
+
+    public function getProject($uuid)
+    {
+        return $this->getApi()->get($this->getProjectsUrl().'/'.$uuid);
     }
 
     public function getBadges()
@@ -52,5 +75,23 @@ class Root extends AbstractEntity
     public function getUser($uuid)
     {
         return $this->getApi()->get($this->getUsersUrl().'/'.$uuid);
+    }
+
+    public function getLastClubs()
+    {
+        return $this->getApi()->get($this->getClubsUrl());
+    }
+
+    public function searchClubs($q)
+    {
+        $form = $this->getForm('search_clubs');
+        $form->addField('q', $q);
+
+        return $this->submit('search_clubs');
+    }
+
+    public function getClub($uuid)
+    {
+        return $this->getApi()->get($this->getClubsUrl().'/'.$uuid);
     }
 }
