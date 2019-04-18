@@ -7,8 +7,10 @@
     "license": "MIT",
     "authors": [],
     "require": {
-        "kriswallsmith/buzz": ">=0.8,<0.17",
-        "psr/log": "^1.0"
+        "psr/log": "^1.0",
+        "symfony/contracts": "1.1.x@dev",
+        "symfony/http-client": "4.3.x@dev",
+        "php": "^7.1.3"
     },
     "require-dev": {
         "symfony/form": "^2.1|^3.0|^4.0",
@@ -25,7 +27,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-migrate-to-symfonyconnect": "5.x-dev"
+            "dev-master": "5.x-dev"
         }
     }
 }

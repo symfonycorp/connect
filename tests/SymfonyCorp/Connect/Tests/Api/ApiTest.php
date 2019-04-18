@@ -11,8 +11,11 @@
 
 namespace SymfonyCorp\Connect\Test\Api;
 
-use Buzz\Message\Response;
+use Symfony\Component\HttpClient\MockHttpClient;
+use Symfony\Component\HttpClient\Response\MockResponse;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 use SymfonyCorp\Connect\Api\Api;
+use SymfonyCorp\Connect\Api\Entity\Root;
 
 /**
  * ApitTest.
@@ -21,56 +24,60 @@ use SymfonyCorp\Connect\Api\Api;
  */
 class ApiTest extends \PHPUnit_Framework_TestCase
 {
-    private $api;
-    private $parser;
+    private $rootXml;
+    private $errorXml;
 
     public function setUp()
     {
-        $this->browser = $this->getMockBuilder('Buzz\\Browser')->getMock();
-        $this->parser = $this->getMockBuilder('SymfonyCorp\\Connect\\Api\\Parser\\ParserInterface')->getMock();
-        $this->logger = $this->getMockBuilder('Psr\\Log\\LoggerInterface')->getMock();
-        $this->xml = file_get_contents(__DIR__.'/../../../../fixtures/root.xml');
-
-        $this->api = new Api('http://foobar/api', $this->browser, null, $this->logger);
+        $this->rootXml = file_get_contents(__DIR__.'/../../../../fixtures/root.xml');
+        $this->errorXml = file_get_contents(__DIR__.'/../../../../fixtures/error.xml');
     }
 
     public function testAccessTokenAccessorsAndMutators()
     {
-        $this->api->setAccessToken('foobar');
-        $this->assertEquals('foobar', $this->api->getAccessToken());
-        $this->api->resetAccessToken();
-        $this->assertNull($this->api->getAccessToken());
+        $api = $this->createApi(new MockHttpClient());
+        $api->setAccessToken('foobar');
+        $this->assertEquals('foobar', $api->getAccessToken());
+        $api->resetAccessToken();
+        $this->assertNull($api->getAccessToken());
     }
 
     public function testGet()
     {
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/', array('Accept: application/vnd.com.symfony.connect+xml'))
-                      ->will($this->returnValue($this->createResponse()));
+        $api = $this->createApi(new MockHttpClient(function ($method, $url, $options) {
+            $this->assertSame('GET', $method);
+            $this->assertSame('http://foobar/api/', $url);
+            $this->assertContains('accept: application/vnd.com.symfony.connect+xml', $options['request_headers']);
 
-        $object = $this->api->get('http://foobar/api/');
+            return $this->createResponse(200, $this->rootXml);
+        }));
+
+        $object = $api->get('http://foobar/api/');
         $this->assertInstanceOf('SymfonyCorp\Connect\Api\Entity\Root', $object);
     }
 
     public function testGetReturnsTrueIfServerReturns204StatusCode()
     {
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('204')));
+        $api = $this->createApi(new MockHttpClient(function ($method, $url) {
+            $this->assertSame('GET', $method);
+            $this->assertSame('http://foobar/api/', $url);
 
-        $this->assertTrue($this->api->get('http://foobar/api/'));
+            return $this->createResponse('204', $this->rootXml);
+        }));
+
+        $this->assertTrue($api->get('http://foobar/api/'));
     }
 
     public function testGetReturnsTrueIfServerReturns201StatusCodeWithAnEmptyResponse()
     {
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('201', false)));
+        $api = $this->createApi(new MockHttpClient(function ($method, $url) {
+            $this->assertSame('GET', $method);
+            $this->assertSame('http://foobar/api/', $url);
 
-        $this->assertTrue($this->api->get('http://foobar/api/'));
+            return $this->createResponse('201', '');
+        }));
+
+        $this->assertTrue($api->get('http://foobar/api/'));
     }
 
     /**
@@ -78,12 +85,14 @@ class ApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetThrowsClientExceptionWhenServerReturns40xStatusCode()
     {
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('400')));
+        $api = $this->createApi(new MockHttpClient(function ($method, $url) {
+            $this->assertSame('GET', $method);
+            $this->assertSame('http://foobar/api/', $url);
 
-        $this->api->get('http://foobar/api/');
+            return $this->createResponse(400, $this->rootXml);
+        }));
+
+        $api->get('http://foobar/api/');
     }
 
     /**
@@ -91,34 +100,42 @@ class ApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testGetThrowsServerExceptionWhenServerReturns50xStatusCode()
     {
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('500')));
+        $api = $this->createApi(new MockHttpClient(function ($method, $url) {
+            $this->assertSame('GET', $method);
+            $this->assertSame('http://foobar/api/', $url);
 
-        $this->api->get('http://foobar/api/');
+            return $this->createResponse(500, '');
+        }));
+
+        $api->get('http://foobar/api/');
     }
 
     public function testGetAddsAccessTokenToQueryParameter()
     {
-        $this->api->setAccessToken('foobar');
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/?access_token=foobar')
-                      ->will($this->returnValue($this->createResponse()));
+        $api = $this->createApi(new MockHttpClient(function ($method, $url) {
+            $this->assertSame('GET', $method);
+            $this->assertSame('http://foobar/api/?access_token=foobar', $url);
 
-        $this->api->get('http://foobar/api/');
+            return $this->createResponse(200, $this->rootXml);
+        }));
+
+        $api->setAccessToken('foobar');
+        $api->get('http://foobar/api/');
     }
 
     public function testSubmit()
     {
-        $this->api->setAccessToken('foobar');
-        $this->browser->expects($this->once())
-                      ->method('submit')
-                      ->with('http://foobar/api/?access_token=foobar', array('foo' => 'bar'), 'POST', array('Accept: application/vnd.com.symfony.connect+xml'))
-                      ->will($this->returnValue($this->createResponse('204', false)));
+        $api = $this->createApi(new MockHttpClient(function ($method, $url, $options) {
+            $this->assertSame('POST', $method);
+            $this->assertSame('http://foobar/api/?access_token=foobar', $url);
+            $this->assertSame('foo=bar', $options['body']);
+            $this->assertContains('accept: application/vnd.com.symfony.connect+xml', $options['request_headers']);
 
-        $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+            return $this->createResponse(200, $this->rootXml);
+        }));
+
+        $api->setAccessToken('foobar');
+        $api->submit('http://foobar/api/', 'POST', ['foo' => 'bar']);
     }
 
     /**
@@ -126,25 +143,27 @@ class ApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testSubmitThrowsClientExceptionWhenServerReturns40xStatusCode()
     {
-        $this->browser->expects($this->once())
-                      ->method('submit')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('400')));
+        $api = $this->createApi(new MockHttpClient(function ($method, $url) {
+            $this->assertSame('POST', $method);
+            $this->assertSame('http://foobar/api/', $url);
 
-        $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+            return $this->createResponse(400, '');
+        }));
+
+        $api->submit('http://foobar/api/', 'POST', ['foo' => 'bar']);
     }
 
     public function testSubmitThrowsClientExceptionAndAddErrorWhenServerReturns40xStatusCode()
     {
-        $response = $this->createResponse('422');
-        $response->setContent(file_get_contents(__DIR__.'/../../../../fixtures/error.xml'));
-        $this->browser->expects($this->once())
-                      ->method('submit')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($response));
+        $api = $this->createApi(new MockHttpClient(function ($method, $url) {
+            $this->assertSame('POST', $method);
+            $this->assertSame('http://foobar/api/', $url);
+
+            return $this->createResponse(400, $this->errorXml);
+        }));
 
         try {
-            $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+            $api->submit('http://foobar/api/', 'POST', ['foo' => 'bar']);
         } catch (\Exception $e) {
             $this->assertInstanceOf('SymfonyCorp\Connect\Exception\ApiClientException', $e);
             $this->assertInstanceOf('SymfonyCorp\Connect\Api\Model\Error', $e->getError());
@@ -157,32 +176,42 @@ class ApiTest extends \PHPUnit_Framework_TestCase
      */
     public function testSubmitThrowsServerExceptionWhenServerReturns50xStatusCode()
     {
-        $this->browser->expects($this->once())
-                      ->method('submit')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('500')));
+        $api = $this->createApi(new MockHttpClient(function ($method, $url) {
+            $this->assertSame('POST', $method);
+            $this->assertSame('http://foobar/api/', $url);
 
-        $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
+            return $this->createResponse(500, '');
+        }));
+
+        $api->submit('http://foobar/api/', 'POST', ['foo' => 'bar']);
     }
 
-    public function getRoot()
+    public function testGetRoot()
     {
-        $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse()));
+        $api = $this->createApi(new MockHttpClient(function ($method, $url) {
+            $this->assertSame('GET', $method);
+            $this->assertSame('http://foobar/api', $url);
 
-        $this->assertInstanceOf('SymfonyCorp\Connect\Api\Entity\Root', $this->api->getRoot());
+            return $this->createResponse(200, $this->rootXml);
+        }));
+
+        $this->assertInstanceOf(Root::class, $api->getRoot());
     }
 
-    private function createResponse($statusCode = 200, $content = true)
+    private function createApi(HttpClientInterface $httpClient)
     {
-        $response = new Response();
-        $response->setHeaders(array(sprintf('HTTP/1.1 %s FOOBAR', $statusCode)));
-        if ($content) {
-            $response->setContent($this->xml);
-        }
+        return new Api(
+            'http://foobar/api',
+            $httpClient,
+            null,
+            $this->getMockBuilder('Psr\\Log\\LoggerInterface')->getMock()
+        );
+    }
 
-        return $response;
+    private function createResponse(int $statusCode, string $content)
+    {
+        return new MockResponse($content, [
+            'http_code' => $statusCode,
+        ]);
     }
 }
