@@ -2,12 +2,6 @@ language: php
 
 matrix:
   include:
-    - php: hhvm-3.18
-      sudo: required
-      group: edge
-    - php: 5.5
-    - php: 5.6
-    - php: 7.0
     - php: 7.1
     - php: 7.2
     - php: 7.3
