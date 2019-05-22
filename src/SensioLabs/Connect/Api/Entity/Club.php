@@ -11,17 +11,20 @@
 
 namespace SensioLabs\Connect\Api\Entity;
 
+@trigger_error(sprintf('The "%s" class is deprecated since Connect 4.3 and will be removed in 5.0.', Club::class), E_USER_DEPRECATED);
+
 /**
  * Club
  *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
+ * @deprecated since Connect 4.3 and will be removed in 5.0.
  */
 class Club extends AbstractEntity
 {
-    const TYPE_COMPANY    = 1;
+    const TYPE_COMPANY = 1;
     const TYPE_USER_GROUP = 2;
-    const TYPE_FUN        = 3;
-    const TYPE_TEAM       = 4;
+    const TYPE_FUN = 3;
+    const TYPE_TEAM = 4;
 
     public static $types = array(
         self::TYPE_COMPANY    => 'Company',

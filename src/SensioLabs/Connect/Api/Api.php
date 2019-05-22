@@ -13,7 +13,8 @@ namespace SensioLabs\Connect\Api;
 
 use Buzz\Browser;
 use Buzz\Client\Curl;
-use Buzz\Message\Response;
+use GuzzleHttp\Psr7\Request;
+use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use SensioLabs\Connect\Api\Parser\ParserInterface;
@@ -67,16 +68,16 @@ class Api
         return $this->accessToken;
     }
 
-    public function get($url, $headers = array())
+    public function get($url, $headers = [])
     {
         $url = $this->constructUrlWithAccessToken($url);
 
         $this->logger->info(sprintf('GET %s', $url));
 
-        return $this->processResponse($this->browser->get($url, array_merge($headers, $this->getAcceptHeader())));
+        return $this->processResponse($this->browser->sendRequest(new Request('GET', $url, array_merge($headers, $this->getAcceptHeader()))));
     }
 
-    public function submit($url, $method = 'POST', array $fields, $headers = array())
+    public function submit($url, $method = 'POST', array $fields = [], $headers = [])
     {
         $url = $this->constructUrlWithAccessToken($url);
 
@@ -84,33 +85,33 @@ class Api
         $this->logger->debug(sprintf('Posted headers: %s', json_encode($headers)));
         $this->logger->debug(sprintf('Posted fields: %s', json_encode($fields)));
 
-        return $this->processResponse($this->browser->submit($url, $fields, $method, array_merge($headers, $this->getAcceptHeader())));
+        return $this->processResponse($this->browser->submitForm($url, $fields, $method, array_merge($headers, $this->getAcceptHeader())));
     }
 
-    private function processResponse(Response $response)
+    private function processResponse(ResponseInterface $response)
     {
-        $this->logger->info('Response:'.$response);
+        $this->logger->info('Response:'.$this->getStringResponse($response));
 
         if (500 <= $response->getStatusCode()) {
-            throw new ApiServerException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders());
+            throw new ApiServerException($response->getStatusCode(), $response->getBody(), $response->getReasonPhrase(), $response->getHeaders());
         }
 
         if (400 <= $response->getStatusCode()) {
             try {
-                $error = $this->parser->parse($response->getContent());
+                $error = $this->parser->parse($response->getBody());
                 $error = $error instanceof Model\Error ? $error : new Model\Error();
             } catch (ApiParserException $e) {
-                throw new ApiClientException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders(), null, $e);
+                throw new ApiClientException($response->getStatusCode(), $response->getBody(), $response->getReasonPhrase(), $response->getHeaders(), null, $e);
             }
 
-            throw new ApiClientException($response->getStatusCode(), $response->getContent(), $response->getReasonPhrase(), $response->getHeaders(), $error);
+            throw new ApiClientException($response->getStatusCode(), $response->getBody(), $response->getReasonPhrase(), $response->getHeaders(), $error);
         }
 
         if (204 === $response->getStatusCode()) {
             return true;
         }
 
-        $content = trim($response->getContent());
+        $content = trim($response->getBody());
         if (empty($content)) {
             return true;
         }
@@ -150,5 +151,17 @@ class Api
         }
 
         return $url;
+    }
+
+    private function getStringResponse(ResponseInterface $response)
+    {
+        $headers = $response->getHeaders();
+
+        $headers = array_map(function ($name, array $values) {
+            return sprintf('%s: %s', $name, implode(',', $values));
+        }, array_keys($headers), $headers);
+
+
+        return sprintf("\r\n%s\r\n%s\r\n", implode("\r\n", $headers), (string) $response->getBody());
     }
 }

@@ -11,11 +11,14 @@
 
 namespace SensioLabs\Connect\Api\Entity;
 
+@trigger_error(sprintf('The "%s" class is deprecated since Connect 4.3 and will be removed in 5.0.', Project::class), E_USER_DEPRECATED);
+
 /**
  * Project
  *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  * @todo Override setApi to apply it to children User
+ * @deprecated since Connect 4.3 and will be removed in 5.0.
  */
 class Project extends AbstractEntity
 {
@@ -26,14 +29,14 @@ class Project extends AbstractEntity
     const TYPE_SYMFONY_PLUGIN = 4; // This is deprecated. You should not use it
     const TYPE_SYMFONY_DISTRIBUTION = 10; // This is deprecated. You should not use it
 
-    const TYPE_PHP_WEBSITE          = 0;
-    const TYPE_PHP_LIBRARY          = 1;
-    const TYPE_SYMFONY2_BUNDLE      = 2;
-    const TYPE_SYMFONY1_PLUGIN      = 4;
-    const TYPE_OTHER                = 6;
-    const TYPE_DRUPAL_MODULE        = 7;
-    const TYPE_LARAVAL_WEB_PROJECT  = 8;
-    const TYPE_SILEX_WEB_PROJECT    = 9;
+    const TYPE_PHP_WEBSITE = 0;
+    const TYPE_PHP_LIBRARY = 1;
+    const TYPE_SYMFONY2_BUNDLE = 2;
+    const TYPE_SYMFONY1_PLUGIN = 4;
+    const TYPE_OTHER = 6;
+    const TYPE_DRUPAL_MODULE = 7;
+    const TYPE_LARAVAL_WEB_PROJECT = 8;
+    const TYPE_SILEX_WEB_PROJECT = 9;
     const TYPE_SYMFONY2_WEB_PROJECT = 10;
     const TYPE_SYMFONY1_WEB_PROJECT = 11;
 
