@@ -11,7 +11,9 @@
 
 namespace SensioLabs\Connect\Test\Api;
 
-use Buzz\Message\Response;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response as Response;
+use PHPUnit\Framework\TestCase;
 use SensioLabs\Connect\Api\Api;
 
 /**
@@ -19,10 +21,13 @@ use SensioLabs\Connect\Api\Api;
  *
  * @author Julien Galenski <julien.galenski@gmail.com>
  */
-class ApiTest extends \PHPUnit_Framework_TestCase
+class ApiTest extends TestCase
 {
     private $api;
     private $parser;
+    private $browser;
+    private $logger;
+    private $xml;
 
     public function setUp()
     {
@@ -42,12 +47,16 @@ class ApiTest extends \PHPUnit_Framework_TestCase
         $this->assertNull($this->api->getAccessToken());
     }
 
+    /**
+     * @group legacy
+     */
     public function testGet()
     {
         $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/', array('Accept: application/vnd.com.sensiolabs.connect+xml'))
-                      ->will($this->returnValue($this->createResponse()));
+                      ->method('sendRequest')
+                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept: application/vnd.com.sensiolabs.connect+xml']))
+                      ->will($this->returnValue($this->createResponse()))
+        ;
 
         $object = $this->api->get('http://foobar/api/');
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Root', $object);
@@ -56,32 +65,37 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     public function testGetReturnsTrueIfServerReturns204StatusCode()
     {
         $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('204')));
+                      ->method('sendRequest')
+                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept: application/vnd.com.sensiolabs.connect+xml']))
+                      ->will($this->returnValue($this->createResponse('204')))
+        ;
 
         $this->assertTrue($this->api->get('http://foobar/api/'));
     }
 
     public function testGetReturnsTrueIfServerReturns201StatusCodeWithAnEmptyResponse()
     {
+        $request = $this->createRequest('GET', 'http://foobar/api/', ['Accept: application/vnd.com.sensiolabs.connect+xml']);
         $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('201', false)));
+                      ->method('sendRequest')
+                      ->with($request)
+                      ->will($this->returnValue($this->createResponse('201', false)))
+        ;
 
         $this->assertTrue($this->api->get('http://foobar/api/'));
     }
 
     /**
      * @expectedException \SensioLabs\Connect\Exception\ApiClientException
+     * @group legacy
      */
     public function testGetThrowsClientExceptionWhenServerReturns40xStatusCode()
     {
         $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('400')));
+                      ->method('sendRequest')
+                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept: application/vnd.com.sensiolabs.connect+xml']))
+                      ->will($this->returnValue($this->createResponse('400')))
+        ;
 
         $this->api->get('http://foobar/api/');
     }
@@ -92,20 +106,25 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     public function testGetThrowsServerExceptionWhenServerReturns50xStatusCode()
     {
         $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('500')));
+                      ->method('sendRequest')
+                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept: application/vnd.com.sensiolabs.connect+xml']))
+                      ->will($this->returnValue($this->createResponse('500')))
+        ;
 
         $this->api->get('http://foobar/api/');
     }
 
+    /**
+     * @group legacy
+     */
     public function testGetAddsAccessTokenToQueryParameter()
     {
         $this->api->setAccessToken('foobar');
         $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/?access_token=foobar')
-                      ->will($this->returnValue($this->createResponse()));
+                      ->method('sendRequest')
+                      ->with($this->createRequest('GET', 'http://foobar/api/?access_token=foobar', ['Accept: application/vnd.com.sensiolabs.connect+xml']))
+                      ->will($this->returnValue($this->createResponse()))
+        ;
 
         $this->api->get('http://foobar/api/');
     }
@@ -114,34 +133,37 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     {
         $this->api->setAccessToken('foobar');
         $this->browser->expects($this->once())
-                      ->method('submit')
+                      ->method('submitForm')
                       ->with('http://foobar/api/?access_token=foobar', array('foo' => 'bar'), 'POST', array('Accept: application/vnd.com.sensiolabs.connect+xml'))
-                      ->will($this->returnValue($this->createResponse('204', false)));
+                      ->will($this->returnValue($this->createResponse('204', false)))
+        ;
 
         $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
     }
 
     /**
      * @expectedException \SensioLabs\Connect\Exception\ApiClientException
+     * @group legacy
      */
     public function testSubmitThrowsClientExceptionWhenServerReturns40xStatusCode()
     {
         $this->browser->expects($this->once())
-                      ->method('submit')
+                      ->method('submitForm')
                       ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('400')));
+                      ->will($this->returnValue($this->createResponse('400')))
+        ;
 
         $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
     }
 
     public function testSubmitThrowsClientExceptionAndAddErrorWhenServerReturns40xStatusCode()
     {
-        $response = $this->createResponse('422');
-        $response->setContent(file_get_contents(__DIR__.'/../../../../fixtures/error.xml'));
+        $this->xml = file_get_contents(__DIR__.'/../../../../fixtures/error.xml');
         $this->browser->expects($this->once())
-                      ->method('submit')
+                      ->method('submitForm')
                       ->with('http://foobar/api/')
-                      ->will($this->returnValue($response));
+                      ->will($this->returnValue($this->createResponse('422')))
+        ;
 
         try {
             $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
@@ -158,9 +180,10 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     public function testSubmitThrowsServerExceptionWhenServerReturns50xStatusCode()
     {
         $this->browser->expects($this->once())
-                      ->method('submit')
+                      ->method('submitForm')
                       ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse('500')));
+                      ->will($this->returnValue($this->createResponse('500')))
+        ;
 
         $this->api->submit('http://foobar/api/', 'POST', array('foo' => 'bar'));
     }
@@ -168,21 +191,25 @@ class ApiTest extends \PHPUnit_Framework_TestCase
     public function getRoot()
     {
         $this->browser->expects($this->once())
-                      ->method('get')
-                      ->with('http://foobar/api/')
-                      ->will($this->returnValue($this->createResponse()));
+                      ->method('sendRequest')
+                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept: application/vnd.com.sensiolabs.connect+xml']))
+                      ->will($this->returnValue($this->createResponse()))
+        ;
 
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Root', $this->api->getRoot());
     }
 
+    private function createRequest($method, $url, $headers = [])
+    {
+        return new Request($method, $url, $headers);
+    }
+
     private function createResponse($statusCode = 200, $content = true)
     {
-        $response = new Response();
-        $response->setHeaders(array(sprintf('HTTP/1.1 %s FOOBAR', $statusCode)));
         if ($content) {
-            $response->setContent($this->xml);
+            return new Response($statusCode, [sprintf('HTTP/1.1 %s FOOBAR', $statusCode)], $this->xml);
         }
 
-        return $response;
+        return new Response($statusCode, [sprintf('HTTP/1.1 %s FOOBAR', $statusCode)]);;
     }
 }

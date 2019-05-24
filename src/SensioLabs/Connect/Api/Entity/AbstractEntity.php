@@ -137,6 +137,10 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
         $method = substr($name, 0, 3);
         $property = lcfirst(substr($name, 3));
 
+        if (in_array($property, ['club', 'clubsUrl', 'project', 'projectsUrl'])) {
+            @trigger_error(sprintf('The method "%s()" is deprecated since Connect 4.3 and will be removed in 5.0.', $name), E_USER_DEPRECATED);
+        }
+
         if ('set' === $method) {
             if (!array_key_exists(0, $arguments)) {
                 throw new \LogicException(sprintf('Please provide a value to set %s with', $name));

@@ -11,6 +11,7 @@
 
 namespace SensioLabs\Connect\Tests\Security\Authentication\Token;
 
+use PHPUnit\Framework\TestCase;
 use SensioLabs\Connect\Security\Authentication\Token\ConnectToken;
 use Symfony\Component\Security\Core\User\User;
 
@@ -19,7 +20,7 @@ use Symfony\Component\Security\Core\User\User;
  *
  * @author Luc Vieillescazes <luc.vieillescazes@sensiolabs.com>
  */
-class ConnectTokenTest extends \PHPUnit_Framework_TestCase
+class ConnectTokenTest extends TestCase
 {
     public function testGetRolesWithStringUser()
     {

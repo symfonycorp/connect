@@ -18,9 +18,6 @@ namespace SensioLabs\Connect\Api\Entity;
  */
 class Root extends AbstractEntity
 {
-    private $indexes = array();
-    private $user;
-
     protected function configure()
     {
         $this->addProperty('projectsUrl')
@@ -31,21 +28,36 @@ class Root extends AbstractEntity
         ;
     }
 
+    /**
+     * @deprecated since Connect 4.3 and will be removed in 5.0.
+     */
     public function getLastProjects()
     {
+        @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
+
         return $this->getApi()->get($this->getProjectsUrl());
     }
 
+    /**
+     * @deprecated since Connect 4.3 and will be removed in 5.0.
+     */
     public function searchProjects($q)
     {
+        @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
+
         $form = $this->getForm('search_projects');
         $form->addField('q', $q);
 
         return $this->submit('search_projects');
     }
 
+    /**
+     * @deprecated since Connect 4.3 and will be removed in 5.0.
+     */
     public function getProject($uuid)
     {
+        @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
+
         return $this->getApi()->get($this->getProjectsUrl().'/'.$uuid);
     }
 
@@ -77,21 +89,36 @@ class Root extends AbstractEntity
         return $this->getApi()->get($this->getUsersUrl().'/'.$uuid);
     }
 
+    /**
+     * @deprecated since Connect 4.3 and will be removed in 5.0.
+     */
     public function getLastClubs()
     {
+        @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
+
         return $this->getApi()->get($this->getClubsUrl());
     }
 
+    /**
+     * @deprecated since Connect 4.3 and will be removed in 5.0.
+     */
     public function searchClubs($q)
     {
+        @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
+
         $form = $this->getForm('search_clubs');
         $form->addField('q', $q);
 
         return $this->submit('search_clubs');
     }
 
+    /**
+     * @deprecated since Connect 4.3 and will be removed in 5.0.
+     */
     public function getClub($uuid)
     {
+        @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
+
         return $this->getApi()->get($this->getClubsUrl().'/'.$uuid);
     }
 }
