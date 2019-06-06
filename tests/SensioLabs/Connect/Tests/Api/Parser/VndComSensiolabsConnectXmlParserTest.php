@@ -7,8 +7,6 @@ use SensioLabs\Connect\Api\Parser\VndComSensiolabsConnectXmlParser;
 use SensioLabs\Connect\Api\Entity\Root;
 use SensioLabs\Connect\Api\Entity\Index;
 use SensioLabs\Connect\Api\Entity\User;
-use SensioLabs\Connect\Api\Entity\Club;
-use SensioLabs\Connect\Api\Entity\Project;
 use SensioLabs\Connect\Api\Entity\Badge;
 
 /**
@@ -23,18 +21,13 @@ class VndComSensiolabsConnectXmlParserTest extends TestCase
         $this->parser = new VndComSensiolabsConnectXmlParser();
     }
 
-    /**
-     * @group legacy
-     */
     public function testParseRootAnonymous()
     {
         $rootXml = file_get_contents(__DIR__.'/../../../../../fixtures/root.xml');
         $root = $this->parser->parse($rootXml);
 
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Root', $root);
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Form', $root->getForm('search_projects'));
         $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Form', $root->getForm('search_users'));
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Form', $root->getForm('search_clubs'));
     }
 
     public function getParseIndexTests()
@@ -44,33 +37,10 @@ class VndComSensiolabsConnectXmlParserTest extends TestCase
         );
     }
 
-    public function getLegacyParseIndexTests()
-    {
-        return array(
-            array('/../../../../../fixtures/clubs.xml', 'create_club', 'POST', 'https://connect.sensiolabs.com/api/clubs', 'SensioLabs\Connect\Api\Entity\Club'),
-            array('/../../../../../fixtures/projects.xml', 'create_project', 'POST', 'https://connect.sensiolabs.com/api/projects', 'SensioLabs\Connect\Api\Entity\Project'),
-        );
-    }
-
     /**
      * @dataProvider getParseIndexTests
      */
     public function testParseIndex($xml, $formId, $method, $action, $class)
-    {
-        $indexXml = file_get_contents(__DIR__.$xml);
-        $index = $this->parser->parse($indexXml);
-
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $index);
-        $this->assertSame($method, $index->getForm($formId)->getMethod());
-        $this->assertSame($action, $index->getForm($formId)->getAction());
-        $this->assertInstanceOf($class, $index[0]);
-    }
-
-    /**
-     * @dataProvider getLegacyParseIndexTests
-     * @group legacy
-     */
-    public function testLegacyParseIndex($xml, $formId, $method, $action, $class)
     {
         $indexXml = file_get_contents(__DIR__.$xml);
         $index = $this->parser->parse($indexXml);
@@ -90,9 +60,6 @@ class VndComSensiolabsConnectXmlParserTest extends TestCase
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Badge', $index[0]);
     }
 
-    /**
-     * @group legacy
-     */
     public function testParseFoafPerson()
     {
         $rootXml = file_get_contents(__DIR__.'/../../../../../fixtures/user.xml');
@@ -103,78 +70,6 @@ class VndComSensiolabsConnectXmlParserTest extends TestCase
         $badges = $user->getBadges();
         $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $badges);
         $this->assertEquals(20, count($badges));
-
-        $memberships = $user->getMemberships();
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $memberships);
-        $this->assertEquals(3, count($memberships));
-
-        $projects = $user->getProjects();
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Index', $projects);
-        $this->assertEquals(13, count($projects));
-    }
-
-    /**
-     * @group legacy
-     */
-    public function testLegacyParseGroup()
-    {
-        $rootXml = file_get_contents(__DIR__.'/../../../../../fixtures/club.xml');
-        $club = $this->parser->parse($rootXml);
-
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Club', $club);
-        $this->assertEquals(278, $club->getCumulatedBadges());
-        $badges = $club->getBadges();
-        $this->assertEquals(39, count($badges));
-        $this->assertEquals('Personality of the year 2011', $badges[0]->getName());
-        $this->assertEquals(1, $badges[0]->getCount());
-    }
-
-    /**
-     * @group legacy
-     */
-    public function testLegacyParseProject()
-    {
-        $rootXml = file_get_contents(__DIR__.'/../../../../../fixtures/project.xml');
-        $project = $this->parser->parse($rootXml);
-
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Entity\Project', $project);
-        $this->assertSame(2, $project->getType());
-        $this->assertSame("Symfony2 Bundle", $project->getTextualType());
-        $this->assertTrue($project->getIsInternalGitRepositoryCreated());
-    }
-
-    /**
-     * @group legacy
-     */
-    public function testLegacyParseFormSelect()
-    {
-        $rootXml = file_get_contents(__DIR__.'/../../../../../fixtures/projects.xml');
-        $project = $this->parser->parse($rootXml);
-
-        $form = $project->getForm('create_project');
-        $this->assertInstanceOf('SensioLabs\Connect\Api\Model\Form', $form);
-        $options = array(
-            'type'      => array(
-                10 => 'Symfony2 Web Project',
-                11 => 'symfony1 Web Project',
-                9  => 'Silex Web Project',
-                8  => 'Laravel Web Project',
-                2  => 'Symfony2 Bundle',
-                4  => 'symfony1 Plugin',
-                7  => 'Drupal Module',
-                0  => 'PHP Web Project',
-                1  => 'PHP Library',
-                6  => 'Other',
-            ),
-            'isPrivate' => array(
-                1 => 'Private',
-                0 => 'Public',
-            )
-        );
-        $this->assertSame($options, $form->getFieldsOptions());
-        $this->assertSame($options['type'], $form->getFieldOptions('type'));
-        $this->assertTrue($form->hasFieldOptions('type'));
-        $this->assertFalse($form->hasFieldOptions('foobar'));
     }
 
     public function testParseErrors()
