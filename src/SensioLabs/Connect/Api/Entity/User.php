@@ -40,8 +40,6 @@ class User extends AbstractEntity
              ->addProperty('twitterUsername')
              ->addProperty('linkedInUrl')
              ->addProperty('facebookUid')
-             ->addProperty('projects')
-             ->addProperty('memberships')
              ->addProperty('badges')
         ;
     }

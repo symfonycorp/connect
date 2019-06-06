@@ -14,11 +14,7 @@ namespace SensioLabs\Connect\Api\Parser;
 use SensioLabs\Connect\Exception\ApiParserException;
 use SensioLabs\Connect\Api\Entity\AbstractEntity;
 use SensioLabs\Connect\Api\Entity\Badge;
-use SensioLabs\Connect\Api\Entity\Club;
-use SensioLabs\Connect\Api\Entity\Project;
 use SensioLabs\Connect\Api\Entity\Index;
-use SensioLabs\Connect\Api\Entity\Member;
-use SensioLabs\Connect\Api\Entity\Membership;
 use SensioLabs\Connect\Api\Entity\Root;
 use SensioLabs\Connect\Api\Entity\User;
 use SensioLabs\Connect\Api\Model\Form;
@@ -36,8 +32,8 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
     protected $xpath;
 
     protected $queries = array(
-        'indexes'          => './users | ./clubs | ./projects | ./badges',
-        'indexes_elements' => './foaf:Person | ./foaf:Group | ./membership | ./doap:Project | ./badge | ./doap:developer'
+        'indexes'          => './users | ./badges',
+        'indexes_elements' => './foaf:Person | ./badge | ./doap:developer'
     );
 
     public function getContentType()
@@ -85,16 +81,6 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
             return $this->parseFoafPerson($nodes->item(0));
         }
 
-        $nodes = $this->xpath->evaluate('./doap:Project', $element);
-        if (1 === $nodes->length) {
-            return $this->parseDoapProject($nodes->item(0));
-        }
-
-        $nodes = $this->xpath->evaluate('./foaf:Group', $element);
-        if (1 === $nodes->length) {
-            return $this->parseFoafGroup($nodes->item(0));
-        }
-
         $nodes = $this->xpath->evaluate('./badge', $element);
         if (1 === $nodes->length) {
             return $this->parseBadge($nodes->item(0));
@@ -110,19 +96,9 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
     {
         $root = $this->getRootInstance();
 
-        $projectsLink = $this->xpath->query('./atom:link[@rel="https://rels.connect.sensiolabs.com/projects"]', $element);
-        if ($projectsLink->length) {
-            $root->setProjectsUrl($projectsLink->item(0)->attributes->getNamedItem('href')->value);
-        }
-
         $badgesLink = $this->xpath->query('./atom:link[@rel="https://rels.connect.sensiolabs.com/badges"]', $element);
         if ($badgesLink->length) {
             $root->setBadgesUrl($badgesLink->item(0)->attributes->getNamedItem('href')->value);
-        }
-
-        $clubsLink = $this->xpath->query('./atom:link[@rel="https://rels.connect.sensiolabs.com/clubs"]', $element);
-        if ($clubsLink->length) {
-            $root->setClubsUrl($clubsLink->item(0)->attributes->getNamedItem('href')->value);
         }
 
         $usersLink = $this->xpath->query('./atom:link[@rel="https://rels.connect.sensiolabs.com/users"]', $element);
@@ -174,108 +150,9 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
             return $this->parseFoafPerson($element);
         }
 
-        if ('foaf:Group' === $element->tagName) {
-            return $this->parseFoafGroup($element);
-        }
-
-        if ('doap:Project' === $element->tagName) {
-            return $this->parseDoapProject($element);
-        }
-
-        if ('membership' === $element->tagName) {
-            return $this->parseMembership($element);
-        }
-
         if ('badge' === $element->tagName) {
             return $this->parseBadge($element);
         }
-    }
-
-    /**
-     * @deprecated since Connect 4.3 and will be removed in 5.0.
-     */
-    protected function parseDoapProject(\DOMElement $element)
-    {
-        @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
-
-        $project = $this->getProjectInstance($this->getLinkToSelf($element), $this->getLinkToAlternate($element));
-
-        $project->setUuid($element->attributes->getNamedItem('id')->value);
-        $project->setImage($this->getLinkNodeHref('./atom:link[@rel="foaf:depiction"]', $element));
-        $project->setName($this->getNodeValue('./doap:name', $element));
-        $project->setSlug($this->getNodeValue('./slug', $element));
-        $project->setIsPrivate($this->getNodeValue('./is-private', $element));
-        $project->setDescription($this->getNodeValue('./doap:description', $element));
-        $project->setType($project->getTypeFromTextual($this->getNodeValue('./doap:category', $element)));
-        $project->setUrl($this->getNodeValue('./doap:homepage', $element));
-        $project->setRepositoryUrl($this->getNodeValue('./doap:Repository/doap:GitRepository/doap:location', $element));
-        $project->setIsInternalGitRepositoryCreated($this->getNodeValue('./doap:Repository/doap:GitRepository/doap:isInternalGitRepositoryCreated', $element));
-
-        $nodeList = $this->xpath->query('./xhtml:form', $element);
-        for ($i = 0; $i < $nodeList->length; $i++) {
-            $this->parseForm($project, $nodeList->item($i));
-        }
-
-        return $project;
-    }
-
-    /**
-     * @deprecated since Connect 4.3 and will be removed in 5.0.
-     */
-    protected function parseFoafGroup(\DOMElement $element)
-    {
-        @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
-        
-        $club = new Club($this->getLinkToSelf($element), $this->getLinkToAlternate($element));
-
-        $club->setUuid($element->attributes->getNamedItem('id')->value);
-        $club->setName($this->getNodeValue('./foaf:name', $element));
-        $club->setDescription($this->getNodeValue('./description', $element));
-        $club->setUrl($this->getNodeValue('./foaf:homepage', $element));
-        $club->setSlug($this->getNodeValue('./slug', $element));
-        $club->setEmail($this->getNodeValue('./email', $element));
-        $club->setFeedUrl($this->getLinkNodeHref('./atom:link[@rel="related"]', $element));
-        $club->setCity($this->getNodeValue('./vcard:locality', $element));
-        $club->setCountry($this->getNodeValue('./vcard:country-name', $element));
-        $club->setImage($this->getLinkNodeHref('./atom:link[@rel="foaf:depiction"]', $element));
-        $club->setType($club->getTypeFromTextual($this->getNodeValue('./category', $element)));
-        $club->setCumulatedBadges($this->getNodeValue('./cumulated-badges', $element));
-
-        $nodes = $this->xpath->query('./members/foaf:Person', $element);
-        for ($i = 0; $i < $nodes->length; $i++) {
-            $club->addMembers($this->parseFoafMember($nodes->item($i)));
-        }
-
-        $nodeList = $this->xpath->query('./badges', $element);
-        if (1 === $nodeList->length) {
-            $badges = $this->parseIndex($nodeList->item(0));
-            $club->setBadges($badges);
-        }
-
-        $nodeList = $this->xpath->query('./xhtml:form', $element);
-        if (1 === $nodeList->length) {
-            $this->parseForm($club, $nodeList->item(0));
-        }
-
-        return $club;
-    }
-
-    /**
-     * @deprecated since Connect 4.3 and will be removed in 5.0.
-     */
-    protected function parseFoafMember(\DOMElement $element)
-    {
-        @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
-        
-        $member = new Member();
-
-        $member->setIsMembershipPublic($this->getNodeValue('./is-membership-public', $element));
-        $member->setIsOwner($this->getNodeValue('./is-owner', $element));
-
-        $user = $this->parseFoafPerson($this->xpath->query('./foaf:Person', $element)->item(0));
-        $member->setUser($user);
-
-        return $member;
     }
 
     protected function parseFoafPerson(\DOMElement $element)
@@ -331,18 +208,6 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         if (1 === $nodeList->length) {
             $badges = $this->parseIndex($nodeList->item(0));
             $user->setBadges($badges);
-        }
-
-        $nodeList = $this->xpath->query('./memberships', $element);
-        if (1 === $nodeList->length) {
-            $memberships = $this->parseIndex($nodeList->item(0));
-            $user->setMemberships($memberships);
-        }
-
-        $nodeList = $this->xpath->query('./projects', $element);
-        if (1 === $nodeList->length) {
-            $projects = $this->parseIndex($nodeList->item(0));
-            $user->setProjects($projects);
         }
 
         $nodeList = $this->xpath->query('./xhtml:form', $element);
@@ -423,22 +288,6 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
         }
 
         return $fields;
-    }
-
-    /**
-     * @deprecated since Connect 4.3 and will be removed in 5.0.
-     */
-    protected function parseMembership(\DOMElement $element)
-    {
-        @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
-        
-        $membership = new Membership();
-        $nodeList = $this->xpath->query('./foaf:Group', $element);
-        $membership->setClub($this->parseFoafGroup($nodeList->item(0)));
-        $membership->setIsPublic($this->getNodeValue('./is-public', $element));
-        $membership->setIsOwner($this->getNodeValue('./is-owner', $element));
-
-        return $membership;
     }
 
     protected function parseBadge(\DOMElement $element)
@@ -530,15 +379,5 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
     protected function getUserInstance($self, $alternate)
     {
         return new User($self, $alternate);
-    }
-
-    /**
-     * @deprecated since Connect 4.3 and will be removed in 5.0.
-     */
-    protected function getProjectInstance($self, $alternate)
-    {
-        @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
-
-        return new Project($self, $alternate);
     }
 }

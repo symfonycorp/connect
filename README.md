@@ -43,8 +43,6 @@ possession of your `application_id`, `application_secret` and `scope`.
         'SCOPE_BIRTHDAY',
         'SCOPE_EMAIL',
         'SCOPE_LOCATION',
-        'SCOPE_PRIVATE_MEMBERSHIPS',
-        'SCOPE_PRIVATE_PROJECTS',
         'SCOPE_PUBLIC',
         'SCOPE_SSH_KEYS',
     );
@@ -136,38 +134,12 @@ Here are some useful recipies.
 
     ```php
     $root = $api->getRoot();
-    
-    // Will search for project with 'symfony' query
-    $projects = $root->getProjects('symfony');
 
-    // Same for users
+    // Will search for users
     $users = $root->getUsers('fab');
-
-    // Same for clubs
-    $clubs = $root->getClubs('sensio');
     ```
 
-2. Create a new club
-
-    ```php
-    // Create Club
-    $club = new \SensioLabs\Connect\Api\Entity\Club();
-    $club->setName("SensioLabs France");
-    $club->setSlug("sensiolabs-api-users");
-    $club->setType(\SensioLabs\Connect\Api\Entity\Club::TYPE_USER_GROUP);
-    $club->setEmail('foobar@example.com');
-    $club->setDescription('This is the best description i found.');
-    $club->setCity("Paris");
-    $club->setCountry("France");
-    $club->setUrl('http://sensiolabs.com');
-    
-    // Save new Club
-    $app['connect_api']->setAccessToken($app['session']->get('connect_access_token'));
-    $root = $app['connect_api']->getRoot();
-    $response = $root->getClubs()->submitForm($club);
-    ```
-
-3. Edit authenticated user
+2. Edit authenticated user
 
     ```php
     $app['connect_api']->setAccessToken($app['session']->get('connect_access_token'));
