@@ -11,10 +11,13 @@
 
 namespace SensioLabs\Connect\Api\Entity;
 
+@trigger_error(sprintf('The "%s" class is deprecated since Connect 4.3 and will be removed in 5.0.', Membership::class), E_USER_DEPRECATED);
+
 /**
  * Membership
  *
- * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
+ * @author     Marc Weistroff <marc.weistroff@sensiolabs.com>
+ * @deprecated since Connect 4.3 and will be removed in 5.0.
  */
 class Membership extends AbstractEntity
 {
