@@ -28,8 +28,8 @@ class ConnectTokenTest extends TestCase
         $roles = $token->getRoles();
 
         $this->assertCount(2, $roles);
-        $this->assertEquals('ROLE_USER', $roles[0]->getRole());
-        $this->assertEquals('ROLE_ADMIN', $roles[1]->getRole());
+        $this->assertEquals('ROLE_USER', is_string($roles[0]) ? $roles[0] : $roles[0]->getRole());
+        $this->assertEquals('ROLE_ADMIN', is_string($roles[1]) ? $roles[1] : $roles[1]->getRole());
     }
 
     public function testGetRolesWithUserInterfaceUser()
@@ -39,6 +39,6 @@ class ConnectTokenTest extends TestCase
         $roles = $token->getRoles();
 
         $this->assertCount(1, $roles);
-        $this->assertEquals('ROLE_SINGLE', $roles[0]->getRole());
+        $this->assertEquals('ROLE_SINGLE', is_string($roles[0]) ? $roles[0] : $roles[0]->getRole());
     }
 }

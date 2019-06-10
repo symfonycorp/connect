@@ -22,7 +22,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
-class ConnectToken extends AbstractToken
+class ConnectToken extends AbstractConnectToken
 {
     private $accessToken;
     private $providerKey;
@@ -51,6 +51,10 @@ class ConnectToken extends AbstractToken
         $user = $this->getUser();
         if ($user instanceof UserInterface) {
             return $this->getUserRoles($user);
+        }
+
+        if (method_exists(AbstractToken::class, 'getRoleNames')) {
+            return parent::getRoleNames();
         }
 
         return parent::getRoles();
@@ -96,31 +100,36 @@ class ConnectToken extends AbstractToken
         return $this->accessToken;
     }
 
-    public function serialize()
-    {
-        return serialize(array($this->apiUser, $this->accessToken, $this->providerKey, $this->scope, parent::serialize()));
-    }
-
-    public function unserialize($str)
-    {
-        list($this->apiUser, $this->accessToken, $this->providerKey, $this->scope, $parentStr) = unserialize($str);
-
-        parent::unserialize($parentStr);
-    }
-
     private function getUserRoles(UserInterface $user)
     {
-        $roles = array();
-        foreach ($user->getRoles() as $role) {
-            if (is_string($role)) {
-                $role = new Role($role);
-            } elseif (!$role instanceof RoleInterface) {
-                throw new \InvalidArgumentException(sprintf('$roles must be an array of strings, or RoleInterface instances, but got %s.', gettype($role)));
-            }
+        $callBackMethod = 'getObjectUserRole';
 
-            $roles[] = $role;
+        if (method_exists(AbstractToken::class, 'getRoleNames')) {
+            $callBackMethod = 'getStringUserRole';
         }
 
-        return $roles;
+        return array_map([$this, $callBackMethod], $user->getRoles());
+    }
+
+    private function getStringUserRole($role)
+    {
+        if (!is_string($role) && !($role instanceof Role)) {
+            throw new \InvalidArgumentException(sprintf('$roles must be an array of strings, or Role instances, but got %s.', gettype($role)));
+        }
+
+        return (string) $role;
+    }
+
+    private function getObjectUserRole($role)
+    {
+        if (is_string($role)) {
+            return new Role($role);
+        }
+
+        if (!$role instanceof RoleInterface) {
+            throw new \InvalidArgumentException(sprintf('$roles must be an array of strings, or RoleInterface instances, but got %s.', gettype($role)));
+        }
+
+        return $role;
     }
 }
