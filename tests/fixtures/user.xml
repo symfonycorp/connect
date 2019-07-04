@@ -15,7 +15,7 @@
     <atom:link rel="https://rels.connect.symfony.com/image" href="https://connect.symfony.com/api/images/aa5e22b0-6189-4113-9c68-91d4a3c32b7c.png" type="image/png" />
     <atom:link rel="self" href="https://connect.symfony.com/api/users/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="application/vnd.com.symfony.connect+xml"/>
     <atom:link rel="self" href="https://connect.symfony.com/api/alternates/aa5e22b0-6189-4113-9c68-91d4a3c32b7c" type="text/html" />
-            <bio:olb><![CDATA[Marc discovered code with the C language and the Demoscene but took a U-Turn as he decided to code for the web when PHP was in version 3. After taking a break from programming while studying cognitive sciences, he discovered Symfony. He is now a full time developer at Sensio Labs.]]></bio:olb>
+            <bio:olb><![CDATA[Marc discovered code with the C language and the Demoscene but took a U-Turn as he decided to code for the web when PHP was in version 3. After taking a break from programming while studying cognitive sciences, he discovered Symfony.]]></bio:olb>
                                     <foaf:weblog>http://marc.weistroff.net</foaf:weblog>
                             <atom:link rel="related" href="http://marc.weistroff.net/feed.atom" type="application/rss+xml" />
                             <foaf:homepage>http://marc.weistroff.net</foaf:homepage>
