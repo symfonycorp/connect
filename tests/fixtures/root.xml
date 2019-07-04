@@ -15,11 +15,5 @@
                         <xhtml:form id="search_users" method="GET" action="https://connect.sensiolabs.com/api/users" enctype="application/x-www-form-urlencoded">
     <xhtml:input type="text" name="q" required="required" />
 </xhtml:form>
-        <xhtml:form id="search_clubs" method="GET" action="https://connect.sensiolabs.com/api/clubs" enctype="application/x-www-form-urlencoded">
-    <xhtml:input type="text" name="q" required="required" />
-</xhtml:form>
-                    <xhtml:form id="search_projects" method="GET" action="https://connect.sensiolabs.com/api/projects" enctype="application/x-www-form-urlencoded">
-    <xhtml:input type="text" name="q" required="required" />
-</xhtml:form>
             </root>
 </api>
