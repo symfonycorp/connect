@@ -23,9 +23,6 @@ class VndComSensiolabsConnectXmlParserTest extends TestCase
         $this->parser = new VndComSensiolabsConnectXmlParser();
     }
 
-    /**
-     * @group legacy
-     */
     public function testParseRootAnonymous()
     {
         $rootXml = file_get_contents(__DIR__.'/../../../../../fixtures/root.xml');
@@ -93,7 +90,7 @@ class VndComSensiolabsConnectXmlParserTest extends TestCase
     /**
      * @group legacy
      */
-    public function testParseFoafPerson()
+    public function testLegacyParseFoafPerson()
     {
         $rootXml = file_get_contents(__DIR__.'/../../../../../fixtures/user.xml');
         $user = $this->parser->parse($rootXml);
