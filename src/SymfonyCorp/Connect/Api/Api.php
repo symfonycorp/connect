@@ -11,6 +11,7 @@
 
 namespace SymfonyCorp\Connect\Api;
 
+use Buzz\Browser;
 use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
@@ -41,6 +42,13 @@ class Api
 
     public function __construct($endpoint = null, HttpClientInterface $httpClient = null, ParserInterface $parser = null, LoggerInterface $logger = null)
     {
+        if (class_exists(Browser::class) && $httpClient instanceof Browser) {
+            @trigger_error(sprintf('Passing a "%s" to "%s()" is deprecated since 5.1, use "%s" instead.', Browser::class, __METHOD__, HttpClientInterface::class), E_USER_DEPRECATED);
+            $httpClient = null;
+        } elseif ($httpClient && !($httpClient instanceof HttpClientInterface)) {
+            throw new \InvalidArgumentException(sprintf('Argument 2 passed to %s() must be an instance of %s or null, %s given', __METHOD__, HttpClientInterface::class, is_object($httpClient) ? get_class($httpClient) : gettype($httpClient)));
+        }
+
         $this->httpClient = $httpClient ?: HttpClient::create();
         $this->parser = $parser ?: new Parser();
         $this->endpoint = $endpoint ?: self::ENDPOINT;
