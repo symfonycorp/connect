@@ -164,11 +164,6 @@ class OAuthConsumer
         return $this->endpoint;
     }
 
-    public function getHttpClient()
-    {
-        return $this->httpClient;
-    }
-
     public function getBrowser()
     {
         @trigger_error(sprintf('"%s()" has been deprecated since 5.1, use "%s::getHttpClient()" instead.', __METHOD__, __CLASS__), E_USER_DEPRECATED);
