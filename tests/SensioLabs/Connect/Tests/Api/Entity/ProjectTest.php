@@ -13,7 +13,10 @@ use SensioLabs\Connect\Api\Entity\Project;
  */
 class ProjectTest extends TestCase
 {
-    public function testGetTypeFromTextual()
+    /**
+     * @group legacy
+     */
+    public function testLegacyGetTypeFromTextual()
     {
         $project = new Project();
         $this->assertSame(10, $project->getTypeFromTextual('Symfony2 Web Project'));

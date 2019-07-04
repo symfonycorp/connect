@@ -47,9 +47,6 @@ class ApiTest extends TestCase
         $this->assertNull($this->api->getAccessToken());
     }
 
-    /**
-     * @group legacy
-     */
     public function testGet()
     {
         $this->browser->expects($this->once())
@@ -87,7 +84,6 @@ class ApiTest extends TestCase
 
     /**
      * @expectedException \SensioLabs\Connect\Exception\ApiClientException
-     * @group legacy
      */
     public function testGetThrowsClientExceptionWhenServerReturns40xStatusCode()
     {
@@ -114,9 +110,6 @@ class ApiTest extends TestCase
         $this->api->get('http://foobar/api/');
     }
 
-    /**
-     * @group legacy
-     */
     public function testGetAddsAccessTokenToQueryParameter()
     {
         $this->api->setAccessToken('foobar');
@@ -143,7 +136,6 @@ class ApiTest extends TestCase
 
     /**
      * @expectedException \SensioLabs\Connect\Exception\ApiClientException
-     * @group legacy
      */
     public function testSubmitThrowsClientExceptionWhenServerReturns40xStatusCode()
     {
