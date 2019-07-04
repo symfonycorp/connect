@@ -21,8 +21,8 @@ class Root extends AbstractEntity
     protected function configure()
     {
         $this->addProperty('badgesUrl')
-            ->addProperty('usersUrl')
-            ->addProperty('currentUser')
+             ->addProperty('usersUrl')
+             ->addProperty('currentUser')
         ;
     }
 
