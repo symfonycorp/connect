@@ -1,17 +1,11 @@
 {
-    "name": "sensiolabs/connect",
-    "description": "SensioLabs Connect SDK",
-    "keywords": ["SensioLabs Connect", "SDK"],
-    "homepage": "https://github.com/sensiolabs/connect",
+    "name": "symfonycorp/connect",
+    "description": "SymfonyConnect SDK",
+    "keywords": ["SymfonyConnect", "SDK"],
+    "homepage": "https://github.com/symfonycorp/connect",
     "type": "library",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Marc Weistroff",
-            "email": "marc.weistroff@sensiolabs.com",
-            "homepage": "http://sensiolabs.com"
-        }
-    ],
+    "authors": [],
     "require": {
         "php": ">=5.5.9",
         "ext-json": "*",
@@ -28,7 +22,7 @@
     },
     "autoload": {
         "psr-0": {
-            "SensioLabs": ["src/"]
+            "SymfonyCorp": ["src/"]
         }
     },
     "extra": {
