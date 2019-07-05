@@ -11,12 +11,12 @@
 
 namespace SymfonyCorp\Connect\Test\Api;
 
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\HttpClient\MockHttpClient;
 use Symfony\Component\HttpClient\Response\MockResponse;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use SymfonyCorp\Connect\Api\Api;
 use SymfonyCorp\Connect\Api\Entity\Root;
-use PHPUnit\Framework\TestCase;
 
 /**
  * ApitTest.
