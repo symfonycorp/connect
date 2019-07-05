@@ -44,10 +44,10 @@ class OAuthConsumer
 
     public function __construct($appId, $appSecret, $scope, $endpoint = null, $httpClient = null, LoggerInterface $logger = null)
     {
-        if (class_exists(Browser::class) && $httpClient instanceof Browser) {
-            @trigger_error(sprintf('Passing a "%s" to "%s()" is deprecated since 5.1, use "%s" instead.', Browser::class, __METHOD__, HttpClientInterface::class), E_USER_DEPRECATED);
+        if ($httpClient instanceof Browser) {
+            @trigger_error(sprintf('Passing a "%s" to "%s()" is deprecated since symfonycorp/connect 5.1, use "%s" instead.', Browser::class, __METHOD__, HttpClientInterface::class), E_USER_DEPRECATED);
             $httpClient = null;
-        } elseif ($httpClient && !($httpClient instanceof HttpClientInterface)) {
+        } elseif ($httpClient && !$httpClient instanceof HttpClientInterface) {
             throw new \InvalidArgumentException(sprintf('Argument 5 passed to %s() must be an instance of %s or null, %s given', __METHOD__, HttpClientInterface::class, is_object($httpClient) ? get_class($httpClient) : gettype($httpClient)));
         }
 
@@ -166,10 +166,10 @@ class OAuthConsumer
 
     public function getBrowser()
     {
-        @trigger_error(sprintf('"%s()" has been deprecated since 5.1, use "%s::getHttpClient()" instead.', __METHOD__, __CLASS__), E_USER_DEPRECATED);
+        @trigger_error(sprintf('"%s()" has been deprecated since symfonycorp/connect 5.1.', __METHOD__), E_USER_DEPRECATED);
 
         if (!class_exists(Browser::class)) {
-            throw new \LogicException(sprintf('You cannot use "%s()" as the "kriswallsmith/buzz" package is not installed, try running "composer require kriswallsmith/buzz" or use "%s::getHttpClient()" instead.', Browser::class, __CLASS__));
+            throw new \LogicException(sprintf('You cannot use "%s()" as the "kriswallsmith/buzz" package is not installed, try running "composer require kriswallsmith/buzz".', Browser::class));
         }
 
         return new Browser(new Curl());
