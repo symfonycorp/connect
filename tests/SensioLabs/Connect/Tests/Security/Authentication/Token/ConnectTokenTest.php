@@ -41,4 +41,14 @@ class ConnectTokenTest extends TestCase
         $this->assertCount(1, $roles);
         $this->assertEquals('ROLE_SINGLE', is_string($roles[0]) ? $roles[0] : $roles[0]->getRole());
     }
+
+    public function testSerialization()
+    {
+        $user = new User('paul', 'xxxx', array('ROLE_SINGLE'));
+        $token = new ConnectToken($user, 'xxxx', null, 'xxxx', null, array('ROLE_USER', 'ROLE_ADMIN'));
+        $unserialized = unserialize(serialize($token));
+        $this->assertSame($token->getScope(), $unserialized->getScope());
+        $this->assertSame($token->getAccessToken(), $unserialized->getAccessToken());
+        $this->assertSame($token->getProviderKey(), $unserialized->getProviderKey());
+    }
 }
