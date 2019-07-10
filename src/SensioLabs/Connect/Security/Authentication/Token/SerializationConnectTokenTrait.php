@@ -49,7 +49,7 @@ EOPHP
         public function unserialize($str)
         {
             list($this->apiUser, $this->accessToken, $this->providerKey, $this->scope, $parentStr) = unserialize($str);
-            
+
             parent::unserialize($parentStr);
         }
     }
