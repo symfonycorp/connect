@@ -22,8 +22,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
-class ConnectToken extends AbstractConnectToken
+class ConnectToken extends AbstractToken
 {
+    use SerializationConnectTokenTrait;
+
     private $accessToken;
     private $providerKey;
     private $apiUser;
