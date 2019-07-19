@@ -16,7 +16,7 @@ use Buzz\Client\Curl;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Component\HttpClient\HttpClient;
-use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
+use Symfony\Contracts\HttpClient\Exception\DecodingExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use SymfonyCorp\Connect\Exception\OAuthException;
 
@@ -125,8 +125,8 @@ class OAuthConsumer
         ])));
 
         try {
-            $response = $response->toArray();
-        } catch (TransportExceptionInterface $exception) {
+            $response = $response->toArray(false);
+        } catch (DecodingExceptionInterface $exception) {
             $this->logger->error('Received non-json response.', ['response' => $content]);
 
             throw new OAuthException('provider', "Response content couldn't be converted to JSON.", $exception);
