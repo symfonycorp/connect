@@ -21,8 +21,8 @@
         "symfony/security": "To use in a Symfony environment"
     },
     "autoload": {
-        "psr-0": {
-            "SymfonyCorp": ["src/"]
+        "psr-4": {
+            "SymfonyCorp\\Connect\\": ["src/"]
         }
     },
     "extra": {
