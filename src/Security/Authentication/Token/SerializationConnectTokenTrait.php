@@ -26,8 +26,9 @@ if (method_exists(AbstractToken::class, '__serialize')) {
 
         public function __unserialize(array $data): void
         {
-            list($this->apiUser, $this->accessToken, $this->providerKey, $this->scope) = $data;
-            parent::__serialize($data);
+            list($this->apiUser, $this->accessToken, $this->providerKey, $this->scope, $parentState) = $data;
+
+            parent::__unserialize($parentState);
         }
     }
 } else {
