@@ -35,9 +35,5 @@ before_script:
           $COMPOSER_UP
       fi
 
-branches:
-  only:
-    - master
-
 script:
     - ./vendor/bin/simple-phpunit
