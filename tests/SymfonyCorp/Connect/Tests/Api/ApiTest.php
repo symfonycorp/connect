@@ -51,7 +51,7 @@ class ApiTest extends TestCase
     {
         $this->browser->expects($this->once())
                       ->method('sendRequest')
-                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept: application/vnd.com.symfony.connect+xml']))
+                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept' => 'application/vnd.com.symfony.connect+xml']))
                       ->will($this->returnValue($this->createResponse()))
         ;
 
@@ -63,7 +63,7 @@ class ApiTest extends TestCase
     {
         $this->browser->expects($this->once())
                       ->method('sendRequest')
-                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept: application/vnd.com.symfony.connect+xml']))
+                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept' => 'application/vnd.com.symfony.connect+xml']))
                       ->will($this->returnValue($this->createResponse('204')))
         ;
 
@@ -72,7 +72,7 @@ class ApiTest extends TestCase
 
     public function testGetReturnsTrueIfServerReturns201StatusCodeWithAnEmptyResponse()
     {
-        $request = $this->createRequest('GET', 'http://foobar/api/', ['Accept: application/vnd.com.symfony.connect+xml']);
+        $request = $this->createRequest('GET', 'http://foobar/api/', ['Accept' => 'application/vnd.com.symfony.connect+xml']);
         $this->browser->expects($this->once())
                       ->method('sendRequest')
                       ->with($request)
@@ -89,7 +89,7 @@ class ApiTest extends TestCase
     {
         $this->browser->expects($this->once())
                       ->method('sendRequest')
-                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept: application/vnd.com.symfony.connect+xml']))
+                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept' => 'application/vnd.com.symfony.connect+xml']))
                       ->will($this->returnValue($this->createResponse('400')))
         ;
 
@@ -103,7 +103,7 @@ class ApiTest extends TestCase
     {
         $this->browser->expects($this->once())
                       ->method('sendRequest')
-                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept: application/vnd.com.symfony.connect+xml']))
+                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept' => 'application/vnd.com.symfony.connect+xml']))
                       ->will($this->returnValue($this->createResponse('500')))
         ;
 
@@ -115,7 +115,7 @@ class ApiTest extends TestCase
         $this->api->setAccessToken('foobar');
         $this->browser->expects($this->once())
             ->method('sendRequest')
-            ->with($this->createRequest('GET', 'http://foobar/api/?access_token=foobar', ['Accept: application/vnd.com.symfony.connect+xml']))
+            ->with($this->createRequest('GET', 'http://foobar/api/?access_token=foobar', ['Accept' => 'application/vnd.com.symfony.connect+xml']))
             ->will($this->returnValue($this->createResponse()))
         ;
 
@@ -127,7 +127,7 @@ class ApiTest extends TestCase
         $this->api->setAccessToken('foobar');
         $this->browser->expects($this->once())
                       ->method('submitForm')
-                      ->with('http://foobar/api/?access_token=foobar', array('foo' => 'bar'), 'POST', array('Accept: application/vnd.com.symfony.connect+xml'))
+                      ->with('http://foobar/api/?access_token=foobar', array('foo' => 'bar'), 'POST', array('Accept' => 'application/vnd.com.symfony.connect+xml'))
                       ->will($this->returnValue($this->createResponse('204', false)))
         ;
 
@@ -184,7 +184,7 @@ class ApiTest extends TestCase
     {
         $this->browser->expects($this->once())
                       ->method('sendRequest')
-                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept: application/vnd.com.symfony.connect+xml']))
+                      ->with($this->createRequest('GET', 'http://foobar/api/', ['Accept' => 'application/vnd.com.symfony.connect+xml']))
                       ->will($this->returnValue($this->createResponse()))
         ;
 

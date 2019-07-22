@@ -124,7 +124,7 @@ class Api
 
     private function getAcceptHeader()
     {
-        return array('Accept: '.$this->parser->getContentType());
+        return array('Accept' => $this->parser->getContentType());
     }
 
     private function constructUrlWithAccessToken($url)
