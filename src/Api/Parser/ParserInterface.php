@@ -12,12 +12,11 @@
 namespace SymfonyCorp\Connect\Api\Parser;
 
 /**
- * ParserInterface
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 interface ParserInterface
 {
     public function parse($xml);
+
     public function getContentType();
 }

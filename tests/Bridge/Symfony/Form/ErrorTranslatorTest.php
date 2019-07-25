@@ -21,10 +21,10 @@ class ErrorTranslatorTest extends TestCase
 
     public function testTranslate()
     {
-        $parameters = array(
-            'foo' => array('foo is required'),
-            'bar' => array('bar is invalid'),
-        );
+        $parameters = [
+            'foo' => ['foo is required'],
+            'bar' => ['bar is invalid'],
+        ];
 
         $exception = $this->createException($parameters);
 
@@ -40,9 +40,9 @@ class ErrorTranslatorTest extends TestCase
 
     public function testTranslateBubble()
     {
-        $parameters = array(
-            'bubble' => array('bubble is required'),
-        );
+        $parameters = [
+            'bubble' => ['bubble is required'],
+        ];
 
         $exception = $this->createException($parameters);
 
@@ -56,15 +56,15 @@ class ErrorTranslatorTest extends TestCase
 
     public function testTranslateStringMap()
     {
-        $parameters = array(
-            'bar' => array('bar is required'),
-        );
+        $parameters = [
+            'bar' => ['bar is required'],
+        ];
 
         $exception = $this->createException($parameters);
 
         $form = $this->formBuilder->add('foo')->getForm();
 
-        $form = $this->errorTranslator->translate($form, $exception, array('bar' => 'foo'));
+        $form = $this->errorTranslator->translate($form, $exception, ['bar' => 'foo']);
 
         $this->assertCount(0, $form->getErrors());
         $this->assertCount(1, $form->get('foo')->getErrors());
@@ -72,45 +72,45 @@ class ErrorTranslatorTest extends TestCase
 
     public function testTranslateCallableMap()
     {
-        $parameters = array(
-            'bar' => array('bar is required'),
-        );
+        $parameters = [
+            'bar' => ['bar is required'],
+        ];
 
         $exception = $this->createException($parameters);
 
         $form = $this->formBuilder->add('foo')->getForm();
 
-        $form = $this->errorTranslator->translate($form, $exception, array('bar' => function ($form) {
+        $form = $this->errorTranslator->translate($form, $exception, ['bar' => function ($form) {
             return $form->get('foo');
-        }));
+        }]);
 
         $this->assertCount(0, $form->getErrors());
         $this->assertCount(1, $form->get('foo')->getErrors());
     }
 
     /**
-     * @expectedException LogicException
+     * @expectedException \LogicException
      */
     public function testTranslateCallableMapThrowException()
     {
-        $parameters = array(
-            'bar' => array('bar is required'),
-        );
+        $parameters = [
+            'bar' => ['bar is required'],
+        ];
 
         $exception = $this->createException($parameters);
 
         $form = $this->formBuilder->add('foo')->getForm();
 
-        $this->errorTranslator->translate($form, $exception, array('bar' => function ($form) {
+        $this->errorTranslator->translate($form, $exception, ['bar' => function ($form) {
             return;
-        }));
+        }]);
     }
 
     public function testTranslateWithEmptyError()
     {
         $form = $this->formBuilder->add('foo')->getForm();
 
-        $exception = new ApiClientException('403', '', 'Unauthorized', array(), null);
+        $exception = new ApiClientException('403', '', 'Unauthorized', [], null);
 
         $form = $this->errorTranslator->translate($form, $exception);
         $this->assertInstanceOf('Symfony\Component\Form\Form', $form);
@@ -126,7 +126,7 @@ class ErrorTranslatorTest extends TestCase
         $this->assertCount(0, $form->get('foo')->getErrors());
     }
 
-    private function createException(array $parameters = array())
+    private function createException(array $parameters = [])
     {
         $error = new Error();
 
@@ -137,6 +137,6 @@ class ErrorTranslatorTest extends TestCase
             }
         }
 
-        return new ApiClientException(null, null, null, array(), $error);
+        return new ApiClientException(null, null, null, [], $error);
     }
 }

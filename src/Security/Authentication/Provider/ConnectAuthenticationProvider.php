@@ -18,8 +18,6 @@ use Symfony\Component\Security\Core\Exception\AuthenticationServiceException;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 /**
- * ConnectAuthenticationProvider.
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 class ConnectAuthenticationProvider implements AuthenticationProviderInterface
@@ -43,14 +41,10 @@ class ConnectAuthenticationProvider implements AuthenticationProviderInterface
 
             return $authorizedToken;
         } catch (\Exception $repositoryProblem) {
-            if (!method_exists('Symfony\Component\Security\Core\Exception\AuthenticationServiceException', 'setToken')) {
-                throw new AuthenticationServiceException($repositoryProblem->getMessage(), $token, 0, $repositoryProblem);
-            } else {
-                $e = new AuthenticationServiceException($repositoryProblem->getMessage(), 0, $repositoryProblem);
-                $e->setToken($token);
+            $e = new AuthenticationServiceException($repositoryProblem->getMessage(), 0, $repositoryProblem);
+            $e->setToken($token);
 
-                throw $e;
-            }
+            throw $e;
         }
     }
 

@@ -14,15 +14,13 @@ namespace SymfonyCorp\Connect\Api\Entity;
 use SymfonyCorp\Connect\Api\Api;
 
 /**
- * Index.
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 class Index extends AbstractEntity implements \Countable, \ArrayAccess, \IteratorAggregate
 {
     protected function configure()
     {
-        $this->addProperty('items', array())
+        $this->addProperty('items', [])
              ->addProperty('total')
              ->addProperty('count')
              ->addProperty('index')

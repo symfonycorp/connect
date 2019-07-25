@@ -19,8 +19,6 @@ use SymfonyCorp\Connect\Api\Api;
 use SymfonyCorp\Connect\Api\Entity\Root;
 
 /**
- * ApitTest.
- *
  * @author Julien Galenski <julien.galenski@gmail.com>
  */
 class ApiTest extends TestCase
@@ -30,8 +28,8 @@ class ApiTest extends TestCase
 
     public function setUp()
     {
-        $this->rootXml = file_get_contents(__DIR__.'/../../../../fixtures/root.xml');
-        $this->errorXml = file_get_contents(__DIR__.'/../../../../fixtures/error.xml');
+        $this->rootXml = file_get_contents(__DIR__.'/../fixtures/root.xml');
+        $this->errorXml = file_get_contents(__DIR__.'/../fixtures/error.xml');
     }
 
     public function testAccessTokenAccessorsAndMutators()

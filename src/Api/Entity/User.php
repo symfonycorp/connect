@@ -12,8 +12,6 @@
 namespace SymfonyCorp\Connect\Api\Entity;
 
 /**
- * User.
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 class User extends AbstractEntity
@@ -34,7 +32,7 @@ class User extends AbstractEntity
              ->addProperty('feedUrl')
              ->addProperty('url')
              ->addProperty('email')
-             ->addProperty('additionalEmails', array())
+             ->addProperty('additionalEmails', [])
              ->addProperty('joinedAt')
              ->addProperty('githubUsername')
              ->addProperty('twitterUsername')

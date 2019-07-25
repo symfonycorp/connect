@@ -15,13 +15,13 @@ class ApiException extends \RuntimeException implements ExceptionInterface
 {
     protected $statusCode;
     protected $body;
-    protected $headers = array();
+    protected $headers = [];
 
-    public function __construct($statusCode, $body, $message, array $headers = array(), \Exception $previous = null, $code = 0)
+    public function __construct($statusCode, $body, $message, array $headers = [], \Throwable $previous = null, $code = 0)
     {
         $this->statusCode = $statusCode;
         $this->body = $body;
-        $this->headers = array();
+        $this->headers = [];
 
         parent::__construct($message, $code, $previous);
     }

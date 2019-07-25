@@ -18,20 +18,16 @@ use Symfony\Component\Security\Core\Role\RoleInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * ConnectToken
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 class ConnectToken extends AbstractToken
 {
-    use SerializationConnectTokenTrait;
-
     private $accessToken;
     private $providerKey;
     private $apiUser;
     private $scope;
 
-    public function __construct($user, $accessToken, User $apiUser = null, $providerKey, $scope = null, array $roles = array())
+    public function __construct($user, $accessToken, User $apiUser = null, $providerKey, $scope = null, array $roles = [])
     {
         parent::__construct($roles);
 
@@ -100,6 +96,18 @@ class ConnectToken extends AbstractToken
     public function getCredentials()
     {
         return $this->accessToken;
+    }
+
+    public function __serialize(): array
+    {
+        return [$this->apiUser, $this->accessToken, $this->providerKey, $this->scope, parent::__serialize()];
+    }
+
+    public function __unserialize(array $data): void
+    {
+        list($this->apiUser, $this->accessToken, $this->providerKey, $this->scope, $parentState) = $data;
+
+        parent::__unserialize($parentState);
     }
 
     private function getUserRoles(UserInterface $user)

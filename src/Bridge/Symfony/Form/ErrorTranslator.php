@@ -24,13 +24,9 @@ class ErrorTranslator
      *       'foo'      => 'bar',
      *   ))
      *
-     * @param FormInterface       $form The form
-     * @param ApiClientException  $e    The exception
-     * @param string[]|callable[] $map  The mapping between api parameters and form parameters
-     *
-     * @return FormInterface The form
+     * @param string[]|callable[] $map The mapping between api parameters and form parameters
      */
-    public function translate(FormInterface $form, ApiClientException $e, array $map = array())
+    public function translate(FormInterface $form, ApiClientException $e, array $map = []): FormInterface
     {
         if (!$e->getError()) {
             $form->addError(new FormError($e->getMessage()));

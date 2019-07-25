@@ -26,13 +26,9 @@ class ConnectInMemoryUserProvider implements UserProviderInterface
     private $users;
 
     /**
-     * Constructor.
-     *
-     * The user array is a hash where the keys are usernames and the values are the user roles.
-     *
-     * @param array $users An array of users
+     * @param array $users a hash where the keys are usernames and the values are the user roles
      */
-    public function __construct(array $users = array())
+    public function __construct(array $users = [])
     {
         foreach ($users as $username => $roles) {
             $this->users[$username] = new User($username, '', (array) $roles, true, true, true, true);
@@ -47,14 +43,14 @@ class ConnectInMemoryUserProvider implements UserProviderInterface
         if (isset($this->users[$username])) {
             $user = $this->users[$username];
         } else {
-            $user = new User($username, '', array('ROLE_CONNECT_USER'), true, true, true, true);
+            $user = new User($username, '', ['ROLE_CONNECT_USER'], true, true, true, true);
         }
 
         return new User($user->getUsername(), $user->getPassword(), $user->getRoles(), $user->isEnabled(), $user->isAccountNonExpired(), $user->isCredentialsNonExpired(), $user->isAccountNonLocked());
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function refreshUser(UserInterface $user)
     {
@@ -66,10 +62,10 @@ class ConnectInMemoryUserProvider implements UserProviderInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function supportsClass($class)
     {
-        return $class === 'Symfony\Component\Security\Core\User\User';
+        return User::class === $class;
     }
 }

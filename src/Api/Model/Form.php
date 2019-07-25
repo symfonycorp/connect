@@ -12,8 +12,6 @@
 namespace SymfonyCorp\Connect\Api\Model;
 
 /**
- * Form.
- *
  * @author Julien Galenski <julien.galenski@sensio.com>
  */
 class Form
@@ -23,7 +21,7 @@ class Form
     private $fields;
     private $fieldsOptions;
 
-    public function __construct($action, $method, $fields = array(), $fieldsOptions = array())
+    public function __construct($action, $method, $fields = [], $fieldsOptions = [])
     {
         $this->action = $action;
         $this->method = $method;

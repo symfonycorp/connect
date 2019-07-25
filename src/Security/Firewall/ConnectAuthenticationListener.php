@@ -21,11 +21,8 @@ use SymfonyCorp\Connect\Security\Exception\OAuthAccessDeniedException;
 use SymfonyCorp\Connect\Security\Exception\OAuthStrictChecksFailedException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Http\Firewall\AbstractAuthenticationListener;
-use Symfony\Component\Security\Http\HttpUtils;
 
 /**
- * ConnectAuthenticationListener.
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 class ConnectAuthenticationListener extends AbstractAuthenticationListener
@@ -92,7 +89,7 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
                 }
             }
 
-            $this->logger and $this->logger->critical('Something went wrong while trying to access SymfonyConnect.', array('exception' => $e));
+            $this->logger and $this->logger->critical('Something went wrong while trying to access SymfonyConnect.', ['exception' => $e]);
 
             if ($this->hideException) {
                 throw new AuthenticationException($e);

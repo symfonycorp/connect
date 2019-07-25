@@ -12,8 +12,6 @@
 namespace SymfonyCorp\Connect\Api\Entity;
 
 /**
- * Root.
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 class Root extends AbstractEntity

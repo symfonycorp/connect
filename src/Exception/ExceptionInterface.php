@@ -12,8 +12,6 @@
 namespace SymfonyCorp\Connect\Exception;
 
 /**
- * ExceptionInterface.
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 interface ExceptionInterface

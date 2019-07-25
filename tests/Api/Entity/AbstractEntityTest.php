@@ -6,8 +6,6 @@ use SymfonyCorp\Connect\Api\Entity\AbstractEntity;
 use PHPUnit\Framework\TestCase;
 
 /**
- * AbstractEntityTest.
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 class AbstractEntityTest extends TestCase
@@ -67,7 +65,7 @@ class AbstractEntityTest extends TestCase
     }
 
     /**
-     * @expectedException LogicException
+     * @expectedException \LogicException
      */
     public function testSetThrowsLogicExceptionIfPropertyIsUndefined()
     {
@@ -75,7 +73,7 @@ class AbstractEntityTest extends TestCase
     }
 
     /**
-     * @expectedException LogicException
+     * @expectedException \LogicException
      */
     public function testGetThrowsLogicExceptionIfPropertyIsUndefined()
     {
@@ -95,7 +93,7 @@ class AbstractEntityTest extends TestCase
     }
 
     /**
-     * @expectedException BadMethodCallException
+     * @expectedException \BadMethodCallException
      */
     public function testArrayAccessForbidUnset()
     {
@@ -103,7 +101,7 @@ class AbstractEntityTest extends TestCase
     }
 
     /**
-     * @expectedException BadMethodCallException
+     * @expectedException \BadMethodCallException
      * @expectedExceptionMessage The method "SymfonyCorp\Connect\Tests\Api\Entity\Entity:FooBar" does not exists
      */
     public function testBadMethodCallException()
@@ -130,6 +128,6 @@ class Entity extends AbstractEntity
              ->addProperty('clone')
              ->addProperty('isEnabled', true)
              ->addProperty('isPublished', false)
-             ->addProperty('items', array());
+             ->addProperty('items', []);
     }
 }
