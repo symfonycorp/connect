@@ -11,8 +11,8 @@ class OAuthStrictChecksFailedException extends AuthenticationException
 
     public function getMessageData()
     {
-        return array(
+        return [
             '%message%' => $this->getMessage(),
-        );
+        ];
     }
 }

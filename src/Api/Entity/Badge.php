@@ -12,8 +12,6 @@
 namespace SymfonyCorp\Connect\Api\Entity;
 
 /**
- * Badge
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 class Badge extends AbstractEntity

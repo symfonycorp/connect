@@ -12,21 +12,13 @@
 namespace SymfonyCorp\Connect\Exception;
 
 /**
- * OAuthException
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 class OAuthException extends \RuntimeException implements ExceptionInterface
 {
     private $type;
 
-    /**
-     * __construct
-     *
-     * @param string $type
-     * @param string $message
-     */
-    public function __construct($type, $message, \Exception $previousException = null)
+    public function __construct(string $type, string $message, \Throwable $previousException = null)
     {
         $this->type = $type ?: 'unknow type';
 
@@ -39,14 +31,6 @@ class OAuthException extends \RuntimeException implements ExceptionInterface
     public function getType()
     {
         return $this->type;
-    }
-
-    /**
-     * @deprecated
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
     }
 
     public function __toString()

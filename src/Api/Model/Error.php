@@ -3,13 +3,11 @@
 namespace SymfonyCorp\Connect\Api\Model;
 
 /**
- * Error
- *
  * @author Grégoire Pineau <lyrixx@lyrixx.info>
  */
 class Error
 {
-    private $entityBodyParameters = array();
+    private $entityBodyParameters = [];
 
     public function getEntityBodyParameters()
     {
@@ -24,7 +22,7 @@ class Error
     public function addEntityBodyParameter($name)
     {
         if (!$this->hasEntityBodyParameter($name)) {
-            $this->entityBodyParameters[$name] = array();
+            $this->entityBodyParameters[$name] = [];
         }
 
         return $this;

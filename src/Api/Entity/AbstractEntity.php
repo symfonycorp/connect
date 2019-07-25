@@ -15,8 +15,6 @@ use SymfonyCorp\Connect\Api\Api;
 use SymfonyCorp\Connect\Api\Model\Form;
 
 /**
- * AbstractEntity.
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 abstract class AbstractEntity implements \ArrayAccess, \Serializable
@@ -31,8 +29,8 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
     {
         $this->selfUrl = $selfUrl;
         $this->alternateUrl = $alternateUrl;
-        $this->properties = array();
-        $this->forms = array();
+        $this->properties = [];
+        $this->forms = [];
         $this->configure();
     }
 
@@ -113,9 +111,9 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
             } else {
                 // we have a collection of fields that should be repeated.
                 $template = $fields[$key];
-                $fields[$key] = array();
+                $fields[$key] = [];
                 foreach ($entity->get($key) as $subEntity) {
-                    $subFields = array();
+                    $subFields = [];
                     foreach ($template as $k => $v) {
                         if (!$subEntity->has($k)) {
                             continue;
@@ -222,13 +220,13 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
 
     public function serialize()
     {
-        return serialize(array($this->selfUrl, $this->alternateUrl, $this->properties));
+        return serialize([$this->selfUrl, $this->alternateUrl, $this->properties]);
     }
 
     public function unserialize($str)
     {
         list($this->selfUrl, $this->alternateUrl, $this->properties) = unserialize($str);
-        $this->forms = array();
+        $this->forms = [];
     }
 
     abstract protected function configure();

@@ -11,8 +11,6 @@
 
 namespace SymfonyCorp\Connect;
 
-use Buzz\Browser;
-use Buzz\Client\Curl;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use Symfony\Component\HttpClient\HttpClient;
@@ -21,8 +19,6 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 use SymfonyCorp\Connect\Exception\OAuthException;
 
 /**
- * OAuthConsumer.
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 class OAuthConsumer
@@ -42,18 +38,8 @@ class OAuthConsumer
         'authorize' => '/oauth/authorize',
     ];
 
-    /**
-     * @param HttpClientInterface|null $httpClient
-     */
-    public function __construct($appId, $appSecret, $scope, $endpoint = null, $httpClient = null, LoggerInterface $logger = null)
+    public function __construct($appId, $appSecret, $scope, $endpoint = null, HttpClientInterface $httpClient = null, LoggerInterface $logger = null)
     {
-        if ($httpClient instanceof Browser) {
-            @trigger_error(sprintf('Passing a "%s" to "%s()" is deprecated since symfonycorp/connect 5.1, use "%s" instead.', Browser::class, __METHOD__, HttpClientInterface::class), E_USER_DEPRECATED);
-            $httpClient = null;
-        } elseif (null !== $httpClient && !$httpClient instanceof HttpClientInterface) {
-            throw new \TypeError(sprintf('Argument 5 passed to %s() must be an instance of %s or null, %s given', __METHOD__, HttpClientInterface::class, \is_object($httpClient) ? \get_class($httpClient) : \gettype($httpClient)));
-        }
-
         $this->httpClient = $httpClient ?: HttpClient::create();
         $this->appId = $appId;
         $this->appSecret = $appSecret;
@@ -88,15 +74,7 @@ class OAuthConsumer
         return $uri;
     }
 
-    /**
-     * getAccessToken.
-     *
-     * @param mixed $callbackUri
-     * @param  $authorizationCode
-     *
-     * @return array
-     */
-    public function requestAccessToken($callbackUri, $authorizationCode)
+    public function requestAccessToken(string $callbackUri, string $authorizationCode): array
     {
         $params = [
             'client_id' => $this->appId,
@@ -165,20 +143,6 @@ class OAuthConsumer
     public function getEndpoint()
     {
         return $this->endpoint;
-    }
-
-    /**
-     * @deprecated since symfonycorp/connect 5.1
-     */
-    public function getBrowser()
-    {
-        @trigger_error(sprintf('"%s()" is deprecated since symfonycorp/connect 5.1.', __METHOD__), E_USER_DEPRECATED);
-
-        if (!class_exists(Browser::class)) {
-            throw new \LogicException(sprintf('You cannot use "%s()" as the "kriswallsmith/buzz" package is not installed, try running "composer require kriswallsmith/buzz".', Browser::class));
-        }
-
-        return new Browser(new Curl());
     }
 
     public function getLogger()

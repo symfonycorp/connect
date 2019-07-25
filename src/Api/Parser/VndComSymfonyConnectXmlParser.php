@@ -14,7 +14,6 @@ namespace SymfonyCorp\Connect\Api\Parser;
 use SymfonyCorp\Connect\Exception\ApiParserException;
 use SymfonyCorp\Connect\Api\Entity\AbstractEntity;
 use SymfonyCorp\Connect\Api\Entity\Badge;
-use SymfonyCorp\Connect\Api\Entity\Club;
 use SymfonyCorp\Connect\Api\Entity\Index;
 use SymfonyCorp\Connect\Api\Entity\Root;
 use SymfonyCorp\Connect\Api\Entity\User;
@@ -22,8 +21,6 @@ use SymfonyCorp\Connect\Api\Model\Form;
 use SymfonyCorp\Connect\Api\Model\Error;
 
 /**
- * VndComSymfonyConnectXmlParser
- *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  * @author Grégoire Pineau <lyrixx@lyrixx.info>
  */
@@ -32,10 +29,10 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
     protected $dom;
     protected $xpath;
 
-    protected $queries = array(
-        'indexes'          => './users | ./badges',
-        'indexes_elements' => './foaf:Person | ./badge | ./doap:developer'
-    );
+    protected $queries = [
+        'indexes' => './users | ./badges',
+        'indexes_elements' => './foaf:Person | ./badge | ./doap:developer',
+    ];
 
     public function getContentType()
     {
@@ -52,7 +49,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
             }
             if (!$this->dom->loadXML($xml)) {
                 throw new \ErrorException('Could not transform this xml to a \DOMDocument instance.');
-            };
+            }
         } catch (\ErrorException $e) {
             throw new ApiParserException(sprintf('%s Body: "%s"', $e->getMessage(), $xml));
         }
@@ -133,7 +130,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         $index->setPrevUrl($this->getLinkNodeHref('./atom:link[@rel="prev"]', $element));
 
         $items = $this->xpath->query($this->queries['indexes_elements'], $element);
-        for ($i = 0; $i < $items->length; $i++) {
+        for ($i = 0; $i < $items->length; ++$i) {
             $index->addItems($this->parseIndexElement($items->item($i)));
         }
 
@@ -174,7 +171,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         $user->setEmail($this->getNodeValue('./foaf:mbox', $element));
 
         $accounts = $this->xpath->query('./foaf:account/foaf:OnlineAccount', $element);
-        for ($i = 0; $i < $accounts->length; $i++) {
+        for ($i = 0; $i < $accounts->length; ++$i) {
             $account = $accounts->item($i);
             switch ($accountName = $this->getNodeValue('./foaf:name', $account)) {
                 case 'SymfonyConnect':
@@ -199,8 +196,8 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         }
 
         $nodeList = $this->xpath->query('./foaf:mbox[@rel="alternate"]', $element);
-        $additionalEmails = array();
-        for ($i = 0; $i < $nodeList->length; $i++) {
+        $additionalEmails = [];
+        for ($i = 0; $i < $nodeList->length; ++$i) {
             $additionalEmails[] = $this->sanitizeValue($nodeList->item($i)->nodeValue);
         }
         $user->setAdditionalEmails($additionalEmails);
@@ -241,14 +238,14 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
 
     protected function parseFormSelect(\DOMElement $element)
     {
-        $fieldsOptions = array();
+        $fieldsOptions = [];
         $nodeList = $this->xpath->query('./xhtml:select', $element);
-        for ($i = 0; $i < $nodeList->length; $i++) {
+        for ($i = 0; $i < $nodeList->length; ++$i) {
             $node = $nodeList->item($i);
             $name = $node->attributes->getNamedItem('name')->value;
-            $fieldsOptions[$name] = array();
+            $fieldsOptions[$name] = [];
             $optionList = $this->xpath->query('./xhtml:option', $node);
-            for ($j = 0; $j < $optionList->length; $j++) {
+            for ($j = 0; $j < $optionList->length; ++$j) {
                 $option = $optionList->item($j);
                 $value = $option->attributes->getNamedItem('value')->value;
                 if ('' === $value) {
@@ -263,9 +260,9 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
 
     protected function parseFormFields(\DOMElement $element)
     {
-        $fields = array();
+        $fields = [];
         $nodeList = $this->xpath->query('./xhtml:input | ./xhtml:textarea | ./xhtml:select | ./xhtml:fieldset', $element);
-        for ($i = 0; $i < $nodeList->length; $i++) {
+        for ($i = 0; $i < $nodeList->length; ++$i) {
             $node = $nodeList->item($i);
 
             if ('xhtml:fieldset' === $node->tagName) {
