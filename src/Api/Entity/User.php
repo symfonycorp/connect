@@ -11,7 +11,50 @@
 
 namespace SymfonyCorp\Connect\Api\Entity;
 
+use DateTimeInterface;
+
 /**
+ * @method self setUsername(string $username)
+ * @method null|string getUsername()
+ * @method self setUuid(string $uuid)
+ * @method null|string getUuid()
+ * @method self setName(?string $name)
+ * @method null|string getName()
+ * @method self setImage(?string $image)
+ * @method null|string getImage()
+ * @method self setJobPosition(?string $jobPosition)
+ * @method null|string getJobPosition()
+ * @method self setBiography(?string $bio)
+ * @method null|string getBiography()
+ * @method self setBirthdate(?string $date)
+ * @method null|string getBirthdate()
+ * @method self setCity(?string $city)
+ * @method null|string getCity()
+ * @method self setCountry(?string $country)
+ * @method null|string getCountry()
+ * @method self setCompany(?string $company)
+ * @method null|string getCompany()
+ * @method self setBlogUrl(?string $url)
+ * @method null|string getBlogUrl()
+ * @method self setFeedUrl(?string $url)
+ * @method null|string getFeedUrl()
+ * @method self setUrl(?string $url)
+ * @method null|string getUrl()
+ * @method self setEmail(string $email)
+ * @method string getEmail()
+ * @method self setAdditionalEmails(string[] $emails)
+ * @method string[] getAdditionalEmails()
+ * @method self setJoinedAt(DateTimeInterface $date)
+ * @method DateTimeInterface getJoinedAt()
+ * @method self setGithubUsername(?string $username)
+ * @method null|string getGithubUsername()
+ * @method self setTwitterUsername(?string $username)
+ * @method null|string getTwitterUsername()
+ * @method self setLinkedInUrl(?string $url)
+ * @method null|string getLinkedInUrl()
+ * @method self setBadges(Index $badges)
+ * @method null|Index getBadges()
+ *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
 class User extends AbstractEntity
@@ -37,7 +80,6 @@ class User extends AbstractEntity
              ->addProperty('githubUsername')
              ->addProperty('twitterUsername')
              ->addProperty('linkedInUrl')
-             ->addProperty('facebookUid')
              ->addProperty('badges')
         ;
     }

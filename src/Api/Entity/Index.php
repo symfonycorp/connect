@@ -14,9 +14,22 @@ namespace SymfonyCorp\Connect\Api\Entity;
 use SymfonyCorp\Connect\Api\Api;
 
 /**
+ * @method self setItems(array $items)
+ * @method array getItems()
+ * @method self setTotal(int $total)
+ * @method int getTotal()
+ * @method self setIndex(int $index)
+ * @method int getIndex()
+ * @method self setLimit(int $limit)
+ * @method int getLimit()
+ * @method self setNextUrl(string $nextUrl)
+ * @method string getNextUrl()
+ * @method self setPrevUrl(string $prevUrl)
+ * @method string getPrevUrl()
+ *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
-class Index extends AbstractEntity implements \Countable, \ArrayAccess, \IteratorAggregate
+class Index extends AbstractEntity implements \Countable, \IteratorAggregate
 {
     protected function configure()
     {

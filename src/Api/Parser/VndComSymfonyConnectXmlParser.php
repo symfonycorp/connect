@@ -181,9 +181,6 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
                 case 'github':
                     $user->setGithubUsername($this->getNodeValue('./foaf:accountName', $account));
                     break;
-                case 'facebook':
-                    $user->setFacebookUid($this->getNodeValue('./foaf:accountName', $account));
-                    break;
                 case 'twitter':
                     $user->setTwitterUsername($this->getNodeValue('./foaf:accountName', $account));
                     break;
