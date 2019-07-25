@@ -18,7 +18,15 @@ composer require symfonycorp/connect
 
 ### OAuth
 
-This part will show you how to include OAuth authentication within a Silex App.
+To use the SDK in a Symfony application, we recommend using the
+[official bundle](https://github.com/symfonycorp/connect-bundle):
+
+```bash
+composer require symfonycorp/connect-bundle
+```
+
+Otherwise, you can take inspiration from the following part, which will
+show you how to include OAuth authentication within a Silex App.
 
 Warning: We take for granted that you already have registered your app on
 [SymfonyConnect](https://connect.symfony.com) and that you're in
