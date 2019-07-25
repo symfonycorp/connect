@@ -101,7 +101,7 @@ class Api
 
         return $this->processResponse($this->httpClient->request($method, $url, [
             'headers' => array_merge($headers, $this->getAcceptHeader()),
-            'body' => $fields,
+            'GET' === $method ? 'query' : 'body' => $fields,
         ]));
     }
 
