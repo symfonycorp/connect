@@ -11,11 +11,11 @@
 
 namespace SymfonyCorp\Connect\Security\Authentication\Provider;
 
-use SymfonyCorp\Connect\Security\Authentication\Token\ConnectToken;
 use Symfony\Component\Security\Core\Authentication\Provider\AuthenticationProviderInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationServiceException;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
+use SymfonyCorp\Connect\Security\Authentication\Token\ConnectToken;
 
 /**
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
@@ -31,7 +31,7 @@ class ConnectAuthenticationProvider implements AuthenticationProviderInterface
         $this->providerKey = $providerKey;
     }
 
-    public function authenticate(TokenInterface $token)
+    public function authenticate(TokenInterface $token): TokenInterface
     {
         try {
             $localUser = $this->userProvider->loadUserByUsername($token->getUser());
@@ -48,7 +48,7 @@ class ConnectAuthenticationProvider implements AuthenticationProviderInterface
         }
     }
 
-    public function supports(TokenInterface $token)
+    public function supports(TokenInterface $token): bool
     {
         return $token instanceof ConnectToken;
     }

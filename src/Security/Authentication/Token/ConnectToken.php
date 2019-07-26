@@ -11,11 +11,11 @@
 
 namespace SymfonyCorp\Connect\Security\Authentication\Token;
 
-use SymfonyCorp\Connect\Api\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\AbstractToken;
 use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\Role\RoleInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use SymfonyCorp\Connect\Api\Entity\User;
 
 /**
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>

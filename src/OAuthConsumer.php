@@ -38,28 +38,22 @@ class OAuthConsumer
         'authorize' => '/oauth/authorize',
     ];
 
-    public function __construct($appId, $appSecret, $scope, $endpoint = null, HttpClientInterface $httpClient = null, LoggerInterface $logger = null)
+    public function __construct(string $appId, string $appSecret, string $scope, string $endpoint = null, HttpClientInterface $httpClient = null, LoggerInterface $logger = null)
     {
-        $this->httpClient = $httpClient ?: HttpClient::create();
+        $this->httpClient = $httpClient ?? HttpClient::create();
         $this->appId = $appId;
         $this->appSecret = $appSecret;
         $this->scope = $scope;
-        $this->endpoint = $endpoint ?: self::ENDPOINT;
-        $this->logger = $logger ?: new NullLogger();
+        $this->endpoint = $endpoint ?? self::ENDPOINT;
+        $this->logger = $logger ?? new NullLogger();
     }
 
-    public function setStrictChecks($strictChecks)
+    public function setStrictChecks(bool $strictChecks): void
     {
-        $this->strictChecks = (bool) $strictChecks;
+        $this->strictChecks = $strictChecks;
     }
 
-    /**
-     * getAuthorizationUri.
-     *
-     * @param mixed $callbackUri
-     * @param mixed $state
-     */
-    public function getAuthorizationUri($callbackUri, $state)
+    public function getAuthorizationUri($callbackUri, $state): string
     {
         $params = [
             'client_id' => $this->appId,
@@ -125,27 +119,27 @@ class OAuthConsumer
         return ['access_token' => $token, 'scope' => $scope];
     }
 
-    public function getAppId()
+    public function getAppId(): string
     {
         return $this->appId;
     }
 
-    public function getAppSecret()
+    public function getAppSecret(): string
     {
         return $this->appSecret;
     }
 
-    public function getScope()
+    public function getScope(): string
     {
         return $this->scope;
     }
 
-    public function getEndpoint()
+    public function getEndpoint(): string
     {
         return $this->endpoint;
     }
 
-    public function getLogger()
+    public function getLogger(): LoggerInterface
     {
         return $this->logger;
     }

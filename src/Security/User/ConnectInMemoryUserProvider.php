@@ -12,9 +12,9 @@
 namespace SymfonyCorp\Connect\Security\User;
 
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\User\UserProviderInterface;
-use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\User;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 /**
  * InMemoryUserProvider is a simple non persistent user provider.
@@ -38,13 +38,9 @@ class ConnectInMemoryUserProvider implements UserProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function loadUserByUsername($username)
+    public function loadUserByUsername($username): User
     {
-        if (isset($this->users[$username])) {
-            $user = $this->users[$username];
-        } else {
-            $user = new User($username, '', ['ROLE_CONNECT_USER'], true, true, true, true);
-        }
+        $user = $this->users[$username] ?? new User($username, '', ['ROLE_CONNECT_USER'], true, true, true, true);
 
         return new User($user->getUsername(), $user->getPassword(), $user->getRoles(), $user->isEnabled(), $user->isAccountNonExpired(), $user->isCredentialsNonExpired(), $user->isAccountNonLocked());
     }
@@ -52,7 +48,7 @@ class ConnectInMemoryUserProvider implements UserProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function refreshUser(UserInterface $user)
+    public function refreshUser(UserInterface $user): User
     {
         if (!$user instanceof User) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', get_class($user)));
@@ -64,7 +60,7 @@ class ConnectInMemoryUserProvider implements UserProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function supportsClass($class)
+    public function supportsClass($class): bool
     {
         return User::class === $class;
     }

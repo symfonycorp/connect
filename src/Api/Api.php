@@ -18,6 +18,7 @@ use Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface;
 use Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\HttpClient\ResponseInterface;
+use SymfonyCorp\Connect\Api\Entity\Root;
 use SymfonyCorp\Connect\Api\Parser\ParserInterface;
 use SymfonyCorp\Connect\Api\Parser\VndComSymfonyConnectXmlParser as Parser;
 use SymfonyCorp\Connect\Exception\ApiClientException;
@@ -37,32 +38,35 @@ class Api
     private $endpoint;
     private $accessToken;
 
-    public function __construct($endpoint = null, HttpClientInterface $httpClient = null, ParserInterface $parser = null, LoggerInterface $logger = null)
+    public function __construct(string $endpoint = null, HttpClientInterface $httpClient = null, ParserInterface $parser = null, LoggerInterface $logger = null)
     {
-        $this->httpClient = $httpClient ?: HttpClient::create();
-        $this->parser = $parser ?: new Parser();
-        $this->endpoint = $endpoint ?: self::ENDPOINT;
-        $this->logger = $logger ?: new NullLogger();
+        $this->httpClient = $httpClient ?? HttpClient::create();
+        $this->parser = $parser ?? new Parser();
+        $this->endpoint = $endpoint ?? self::ENDPOINT;
+        $this->logger = $logger ?? new NullLogger();
     }
 
-    public function getRoot()
+    public function getRoot(): Root
     {
         return $this->get($this->endpoint);
     }
 
-    public function setAccessToken($accessToken)
+    /**
+     * @return $this
+     */
+    public function setAccessToken(?string $accessToken)
     {
         $this->accessToken = $accessToken;
 
         return $this;
     }
 
-    public function resetAccessToken()
+    public function resetAccessToken(): void
     {
         $this->accessToken = null;
     }
 
-    public function getAccessToken()
+    public function getAccessToken(): ?string
     {
         return $this->accessToken;
     }
@@ -153,19 +157,19 @@ class Api
         }
     }
 
-    private function getAcceptHeader()
+    private function getAcceptHeader(): array
     {
         return ['Accept' => $this->parser->getContentType()];
     }
 
-    private function constructUrlWithAccessToken($url)
+    private function constructUrlWithAccessToken($url): string
     {
         if (!$this->getAccessToken()) {
             return $url;
         }
 
         $parts = parse_url($url);
-        $parts['query'] = isset($parts['query']) ? $parts['query'] : null;
+        $parts['query'] = $parts['query'] ?? null;
         parse_str($parts['query'], $query);
         $query['access_token'] = $this->getAccessToken();
         $parts['query'] = http_build_query($query);

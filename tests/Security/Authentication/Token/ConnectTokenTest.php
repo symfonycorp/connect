@@ -11,9 +11,9 @@
 
 namespace SymfonyCorp\Connect\Tests\Security\Authentication\Token;
 
-use SymfonyCorp\Connect\Security\Authentication\Token\ConnectToken;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Security\Core\User\User;
+use SymfonyCorp\Connect\Security\Authentication\Token\ConnectToken;
 
 /**
  * @author Luc Vieillescazes <luc.vieillescazes@sensiolabs.com>

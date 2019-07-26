@@ -11,6 +11,9 @@
 
 namespace SymfonyCorp\Connect\Security\Firewall;
 
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
+use Symfony\Component\Security\Http\Firewall\AbstractAuthenticationListener;
 use SymfonyCorp\Connect\Api\Api;
 use SymfonyCorp\Connect\Exception\ExceptionInterface;
 use SymfonyCorp\Connect\Exception\OAuthException;
@@ -19,8 +22,6 @@ use SymfonyCorp\Connect\Security\Authentication\Token\ConnectToken;
 use SymfonyCorp\Connect\Security\Exception\AuthenticationException;
 use SymfonyCorp\Connect\Security\Exception\OAuthAccessDeniedException;
 use SymfonyCorp\Connect\Security\Exception\OAuthStrictChecksFailedException;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Http\Firewall\AbstractAuthenticationListener;
 
 /**
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
@@ -32,22 +33,22 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
     private $oauthCallback = 'login_check';
     private $hideException = true;
 
-    public function setOAuthConsumer(OAuthConsumer $oauthConsumer)
+    public function setOAuthConsumer(OAuthConsumer $oauthConsumer): void
     {
         $this->oauthConsumer = $oauthConsumer;
     }
 
-    public function setOAuthCallback($oauthCallback)
+    public function setOAuthCallback(string $oauthCallback): void
     {
         $this->oauthCallback = $oauthCallback;
     }
 
-    public function setApi(Api $api)
+    public function setApi(Api $api): void
     {
         $this->api = $api;
     }
 
-    public function setRethrowException($rethrowException)
+    public function setRethrowException(bool $rethrowException): void
     {
         $this->hideException = !$rethrowException;
     }
@@ -55,7 +56,7 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
     /**
      * {@inheritdoc}
      */
-    protected function attemptAuthentication(Request $request)
+    protected function attemptAuthentication(Request $request): TokenInterface
     {
         $flashBag = $request->getSession()->getFlashBag();
 
@@ -89,7 +90,9 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
                 }
             }
 
-            $this->logger and $this->logger->critical('Something went wrong while trying to access SymfonyConnect.', ['exception' => $e]);
+            if (null !== $this->logger) {
+                $this->logger->critical('Something went wrong while trying to access SymfonyConnect.', ['exception' => $e]);
+            }
 
             if ($this->hideException) {
                 throw new AuthenticationException($e);

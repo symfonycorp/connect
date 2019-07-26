@@ -11,12 +11,13 @@
 
 namespace SymfonyCorp\Connect\Security\EntryPoint;
 
-use Symfony\Component\Security\Core\Exception\AuthenticationException;
-use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
-use SymfonyCorp\Connect\OAuthConsumer;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Exception\AuthenticationException;
+use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
 use Symfony\Component\Security\Http\HttpUtils;
+use SymfonyCorp\Connect\OAuthConsumer;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>
@@ -34,7 +35,7 @@ class ConnectEntryPoint implements AuthenticationEntryPointInterface
         $this->oauthCallback = $oauthCallback;
     }
 
-    public function start(Request $request, AuthenticationException $authException = null)
+    public function start(Request $request, AuthenticationException $authException = null): Response
     {
         $session = $request->getSession();
         $session->start();
@@ -47,7 +48,7 @@ class ConnectEntryPoint implements AuthenticationEntryPointInterface
             }
         }
 
-        $session->getFlashBag()->set('symfony_connect.oauth.state', $state = md5(uniqid(mt_rand(), true)));
+        $session->getFlashBag()->set('symfony_connect.oauth.state', $state = bin2hex(random_bytes(32)));
 
         return new RedirectResponse($this->oauthConsumer->getAuthorizationUri($this->httpUtils->generateUri($request, $this->oauthCallback), $state));
     }

@@ -11,14 +11,14 @@
 
 namespace SymfonyCorp\Connect\Api\Parser;
 
-use SymfonyCorp\Connect\Exception\ApiParserException;
 use SymfonyCorp\Connect\Api\Entity\AbstractEntity;
 use SymfonyCorp\Connect\Api\Entity\Badge;
 use SymfonyCorp\Connect\Api\Entity\Index;
 use SymfonyCorp\Connect\Api\Entity\Root;
 use SymfonyCorp\Connect\Api\Entity\User;
-use SymfonyCorp\Connect\Api\Model\Form;
 use SymfonyCorp\Connect\Api\Model\Error;
+use SymfonyCorp\Connect\Api\Model\Form;
+use SymfonyCorp\Connect\Exception\ApiParserException;
 
 /**
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
@@ -90,7 +90,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         }
     }
 
-    protected function parseRoot(\DOMElement $element)
+    protected function parseRoot(\DOMElement $element): Root
     {
         $root = $this->getRootInstance();
 
@@ -118,7 +118,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         return $root;
     }
 
-    protected function parseIndex(\DOMElement $element)
+    protected function parseIndex(\DOMElement $element): Index
     {
         $index = new Index($this->getLinkToSelf($element));
         $index->setTotal($element->attributes->getNamedItem('total')->value);
@@ -142,7 +142,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         return $index;
     }
 
-    protected function parseIndexElement(\DOMElement $element)
+    protected function parseIndexElement(\DOMElement $element): ?AbstractEntity
     {
         if ('foaf:Person' === $element->tagName) {
             return $this->parseFoafPerson($element);
@@ -151,9 +151,11 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         if ('badge' === $element->tagName) {
             return $this->parseBadge($element);
         }
+
+        return null;
     }
 
-    protected function parseFoafPerson(\DOMElement $element)
+    protected function parseFoafPerson(\DOMElement $element): User
     {
         $user = $this->getUserInstance($this->getLinkToSelf($element), $this->getLinkToAlternate($element));
         $user->setUuid($element->attributes->getNamedItem('id')->value);
@@ -213,7 +215,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         return $user;
     }
 
-    protected function parseForm(AbstractEntity $entity, \DOMElement $formElement)
+    protected function parseForm(AbstractEntity $entity, \DOMElement $formElement): AbstractEntity
     {
         $formId = $formElement->attributes->getNamedItem('id')->value;
         $formAction = $formElement->attributes->getNamedItem('action')->value;
@@ -233,7 +235,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         return $entity;
     }
 
-    protected function parseFormSelect(\DOMElement $element)
+    protected function parseFormSelect(\DOMElement $element): array
     {
         $fieldsOptions = [];
         $nodeList = $this->xpath->query('./xhtml:select', $element);
@@ -255,7 +257,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         return $fieldsOptions;
     }
 
-    protected function parseFormFields(\DOMElement $element)
+    protected function parseFormFields(\DOMElement $element): array
     {
         $fields = [];
         $nodeList = $this->xpath->query('./xhtml:input | ./xhtml:textarea | ./xhtml:select | ./xhtml:fieldset', $element);
@@ -285,7 +287,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         return $fields;
     }
 
-    protected function parseBadge(\DOMElement $element)
+    protected function parseBadge(\DOMElement $element): Badge
     {
         $badge = new Badge($this->getLinkToSelf($element), $this->getLinkToAlternate($element));
         $badge->setId($element->attributes->getNamedItem('id')->value);
@@ -299,7 +301,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         return $badge;
     }
 
-    protected function parseError(\DOMElement $element)
+    protected function parseError(\DOMElement $element): Error
     {
         $error = new Error();
 
@@ -353,7 +355,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         return;
     }
 
-    protected function sanitizeValue($value)
+    protected function sanitizeValue(string $value)
     {
         if ('true' === $value) {
             $value = true;
@@ -366,12 +368,12 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         return $value;
     }
 
-    protected function getRootInstance()
+    protected function getRootInstance(): Root
     {
         return new Root();
     }
 
-    protected function getUserInstance($self, $alternate)
+    protected function getUserInstance(string $self, string $alternate): User
     {
         return new User($self, $alternate);
     }

@@ -137,24 +137,41 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
 
         if ('set' === $method) {
             if (!array_key_exists(0, $arguments)) {
-                throw new \LogicException(sprintf('Please provide a value to set %s with', $name));
+                throw new \LogicException(sprintf('Please provide a value to set %s with', $property));
             }
 
             return $this->set($property, $arguments[0]);
-        } elseif ('get' === $method) {
+        }
+
+        if ('get' === $method) {
             return $this->get($property);
-        } elseif ('add' === $method) {
+        }
+
+        if ('add' === $method) {
+            if (!array_key_exists(0, $arguments)) {
+                throw new \LogicException(sprintf('Please provide a value to add to %s', $property));
+            }
+
             $this->add($property, $arguments[0]);
 
             return $this;
-        } elseif ('is' === substr($name, 0, 2)) {
-            return $this->get($name);
+        }
+
+        if (0 === strpos($name, 'is')) {
+            if ($this->has($name)) {
+                return $this->get($name);
+            }
+
+            return $this->get(lcfirst(substr($name, 2)));
         }
 
         throw new \BadMethodCallException(sprintf('The method "%s:%s" does not exists ', get_class($this), $name));
     }
 
-    public function set($property, $value)
+    /**
+     * @return $this
+     */
+    public function set(string $property, $value)
     {
         if (!array_key_exists($property, $this->properties)) {
             throw new \LogicException(sprintf('Property %s is not present in instance of "%s".', $property, get_class($this)));
@@ -165,7 +182,7 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
         return $this;
     }
 
-    public function get($property)
+    public function get(string $property)
     {
         if (!array_key_exists($property, $this->properties)) {
             throw new \LogicException(sprintf('Property %s is not present in instance of "%s".', $property, get_class($this)));
@@ -174,12 +191,12 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
         return $this->properties[$property];
     }
 
-    public function has($property)
+    public function has(string $property): bool
     {
         return array_key_exists($property, $this->properties);
     }
 
-    public function add($property, $value)
+    public function add(string $property, $value): void
     {
         if (!array_key_exists($property, $this->properties)) {
             throw new \LogicException(sprintf('Property "%s" is not present in instance of "%s".', $property, get_class($this)));
