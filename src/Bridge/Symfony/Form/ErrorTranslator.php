@@ -2,9 +2,9 @@
 
 namespace SymfonyCorp\Connect\Bridge\Symfony\Form;
 
-use SymfonyCorp\Connect\Exception\ApiClientException;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormInterface;
+use SymfonyCorp\Connect\Exception\ApiClientException;
 
 /**
  * @author Grégoire Pineau <lyrixx@lyrixx.info>

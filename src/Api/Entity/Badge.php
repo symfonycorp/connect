@@ -12,17 +12,17 @@
 namespace SymfonyCorp\Connect\Api\Entity;
 
 /**
- * @method self setId(int $id)
- * @method int getId()
- * @method self setCount(int $count)
- * @method int getCount()
- * @method self setName(string $name)
+ * @method self   setId(int $id)
+ * @method int    getId()
+ * @method self   setCount(int $count)
+ * @method int    getCount()
+ * @method self   setName(string $name)
  * @method string getName()
- * @method self setDescription(string $description)
+ * @method self   setDescription(string $description)
  * @method string getDescription()
- * @method self setLevel(int $level)
- * @method int getLevel()
- * @method self setImage(string $image)
+ * @method self   setLevel(int $level)
+ * @method int    getLevel()
+ * @method self   setImage(string $image)
  * @method string getImage()
  *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>

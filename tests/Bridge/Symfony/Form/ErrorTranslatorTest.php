@@ -2,11 +2,11 @@
 
 namespace SymfonyCorp\Connect\Tests\Bridge\Symfony\Form;
 
+use PHPUnit\Framework\TestCase;
+use Symfony\Component\Form\Forms;
 use SymfonyCorp\Connect\Api\Model\Error;
 use SymfonyCorp\Connect\Bridge\Symfony\Form\ErrorTranslator;
 use SymfonyCorp\Connect\Exception\ApiClientException;
-use PHPUnit\Framework\TestCase;
-use Symfony\Component\Form\Forms;
 
 class ErrorTranslatorTest extends TestCase
 {

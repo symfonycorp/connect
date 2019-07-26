@@ -2,8 +2,8 @@
 
 namespace SymfonyCorp\Connect\Tests\Api\Entity;
 
-use SymfonyCorp\Connect\Api\Entity\AbstractEntity;
 use PHPUnit\Framework\TestCase;
+use SymfonyCorp\Connect\Api\Entity\AbstractEntity;
 
 /**
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>

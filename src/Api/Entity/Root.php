@@ -12,12 +12,12 @@
 namespace SymfonyCorp\Connect\Api\Entity;
 
 /**
- * @method self setBadgesUrl(string $url)
- * @method string getBadgesUrl()
- * @method self setUsersUrl(string $url)
- * @method string getUsersUrl()
- * @method self setCurrentUser(?User $user)
- * @method null|User getCurrentUser()
+ * @method self      setBadgesUrl(string $url)
+ * @method string    getBadgesUrl()
+ * @method self      setUsersUrl(string $url)
+ * @method string    getUsersUrl()
+ * @method self      setCurrentUser(?User $user)
+ * @method User|null getCurrentUser()
  *
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
