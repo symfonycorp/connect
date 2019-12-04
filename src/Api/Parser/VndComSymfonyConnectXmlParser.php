@@ -340,8 +340,6 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         if ($nodeList->length > 0 && $index <= $nodeList->length) {
             return $this->sanitizeValue($nodeList->item($index)->nodeValue);
         }
-
-        return;
     }
 
     protected function getLinkNodeHref($query, \DOMElement $element = null, $position = 0)
@@ -351,8 +349,6 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         if ($nodeList && $nodeList->length > 0 && $nodeList->item($position)) {
             return $this->sanitizeValue($nodeList->item($position)->attributes->getNamedItem('href')->value);
         }
-
-        return;
     }
 
     protected function sanitizeValue(string $value)

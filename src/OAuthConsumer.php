@@ -63,9 +63,7 @@ class OAuthConsumer
             'response_type' => 'code',
         ];
 
-        $uri = sprintf('%s%s?%s', $this->endpoint, $this->paths['authorize'], http_build_query($params));
-
-        return $uri;
+        return sprintf('%s%s?%s', $this->endpoint, $this->paths['authorize'], http_build_query($params));
     }
 
     public function requestAccessToken(string $callbackUri, string $authorizationCode): array

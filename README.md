@@ -121,8 +121,8 @@ possession of your `application_id`, `application_secret` and `scope`.
    SymfonyConnect button:
 
     ```html
-    <a href="#" class="connect-with-symfonyconnect">
-        <span>Connect With SymfonyConnect</span>
+    <a href="#" class="connect-with-symfony">
+        <span>Log in with SymfonyConnect</span>
     </a>
     ```
 
