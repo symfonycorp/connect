@@ -62,7 +62,7 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
 
         try {
             if ($request->query->has('error')) {
-                throw new OAuthException($request->query->get('error'), $request->query->get('error_description'));
+                throw new OAuthException($request->query->get('error', ''), $request->query->get('error_description', ''));
             }
 
             if (!$request->query->has('code')) {
