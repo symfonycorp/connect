@@ -65,7 +65,7 @@ possession of your `application_id`, `application_secret` and `scope`.
 
     This done. We can now move on to the second step.
 
-2. We need to create two controllers to handle the OAuth2 Three-Legged worflow.
+2. We need to create two controllers to handle the OAuth2 Three-Legged workflow.
 
    The first controller goal is to redirect the user to SymfonyConnect in
    order to ask him for the authorization that your app will use his data. This
@@ -136,7 +136,7 @@ method!
 The SymfonyConnect Connect API is RESTFul and (tries to) conforms to the HATEOAS
 principle.
 
-Here are some useful recipies.
+Here are some useful recipes.
 
 1. Search
 
