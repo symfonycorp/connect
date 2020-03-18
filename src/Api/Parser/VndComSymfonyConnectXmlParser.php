@@ -186,9 +186,6 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
                 case 'twitter':
                     $user->setTwitterUsername($this->getNodeValue('./foaf:accountName', $account));
                     break;
-                case 'linkedin':
-                    $user->setLinkedInUrl($this->getNodeValue('./foaf:accountName', $account));
-                    break;
                 default:
                     throw new ApiParserException(sprintf('I do not know how to parse these kinds of OnlineAccount: %s', $accountName));
             }
