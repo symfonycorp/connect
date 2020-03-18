@@ -33,14 +33,6 @@
                     <foaf:name>twitter</foaf:name>
                     <foaf:accountName><![CDATA[futurecat]]></foaf:accountName>
                 </foaf:OnlineAccount>
-                                        <foaf:OnlineAccount>
-                    <foaf:name>facebook</foaf:name>
-                    <foaf:accountName><![CDATA[100000822016806]]></foaf:accountName>
-                </foaf:OnlineAccount>
-                                        <foaf:OnlineAccount>
-                    <foaf:name>linkedin</foaf:name>
-                    <foaf:accountName><![CDATA[http://www.linkedin.com/profile?viewProfile=&key=25413980&authToken=IAGu&authType=name&trk=api*a153113*s161394*]]></foaf:accountName>
-                </foaf:OnlineAccount>
                     </foaf:account>
                                             <badges total="20" count="20" index="0" limit="20">
     <atom:link rel="self" href="https://connect.symfony.com/api/users/aa5e22b0-6189-4113-9c68-91d4a3c32b7c/badges" type="application/vnd.com.symfony.connect+xml" />

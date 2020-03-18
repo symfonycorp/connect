@@ -50,8 +50,6 @@ use DateTimeInterface;
  * @method string|null       getGithubUsername()
  * @method self              setTwitterUsername(?string $username)
  * @method string|null       getTwitterUsername()
- * @method self              setLinkedInUrl(?string $url)
- * @method string|null       getLinkedInUrl()
  * @method self              setBadges(Index $badges)
  * @method Index|null        getBadges()
  *
@@ -79,7 +77,6 @@ class User extends AbstractEntity
              ->addProperty('joinedAt')
              ->addProperty('githubUsername')
              ->addProperty('twitterUsername')
-             ->addProperty('linkedInUrl')
              ->addProperty('badges')
         ;
     }
