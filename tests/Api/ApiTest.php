@@ -26,7 +26,7 @@ class ApiTest extends TestCase
     private $rootXml;
     private $errorXml;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->rootXml = file_get_contents(__DIR__.'/../fixtures/root.xml');
         $this->errorXml = file_get_contents(__DIR__.'/../fixtures/error.xml');
@@ -79,11 +79,10 @@ class ApiTest extends TestCase
         $this->assertTrue($api->get('http://foobar/api/'));
     }
 
-    /**
-     * @expectedException \SymfonyCorp\Connect\Exception\ApiClientException
-     */
     public function testGetThrowsClientExceptionWhenServerReturns40xStatusCode()
     {
+        $this->expectException(\SymfonyCorp\Connect\Exception\ApiClientException::class);
+
         $api = $this->createApi(new MockHttpClient(function ($method, $url) {
             $this->assertSame('GET', $method);
             $this->assertSame('http://foobar/api/', $url);
@@ -94,11 +93,10 @@ class ApiTest extends TestCase
         $api->get('http://foobar/api/');
     }
 
-    /**
-     * @expectedException \SymfonyCorp\Connect\Exception\ApiServerException
-     */
     public function testGetThrowsServerExceptionWhenServerReturns50xStatusCode()
     {
+        $this->expectException(\SymfonyCorp\Connect\Exception\ApiServerException::class);
+
         $api = $this->createApi(new MockHttpClient(function ($method, $url) {
             $this->assertSame('GET', $method);
             $this->assertSame('http://foobar/api/', $url);
@@ -137,11 +135,10 @@ class ApiTest extends TestCase
         $api->submit('http://foobar/api/', 'POST', ['foo' => 'bar']);
     }
 
-    /**
-     * @expectedException \SymfonyCorp\Connect\Exception\ApiClientException
-     */
     public function testSubmitThrowsClientExceptionWhenServerReturns40xStatusCode()
     {
+        $this->expectException(\SymfonyCorp\Connect\Exception\ApiClientException::class);
+
         $api = $this->createApi(new MockHttpClient(function ($method, $url) {
             $this->assertSame('POST', $method);
             $this->assertSame('http://foobar/api/', $url);
@@ -170,11 +167,10 @@ class ApiTest extends TestCase
         }
     }
 
-    /**
-     * @expectedException \SymfonyCorp\Connect\Exception\ApiServerException
-     */
     public function testSubmitThrowsServerExceptionWhenServerReturns50xStatusCode()
     {
+        $this->expectException(\SymfonyCorp\Connect\Exception\ApiServerException::class);
+
         $api = $this->createApi(new MockHttpClient(function ($method, $url) {
             $this->assertSame('POST', $method);
             $this->assertSame('http://foobar/api/', $url);
