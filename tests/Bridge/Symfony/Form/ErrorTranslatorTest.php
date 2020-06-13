@@ -11,9 +11,8 @@ use SymfonyCorp\Connect\Exception\ApiClientException;
 class ErrorTranslatorTest extends TestCase
 {
     private $errorTranslator;
-    private $formFactory;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->errorTranslator = new ErrorTranslator();
         $this->formBuilder = Forms::createFormFactory()->createBuilder();
@@ -88,11 +87,10 @@ class ErrorTranslatorTest extends TestCase
         $this->assertCount(1, $form->get('foo')->getErrors());
     }
 
-    /**
-     * @expectedException \LogicException
-     */
     public function testTranslateCallableMapThrowException()
     {
+        $this->expectException(\LogicException::class);
+
         $parameters = [
             'bar' => ['bar is required'],
         ];

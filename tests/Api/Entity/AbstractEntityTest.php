@@ -10,7 +10,7 @@ use SymfonyCorp\Connect\Api\Entity\AbstractEntity;
  */
 class AbstractEntityTest extends TestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         $this->entity = new Entity('http://foo.bar', 'http://bar.foo');
         $this->clone = clone $this->entity;
@@ -48,7 +48,7 @@ class AbstractEntityTest extends TestCase
 
         $unserializedEntity = unserialize(serialize($this->entity));
 
-        $this->assertInstanceOf(get_class($this->entity), $unserializedEntity);
+        $this->assertInstanceOf(\get_class($this->entity), $unserializedEntity);
         $this->assertNull($unserializedEntity->getApi());
     }
 
@@ -64,19 +64,17 @@ class AbstractEntityTest extends TestCase
         $this->assertFalse($this->entity->isPublished());
     }
 
-    /**
-     * @expectedException \LogicException
-     */
     public function testSetThrowsLogicExceptionIfPropertyIsUndefined()
     {
+        $this->expectException(\LogicException::class);
+
         $this->entity->set('foobar', 'bla');
     }
 
-    /**
-     * @expectedException \LogicException
-     */
     public function testGetThrowsLogicExceptionIfPropertyIsUndefined()
     {
+        $this->expectException(\LogicException::class);
+
         $this->entity->get('foobar');
     }
 
@@ -92,20 +90,18 @@ class AbstractEntityTest extends TestCase
         $this->assertEquals('foobar', $items[0]);
     }
 
-    /**
-     * @expectedException \BadMethodCallException
-     */
     public function testArrayAccessForbidUnset()
     {
+        $this->expectException(\BadMethodCallException::class);
+
         unset($this->entity['clone']);
     }
 
-    /**
-     * @expectedException \BadMethodCallException
-     * @expectedExceptionMessage The method "SymfonyCorp\Connect\Tests\Api\Entity\Entity:FooBar" does not exists
-     */
     public function testBadMethodCallException()
     {
+        $this->expectException(\BadMethodCallException::class);
+        $this->expectExceptionMessage('The method "SymfonyCorp\\Connect\\Tests\\Api\\Entity\\Entity:FooBar" does not exists');
+
         $this->entity->FooBar();
     }
 
