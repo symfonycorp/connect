@@ -126,34 +126,16 @@ class Api
 
             return $object;
         } catch (ServerExceptionInterface $exception) {
-            throw new ApiServerException(
-                $response->getStatusCode(false),
-                $response->getContent(false),
-                $exception->getMessage(),
-                $response->getHeaders(false)
-            );
+            throw new ApiServerException($response->getStatusCode(false), $response->getContent(false), $exception->getMessage(), $response->getHeaders(false));
         } catch (ClientExceptionInterface $exception) {
             try {
                 $error = $this->parser->parse($response->getContent(false));
                 $error = $error instanceof Model\Error ? $error : new Model\Error();
             } catch (ApiParserException $e) {
-                throw new ApiClientException(
-                    $response->getStatusCode(),
-                    $response->getContent(false),
-                    $e->getMessage(),
-                    $response->getHeaders(false),
-                    null,
-                    $e
-                );
+                throw new ApiClientException($response->getStatusCode(), $response->getContent(false), $e->getMessage(), $response->getHeaders(false), null, $e);
             }
 
-            throw new ApiClientException(
-                $response->getStatusCode(false),
-                $response->getContent(false),
-                $exception->getMessage(),
-                $response->getHeaders(false),
-                $error
-            );
+            throw new ApiClientException($response->getStatusCode(false), $response->getContent(false), $exception->getMessage(), $response->getHeaders(false), $error);
         }
     }
 

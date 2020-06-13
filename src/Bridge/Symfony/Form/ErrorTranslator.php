@@ -36,8 +36,8 @@ class ErrorTranslator
 
         foreach ($e->getError()->getEntityBodyParameters() as $parameterName => $messages) {
             $widget = $form;
-            if (array_key_exists($parameterName, $map)) {
-                if (is_callable($map[$parameterName])) {
+            if (\array_key_exists($parameterName, $map)) {
+                if (\is_callable($map[$parameterName])) {
                     $widget = $map[$parameterName]($form);
                     if (!$widget instanceof FormInterface) {
                         throw new \LogicException(sprintf('The callable ("$map[%s]") should return a FormInterface', $parameterName));

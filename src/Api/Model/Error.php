@@ -16,7 +16,7 @@ class Error
 
     public function hasEntityBodyParameter($name)
     {
-        return array_key_exists($name, $this->entityBodyParameters);
+        return \array_key_exists($name, $this->entityBodyParameters);
     }
 
     public function addEntityBodyParameter($name)

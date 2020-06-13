@@ -41,7 +41,7 @@ class ConnectToken extends AbstractToken
         $this->providerKey = $providerKey;
         $this->scope = $scope;
 
-        parent::setAuthenticated(count($roles) > 0);
+        parent::setAuthenticated(\count($roles) > 0);
     }
 
     public function getRoles()
@@ -123,8 +123,8 @@ class ConnectToken extends AbstractToken
 
     private function getStringUserRole($role)
     {
-        if (!is_string($role) && !($role instanceof Role)) {
-            throw new \InvalidArgumentException(sprintf('$roles must be an array of strings, or Role instances, but got %s.', gettype($role)));
+        if (!\is_string($role) && !($role instanceof Role)) {
+            throw new \InvalidArgumentException(sprintf('$roles must be an array of strings, or Role instances, but got %s.', \gettype($role)));
         }
 
         return (string) $role;
@@ -132,12 +132,12 @@ class ConnectToken extends AbstractToken
 
     private function getObjectUserRole($role)
     {
-        if (is_string($role)) {
+        if (\is_string($role)) {
             return new Role($role);
         }
 
         if (!$role instanceof RoleInterface) {
-            throw new \InvalidArgumentException(sprintf('$roles must be an array of strings, or RoleInterface instances, but got %s.', gettype($role)));
+            throw new \InvalidArgumentException(sprintf('$roles must be an array of strings, or RoleInterface instances, but got %s.', \gettype($role)));
         }
 
         return $role;

@@ -76,12 +76,12 @@ class Form
 
     public function hasFieldOptions($field)
     {
-        return array_key_exists($field, $this->fieldsOptions);
+        return \array_key_exists($field, $this->fieldsOptions);
     }
 
     public function getFieldOptions($field)
     {
-        if (!array_key_exists($field, $this->fieldsOptions)) {
+        if (!\array_key_exists($field, $this->fieldsOptions)) {
             throw new \InvalidArgumentException(sprintf('The field "%s" does not exist. Existing fields: "%s"', $field, implode('", "', array_keys($this->fieldsOptions))));
         }
 

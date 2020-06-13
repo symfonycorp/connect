@@ -90,7 +90,7 @@ class Index extends AbstractEntity implements \Countable, \IteratorAggregate
 
     public function offsetExists($offset): bool
     {
-        return array_key_exists($offset, $this->get('items'));
+        return \array_key_exists($offset, $this->get('items'));
     }
 
     public function offsetGet($offset)
