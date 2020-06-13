@@ -46,7 +46,7 @@ class ApiTest extends TestCase
         $api = $this->createApi(new MockHttpClient(function ($method, $url, $options) {
             $this->assertSame('GET', $method);
             $this->assertSame('http://foobar/api/', $url);
-            $this->assertContains('accept: application/vnd.com.symfony.connect+xml', $options['request_headers']);
+            $this->assertContains('Accept: application/vnd.com.symfony.connect+xml', $options['headers']);
 
             return $this->createResponse(200, $this->rootXml);
         }));
@@ -126,7 +126,7 @@ class ApiTest extends TestCase
             $this->assertSame('POST', $method);
             $this->assertSame('http://foobar/api/?access_token=foobar', $url);
             $this->assertSame('foo=bar', $options['body']);
-            $this->assertContains('accept: application/vnd.com.symfony.connect+xml', $options['request_headers']);
+            $this->assertContains('Accept: application/vnd.com.symfony.connect+xml', $options['headers']);
 
             return $this->createResponse(200, $this->rootXml);
         }));
