@@ -225,7 +225,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
     protected function parseFoafGroup(\DOMElement $element)
     {
         @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
-        
+
         $club = new Club($this->getLinkToSelf($element), $this->getLinkToAlternate($element));
 
         $club->setUuid($element->attributes->getNamedItem('id')->value);
@@ -266,7 +266,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
     protected function parseFoafMember(\DOMElement $element)
     {
         @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
-        
+
         $member = new Member();
 
         $member->setIsMembershipPublic($this->getNodeValue('./is-membership-public', $element));
@@ -300,6 +300,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
             $account = $accounts->item($i);
             switch ($accountName = $this->getNodeValue('./foaf:name', $account)) {
                 case 'SensioLabs Connect':
+                case 'SymfonyConnect':
                     $user->setUsername($this->getNodeValue('foaf:accountName', $account));
                     $user->setJoinedAt(new \DateTime($this->getNodeValue('./since', $account)));
                     break;
@@ -431,7 +432,7 @@ class VndComSensiolabsConnectXmlParser implements ParserInterface
     protected function parseMembership(\DOMElement $element)
     {
         @trigger_error(sprintf('The "%s()" method is deprecated since Connect 4.3 and will be removed in 5.0.', __METHOD__), E_USER_DEPRECATED);
-        
+
         $membership = new Membership();
         $nodeList = $this->xpath->query('./foaf:Group', $element);
         $membership->setClub($this->parseFoafGroup($nodeList->item(0)));
