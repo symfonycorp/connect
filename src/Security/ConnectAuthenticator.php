@@ -21,6 +21,7 @@ use Symfony\Component\Security\Core\Exception\AuthenticationServiceException;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
+use Symfony\Component\Security\Http\Authenticator\InteractiveAuthenticatorInterface;
 use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
 use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
 use Symfony\Component\Security\Http\HttpUtils;
@@ -35,7 +36,7 @@ use SymfonyCorp\Connect\Security\Exception\OAuthStrictChecksFailedException;
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class ConnectAuthenticator extends AbstractAuthenticator implements AuthenticationEntryPointInterface
+class ConnectAuthenticator extends AbstractAuthenticator implements AuthenticationEntryPointInterface, InteractiveAuthenticatorInterface
 {
     private $oauthConsumer;
     private $api;
@@ -65,8 +66,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
         $session = $request->getSession();
         $session->start();
 
-        if ($request->query->has('target')) {
-            $target = $request->query->get('target');
+        if ($target = $request->query->get('target', $request->getRequestUri())) {
             $parsed = parse_url($target);
             if (!isset($parsed['host']) || $parsed['host'] === $request->getHttpHost()) {
                 $session->getFlashBag()->set('symfony_connect.oauth.target_path', $target);
@@ -158,5 +158,10 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
         return null;
+    }
+
+    public function isInteractive(): bool
+    {
+        return true;
     }
 }
