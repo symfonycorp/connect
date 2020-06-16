@@ -146,13 +146,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
     {
-        $flashBag = $request->getSession()->getFlashBag();
-        $url = '/';
-        if ($flashBag->has('symfony_connect.oauth.target_path')) {
-            $url = $flashBag->get('symfony_connect.oauth.target_path')[0];
-        }
-
-        return $this->httpUtils->createRedirectResponse($request, $url);
+        return $this->httpUtils->createRedirectResponse($request, $request->getSession()->getFlashBag()->get('symfony_connect.oauth.target_path')[0] ?? '/');
     }
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
