@@ -120,26 +120,4 @@ class ConnectToken extends AbstractToken
 
         return array_map([$this, $callBackMethod], $user->getRoles());
     }
-
-    private function getStringUserRole($role)
-    {
-        if (!\is_string($role) && !($role instanceof Role)) {
-            throw new \InvalidArgumentException(sprintf('$roles must be an array of strings, or Role instances, but got %s.', \gettype($role)));
-        }
-
-        return (string) $role;
-    }
-
-    private function getObjectUserRole($role)
-    {
-        if (\is_string($role)) {
-            return new Role($role);
-        }
-
-        if (!$role instanceof RoleInterface) {
-            throw new \InvalidArgumentException(sprintf('$roles must be an array of strings, or RoleInterface instances, but got %s.', \gettype($role)));
-        }
-
-        return $role;
-    }
 }
