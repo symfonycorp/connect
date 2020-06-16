@@ -44,6 +44,16 @@ class ConnectToken extends AbstractToken
         parent::setAuthenticated(\count($roles) > 0);
     }
 
+    public function getRoleNames(): array
+    {
+        $user = $this->getUser();
+        if ($user instanceof UserInterface) {
+            return $this->getUserRoles($user);
+        }
+
+        return parent::getRoleNames();
+    }
+
     public function getRoles()
     {
         $user = $this->getUser();
