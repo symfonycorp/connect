@@ -32,6 +32,7 @@ use SymfonyCorp\Connect\OAuthConsumer;
 use SymfonyCorp\Connect\Security\Authentication\Token\ConnectToken;
 use SymfonyCorp\Connect\Security\Exception\OAuthAccessDeniedException;
 use SymfonyCorp\Connect\Security\Exception\OAuthStrictChecksFailedException;
+use Twig\Environment;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>
@@ -45,8 +46,10 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
     private $logger;
     private $oauthCallbackRoute;
     private $hideException = true;
+    private $twig;
+    private $template;
 
-    public function __construct(OAuthConsumer $oauthConsumer, Api $api, UserProviderInterface $userProvider, HttpUtils $httpUtils, LoggerInterface $logger = null, string $oauthCallbackRoute = 'symfony_connect_callback')
+    public function __construct(OAuthConsumer $oauthConsumer, Api $api, UserProviderInterface $userProvider, HttpUtils $httpUtils, LoggerInterface $logger = null, string $oauthCallbackRoute = 'symfony_connect_callback', Environment $twig = null, string $template = null)
     {
         $this->oauthConsumer = $oauthConsumer;
         $this->api = $api;
@@ -54,6 +57,8 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
         $this->httpUtils = $httpUtils;
         $this->logger = $logger;
         $this->oauthCallbackRoute = $oauthCallbackRoute;
+        $this->twig = $twig;
+        $this->template = $template;
     }
 
     public function setRethrowException(bool $rethrowException): void
@@ -74,8 +79,15 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
         }
 
         $session->getFlashBag()->set('symfony_connect.oauth.state', $state = bin2hex(random_bytes(32)));
+        $authenticationUri = $this->oauthConsumer->getAuthorizationUri($this->httpUtils->generateUri($request, $this->oauthCallbackRoute), $state);
 
-        return new RedirectResponse($this->oauthConsumer->getAuthorizationUri($this->httpUtils->generateUri($request, $this->oauthCallbackRoute), $state));
+        if (!$this->template) {
+            return new RedirectResponse($authenticationUri);
+        }
+
+        return new Response($this->twig->render($this->template, [
+            'authentication_uri' => $authenticationUri,
+        ]));
     }
 
     public function authenticate(Request $request): PassportInterface
