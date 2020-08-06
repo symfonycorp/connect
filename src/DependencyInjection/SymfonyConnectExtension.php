@@ -58,8 +58,17 @@ class SymfonyConnectExtension extends Extension
             ->replaceArgument(0, $config['api_endpoint'])
         ;
 
+        $container->getDefinition('symfony_connect.authenticator')
+            ->replaceArgument(6, $config['start_template'])
+            ->replaceArgument(7, $config['failure_template'])
+        ;
+
+        $container->getDefinition('symfony_connect.oauth_controller')
+            ->replaceArgument(1, $config['start_template'])
+            ->replaceArgument(2, $config['failure_template'])
+        ;
+
         $container->setParameter('symfony_connect.api.app_id', $config['app_id']);
         $container->setParameter('symfony_connect.api.app_secret', $config['app_secret']);
-        $container->setParameter('symfony_connect.api.start_template', $config['start_template']);
     }
 }
