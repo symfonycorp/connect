@@ -14,6 +14,6 @@ namespace SymfonyCorp\Connect\Exception;
 /**
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
  */
-interface ExceptionInterface
+interface ExceptionInterface extends \Throwable
 {
 }
