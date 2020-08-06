@@ -129,7 +129,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
             }
 
             if ($this->hideException) {
-                throw new AuthenticationException($e);
+                throw new AuthenticationException($e->getMessage(), 0, $e);
             }
 
             throw $e;
