@@ -59,8 +59,8 @@ class SymfonyConnectExtension extends Extension
         ;
 
         $container->getDefinition('symfony_connect.authenticator')
-            ->replaceArgument(6, $config['start_template'])
-            ->replaceArgument(7, $config['failure_template'])
+            ->replaceArgument(5, $config['start_template'])
+            ->replaceArgument(6, $config['failure_template'])
         ;
 
         $container->getDefinition('symfony_connect.oauth_controller')

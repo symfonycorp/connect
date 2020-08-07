@@ -35,7 +35,7 @@ class OAuthController
         $this->failureTemplate = $failureTemplate;
     }
 
-    public function newSessionAction(Request $request)
+    public function newSession(Request $request)
     {
         return $this->entryPoint->start($request);
     }

@@ -44,19 +44,17 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
     private $userProvider;
     private $httpUtils;
     private $logger;
-    private $oauthCallbackRoute;
     private $hideException = true;
     private $startTemplate;
     private $failureTemplate;
 
-    public function __construct(OAuthConsumer $oauthConsumer, Api $api, UserProviderInterface $userProvider, HttpUtils $httpUtils, LoggerInterface $logger = null, string $oauthCallbackRoute = 'symfony_connect_callback', string $startTemplate = null, string $failureTemplate = null)
+    public function __construct(OAuthConsumer $oauthConsumer, Api $api, UserProviderInterface $userProvider, HttpUtils $httpUtils, LoggerInterface $logger = null, string $startTemplate = null, string $failureTemplate = null)
     {
         $this->oauthConsumer = $oauthConsumer;
         $this->api = $api;
         $this->userProvider = $userProvider;
         $this->httpUtils = $httpUtils;
         $this->logger = $logger;
-        $this->oauthCallbackRoute = $oauthCallbackRoute;
         $this->startTemplate = $startTemplate;
         $this->failureTemplate = $failureTemplate;
     }
@@ -79,7 +77,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
         }
 
         $session->getFlashBag()->set('symfony_connect.oauth.state', $state = bin2hex(random_bytes(32)));
-        $authenticationUri = $this->oauthConsumer->getAuthorizationUri($this->httpUtils->generateUri($request, $this->oauthCallbackRoute), $state);
+        $authenticationUri = $this->oauthConsumer->getAuthorizationUri($this->httpUtils->generateUri($request, 'symfony_connect_callback'), $state);
 
         if (!$this->startTemplate) {
             return new RedirectResponse($authenticationUri);
@@ -111,7 +109,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
                 throw new OAuthException('access_denied', 'Your session has expired. Please try again.');
             }
 
-            $data = $this->oauthConsumer->requestAccessToken($this->httpUtils->generateUri($request, $this->oauthCallbackRoute), $request->query->get('code'));
+            $data = $this->oauthConsumer->requestAccessToken($this->httpUtils->generateUri($request, 'symfony_connect_callback'), $request->query->get('code'));
             $this->api->setAccessToken($data['access_token']);
             $apiUser = $this->api->getRoot()->getCurrentUser();
         } catch (ExceptionInterface $e) {
@@ -145,7 +143,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
 
     public function supports(Request $request): ?bool
     {
-        return $this->httpUtils->checkRequestPath($request, $this->oauthCallbackRoute);
+        return $this->httpUtils->checkRequestPath($request, 'symfony_connect_callback');
     }
 
     /**
