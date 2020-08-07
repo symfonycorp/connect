@@ -36,6 +36,8 @@
 
         <service id="symfony_connect.oauth_controller" class="SymfonyCorp\Connect\Controller\OAuthController">
             <argument type="service" id="security.authentication.entry_point.symfony_connect" />
+            <argument /> <!-- start template -->
+            <argument /> <!-- failure template -->
             <tag name="controller.service_arguments" />
         </service>
 
@@ -47,9 +49,8 @@
             <argument /> <!-- user provider -->
             <argument type="service" id="security.http_utils" />
             <argument type="service" id="logger" />
-            <argument>symfony_connect_callback</argument>
-            <argument type="service" id="twig" on-invalid="null" />
-            <argument>%symfony_connect.api.start_template%</argument>
+            <argument /> <!-- start template -->
+            <argument /> <!-- failure template -->
             <call method="setRethrowException">
                 <argument>%kernel.debug%</argument>
             </call>

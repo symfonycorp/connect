@@ -18,6 +18,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\Exception\AuthenticationServiceException;
+use Symfony\Component\Security\Core\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
@@ -32,7 +33,6 @@ use SymfonyCorp\Connect\OAuthConsumer;
 use SymfonyCorp\Connect\Security\Authentication\Token\ConnectToken;
 use SymfonyCorp\Connect\Security\Exception\OAuthAccessDeniedException;
 use SymfonyCorp\Connect\Security\Exception\OAuthStrictChecksFailedException;
-use Twig\Environment;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>
@@ -44,21 +44,19 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
     private $userProvider;
     private $httpUtils;
     private $logger;
-    private $oauthCallbackRoute;
     private $hideException = true;
-    private $twig;
-    private $template;
+    private $startTemplate;
+    private $failureTemplate;
 
-    public function __construct(OAuthConsumer $oauthConsumer, Api $api, UserProviderInterface $userProvider, HttpUtils $httpUtils, LoggerInterface $logger = null, string $oauthCallbackRoute = 'symfony_connect_callback', Environment $twig = null, string $template = null)
+    public function __construct(OAuthConsumer $oauthConsumer, Api $api, UserProviderInterface $userProvider, HttpUtils $httpUtils, LoggerInterface $logger = null, string $startTemplate = null, string $failureTemplate = null)
     {
         $this->oauthConsumer = $oauthConsumer;
         $this->api = $api;
         $this->userProvider = $userProvider;
         $this->httpUtils = $httpUtils;
         $this->logger = $logger;
-        $this->oauthCallbackRoute = $oauthCallbackRoute;
-        $this->twig = $twig;
-        $this->template = $template;
+        $this->startTemplate = $startTemplate;
+        $this->failureTemplate = $failureTemplate;
     }
 
     public function setRethrowException(bool $rethrowException): void
@@ -79,15 +77,15 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
         }
 
         $session->getFlashBag()->set('symfony_connect.oauth.state', $state = bin2hex(random_bytes(32)));
-        $authenticationUri = $this->oauthConsumer->getAuthorizationUri($this->httpUtils->generateUri($request, $this->oauthCallbackRoute), $state);
+        $authenticationUri = $this->oauthConsumer->getAuthorizationUri($this->httpUtils->generateUri($request, 'symfony_connect_callback'), $state);
 
-        if (!$this->template) {
+        if (!$this->startTemplate) {
             return new RedirectResponse($authenticationUri);
         }
 
-        return new Response($this->twig->render($this->template, [
-            'authentication_uri' => $authenticationUri,
-        ]));
+        $request->getSession()->set('symfony_connect.authentication_uri', $authenticationUri);
+
+        return new RedirectResponse($this->httpUtils->generateUri($request, 'symfony_connect_start'));
     }
 
     public function authenticate(Request $request): PassportInterface
@@ -111,7 +109,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
                 throw new OAuthException('access_denied', 'Your session has expired. Please try again.');
             }
 
-            $data = $this->oauthConsumer->requestAccessToken($this->httpUtils->generateUri($request, $this->oauthCallbackRoute), $request->query->get('code'));
+            $data = $this->oauthConsumer->requestAccessToken($this->httpUtils->generateUri($request, 'symfony_connect_callback'), $request->query->get('code'));
             $this->api->setAccessToken($data['access_token']);
             $apiUser = $this->api->getRoot()->getCurrentUser();
         } catch (ExceptionInterface $e) {
@@ -145,7 +143,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
 
     public function supports(Request $request): ?bool
     {
-        return $this->httpUtils->checkRequestPath($request, $this->oauthCallbackRoute);
+        return $this->httpUtils->checkRequestPath($request, 'symfony_connect_callback');
     }
 
     /**
@@ -163,7 +161,13 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
     {
-        return null;
+        if (!$this->failureTemplate) {
+            return null;
+        }
+
+        $request->getSession()->set(Security::AUTHENTICATION_ERROR, $exception);
+
+        return new RedirectResponse($this->httpUtils->generateUri($request, 'symfony_connect_failure'));
     }
 
     public function isInteractive(): bool
