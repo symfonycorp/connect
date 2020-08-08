@@ -14,6 +14,8 @@ namespace SymfonyCorp\Connect\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Contracts\Translation\TranslatorTrait;
 use SymfonyCorp\Connect\Security\EntryPoint\ConnectEntryPoint;
 use SymfonyCorp\Connect\Security\Exception\OAuthAccessDeniedException;
 use SymfonyCorp\Connect\Security\Exception\OAuthStrictChecksFailedException;
@@ -47,7 +49,7 @@ class OAuthController
         ]));
     }
 
-    public function failure(Request $request, Environment $twig)
+    public function failure(Request $request, Environment $twig, TranslatorInterface $translator = null)
     {
         $e = $request->getSession()->get(Security::AUTHENTICATION_ERROR);
 
@@ -58,9 +60,16 @@ class OAuthController
             $type = 'access_denied';
         }
 
+        if (null === $translator) {
+            $translator = new class() implements TranslatorInterface {
+                use TranslatorTrait;
+            };
+        }
+
         return new Response($twig->render($this->failureTemplate, [
             'type' => $type,
             'authentication_error' => $e,
+            'authentication_error_message' => $translator->trans((string) $e->getMessageKey(), $e->getMessageData() ?: [], 'security'),
         ]));
     }
 }
