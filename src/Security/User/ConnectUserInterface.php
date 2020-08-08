@@ -6,5 +6,5 @@ use SymfonyCorp\Connect\Api\Entity\User;
 
 interface ConnectUserInterface
 {
-    public function updateFromConnectUser(User $user): void;
+    public function updateFromConnectUser(User $user, string $accessToken): void;
 }

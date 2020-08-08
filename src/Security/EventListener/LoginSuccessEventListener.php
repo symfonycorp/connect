@@ -33,7 +33,7 @@ class LoginSuccessEventListener implements EventSubscriberInterface
             return;
         }
 
-        $user->updateFromConnectUser($token->getApiUser());
+        $user->updateFromConnectUser($token->getApiUser(), $token->getAccessToken());
 
         $this->em->persist($user);
         $this->em->flush();
