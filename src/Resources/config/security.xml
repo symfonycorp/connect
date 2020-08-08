@@ -56,5 +56,10 @@
             </call>
         </service>
 
+        <service id="symfony_connect.login_success_listener" class="SymfonyCorp\Connect\Security\EventListener\LoginSuccessEventListener">
+            <argument type="service" id="Doctrine\ORM\EntityManagerInterface" />
+            <tag name="kernel.event_subscriber" />
+        </service>
+
     </services>
 </container>
