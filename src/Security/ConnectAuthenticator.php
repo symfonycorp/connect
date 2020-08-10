@@ -123,7 +123,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
             }
 
             if (null !== $this->logger) {
-                $this->logger->critical('Something went wrong while trying to access SymfonyConnect.', ['exception' => $e]);
+                $this->logger->critical(sprintf('Something went wrong while trying to access SymfonyConnect: %s.', $e->getMessage()), ['exception' => $e]);
             }
 
             if ($this->hideException) {
