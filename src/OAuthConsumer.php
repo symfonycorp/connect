@@ -103,18 +103,14 @@ class OAuthConsumer
         }
 
         if (isset($response['error'])) {
-            $this->logger->error('The OAuth2 provider responded with an error', ['response' => $content]);
+            $e = new OAuthException($response['error'], $response['message']);
 
-            $error = $response['error'];
-            $message = $response['message'];
+            $this->logger->error(sprintf('The OAuth2 provider responded with an error: %s %s', $e->getType(), $e->getMessage()), ['response' => $content]);
 
-            throw new OAuthException($error, $message);
+            throw $e;
         }
 
-        $token = $response['access_token'];
-        $scope = $response['scope'];
-
-        return ['access_token' => $token, 'scope' => $scope];
+        return ['access_token' => $response['access_token'], 'scope' => $response['scope']];
     }
 
     public function getAppId(): string
