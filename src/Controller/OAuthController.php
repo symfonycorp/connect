@@ -51,7 +51,10 @@ class OAuthController
 
     public function failure(Request $request, Environment $twig, TranslatorInterface $translator = null)
     {
-        $e = $request->getSession()->get(Security::AUTHENTICATION_ERROR);
+        if (!$e = $request->getSession()->get(Security::AUTHENTICATION_ERROR)) {
+            // directly going to this controller without an exception should generate a 404
+            return new Response('', 404);
+        }
 
         $type = '';
         if ($e instanceof OAuthStrictChecksFailedException) {
