@@ -12,8 +12,7 @@
 namespace SymfonyCorp\Connect\DependencyInjection\Security\Factory;
 
 use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\AuthenticatorFactoryInterface;
-use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\EntryPointFactoryInterface;
 
-class AuthenticatorConnectFactory extends ConnectFactory implements AuthenticatorFactoryInterface, EntryPointFactoryInterface
+class AuthenticatorConnectFactory extends ConnectFactory implements AuthenticatorFactoryInterface
 {
 }

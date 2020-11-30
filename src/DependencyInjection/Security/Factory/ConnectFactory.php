@@ -54,11 +54,6 @@ class ConnectFactory extends AbstractFactory
         return $authenticatorId;
     }
 
-    public function registerEntryPoint(ContainerBuilder $container, string $id, array $config): ?string
-    {
-        return 'symfony_connect.authenticator.'.$id;
-    }
-
     /**
      * Subclasses must return the id of the abstract listener template.
      *
