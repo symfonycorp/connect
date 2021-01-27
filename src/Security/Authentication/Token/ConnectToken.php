@@ -52,14 +52,20 @@ class ConnectToken extends AbstractToken
     {
         $user = $this->getUser();
         if ($user instanceof UserInterface) {
-            return $this->getUserRoles($user);
-        }
-
-        if (method_exists(AbstractToken::class, 'getRoleNames')) {
-            return parent::getRoleNames();
+            return array_map([$this, 'getObjectUserRole'], $user->getRoles());
         }
 
         return parent::getRoles();
+    }
+
+    public function getRolesNames()
+    {
+        $user = $this->getUser();
+        if ($user instanceof UserInterface) {
+            return array_map([$this, 'getStringUserRole'], $user->getRoles());
+        }
+
+        return parent::getRoleNames();
     }
 
     public function setScope($scope)
@@ -100,17 +106,6 @@ class ConnectToken extends AbstractToken
     public function getCredentials()
     {
         return $this->accessToken;
-    }
-
-    private function getUserRoles(UserInterface $user)
-    {
-        $callBackMethod = 'getObjectUserRole';
-
-        if (method_exists(AbstractToken::class, 'getRoleNames')) {
-            $callBackMethod = 'getStringUserRole';
-        }
-
-        return array_map([$this, $callBackMethod], $user->getRoles());
     }
 
     private function getStringUserRole($role)
