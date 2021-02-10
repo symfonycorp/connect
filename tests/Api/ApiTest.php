@@ -45,13 +45,13 @@ class ApiTest extends TestCase
     {
         $api = $this->createApi(new MockHttpClient(function ($method, $url, $options) {
             $this->assertSame('GET', $method);
-            $this->assertSame('http://foobar/api/', $url);
+            $this->assertSame('http://foobar/api', $url);
             $this->assertContains('Accept: application/vnd.com.symfony.connect+xml', $options['headers']);
 
             return $this->createResponse(200, $this->rootXml);
         }));
 
-        $object = $api->get('http://foobar/api/');
+        $object = $api->get('http://foobar/api');
         $this->assertInstanceOf('SymfonyCorp\Connect\Api\Entity\Root', $object);
     }
 
@@ -59,24 +59,24 @@ class ApiTest extends TestCase
     {
         $api = $this->createApi(new MockHttpClient(function ($method, $url) {
             $this->assertSame('GET', $method);
-            $this->assertSame('http://foobar/api/', $url);
+            $this->assertSame('http://foobar/api', $url);
 
             return $this->createResponse('204', $this->rootXml);
         }));
 
-        $this->assertTrue($api->get('http://foobar/api/'));
+        $this->assertTrue($api->get('http://foobar/api'));
     }
 
     public function testGetReturnsTrueIfServerReturns201StatusCodeWithAnEmptyResponse()
     {
         $api = $this->createApi(new MockHttpClient(function ($method, $url) {
             $this->assertSame('GET', $method);
-            $this->assertSame('http://foobar/api/', $url);
+            $this->assertSame('http://foobar/api', $url);
 
             return $this->createResponse('201', '');
         }));
 
-        $this->assertTrue($api->get('http://foobar/api/'));
+        $this->assertTrue($api->get('http://foobar/api'));
     }
 
     public function testGetThrowsClientExceptionWhenServerReturns40xStatusCode()
@@ -85,12 +85,12 @@ class ApiTest extends TestCase
 
         $api = $this->createApi(new MockHttpClient(function ($method, $url) {
             $this->assertSame('GET', $method);
-            $this->assertSame('http://foobar/api/', $url);
+            $this->assertSame('http://foobar/api', $url);
 
             return $this->createResponse(400, $this->rootXml);
         }));
 
-        $api->get('http://foobar/api/');
+        $api->get('http://foobar/api');
     }
 
     public function testGetThrowsServerExceptionWhenServerReturns50xStatusCode()
@@ -99,32 +99,32 @@ class ApiTest extends TestCase
 
         $api = $this->createApi(new MockHttpClient(function ($method, $url) {
             $this->assertSame('GET', $method);
-            $this->assertSame('http://foobar/api/', $url);
+            $this->assertSame('http://foobar/api', $url);
 
             return $this->createResponse(500, '');
         }));
 
-        $api->get('http://foobar/api/');
+        $api->get('http://foobar/api');
     }
 
     public function testGetAddsAccessTokenToQueryParameter()
     {
         $api = $this->createApi(new MockHttpClient(function ($method, $url) {
             $this->assertSame('GET', $method);
-            $this->assertSame('http://foobar/api/?access_token=foobar', $url);
+            $this->assertSame('http://foobar/api?access_token=foobar', $url);
 
             return $this->createResponse(200, $this->rootXml);
         }));
 
         $api->setAccessToken('foobar');
-        $api->get('http://foobar/api/');
+        $api->get('http://foobar/api');
     }
 
     public function testSubmit()
     {
         $api = $this->createApi(new MockHttpClient(function ($method, $url, $options) {
             $this->assertSame('POST', $method);
-            $this->assertSame('http://foobar/api/?access_token=foobar', $url);
+            $this->assertSame('http://foobar/api?access_token=foobar', $url);
             $this->assertSame('foo=bar', $options['body']);
             $this->assertContains('Accept: application/vnd.com.symfony.connect+xml', $options['headers']);
 
@@ -132,7 +132,7 @@ class ApiTest extends TestCase
         }));
 
         $api->setAccessToken('foobar');
-        $api->submit('http://foobar/api/', 'POST', ['foo' => 'bar']);
+        $api->submit('http://foobar/api', 'POST', ['foo' => 'bar']);
     }
 
     public function testSubmitThrowsClientExceptionWhenServerReturns40xStatusCode()
@@ -141,25 +141,25 @@ class ApiTest extends TestCase
 
         $api = $this->createApi(new MockHttpClient(function ($method, $url) {
             $this->assertSame('POST', $method);
-            $this->assertSame('http://foobar/api/', $url);
+            $this->assertSame('http://foobar/api', $url);
 
             return $this->createResponse(400, '');
         }));
 
-        $api->submit('http://foobar/api/', 'POST', ['foo' => 'bar']);
+        $api->submit('http://foobar/api', 'POST', ['foo' => 'bar']);
     }
 
     public function testSubmitThrowsClientExceptionAndAddErrorWhenServerReturns40xStatusCode()
     {
         $api = $this->createApi(new MockHttpClient(function ($method, $url) {
             $this->assertSame('POST', $method);
-            $this->assertSame('http://foobar/api/', $url);
+            $this->assertSame('http://foobar/api', $url);
 
             return $this->createResponse(400, $this->errorXml);
         }));
 
         try {
-            $api->submit('http://foobar/api/', 'POST', ['foo' => 'bar']);
+            $api->submit('http://foobar/api', 'POST', ['foo' => 'bar']);
         } catch (\Exception $e) {
             $this->assertInstanceOf('SymfonyCorp\Connect\Exception\ApiClientException', $e);
             $this->assertInstanceOf('SymfonyCorp\Connect\Api\Model\Error', $e->getError());
@@ -173,12 +173,12 @@ class ApiTest extends TestCase
 
         $api = $this->createApi(new MockHttpClient(function ($method, $url) {
             $this->assertSame('POST', $method);
-            $this->assertSame('http://foobar/api/', $url);
+            $this->assertSame('http://foobar/api', $url);
 
             return $this->createResponse(500, '');
         }));
 
-        $api->submit('http://foobar/api/', 'POST', ['foo' => 'bar']);
+        $api->submit('http://foobar/api', 'POST', ['foo' => 'bar']);
     }
 
     public function getRoot()
