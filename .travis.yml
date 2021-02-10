@@ -2,9 +2,10 @@ language: php
 
 matrix:
   include:
-    - php: 7.1
     - php: 7.2
-    - php: 7.3
+    - php: 7.4
+    - php: 8.0
+    - php: 8.0
       env: deps=low
 
   fast_finish: true
@@ -15,12 +16,11 @@ cache:
 
 env:
   global:
-    - SYMFONY_PHPUNIT_VERSION=5.7
     - SYMFONY_DEPRECATIONS_HELPER=99999
 
 before_script:
     - |
-      export COMPOSER_UP='composer update --dev --no-interaction --no-progress --no-suggest --ansi'
+      export COMPOSER_UP='composer update --no-interaction --no-progress --ansi'
 
     - |
       if [[ $deps = low ]]; then
