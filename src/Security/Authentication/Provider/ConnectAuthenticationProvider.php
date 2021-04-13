@@ -23,12 +23,12 @@ use SymfonyCorp\Connect\Security\Authentication\Token\ConnectToken;
 class ConnectAuthenticationProvider implements AuthenticationProviderInterface
 {
     private $userProvider;
-    private $providerKey;
+    private $firewallName;
 
-    public function __construct(UserProviderInterface $userProvider, $providerKey)
+    public function __construct(UserProviderInterface $userProvider, $firewallName)
     {
         $this->userProvider = $userProvider;
-        $this->providerKey = $providerKey;
+        $this->firewallName = $firewallName;
     }
 
     public function authenticate(TokenInterface $token): TokenInterface
@@ -36,7 +36,7 @@ class ConnectAuthenticationProvider implements AuthenticationProviderInterface
         try {
             $localUser = $this->userProvider->loadUserByUsername($token->getUser());
 
-            $authorizedToken = new ConnectToken($localUser, $token->getAccessToken(), $token->getApiUser(), $this->providerKey, $token->getScope(), $localUser->getRoles());
+            $authorizedToken = new ConnectToken($localUser, $token->getAccessToken(), $token->getApiUser(), $this->firewallName, $token->getScope(), $localUser->getRoles());
             $authorizedToken->setAttributes($token->getAttributes());
 
             return $authorizedToken;

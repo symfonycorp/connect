@@ -23,22 +23,22 @@ use SymfonyCorp\Connect\Api\Entity\User;
 class ConnectToken extends AbstractToken
 {
     private $accessToken;
-    private $providerKey;
+    private $firewallName;
     private $apiUser;
     private $scope;
 
-    public function __construct($user, $accessToken, User $apiUser = null, $providerKey, $scope = null, array $roles = [])
+    public function __construct($user, $accessToken, User $apiUser = null, $firewallName, $scope = null, array $roles = [])
     {
         parent::__construct($roles);
 
-        if (empty($providerKey)) {
-            throw new \InvalidArgumentException('$providerKey must not be empty.');
+        if (empty($firewallName)) {
+            throw new \InvalidArgumentException('$firewallName must not be empty.');
         }
 
         $this->setUser($user);
         $this->setAccessToken($accessToken);
         $this->apiUser = $apiUser;
-        $this->providerKey = $providerKey;
+        $this->firewallName = $firewallName;
         $this->scope = $scope;
 
         parent::setAuthenticated(\count($roles) > 0);
@@ -98,9 +98,17 @@ class ConnectToken extends AbstractToken
         return $this->apiUser;
     }
 
+    /**
+     * @deprecated use getFirewallName() instead
+     */
     public function getProviderKey()
     {
-        return $this->providerKey;
+        return $this->firewallName;
+    }
+
+    public function getFirewallName()
+    {
+        return $this->firewallName;
     }
 
     public function getCredentials()
@@ -110,12 +118,12 @@ class ConnectToken extends AbstractToken
 
     public function __serialize(): array
     {
-        return [$this->apiUser, $this->accessToken, $this->providerKey, $this->scope, parent::__serialize()];
+        return [$this->apiUser, $this->accessToken, $this->firewallName, $this->scope, parent::__serialize()];
     }
 
     public function __unserialize(array $data): void
     {
-        list($this->apiUser, $this->accessToken, $this->providerKey, $this->scope, $parentState) = $data;
+        list($this->apiUser, $this->accessToken, $this->firewallName, $this->scope, $parentState) = $data;
 
         parent::__unserialize($parentState);
     }
