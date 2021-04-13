@@ -22,7 +22,7 @@
 
        <service id="security.authentication.provider.symfony_connect" class="SymfonyCorp\Connect\Security\Authentication\Provider\ConnectAuthenticationProvider" abstract="true">
            <argument /> <!-- user provider -->
-           <argument /> <!-- providerKey -->
+           <argument /> <!-- firewallName / providerKey -->
        </service>
 
         <service id="security.authentication.entry_point.symfony_connect" class="SymfonyCorp\Connect\Security\EntryPoint\ConnectEntryPoint">
