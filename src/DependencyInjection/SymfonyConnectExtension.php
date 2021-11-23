@@ -28,6 +28,9 @@ class SymfonyConnectExtension extends Extension
         $this->securityEnabled = true;
     }
 
+    /**
+     * @return string
+     */
     public function getAlias()
     {
         return 'symfony_connect';
