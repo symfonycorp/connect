@@ -111,6 +111,9 @@ class ConnectToken extends AbstractToken
         return $this->firewallName;
     }
 
+    /**
+     * @return mixed
+     */
     public function getCredentials()
     {
         return $this->accessToken;
