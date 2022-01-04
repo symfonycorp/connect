@@ -14,13 +14,12 @@ namespace SymfonyCorp\Connect\Security;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\PassportTrait;
-use Symfony\Component\Security\Http\Authenticator\Passport\UserPassportInterface;
 use SymfonyCorp\Connect\Api\Entity\User;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>
  */
-class ConnectPassport extends Passport implements UserPassportInterface
+class ConnectPassport extends Passport
 {
     use PassportTrait;
 
