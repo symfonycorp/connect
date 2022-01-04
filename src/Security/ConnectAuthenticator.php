@@ -11,6 +11,7 @@
 
 namespace SymfonyCorp\Connect\Security;
 
+use App\Entity\Security\User;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -135,12 +136,15 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
             throw $e;
         }
 
+        /** @var User $localUser */
         $localUser = method_exists($this->userProvider, 'loadUserByUserIdentifier') ? $this->userProvider->loadUserByUserIdentifier($apiUser->getUuid()) : $this->userProvider->loadUserByUsername($apiUser->getUuid());
         if (!$localUser instanceof UserInterface) {
             throw new AuthenticationServiceException('The user provider must return a UserInterface object.');
         }
 
-        $passport = new SelfValidatingPassport(new UserBadge($localUser), []);
+        $passport = new SelfValidatingPassport(new UserBadge($localUser->getUuid(), function (string $symfonyConnectUuid) {
+            return method_exists($this->userProvider, 'loadUserByUserIdentifier') ? $this->userProvider->loadUserByUserIdentifier($symfonyConnectUuid) : $this->userProvider->loadUserByUsername($symfonyConnectUuid);
+        }), []);
         $passport->setAttribute('apiUser', $apiUser);
         $passport->setAttribute('accessToken', $data['access_token']);
         $passport->setAttribute('scope', $data['scope']);
