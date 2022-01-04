@@ -205,21 +205,33 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
         $this->properties[$property][] = $value;
     }
 
+    /**
+     * @return bool
+     */
     public function offsetExists($index)
     {
         return \array_key_exists($index, $this->properties);
     }
 
+    /**
+     * @return mixed
+     */
     public function offsetGet($index)
     {
         return $this->get($index);
     }
 
+    /**
+     * @return void
+     */
     public function offsetSet($index, $value)
     {
         $this->set($index, $value);
     }
 
+    /**
+     * @return void
+     */
     public function offsetUnset($index)
     {
         throw new \BadMethodCallException('Not available.');

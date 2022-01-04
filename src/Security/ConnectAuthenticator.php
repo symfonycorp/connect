@@ -23,7 +23,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
 use Symfony\Component\Security\Http\Authenticator\InteractiveAuthenticatorInterface;
+use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
 use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
+use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPassport;
 use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
 use Symfony\Component\Security\Http\HttpUtils;
 use SymfonyCorp\Connect\Api\Api;
@@ -133,12 +135,17 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
             throw $e;
         }
 
-        $localUser = $this->userProvider->loadUserByUsername($apiUser->getUuid());
+        $localUser = method_exists($this->userProvider, 'loadUserByUserIdentifier') ? $this->userProvider->loadUserByUserIdentifier($apiUser->getUuid()) : $this->userProvider->loadUserByUsername($apiUser->getUuid());
         if (!$localUser instanceof UserInterface) {
             throw new AuthenticationServiceException('The user provider must return a UserInterface object.');
         }
 
-        return new ConnectPassport($localUser, $apiUser, $data['access_token'], $data['scope']);
+        $passport = new SelfValidatingPassport(new UserBadge($localUser), []);
+        $passport->setAttribute('apiUser', $apiUser);
+        $passport->setAttribute('accessToken', $data['access_token']);
+        $passport->setAttribute('scope', $data['scope']);
+
+        return $passport;
     }
 
     public function supports(Request $request): ?bool
@@ -146,12 +153,9 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
         return $this->httpUtils->checkRequestPath($request, 'symfony_connect_callback');
     }
 
-    /**
-     * @param ConnectPassport $passport
-     */
     public function createAuthenticatedToken(PassportInterface $passport, string $firewallName): TokenInterface
     {
-        return new ConnectToken($passport->getUser(), $passport->getAccessToken(), $passport->getApiUser(), $firewallName, $passport->getScope(), $passport->getUser()->getRoles());
+        return new ConnectToken($passport->getUser(), $passport->getAttribute('accessToken'), $passport->getAttribute('apiUser'), $firewallName, $passport->getAttribute('scope'), $passport->getUser()->getRoles());
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $firewallName): ?Response
