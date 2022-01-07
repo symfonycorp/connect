@@ -140,9 +140,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
             throw new AuthenticationServiceException('The user provider must return a UserInterface object.');
         }
 
-        $passport = new SelfValidatingPassport(new UserBadge($apiUser->getUuid(), function (string $symfonyConnectUuid) {
-            return method_exists($this->userProvider, 'loadUserByUserIdentifier') ? $this->userProvider->loadUserByUserIdentifier($symfonyConnectUuid) : $this->userProvider->loadUserByUsername($symfonyConnectUuid);
-        }), []);
+        $passport = new SelfValidatingPassport(new UserBadge($apiUser->getUuid()), []);
         $passport->setAttribute('apiUser', $apiUser);
         $passport->setAttribute('accessToken', $data['access_token']);
         $passport->setAttribute('scope', $data['scope']);
