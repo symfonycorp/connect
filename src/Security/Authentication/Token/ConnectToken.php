@@ -41,7 +41,10 @@ class ConnectToken extends AbstractToken
         $this->firewallName = $firewallName;
         $this->scope = $scope;
 
-        parent::setAuthenticated(\count($roles) > 0);
+        // @deprecated since Symfony 5.4
+        if (method_exists($this, 'setAuthenticated')) {
+            parent::setAuthenticated(\count($roles) > 0, false);
+        }
     }
 
     public function getRoleNames(): array
