@@ -13,6 +13,7 @@ namespace SymfonyCorp\Connect;
 
 use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\AuthenticatorFactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 use SymfonyCorp\Connect\DependencyInjection\Security\Factory\AuthenticatorConnectFactory;
 use SymfonyCorp\Connect\DependencyInjection\Security\Factory\ConnectFactory;
@@ -24,7 +25,7 @@ use SymfonyCorp\Connect\DependencyInjection\SymfonyConnectExtension;
  */
 class SymfonyConnectBundle extends Bundle
 {
-    public function getContainerExtension()
+    public function getContainerExtension(): ?ExtensionInterface
     {
         if (null === $this->extension) {
             $this->extension = new SymfonyConnectExtension();
