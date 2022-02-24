@@ -74,20 +74,17 @@ class ConnectFactory extends AbstractFactory
         return 'security.authentication.listener.symfony_connect';
     }
 
-    public function getPosition()
+    public function getPosition(): string
     {
         return 'form';
     }
 
-    public function getKey()
+    public function getKey(): string
     {
         return 'symfony_connect';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function createEntryPoint($container, $id, $config, $defaultEntryPointId)
+    protected function createEntryPoint($container, $id, $config, $defaultEntryPointId): ?string
     {
         $entryPoint = 'security.authentication.entry_point.symfony_connect.'.$id;
         $container

@@ -16,9 +16,17 @@ use Symfony\Bundle\SecurityBundle\DependencyInjection\Security\Factory\Authentic
 if (interface_exists(EntryPointFactoryInterface::class)) {
     class AuthenticatorConnectFactory extends ConnectFactory implements AuthenticatorFactoryInterface, EntryPointFactoryInterface
     {
+        public function getPriority(): int
+        {
+            return 0;
+        }
     }
 } else {
     class AuthenticatorConnectFactory extends ConnectFactory implements AuthenticatorFactoryInterface
     {
+        public function getPriority(): int
+        {
+            return 0;
+        }
     }
 }
