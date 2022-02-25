@@ -12,7 +12,7 @@
 namespace SymfonyCorp\Connect\Tests\Security\Authentication\Token;
 
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Security\Core\User\User;
+use Symfony\Component\Security\Core\User\InMemoryUser;
 use SymfonyCorp\Connect\Security\Authentication\Token\ConnectToken;
 
 /**
@@ -20,19 +20,9 @@ use SymfonyCorp\Connect\Security\Authentication\Token\ConnectToken;
  */
 class ConnectTokenTest extends TestCase
 {
-    public function testGetRolesWithStringUser()
-    {
-        $token = new ConnectToken('paul', 'xxxx', null, 'xxxx', null, ['ROLE_USER', 'ROLE_ADMIN']);
-        $roles = $token->getRoles();
-
-        $this->assertCount(2, $roles);
-        $this->assertEquals('ROLE_USER', \is_string($roles[0]) ? $roles[0] : $roles[0]->getRole());
-        $this->assertEquals('ROLE_ADMIN', \is_string($roles[1]) ? $roles[1] : $roles[1]->getRole());
-    }
-
     public function testGetRolesWithUserInterfaceUser()
     {
-        $user = new User('paul', 'xxxx', ['ROLE_SINGLE']);
+        $user = new InMemoryUser('paul', 'xxxx', ['ROLE_SINGLE']);
         $token = new ConnectToken($user, 'xxxx', null, 'xxxx', null, ['ROLE_USER', 'ROLE_ADMIN']);
         $roles = $token->getRoles();
 
@@ -42,7 +32,7 @@ class ConnectTokenTest extends TestCase
 
     public function testSerialization()
     {
-        $user = new User('paul', 'xxxx', ['ROLE_SINGLE']);
+        $user = new InMemoryUser('paul', 'xxxx', ['ROLE_SINGLE']);
         $token = new ConnectToken($user, 'xxxx', null, 'xxxx', null, ['ROLE_USER', 'ROLE_ADMIN']);
         $unserialized = unserialize(serialize($token));
         $this->assertSame($token->getScope(), $unserialized->getScope());

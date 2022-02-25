@@ -12,7 +12,6 @@
 namespace SymfonyCorp\Connect\Security\Authentication\Token;
 
 use Symfony\Component\Security\Core\Authentication\Token\AbstractToken;
-use Symfony\Component\Security\Core\Role\Role;
 use Symfony\Component\Security\Core\Role\RoleInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use SymfonyCorp\Connect\Api\Entity\User;
@@ -147,8 +146,8 @@ class ConnectToken extends AbstractToken
 
     private function getStringUserRole($role)
     {
-        if (!\is_string($role) && !($role instanceof Role)) {
-            throw new \InvalidArgumentException(sprintf('$roles must be an array of strings, or Role instances, but got %s.', \gettype($role)));
+        if (!\is_string($role)) {
+            throw new \InvalidArgumentException(sprintf('$roles must be an array of strings, but got %s.', \gettype($role)));
         }
 
         return (string) $role;
@@ -156,14 +155,6 @@ class ConnectToken extends AbstractToken
 
     private function getObjectUserRole($role)
     {
-        if (\is_string($role)) {
-            return new Role($role);
-        }
-
-        if (!$role instanceof RoleInterface) {
-            throw new \InvalidArgumentException(sprintf('$roles must be an array of strings, or RoleInterface instances, but got %s.', \gettype($role)));
-        }
-
-        return $role;
+        return (string) $role;
     }
 }

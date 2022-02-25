@@ -23,7 +23,7 @@ class ApiException extends \RuntimeException implements ExceptionInterface
         $this->body = $body;
         $this->headers = [];
 
-        parent::__construct($message, $code, $previous);
+        parent::__construct($message ?? '', $code, $previous);
     }
 
     public function getStatusCode()
