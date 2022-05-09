@@ -24,7 +24,7 @@ class ConnectTokenTest extends TestCase
     {
         $user = new InMemoryUser('paul', 'xxxx', ['ROLE_SINGLE']);
         $token = new ConnectToken($user, 'xxxx', null, 'xxxx', null, ['ROLE_USER', 'ROLE_ADMIN']);
-        $roles = $token->getRoles();
+        $roles = $token->getRoleNames();
 
         $this->assertCount(1, $roles);
         $this->assertEquals('ROLE_SINGLE', \is_string($roles[0]) ? $roles[0] : $roles[0]->getRole());
@@ -37,6 +37,6 @@ class ConnectTokenTest extends TestCase
         $unserialized = unserialize(serialize($token));
         $this->assertSame($token->getScope(), $unserialized->getScope());
         $this->assertSame($token->getAccessToken(), $unserialized->getAccessToken());
-        $this->assertSame($token->getProviderKey(), $unserialized->getProviderKey());
+        $this->assertSame($token->getFirewallName(), $unserialized->getFirewallName());
     }
 }

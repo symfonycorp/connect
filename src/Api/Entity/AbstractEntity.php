@@ -246,5 +246,16 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
         $this->forms = [];
     }
 
+    public function serialize(): string
+    {
+        return serialize([$this->selfUrl, $this->alternateUrl, $this->properties]);
+    }
+
+    public function unserialize(string $data): void
+    {
+        [$this->selfUrl, $this->alternateUrl, $this->properties] = unserialize($data);
+        $this->forms = [];
+    }
+
     abstract protected function configure();
 }

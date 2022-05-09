@@ -46,12 +46,7 @@ class SymfonyConnectBundle extends Bundle
                 $securityFactory = new ConnectFactory();
             }
 
-            if (method_exists($container->getExtension('security'), 'addAuthenticatorFactory')) {
-                $container->getExtension('security')->addAuthenticatorFactory($securityFactory);
-            } else {
-                // deprecated since Symfony 5.4
-                $container->getExtension('security')->addSecurityListenerFactory($securityFactory);
-            }
+            $container->getExtension('security')->addAuthenticatorFactory($securityFactory);
         }
     }
 }
