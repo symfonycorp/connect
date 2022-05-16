@@ -102,4 +102,9 @@ class ConnectFactory extends AbstractFactory
 
         return new DefinitionDecorator($id);
     }
+
+    public function getPriority(): int
+    {
+        return 0;
+    }
 }

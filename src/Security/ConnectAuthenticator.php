@@ -135,7 +135,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
             throw $e;
         }
 
-        $localUser = method_exists($this->userProvider, 'loadUserByUserIdentifier') ? $this->userProvider->loadUserByUserIdentifier($apiUser->getUuid()) : $this->userProvider->loadUserByUsername($apiUser->getUuid());
+        $localUser = method_exists($this->userProvider, 'loadUserByIdentifier') ? $this->userProvider->loadUserByIdentifier($apiUser->getUuid()) : $this->userProvider->loadUserByUsername($apiUser->getUuid());
         if (!$localUser instanceof UserInterface) {
             throw new AuthenticationServiceException('The user provider must return a UserInterface object.');
         }

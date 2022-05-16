@@ -12,7 +12,7 @@
 namespace SymfonyCorp\Connect\Security\User;
 
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
-use Symfony\Component\Security\Core\User\User;
+use Symfony\Component\Security\Core\User\InMemoryUser;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
@@ -31,14 +31,14 @@ class ConnectInMemoryUserProvider implements UserProviderInterface
     public function __construct(array $users = [])
     {
         foreach ($users as $username => $roles) {
-            $this->users[$username] = new User($username, '', (array) $roles, true, true, true, true);
+            $this->users[$username] = new InMemoryUser($username, '', (array) $roles, true);
         }
     }
 
     /**
      * {@inheritdoc}
      */
-    public function loadUserByUsername($username): User
+    public function loadUserByIdentifier($username): UserInterface
     {
         $user = $this->users[$username] ?? new User($username, '', ['ROLE_CONNECT_USER'], true, true, true, true);
 
@@ -48,9 +48,9 @@ class ConnectInMemoryUserProvider implements UserProviderInterface
     /**
      * {@inheritdoc}
      */
-    public function refreshUser(UserInterface $user): User
+    public function refreshUser(UserInterface $user): UserInterface
     {
-        if (!$user instanceof User) {
+        if (!$user instanceof UserInterface) {
             throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', \get_class($user)));
         }
 

@@ -34,7 +34,7 @@ class ConnectAuthenticationProvider implements AuthenticationProviderInterface
     public function authenticate(TokenInterface $token): TokenInterface
     {
         try {
-            $localUser = $this->userProvider->loadUserByUsername($token->getUser());
+            $localUser = $this->userProvider->loadUserByIdentifier($token->getUser());
 
             $authorizedToken = new ConnectToken($localUser, $token->getAccessToken(), $token->getApiUser(), $this->firewallName, $token->getScope(), $localUser->getRoles());
             $authorizedToken->setAttributes($token->getAttributes());
