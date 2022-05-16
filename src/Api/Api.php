@@ -151,7 +151,7 @@ class Api
         }
 
         $parts = parse_url($url);
-        $parts['query'] = $parts['query'] ?? null;
+        $parts['query'] = $parts['query'] ?? '';
         parse_str($parts['query'], $query);
         $query['access_token'] = $this->getAccessToken();
         $parts['query'] = http_build_query($query);

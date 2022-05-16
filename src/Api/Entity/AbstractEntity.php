@@ -205,34 +205,22 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
         $this->properties[$property][] = $value;
     }
 
-    /**
-     * @return bool
-     */
-    public function offsetExists($index)
+    public function offsetExists(mixed $index): bool
     {
         return \array_key_exists($index, $this->properties);
     }
 
-    /**
-     * @return mixed
-     */
-    public function offsetGet($index)
+    public function offsetGet(mixed $index): mixed
     {
         return $this->get($index);
     }
 
-    /**
-     * @return void
-     */
-    public function offsetSet($index, $value)
+    public function offsetSet(mixed $index, mixed $value): void
     {
         $this->set($index, $value);
     }
 
-    /**
-     * @return void
-     */
-    public function offsetUnset($index)
+    public function offsetUnset(mixed $index): void
     {
         throw new \BadMethodCallException('Not available.');
     }
@@ -247,14 +235,25 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
         return $this->selfUrl;
     }
 
-    public function serialize()
+    public function __serialize(): array
+    {
+        return [$this->selfUrl, $this->alternateUrl, $this->properties];
+    }
+
+    public function __unserialize(array $data): void
+    {
+        [$this->selfUrl, $this->alternateUrl, $this->properties] = $data;
+        $this->forms = [];
+    }
+
+    public function serialize(): string
     {
         return serialize([$this->selfUrl, $this->alternateUrl, $this->properties]);
     }
 
-    public function unserialize($str)
+    public function unserialize(string $data): void
     {
-        list($this->selfUrl, $this->alternateUrl, $this->properties) = unserialize($str);
+        [$this->selfUrl, $this->alternateUrl, $this->properties] = unserialize($data);
         $this->forms = [];
     }
 
