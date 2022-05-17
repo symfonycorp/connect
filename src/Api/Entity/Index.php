@@ -36,12 +36,12 @@ class Index extends AbstractEntity implements \Countable, \IteratorAggregate
     protected function configure()
     {
         $this->addProperty('items', [])
-             ->addProperty('total')
-             ->addProperty('count')
-             ->addProperty('index')
-             ->addProperty('limit')
-             ->addProperty('nextUrl')
-             ->addProperty('prevUrl')
+            ->addProperty('total')
+            ->addProperty('count')
+            ->addProperty('index')
+            ->addProperty('limit')
+            ->addProperty('nextUrl')
+            ->addProperty('prevUrl')
         ;
     }
 
@@ -93,19 +93,19 @@ class Index extends AbstractEntity implements \Countable, \IteratorAggregate
         return \array_key_exists($offset, $this->get('items'));
     }
 
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): mixed
     {
         $items = $this->get('items');
 
         return $items[$offset];
     }
 
-    public function offsetSet($offset, $value)
+    public function offsetSet(mixed $offset, mixed $value): void
     {
         throw new \BadMethodCallException('Not implemented.');
     }
 
-    public function offsetUnset($offset)
+    public function offsetUnset(mixed $offset): void
     {
         throw new \BadMethodCallException('Not implemented.');
     }
