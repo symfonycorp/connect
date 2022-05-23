@@ -24,7 +24,7 @@ use Symfony\Component\Security\Core\User\UserProviderInterface;
 use Symfony\Component\Security\Http\Authenticator\AbstractAuthenticator;
 use Symfony\Component\Security\Http\Authenticator\InteractiveAuthenticatorInterface;
 use Symfony\Component\Security\Http\Authenticator\Passport\Badge\UserBadge;
-use Symfony\Component\Security\Http\Authenticator\Passport\PassportInterface;
+use Symfony\Component\Security\Http\Authenticator\Passport\Passport;
 use Symfony\Component\Security\Http\Authenticator\Passport\SelfValidatingPassport;
 use Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface;
 use Symfony\Component\Security\Http\HttpUtils;
@@ -90,7 +90,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
         return new RedirectResponse($this->httpUtils->generateUri($request, 'symfony_connect_start'));
     }
 
-    public function authenticate(Request $request): PassportInterface
+    public function authenticate(Request $request): Passport
     {
         $flashBag = $request->getSession()->getFlashBag();
 
@@ -153,7 +153,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
         return $this->httpUtils->checkRequestPath($request, 'symfony_connect_callback');
     }
 
-    public function createAuthenticatedToken(PassportInterface $passport, string $firewallName): TokenInterface
+    public function createAuthenticatedToken(Passport $passport, string $firewallName): TokenInterface
     {
         return new ConnectToken($passport->getUser(), $passport->getAttribute('accessToken'), $passport->getAttribute('apiUser'), $firewallName, $passport->getAttribute('scope'), $passport->getUser()->getRoles());
     }
