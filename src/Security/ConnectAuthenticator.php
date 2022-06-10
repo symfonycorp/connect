@@ -153,7 +153,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
         return $this->httpUtils->checkRequestPath($request, 'symfony_connect_callback');
     }
 
-    public function createAuthenticatedToken(Passport $passport, string $firewallName): TokenInterface
+    public function createToken(Passport $passport, string $firewallName): TokenInterface
     {
         return new ConnectToken($passport->getUser(), $passport->getAttribute('accessToken'), $passport->getAttribute('apiUser'), $firewallName, $passport->getAttribute('scope'), $passport->getUser()->getRoles());
     }
