@@ -17,7 +17,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
 /**
- * InMemoryUserProvider is a simple non persistent user provider.
+ * ConnectInMemoryUserProvider is a simple non persistent user provider.
  *
  * @author Fabien Potencier <fabien@symfony.com>
  */
@@ -40,9 +40,9 @@ class ConnectInMemoryUserProvider implements UserProviderInterface
      */
     public function loadUserByIdentifier($username): UserInterface
     {
-        $user = $this->users[$username] ?? new User($username, '', ['ROLE_CONNECT_USER'], true, true, true, true);
+        $user = $this->users[$username] ?? new InMemoryUser($username, '', ['ROLE_CONNECT_USER'], true);
 
-        return new User($user->getUsername(), $user->getPassword(), $user->getRoles(), $user->isEnabled(), $user->isAccountNonExpired(), $user->isCredentialsNonExpired(), $user->isAccountNonLocked());
+        return new InMemoryUser($user->getUserIdentifier(), $user->getPassword(), $user->getRoles(), $user->isEnabled());
     }
 
     /**
@@ -62,6 +62,6 @@ class ConnectInMemoryUserProvider implements UserProviderInterface
      */
     public function supportsClass($class): bool
     {
-        return User::class === $class;
+        return InMemoryUser::class === $class;
     }
 }
