@@ -61,9 +61,9 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
         return $this;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
-        return $this->selfUrl;
+        return (string) $this->selfUrl;
     }
 
     public function addProperty($name, $default = null)

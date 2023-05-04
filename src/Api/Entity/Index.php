@@ -33,7 +33,7 @@ use SymfonyCorp\Connect\Api\Api;
  */
 class Index extends AbstractEntity implements \Countable, \IteratorAggregate
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this->addProperty('items', [])
             ->addProperty('total')
