@@ -24,7 +24,7 @@ use Symfony\Component\DependencyInjection\DefinitionDecorator;
  */
 class ConnectInMemoryFactory implements UserProviderFactoryInterface
 {
-    public function create(ContainerBuilder $container, $id, $config)
+    public function create(ContainerBuilder $container, $id, $config): void
     {
         $users = [];
         foreach ($config['users'] as $username => $roles) {
@@ -35,12 +35,12 @@ class ConnectInMemoryFactory implements UserProviderFactoryInterface
         $definition->setArguments([$users]);
     }
 
-    public function getKey()
+    public function getKey(): string
     {
         return 'connect_memory';
     }
 
-    public function addConfiguration(NodeDefinition $node)
+    public function addConfiguration(NodeDefinition $node): void
     {
         $node
             ->fixXmlConfig('user')
