@@ -157,7 +157,7 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
             return $this;
         }
 
-        if (0 === strpos($name, 'is')) {
+        if (str_starts_with($name, 'is')) {
             if ($this->has($name)) {
                 return $this->get($name);
             }
