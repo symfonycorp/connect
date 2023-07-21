@@ -34,7 +34,7 @@ class SymfonyConnectBundle extends Bundle
         return $this->extension;
     }
 
-    public function build(ContainerBuilder $container)
+    public function build(ContainerBuilder $container): void
     {
         if ($container->hasExtension('security')) {
             $container->getExtension('symfony_connect')->enableSecurity();
