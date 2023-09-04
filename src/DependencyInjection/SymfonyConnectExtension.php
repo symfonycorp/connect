@@ -33,7 +33,7 @@ class SymfonyConnectExtension extends Extension
         return 'symfony_connect';
     }
 
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $config = $this->processConfiguration(new Configuration(), $configs);
 
