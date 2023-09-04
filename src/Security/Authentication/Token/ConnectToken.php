@@ -106,7 +106,7 @@ class ConnectToken extends AbstractToken
 
     public function __unserialize(array $data): void
     {
-        list($this->apiUser, $this->accessToken, $this->firewallName, $this->scope, $parentState) = $data;
+        [$this->apiUser, $this->accessToken, $this->firewallName, $this->scope, $parentState] = $data;
 
         parent::__unserialize($parentState);
     }

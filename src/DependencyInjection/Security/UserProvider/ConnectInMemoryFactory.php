@@ -55,7 +55,7 @@ class ConnectInMemoryFactory implements UserProviderFactoryInterface
 
     private function createChildDefinition($id)
     {
-        if (class_exists('Symfony\Component\DependencyInjection\ChildDefinition')) {
+        if (class_exists(ChildDefinition::class)) {
             return new ChildDefinition($id);
         }
 
