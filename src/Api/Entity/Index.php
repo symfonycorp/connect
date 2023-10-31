@@ -83,7 +83,7 @@ class Index extends AbstractEntity implements \Countable, \IteratorAggregate
         return $this->getCount();
     }
 
-    public function getIterator(): iterable
+    public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->get('items'));
     }
