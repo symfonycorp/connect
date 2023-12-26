@@ -12,7 +12,7 @@ class AuthenticationException extends BaseAuthenticationException implements Exc
         parent::__construct((string) $previous, 0, $previous);
     }
 
-    public function getMessageKey()
+    public function getMessageKey(): string
     {
         return 'Impossible to process authentication with SymfonyConnect';
     }
