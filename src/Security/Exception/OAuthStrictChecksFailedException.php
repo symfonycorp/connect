@@ -4,7 +4,7 @@ namespace SymfonyCorp\Connect\Security\Exception;
 
 class OAuthStrictChecksFailedException extends AuthenticationException
 {
-    public function getMessageKey()
+    public function getMessageKey(): string
     {
         return 'A check failed: %message%';
     }
