@@ -13,7 +13,7 @@ namespace SymfonyCorp\Connect\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Core\Security;
+use Symfony\Component\Security\Http\SecurityRequestAttributes;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Contracts\Translation\TranslatorTrait;
 use SymfonyCorp\Connect\Security\EntryPoint\ConnectEntryPoint;
@@ -51,7 +51,7 @@ class OAuthController
 
     public function failure(Request $request, Environment $twig, TranslatorInterface $translator = null)
     {
-        if (!$e = $request->getSession()->get(Security::AUTHENTICATION_ERROR)) {
+        if (!$e = $request->getSession()->get(SecurityRequestAttributes::AUTHENTICATION_ERROR)) {
             // directly going to this controller without an exception should generate a 404
             return new Response('', 404);
         }
