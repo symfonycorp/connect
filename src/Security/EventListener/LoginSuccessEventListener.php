@@ -12,7 +12,7 @@ class LoginSuccessEventListener implements EventSubscriberInterface
 {
     private $em;
 
-    public function __construct(EntityManagerInterface $em = null)
+    public function __construct(?EntityManagerInterface $em = null)
     {
         $this->em = $em;
     }

@@ -38,7 +38,7 @@ class Api
     private $endpoint;
     private $accessToken;
 
-    public function __construct(string $endpoint = null, HttpClientInterface $httpClient = null, ParserInterface $parser = null, LoggerInterface $logger = null)
+    public function __construct(?string $endpoint = null, ?HttpClientInterface $httpClient = null, ?ParserInterface $parser = null, ?LoggerInterface $logger = null)
     {
         $this->httpClient = $httpClient ?? HttpClient::create();
         $this->parser = $parser ?? new Parser();

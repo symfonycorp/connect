@@ -35,7 +35,7 @@ class ConnectEntryPoint implements AuthenticationEntryPointInterface
         $this->oauthCallback = $oauthCallback;
     }
 
-    public function start(Request $request, AuthenticationException $authException = null): Response
+    public function start(Request $request, ?AuthenticationException $authException = null): Response
     {
         $session = $request->getSession();
         $session->start();

@@ -38,7 +38,7 @@ class OAuthConsumer
         'authorize' => '/oauth/authorize',
     ];
 
-    public function __construct(string $appId, string $appSecret, string $scope, string $endpoint = null, HttpClientInterface $httpClient = null, LoggerInterface $logger = null)
+    public function __construct(string $appId, string $appSecret, string $scope, ?string $endpoint = null, ?HttpClientInterface $httpClient = null, ?LoggerInterface $logger = null)
     {
         $this->httpClient = $httpClient ?? HttpClient::create();
         $this->appId = $appId;
