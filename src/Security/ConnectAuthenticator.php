@@ -50,7 +50,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
     private $startTemplate;
     private $failureTemplate;
 
-    public function __construct(OAuthConsumer $oauthConsumer, Api $api, UserProviderInterface $userProvider, HttpUtils $httpUtils, LoggerInterface $logger = null, string $startTemplate = null, string $failureTemplate = null)
+    public function __construct(OAuthConsumer $oauthConsumer, Api $api, UserProviderInterface $userProvider, HttpUtils $httpUtils, ?LoggerInterface $logger = null, ?string $startTemplate = null, ?string $failureTemplate = null)
     {
         $this->oauthConsumer = $oauthConsumer;
         $this->api = $api;
@@ -66,7 +66,7 @@ class ConnectAuthenticator extends AbstractAuthenticator implements Authenticati
         $this->hideException = !$rethrowException;
     }
 
-    public function start(Request $request, AuthenticationException $authException = null): Response
+    public function start(Request $request, ?AuthenticationException $authException = null): Response
     {
         $session = $request->getSession();
         $session->start();

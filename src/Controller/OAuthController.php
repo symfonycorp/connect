@@ -30,7 +30,7 @@ class OAuthController
     private $startTemplate;
     private $failureTemplate;
 
-    public function __construct(ConnectEntryPoint $entryPoint, string $startTemplate = null, string $failureTemplate = null)
+    public function __construct(ConnectEntryPoint $entryPoint, ?string $startTemplate = null, ?string $failureTemplate = null)
     {
         $this->entryPoint = $entryPoint;
         $this->startTemplate = $startTemplate;
@@ -49,7 +49,7 @@ class OAuthController
         ]));
     }
 
-    public function failure(Request $request, Environment $twig, TranslatorInterface $translator = null)
+    public function failure(Request $request, Environment $twig, ?TranslatorInterface $translator = null)
     {
         if (!$e = $request->getSession()->get(SecurityRequestAttributes::AUTHENTICATION_ERROR)) {
             // directly going to this controller without an exception should generate a 404

@@ -62,7 +62,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         throw new ApiParserException(sprintf('Could not parse this xml document. Is this the right content-type? Body: "%s"', $xml));
     }
 
-    protected function doParse(\DOMElement $element = null)
+    protected function doParse(?\DOMElement $element = null)
     {
         $nodes = $this->xpath->evaluate('./root', $element);
         if (1 === $nodes->length) {
@@ -331,7 +331,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         return $this->getLinkNodeHref('./atom:link[@rel="foaf:depiction"]', $element);
     }
 
-    protected function getNodeValue($query, \DOMElement $element = null, $index = 0)
+    protected function getNodeValue($query, ?\DOMElement $element = null, $index = 0)
     {
         $nodeList = $this->xpath->query($query, $element);
         if ($nodeList->length > 0 && $index <= $nodeList->length) {
@@ -339,7 +339,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
         }
     }
 
-    protected function getLinkNodeHref($query, \DOMElement $element = null, $position = 0)
+    protected function getLinkNodeHref($query, ?\DOMElement $element = null, $position = 0)
     {
         $nodeList = $this->xpath->query($query, $element);
 
