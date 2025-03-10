@@ -93,7 +93,7 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
         return $this->forms;
     }
 
-    public function submit($formId, self $entity = null)
+    public function submit($formId, ?self $entity = null)
     {
         $form = $this->forms[$formId];
         $fields = $form->getFields();
