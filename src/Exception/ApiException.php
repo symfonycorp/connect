@@ -17,7 +17,7 @@ class ApiException extends \RuntimeException implements ExceptionInterface
     protected $body;
     protected $headers = [];
 
-    public function __construct($statusCode, $body, $message, array $headers = [], \Throwable $previous = null, $code = 0)
+    public function __construct($statusCode, $body, $message, array $headers = [], ?\Throwable $previous = null, $code = 0)
     {
         $this->statusCode = $statusCode;
         $this->body = $body;

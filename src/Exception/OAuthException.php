@@ -18,7 +18,7 @@ class OAuthException extends \RuntimeException implements ExceptionInterface
 {
     private $type;
 
-    public function __construct(string $type, string $message, \Throwable $previousException = null)
+    public function __construct(string $type, string $message, ?\Throwable $previousException = null)
     {
         $this->type = $type ?: 'unknown type';
 
