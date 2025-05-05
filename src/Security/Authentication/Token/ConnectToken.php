@@ -26,7 +26,7 @@ class ConnectToken extends AbstractToken
     private $apiUser;
     private $scope;
 
-    public function __construct($user, $accessToken, ?User $apiUser = null, $firewallName, ?string $scope = null, array $roles = [])
+    public function __construct($user, $accessToken, ?User $apiUser, $firewallName, ?string $scope = null, array $roles = [])
     {
         parent::__construct($roles);
 
