@@ -24,7 +24,7 @@ class OAuthException extends \RuntimeException implements ExceptionInterface
 
         $message = $message ?: 'no message provided';
 
-        $message = sprintf('%s (%s)', $message, $this->type);
+        $message = \sprintf('%s (%s)', $message, $this->type);
         parent::__construct($message, 0, $previousException);
     }
 

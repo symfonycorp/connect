@@ -40,7 +40,7 @@ class ErrorTranslator
                 if (\is_callable($map[$parameterName])) {
                     $widget = $map[$parameterName]($form);
                     if (!$widget instanceof FormInterface) {
-                        throw new \LogicException(sprintf('The callable ("$map[%s]") should return a FormInterface', $parameterName));
+                        throw new \LogicException(\sprintf('The callable ("$map[%s]") should return a FormInterface', $parameterName));
                     }
                 } else {
                     $widget = $form->get($map[$parameterName]);
@@ -51,7 +51,7 @@ class ErrorTranslator
 
             foreach ($messages as $message) {
                 if (null === $widget->getParent()) {
-                    $widget->addError(new FormError(sprintf('%s: %s', $parameterName, $message)));
+                    $widget->addError(new FormError(\sprintf('%s: %s', $parameterName, $message)));
                 } else {
                     $widget->addError(new FormError($message));
                 }

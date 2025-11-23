@@ -137,7 +137,7 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
 
         if ('set' === $method) {
             if (!\array_key_exists(0, $arguments)) {
-                throw new \LogicException(sprintf('Please provide a value to set %s with', $property));
+                throw new \LogicException(\sprintf('Please provide a value to set %s with', $property));
             }
 
             return $this->set($property, $arguments[0]);
@@ -149,7 +149,7 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
 
         if ('add' === $method) {
             if (!\array_key_exists(0, $arguments)) {
-                throw new \LogicException(sprintf('Please provide a value to add to %s', $property));
+                throw new \LogicException(\sprintf('Please provide a value to add to %s', $property));
             }
 
             $this->add($property, $arguments[0]);
@@ -165,7 +165,7 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
             return $this->get(lcfirst(substr($name, 2)));
         }
 
-        throw new \BadMethodCallException(sprintf('The method "%s:%s" does not exists ', static::class, $name));
+        throw new \BadMethodCallException(\sprintf('The method "%s:%s" does not exists ', static::class, $name));
     }
 
     /**
@@ -174,7 +174,7 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
     public function set(string $property, $value)
     {
         if (!\array_key_exists($property, $this->properties)) {
-            throw new \LogicException(sprintf('Property %s is not present in instance of "%s".', $property, static::class));
+            throw new \LogicException(\sprintf('Property %s is not present in instance of "%s".', $property, static::class));
         }
 
         $this->properties[$property] = $value;
@@ -185,7 +185,7 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
     public function get(string $property)
     {
         if (!\array_key_exists($property, $this->properties)) {
-            throw new \LogicException(sprintf('Property %s is not present in instance of "%s".', $property, static::class));
+            throw new \LogicException(\sprintf('Property %s is not present in instance of "%s".', $property, static::class));
         }
 
         return $this->properties[$property];
@@ -199,7 +199,7 @@ abstract class AbstractEntity implements \ArrayAccess, \Serializable
     public function add(string $property, $value): void
     {
         if (!\array_key_exists($property, $this->properties)) {
-            throw new \LogicException(sprintf('Property "%s" is not present in instance of "%s".', $property, static::class));
+            throw new \LogicException(\sprintf('Property "%s" is not present in instance of "%s".', $property, static::class));
         }
 
         $this->properties[$property][] = $value;

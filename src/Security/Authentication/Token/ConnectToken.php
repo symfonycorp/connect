@@ -12,7 +12,6 @@
 namespace SymfonyCorp\Connect\Security\Authentication\Token;
 
 use Symfony\Component\Security\Core\Authentication\Token\AbstractToken;
-use Symfony\Component\Security\Core\Role\RoleInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 use SymfonyCorp\Connect\Api\Entity\User;
 

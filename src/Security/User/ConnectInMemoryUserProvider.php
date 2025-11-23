@@ -35,9 +35,6 @@ class ConnectInMemoryUserProvider implements UserProviderInterface
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function loadUserByIdentifier($username): UserInterface
     {
         $user = $this->users[$username] ?? new InMemoryUser($username, '', ['ROLE_CONNECT_USER'], true);
@@ -45,21 +42,15 @@ class ConnectInMemoryUserProvider implements UserProviderInterface
         return new InMemoryUser($user->getUserIdentifier(), $user->getPassword(), $user->getRoles(), $user->isEnabled());
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function refreshUser(UserInterface $user): UserInterface
     {
         if (!$user instanceof UserInterface) {
-            throw new UnsupportedUserException(sprintf('Instances of "%s" are not supported.', \get_class($user)));
+            throw new UnsupportedUserException(\sprintf('Instances of "%s" are not supported.', $user::class));
         }
 
         return $user;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function supportsClass($class): bool
     {
         return InMemoryUser::class === $class;

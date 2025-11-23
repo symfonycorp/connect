@@ -64,7 +64,7 @@ class OAuthController
         }
 
         if (null === $translator) {
-            $translator = new class() implements TranslatorInterface {
+            $translator = new class implements TranslatorInterface {
                 use TranslatorTrait;
             };
         }

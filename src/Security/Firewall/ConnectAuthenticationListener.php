@@ -53,9 +53,6 @@ class ConnectAuthenticationListener extends AbstractAuthenticationListener
         $this->hideException = !$rethrowException;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function attemptAuthentication(Request $request): TokenInterface
     {
         $flashBag = $request->getSession()->getFlashBag();

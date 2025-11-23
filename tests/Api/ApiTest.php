@@ -26,7 +26,7 @@ class ApiTest extends TestCase
     private $rootXml;
     private $errorXml;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->rootXml = file_get_contents(__DIR__.'/../fixtures/root.xml');
         $this->errorXml = file_get_contents(__DIR__.'/../fixtures/error.xml');

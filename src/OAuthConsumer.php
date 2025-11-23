@@ -23,7 +23,7 @@ use SymfonyCorp\Connect\Exception\OAuthException;
  */
 class OAuthConsumer
 {
-    const ENDPOINT = 'https://connect.symfony.com';
+    public const ENDPOINT = 'https://connect.symfony.com';
 
     private $httpClient;
     private $appId;
@@ -63,7 +63,7 @@ class OAuthConsumer
             'response_type' => 'code',
         ];
 
-        return sprintf('%s%s?%s', $this->endpoint, $this->paths['authorize'], http_build_query($params));
+        return \sprintf('%s%s?%s', $this->endpoint, $this->paths['authorize'], http_build_query($params));
     }
 
     public function requestAccessToken(string $callbackUri, string $authorizationCode): array
@@ -79,17 +79,17 @@ class OAuthConsumer
             'strict' => $this->strictChecks,
         ];
 
-        $url = sprintf('%s%s', $this->endpoint, $this->paths['access_token']);
+        $url = \sprintf('%s%s', $this->endpoint, $this->paths['access_token']);
 
-        $this->logger->info(sprintf("Requesting AccessToken to '%s'", $url));
-        $this->logger->debug(sprintf('Sent params: %s', json_encode($params)));
+        $this->logger->info(\sprintf("Requesting AccessToken to '%s'", $url));
+        $this->logger->debug(\sprintf('Sent params: %s', json_encode($params)));
 
         $response = $this->httpClient->request('POST', $url, [
             'body' => $params,
         ]);
 
         $content = $response->getContent(false);
-        $this->logger->debug(sprintf('Response of AccessToken: %s', implode("\r\n", [
+        $this->logger->debug(\sprintf('Response of AccessToken: %s', implode("\r\n", [
             implode("\n", $response->getInfo('response_headers')),
             $content,
         ])));
@@ -105,7 +105,7 @@ class OAuthConsumer
         if (isset($response['error'])) {
             $e = new OAuthException($response['error'], $response['message']);
 
-            $this->logger->error(sprintf('The OAuth2 provider responded with an error: %s %s', $e->getType(), $e->getMessage()), ['response' => $content]);
+            $this->logger->error(\sprintf('The OAuth2 provider responded with an error: %s %s', $e->getType(), $e->getMessage()), ['response' => $content]);
 
             throw $e;
         }
