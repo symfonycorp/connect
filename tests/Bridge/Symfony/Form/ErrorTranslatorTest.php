@@ -10,7 +10,8 @@ use SymfonyCorp\Connect\Exception\ApiClientException;
 
 class ErrorTranslatorTest extends TestCase
 {
-    private $errorTranslator;
+    private ErrorTranslator $errorTranslator;
+    private $formBuilder;
 
     public function setUp(): void
     {
