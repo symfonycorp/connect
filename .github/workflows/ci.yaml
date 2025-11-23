@@ -10,17 +10,17 @@ jobs:
             - uses: actions/checkout@master
             - uses: shivammathur/setup-php@v2
               with:
-                  php-version: '8.1'
+                  php-version: '8.3'
             - name: php-cs-fixer
               run: |
-                  wget https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v3.12.0/php-cs-fixer.phar -q
+                  wget https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v3.90.0/php-cs-fixer.phar -q
                   php php-cs-fixer.phar fix --dry-run --diff
 
     php-tests:
         runs-on: ubuntu-latest
         strategy:
             matrix:
-                php-version: ['8.0', '8.1', '8.2']
+                php-version: ['8.0', '8.1', '8.2', '8.3', '8.4']
         steps:
             - uses: actions/checkout@master
             - uses: shivammathur/setup-php@v2
