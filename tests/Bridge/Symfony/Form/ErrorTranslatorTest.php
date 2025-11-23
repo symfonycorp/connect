@@ -13,7 +13,7 @@ class ErrorTranslatorTest extends TestCase
     private ErrorTranslator $errorTranslator;
     private $formBuilder;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->errorTranslator = new ErrorTranslator();
         $this->formBuilder = Forms::createFormFactory()->createBuilder();

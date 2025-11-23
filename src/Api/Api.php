@@ -30,7 +30,7 @@ use SymfonyCorp\Connect\Exception\ApiServerException;
  */
 class Api
 {
-    const ENDPOINT = 'https://connect.symfony.com/api';
+    public const ENDPOINT = 'https://connect.symfony.com/api';
 
     private $httpClient;
     private $parser;
@@ -75,7 +75,7 @@ class Api
     {
         $url = $this->constructUrlWithAccessToken($url);
 
-        $this->logger->info(sprintf('GET %s', $url));
+        $this->logger->info(\sprintf('GET %s', $url));
 
         return $this->processResponse($this->httpClient->request('GET', $url, [
             'headers' => array_merge($headers, $this->getAcceptHeader()),
@@ -86,9 +86,9 @@ class Api
     {
         $url = $this->constructUrlWithAccessToken($url);
 
-        $this->logger->info(sprintf('%s %s', $method, $url));
-        $this->logger->debug(sprintf('Posted headers: %s', json_encode($headers)));
-        $this->logger->debug(sprintf('Posted fields: %s', json_encode($fields)));
+        $this->logger->info(\sprintf('%s %s', $method, $url));
+        $this->logger->debug(\sprintf('Posted headers: %s', json_encode($headers)));
+        $this->logger->debug(\sprintf('Posted fields: %s', json_encode($fields)));
 
         return $this->processResponse($this->httpClient->request($method, $url, [
             'headers' => array_merge($headers, $this->getAcceptHeader()),

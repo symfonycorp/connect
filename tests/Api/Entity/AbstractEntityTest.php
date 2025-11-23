@@ -13,7 +13,7 @@ class AbstractEntityTest extends TestCase
     private Entity $entity;
     private Entity $clone;
 
-    public function setUp(): void
+    protected function setUp(): void
     {
         $this->entity = new Entity('http://foo.bar', 'http://bar.foo');
         $this->clone = clone $this->entity;

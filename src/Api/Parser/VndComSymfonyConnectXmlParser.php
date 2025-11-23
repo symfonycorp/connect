@@ -51,15 +51,15 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
                 throw new \ErrorException('Could not transform this xml to a \DOMDocument instance.');
             }
         } catch (\ErrorException $e) {
-            throw new ApiParserException(sprintf('%s Body: "%s"', $e->getMessage(), $xml));
+            throw new ApiParserException(\sprintf('%s Body: "%s"', $e->getMessage(), $xml));
         }
-        $this->xpath = new \DOMXpath($this->dom);
+        $this->xpath = new \DOMXPath($this->dom);
         $nodes = $this->xpath->evaluate('/api');
         if (1 === $nodes->length) {
             return $this->doParse($nodes->item(0));
         }
 
-        throw new ApiParserException(sprintf('Could not parse this xml document. Is this the right content-type? Body: "%s"', $xml));
+        throw new ApiParserException(\sprintf('Could not parse this xml document. Is this the right content-type? Body: "%s"', $xml));
     }
 
     protected function doParse(?\DOMElement $element = null)
@@ -187,7 +187,7 @@ class VndComSymfonyConnectXmlParser implements ParserInterface
                     $user->setTwitterUsername($this->getNodeValue('./foaf:accountName', $account));
                     break;
                 default:
-                    throw new ApiParserException(sprintf('I do not know how to parse these kinds of OnlineAccount: %s', $accountName));
+                    throw new ApiParserException(\sprintf('I do not know how to parse these kinds of OnlineAccount: %s', $accountName));
             }
         }
 
