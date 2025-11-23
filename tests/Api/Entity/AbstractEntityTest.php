@@ -10,6 +10,9 @@ use SymfonyCorp\Connect\Api\Entity\AbstractEntity;
  */
 class AbstractEntityTest extends TestCase
 {
+    private Entity $entity;
+    private Entity $clone;
+
     public function setUp(): void
     {
         $this->entity = new Entity('http://foo.bar', 'http://bar.foo');
