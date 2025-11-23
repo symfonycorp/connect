@@ -13,8 +13,7 @@ return (new PhpCsFixer\Config())
         'heredoc_to_nowdoc' => false,
         'ordered_imports' => true,
         'phpdoc_types_order' => ['null_adjustment' => 'always_last', 'sort_algorithm' => 'none'],
-        'native_function_invocation' => ['include' => ['@compiler_optimized'], 'scope' => 'all'],
     ])
     ->setRiskyAllowed(true)
-    ->setFinder(PhpCsFixer\Finder::create()->in(__DIR__))
+    ->setFinder((new PhpCsFixer\Finder())->in(__DIR__))
 ;
