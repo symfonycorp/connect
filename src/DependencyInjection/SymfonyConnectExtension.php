@@ -14,7 +14,7 @@ namespace SymfonyCorp\Connect\DependencyInjection;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
-use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\DependencyInjection\Loader\PhpFileLoader;
 
 /**
  * @author Marc Weistroff <marc.weistroff@sensiolabs.com>
@@ -37,10 +37,10 @@ class SymfonyConnectExtension extends Extension
     {
         $config = $this->processConfiguration(new Configuration(), $configs);
 
-        $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
-        $loader->load('connect.xml');
+        $loader = new PhpFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader->load('connect.php');
         if ($this->securityEnabled) {
-            $loader->load('security.xml');
+            $loader->load('security.php');
         }
 
         $container->getDefinition('symfony_connect.oauth_consumer')
