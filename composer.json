@@ -10,7 +10,8 @@
         "php": ">=8.0.2",
         "ext-dom": "*",
         "ext-json": "*",
-        "symfony/http-client": "^5.4|^6.4|^7.3|^8.0"
+        "symfony/http-client": "^5.4|^6.4|^7.3|^8.0",
+        "symfony/routing": "^5.4|^6.4|^7.3|^8.0"
     },
     "require-dev": {
         "symfony/form": "^5.4|^6.4|^7.3|^8.0",
