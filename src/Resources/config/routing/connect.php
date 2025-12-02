@@ -14,7 +14,7 @@ return static function (RoutingConfigurator $routes): void {
         ->methods(['GET'])
         ->controller([OAuthController::class, 'start']);
 
-    $routes->add('symfony_connect_start', '/failure')
+    $routes->add('symfony_connect_failure', '/failure')
         ->methods(['GET'])
         ->controller([OAuthController::class, 'failure']);
 };
