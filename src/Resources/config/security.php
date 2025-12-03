@@ -12,8 +12,7 @@ use SymfonyCorp\Connect\Security\Firewall\ConnectAuthenticationListener;
 return static function (ContainerConfigurator $container): void {
     $services = $container->services();
 
-    $services->set('security.authentication.listener.symfony_connect')
-        ->class(ConnectAuthenticationListener::class)
+    $services->set('security.authentication.listener.symfony_connect', ConnectAuthenticationListener::class)
         ->parent('security.authentication.listener.abstract')
         ->abstract()
         ->call('setOAuthConsumer', [service('symfony_connect.oauth_consumer')])
@@ -21,41 +20,39 @@ return static function (ContainerConfigurator $container): void {
         ->call('setApi', [service('symfony_connect.api')])
         ->call('setRethrowException', [param('kernel.debug')]);
 
-    $services->set('security.authentication.provider.symfony_connect')
-        ->class(ConnectAuthenticationProvider::class)
+    $services->set('security.authentication.provider.symfony_connect', ConnectAuthenticationProvider::class)
         ->abstract()
-        ->arg(0, '')
-        ->arg(1, '');
+        ->arg(0, abstract_arg('user provider'))
+        ->arg(1, abstract_arg('firewallName / providerKey'));
 
-    $services->set('security.authentication.entry_point.symfony_connect')
-        ->class(ConnectEntryPoint::class)
+    $services->set('security.authentication.entry_point.symfony_connect', ConnectEntryPoint::class)
         ->arg(0, service('symfony_connect.oauth_consumer'))
         ->arg(1, service('security.http_utils'))
         ->arg(2, 'symfony_connect_callback');
 
-    $services->set('symfony_connect.oauth_controller')
-        ->class(OAuthController::class)
+    $services->set('security.user.provider.symfony_connect_in_memory', ConnectInMemoryUserProvider::class)
+        ->abstract();
+
+    $services->set('symfony_connect.oauth_controller', OAuthController::class)
         ->arg(0, service('security.authentication.entry_point.symfony_connect'))
-        ->arg(1, '')
-        ->arg(2, '')
+        ->arg(1, abstract_arg('start template'))
+        ->arg(2, abstract_arg('failure template'))
         ->tag('controller.service_arguments');
 
     $services->alias(OAuthController::class, 'symfony_connect.oauth_controller')
         ->public();
 
-    $services->set('symfony_connect.authenticator')
-        ->class(ConnectAuthenticator::class)
+    $services->set('symfony_connect.authenticator', ConnectAuthenticator::class)
         ->arg(0, service('symfony_connect.oauth_consumer'))
         ->arg(1, service('symfony_connect.api'))
-        ->arg(2, '')
+        ->arg(2, abstract_arg('user provider'))
         ->arg(3, service('security.http_utils'))
         ->arg(4, service('logger'))
-        ->arg(5, '')
-        ->arg(6, '')
+        ->arg(5, abstract_arg('start template'))
+        ->arg(6, abstract_arg('failure template'))
         ->call('setRethrowException', [param('kernel.debug')]);
 
-    $services->set('symfony_connect.login_success_listener')
-        ->class(LoginSuccessEventListener::class)
+    $services->set('symfony_connect.login_success_listener', LoginSuccessEventListener::class)
         ->arg(0, service('Doctrine\ORM\EntityManagerInterface')->nullOnInvalid())
         ->tag('kernel.event_subscriber');
 };
