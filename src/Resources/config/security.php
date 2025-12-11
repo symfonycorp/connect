@@ -8,6 +8,7 @@ use SymfonyCorp\Connect\Security\ConnectAuthenticator;
 use SymfonyCorp\Connect\Security\EntryPoint\ConnectEntryPoint;
 use SymfonyCorp\Connect\Security\EventListener\LoginSuccessEventListener;
 use SymfonyCorp\Connect\Security\Firewall\ConnectAuthenticationListener;
+use SymfonyCorp\Connect\Security\User\ConnectInMemoryUserProvider;
 
 return static function (ContainerConfigurator $container): void {
     $services = $container->services();
